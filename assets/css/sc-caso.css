@@ -1541,3 +1541,56 @@
 .sc-caso-mk-pantalla { padding: 13px; gap: 9px; }
 .sc-caso-mk-grid { gap: 8px; }
 .sc-caso-mk-curso { padding: 7px; gap: 5px; }
+
+/* ==========================================================================
+   Portfolio en mosaico (project.html)
+   Columnas CSS: cada tarjeta cae en la columna que le toca y el alto lo da
+   su contenido, así el mosaico queda desparejo como un masonry sin JS.
+   ========================================================================== */
+.sc-pf { position: relative; }
+.sc-pf-cabeza { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+.sc-pf-cabeza .sec-title { margin: 0; }
+.sc-pf-filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+.sc-pf-filtros button {
+  border: 0; cursor: pointer;
+  padding: 10px 16px; border-radius: 999px;
+  font: 600 14px/1 var(--tj-ff-body);
+  color: var(--tj-color-text-body);
+  background: var(--sc-surface-1);
+  box-shadow: inset 0 0 0 1px var(--sc-border);
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.sc-pf-filtros button:hover { color: var(--tj-color-heading-primary); box-shadow: inset 0 0 0 1px var(--tj-color-theme-primary); }
+.sc-pf-filtros button[aria-pressed="true"] { background: var(--tj-color-theme-primary); color: #07090c; box-shadow: none; }
+.sc-pf-filtros button:focus-visible { outline: 2px solid var(--tj-color-theme-secondary); outline-offset: 2px; }
+
+.sc-pf-mosaico { columns: 1; column-gap: 22px; }
+@media (min-width: 768px) { .sc-pf-mosaico { columns: 2; } }
+@media (min-width: 1200px) { .sc-pf-mosaico { columns: 3; } }
+.sc-pf-item { break-inside: avoid; margin-bottom: 22px; transition: opacity 0.3s ease; }
+.sc-pf-item[hidden] { display: none; }
+.sc-pf-tarjeta {
+  display: block; border-radius: 20px; overflow: hidden;
+  background: var(--sc-surface-1);
+  box-shadow: inset 0 0 0 1px var(--sc-border);
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.35s ease;
+}
+.sc-pf-tarjeta:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tj-color-theme-secondary) 50%, transparent), 0 30px 60px -30px color-mix(in oklab, var(--tj-color-theme-secondary) 45%, transparent); }
+.sc-pf-img { display: block; overflow: hidden; }
+.sc-pf-img img { display: block; width: 100%; object-fit: cover; object-position: center 30%; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1); }
+.sc-pf-tarjeta:hover .sc-pf-img img { transform: scale(1.05); }
+/* Tres recortes de portada para que las columnas no queden parejas. */
+.sc-pf-alto .sc-pf-img img { aspect-ratio: 3 / 4; }
+.sc-pf-medio .sc-pf-img img { aspect-ratio: 1 / 1; }
+.sc-pf-bajo .sc-pf-img img { aspect-ratio: 4 / 3; }
+.sc-pf-cuerpo { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 24px; }
+.sc-pf-tipo { font-size: 13px; font-weight: 700; color: var(--tj-color-theme-primary); }
+.sc-pf-titulo { font-size: 22px; line-height: 1.2; font-weight: 700; color: var(--tj-color-heading-primary); text-wrap: balance; }
+.sc-pf-bajada { font-size: 15.5px; line-height: 1.6; color: var(--tj-color-text-body); text-align: left; hyphens: manual; }
+.sc-pf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+.sc-pf-tags li { font-size: 12.5px; font-weight: 600; padding: 6px 10px; border-radius: 999px; color: var(--tj-color-theme-secondary); background: color-mix(in oklab, var(--tj-color-theme-secondary) 11%, transparent); }
+.sc-pf-ver { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--tj-color-heading-primary); }
+.sc-pf-tarjeta:hover .sc-pf-ver { color: var(--tj-color-theme-secondary); }
+.sc-pf-vacio { margin: 0; padding: 30px; text-align: center; color: var(--tj-color-text-body-2); }
+/* En una sola columna los recortes altos solo alargan la página. */
+@media (max-width: 767px) { .sc-pf-item .sc-pf-img img { aspect-ratio: 4 / 3; } }
