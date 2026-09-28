@@ -110,7 +110,7 @@
         "Un solo interlocutor para toda la operación digital: no tenés que coordinar entre cinco proveedores distintos.",
       ],
       chips: [
-        { label: "Ver la página completa", href: "service-details.html" },
+        { label: "Ver la página completa", href: "index.html#servicios" },
         { label: "Quiero cotizar", go: "humano" },
         { label: "Volver", go: "inicio" },
       ],
