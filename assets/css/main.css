@@ -15643,3 +15643,5 @@ h1 .grad {
 /* Home, tarjetas de servicios: el justificado general del sitio abría
    huecos grandes entre palabras en columnas tan angostas. */
 .tj-service-section .service-item .desc { text-align: left; hyphens: manual; }
+/* Testimonios ocultos con el atributo hidden hasta tener testimonios reales. */
+.tj-testimonial-section[hidden] { display: none !important; }
