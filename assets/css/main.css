@@ -15637,3 +15637,6 @@ h1 .grad {
 /* Menú de celular: el template pone mayúscula a cada palabra y quedaba
    "Campañas De Ads". Los nombres van tal cual están escritos. */
 .hamburger_menu .mean-nav ul li a { text-transform: none; }
+/* Home: la sección de servicios es el destino del menú "Servicios" desde
+   que se sacó service.html (28/9). El margen deja lugar al header fijo. */
+#servicios { scroll-margin-top: 110px; }

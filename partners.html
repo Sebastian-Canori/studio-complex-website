@@ -6,10 +6,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Partners de Studio Complex.">
+    content="Programa de partners de Studio Complex para agencias, freelancers, consultores y empresas: referidos, marca blanca y alianzas para ofrecer web, tiendas, SEO, Ads y automatización.">
 
   <!-- Site Title -->
-  <title>Partners - Studio Complex</title>
+  <title>Programa de Partners para Agencias y Freelancers - Studio Complex</title>
 
   <!-- Place favicon.ico in the root directory -->
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
@@ -23,6 +23,63 @@
   <link rel="stylesheet" href="assets/css/meanmenu.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/sc-legal.css">
+  <link rel="stylesheet" href="assets/css/sc-sv.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto gano como partner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la forma de trabajo y del servicio. Como referidor cobrás una comisión por cada cliente que se concreta; en marca blanca, la diferencia entre nuestro precio y el tuyo. Los números quedan por escrito en el acuerdo antes de arrancar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que firmar exclusividad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Podés seguir trabajando con otros proveedores y no hay un mínimo de clientes para mantenerte como partner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En marca blanca, ¿el cliente sabe que trabajamos juntos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, salvo que vos quieras. Todo lo que ve el cliente lleva tu marca y la comunicación pasa por vos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién le factura al cliente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Como referidor, le facturamos nosotros y vos cobrás la comisión. En marca blanca le facturás vos y nosotros te facturamos a vos. En las alianzas lo definimos en cada caso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si el cliente tiene un problema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lo resolvemos nosotros. Cada proyecto incluye una ronda de ajustes después de la entrega y seguimos disponibles para soporte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo ser partner si no estoy en Argentina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Trabajamos a distancia con clientes de siete países de Latinoamérica."
+      }
+    }
+  ]
+}
+  </script>
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
   <!-- <link rel="stylesheet" href="assets/css/sc-chat.css"> -->
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
@@ -270,7 +327,7 @@
                   <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Conocenos</a></li>
-                    <li class="has-dropdown"><a href="service.html">Servicios</a>
+                    <li class="has-dropdown"><a href="index.html#servicios">Servicios</a>
                       <ul class="sub-menu">
                         <li><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>
                         <li><a href="servicio-tiendas-online.html">Tiendas Online</a></li>
@@ -345,7 +402,7 @@
                   <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Conocenos</a></li>
-                    <li class="has-dropdown"><a href="service.html">Servicios</a>
+                    <li class="has-dropdown"><a href="index.html#servicios">Servicios</a>
                       <ul class="sub-menu">
                         <li><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>
                         <li><a href="servicio-tiendas-online.html">Tiendas Online</a></li>
@@ -407,53 +464,365 @@
 
       <main id="primary" class="site-main">
         <div class="top-space-30"></div>
-        <!-- start: Breadcrumb Section -->
-        <section class="tj-page-header fix">
-          <div class="hero-bg" data-bg-image="assets/images/hero/hero-bg.webp"></div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="tj-page-header-content text-center">
-                  <h1 class="tj-page-title tj-split-text-2">Partners</h1>
-                  <div class="tj-page-link tj-fade-anim" data-delay="0.3">
-                    <span><i class="tji-home"></i></span>
-                    <span>
-                      <a href="index.html">Inicio</a>
-                    </span>
-                    <span><i class="tji-arrow-right"></i></span>
-                    <span>
-                      <span>Partners</span>
-                    </span>
+        <!-- ==================================================================
+             PARTNERS
+             Programa de partners de Studio Complex, sobre el sistema de las
+             páginas de servicio (assets/css/sc-sv.css + assets/js/sc-sv.js).
+             Pieza propia: la órbita del encabezado (.sc-sv-orbita).
+
+             ⚠ Las condiciones comerciales (comisiones, precios de marca
+             blanca, facturación) NO están definidas todavía: la página no
+             da números a propósito y remite a un acuerdo por escrito. Cuando
+             los socios las definan, sumarlas en Formas de trabajar y en las
+             preguntas frecuentes.
+             ================================================================== -->
+        <div class="sc-sv">
+
+          <!-- 1 · ENCABEZADO -->
+          <section class="sc-sv-hero">
+            <div class="container">
+              <div class="sc-sv-hero-grid">
+                <div>
+                  <nav class="sc-sv-migas" aria-label="Ubicación">
+                    <a href="index.html">Inicio</a><span aria-hidden="true">/</span><span>Partners</span>
+                  </nav>
+                  <span class="sc-sv-eyebrow">Programa de partners</span>
+                  <h1 class="sc-sv-titulo">Crezcamos <span class="sc-sv-grad">juntos</span>.</h1>
+                  <p class="sc-sv-lead">
+                    Si tus clientes necesitan una web, una tienda, anuncios o automatizar su
+                    atención, sumate como partner. Vos cuidás la relación con tu cliente y
+                    nosotros ponemos el equipo que hace el trabajo, con tu marca o con la nuestra.
+                  </p>
+                  <div class="sc-sv-btns">
+                    <a class="sc-sv-btn primario" href="https://wa.me/5491153362945?text=Hola%2C%20quiero%20ser%20partner%20de%20Studio%20Complex" target="_blank" rel="noopener">Quiero ser partner <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
+                    <a class="sc-sv-btn secundario" href="#formas">Ver cómo funciona</a>
+                  </div>
+                  <ul class="sc-sv-hero-datos">
+                    <li><b>3 formas</b><span>de trabajar juntos</span></li>
+                    <li><b>6 servicios</b><span>para ofrecer a tus clientes</span></li>
+                    <li><b>7 países</b><span>de Latinoamérica</span></li>
+                  </ul>
+                </div>
+
+                <!-- Órbita: los tipos de partner alrededor de Studio Complex -->
+                <div class="sc-sv-demo" style="height:auto">
+                  <div class="sc-sv-orbita" role="img" aria-label="Agencias, freelancers, consultores, estudios contables y empresas de software conectados con Studio Complex">
+                    <div class="sc-sv-orbita-anillo a1">
+                      <span class="sc-sv-orbita-nodo" style="left:50%;top:0%"><span><i class="tji-team"></i>Agencias</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:97.6%;top:34.5%"><span><i class="tji-user"></i>Freelancers</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:79.4%;top:90.5%"><span><i class="tji-consulting"></i>Consultores</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:20.6%;top:90.5%"><span><i class="tji-budget"></i>Estudios contables</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:2.4%;top:34.5%"><span><i class="tji-development"></i>Software</span></span>
+                    </div>
+                    <div class="sc-sv-orbita-anillo a2">
+                      <span class="sc-sv-orbita-nodo" style="left:79.4%;top:9.5%"><span><img src="assets/images/icons/tiendanube.png" alt="" style="background:#fff;padding:3px">Tiendas</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:70.3%;top:95.7%"><span><img src="assets/images/icons/googleads.svg" alt="">Ads</span></span>
+                      <span class="sc-sv-orbita-nodo" style="left:0.3%;top:44.8%"><span><img src="assets/images/icons/googlesearchconsole.svg" alt="">SEO</span></span>
+                    </div>
+                    <span class="sc-sv-orbita-pulso" aria-hidden="true"></span>
+                    <div class="sc-sv-orbita-centro"><img src="assets/images/logos/primary-logo.png" alt=""><b>Studio Complex</b></div>
                   </div>
                 </div>
               </div>
             </div>
+          </section>
+
+          <!-- 2 · CINTA -->
+          <div class="sc-sv-cinta" aria-label="Qué ofrece el programa">
+            <div class="sc-sv-cinta-pista">
+              <ul>
+                <li>Referidos</li><li>Marca blanca</li><li>Alianzas</li><li>Equipo completo</li><li>Condiciones por escrito</li><li>Sin exclusividad</li><li>Toda Latinoamérica</li><li>Seguimiento de cada cliente</li>
+              </ul>
+              <ul aria-hidden="true">
+                <li>Referidos</li><li>Marca blanca</li><li>Alianzas</li><li>Equipo completo</li><li>Condiciones por escrito</li><li>Sin exclusividad</li><li>Toda Latinoamérica</li><li>Seguimiento de cada cliente</li>
+              </ul>
+            </div>
           </div>
 
-        </section>
-        <!-- end: Breadcrumb Section -->
+          <!-- 3 · FORMAS DE TRABAJAR -->
+          <section class="sc-sv-seccion" id="formas">
+            <div class="container">
+              <div class="sc-sv-cabeza lado">
+                <div class="sc-rv">
+                  <span class="sc-sv-eyebrow">Formas de trabajar</span>
+                  <h2 class="sc-sv-h2">Elegí cómo querés sumarte.</h2>
+                </div>
+                <p class="sc-sv-lead sc-rv" data-rv-delay="100">
+                  Cada forma tiene sus condiciones, que acordamos por escrito antes de
+                  arrancar. Podés empezar con una y pasar a otra cuando quieras.
+                </p>
+              </div>
 
-        <!-- start: Placeholder Section -->
-        <section class="section-gap">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="sec-heading text-center">
-                  <span class="sub-title tj-fade-anim">Próximamente</span>
-                  <h2 class="sec-title tj-split-text-1">Contenido en Construcción</h2>
-                  <div class="tj-fade-anim">
-                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                      in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div class="sc-sv-formatos">
+                <article class="sc-sv-formato sc-rv">
+                  <span class="sc-sv-formato-plazo">Recomendás</span>
+                  <h3>Partner referidor</h3>
+                  <p>Nos presentás a un cliente que necesita lo que hacemos. Nosotros lo atendemos, cerramos la propuesta y hacemos el trabajo.</p>
+                  <ul>
+                    <li><i class="tji-check"></i>Comisión por cada cliente que se concreta</li>
+                    <li><i class="tji-check"></i>Sin trabajo operativo de tu lado</li>
+                    <li><i class="tji-check"></i>Te contamos cómo avanza cada uno</li>
+                  </ul>
+                  <p class="sc-sv-para"><b>Para vos si</b> tus clientes te piden cosas que no hacés y querés recomendarlos bien.</p>
+                </article>
+
+                <article class="sc-sv-formato destacado sc-rv" data-rv-delay="80">
+                  <span class="sc-sv-formato-plazo">Vendés con tu marca</span>
+                  <h3>Marca blanca</h3>
+                  <p>Vos vendés y mantenés la relación con tu cliente. Nosotros hacemos el trabajo por detrás, sin aparecer.</p>
+                  <ul>
+                    <li><i class="tji-check"></i>Tu marca en todo lo que ve el cliente</li>
+                    <li><i class="tji-check"></i>Precio mayorista para que ganes margen</li>
+                    <li><i class="tji-check"></i>Plazos y alcance acordados por proyecto</li>
+                    <li><i class="tji-check"></i>Soporte directo para vos</li>
+                  </ul>
+                  <p class="sc-sv-para"><b>Para vos si</b> sos agencia o freelancer y querés ofrecer más servicios sin sumar equipo.</p>
+                </article>
+
+                <article class="sc-sv-formato sc-rv" data-rv-delay="160">
+                  <span class="sc-sv-formato-plazo">Sumamos fuerzas</span>
+                  <h3>Alianza</h3>
+                  <p>Para empresas con un servicio que se complementa con el nuestro. Armamos ofertas conjuntas y nos recomendamos entre clientes.</p>
+                  <ul>
+                    <li><i class="tji-check"></i>Propuestas conjuntas</li>
+                    <li><i class="tji-check"></i>Recomendación en los dos sentidos</li>
+                    <li><i class="tji-check"></i>Integraciones entre productos</li>
+                  </ul>
+                  <p class="sc-sv-para"><b>Para vos si</b> tenés un software, un estudio o una consultora que atiende a los mismos clientes.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4 · QUÉ GANÁS -->
+          <section class="sc-sv-seccion" style="padding-top: 0">
+            <div class="container">
+              <div class="sc-sv-cabeza">
+                <span class="sc-sv-eyebrow sc-rv">Qué ganás</span>
+                <h2 class="sc-sv-h2 sc-rv">Un equipo digital completo, sin contratarlo.</h2>
+              </div>
+
+              <div class="sc-sv-bento">
+                <article class="sc-sv-caja sc-rv">
+                  <span class="sc-sv-caja-ico"><i class="tji-growth"></i></span>
+                  <h3>Más para ofrecer a tus clientes</h3>
+                  <p>Con un solo partner sumás web, tiendas, SEO, anuncios, automatización y seguimiento de ventas. Le decís que sí a lo que hoy tenés que derivar a otro lado.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Desarrollo web</span><span>Tiendas online</span><span>SEO técnico</span><span>Campañas de Ads</span><span>Automatización</span><span>Cierre de ventas</span></div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv" data-rv-delay="80">
+                  <span class="sc-sv-caja-ico"><i class="tji-budget"></i></span>
+                  <h3>Un ingreso más</h3>
+                  <p>Por comisión o por margen, cada cliente que sumás te deja un ingreso sin que tengas que hacer el trabajo.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Comisión</span><span>Margen</span></div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv">
+                  <span class="sc-sv-caja-ico"><i class="tji-thumbs-up"></i></span>
+                  <h3>Tu cliente, bien atendido</h3>
+                  <p>Tu nombre queda asociado a un trabajo bien hecho y entregado a tiempo.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Plazos por escrito</span><span>Capacitación</span></div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv" data-rv-delay="80">
+                  <span class="sc-sv-caja-ico"><i class="tji-signal"></i></span>
+                  <h3>Sabés en qué está cada uno</h3>
+                  <p>Te avisamos cuándo tu cliente pasa a propuesta, cuándo arranca y cuándo se entrega.</p>
+                  <div class="sc-sv-vis sc-sv-recor" aria-hidden="true">
+                    <div class="hoy"><i class="tji-check"></i>Distribuidora Sur<span>En propuesta</span></div>
+                    <div><i class="tji-check"></i>Estudio Norte<span>En desarrollo</span></div>
                   </div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv" data-rv-delay="160">
+                  <span class="sc-sv-caja-ico"><i class="tji-award"></i></span>
+                  <h3>Material para vender</h3>
+                  <p>Casos de éxito, presentaciones y propuestas listas para mostrarle a tu cliente.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Casos</span><span>Presentaciones</span><span>Propuestas</span></div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv">
+                  <span class="sc-sv-caja-ico"><i class="tji-hand-2"></i></span>
+                  <h3>Sin exclusividad ni mínimos</h3>
+                  <p>Seguís trabajando con quien quieras. No hay un cupo de clientes que cumplir: nos pasás los que tengan sentido.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Sin exclusividad</span><span>Sin mínimos</span></div>
+                </article>
+
+                <article class="sc-sv-caja sc-rv" data-rv-delay="80">
+                  <span class="sc-sv-caja-ico"><i class="tji-globe"></i></span>
+                  <h3>En toda Latinoamérica</h3>
+                  <p>Trabajamos a distancia con clientes de Argentina, Uruguay, Paraguay, Chile, Perú, Colombia y México.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>AR</span><span>UY</span><span>PY</span><span>CL</span><span>PE</span><span>CO</span><span>MX</span></div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5 · PARA QUIÉN -->
+          <section class="sc-sv-seccion" style="padding-top: 0">
+            <div class="container">
+              <div class="sc-sv-cabeza lado">
+                <div class="sc-rv">
+                  <span class="sc-sv-eyebrow">Para quién</span>
+                  <h2 class="sc-sv-h2">Si atendés empresas, podés ser partner.</h2>
+                </div>
+                <p class="sc-sv-lead sc-rv" data-rv-delay="100">
+                  Nuestros mejores partners son los que ya tienen la confianza de sus
+                  clientes y reciben pedidos que no son su especialidad.
+                </p>
+              </div>
+              <div class="sc-sv-perfiles">
+                <div class="sc-sv-perfil sc-rv"><i class="tji-team"></i>Agencias de marketing</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="40"><i class="tji-idea"></i>Diseñadores y estudios de marca</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="80"><i class="tji-user"></i>Freelancers</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="120"><i class="tji-consulting"></i>Consultores de negocio</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="160"><i class="tji-budget"></i>Estudios contables</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="200"><i class="tji-development"></i>Empresas de software</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="240"><i class="tji-computer"></i>Proveedores de sistemas y hosting</div>
+                <div class="sc-sv-perfil sc-rv" data-rv-delay="280"><i class="tji-network"></i>Cámaras y asociaciones</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6 · CÓMO FUNCIONA -->
+          <section class="sc-sv-seccion" style="padding-top: 0">
+            <div class="container">
+              <div class="sc-sv-proceso-wrap">
+                <div class="sc-sv-cabeza">
+                  <span class="sc-sv-eyebrow sc-rv">Cómo funciona</span>
+                  <h2 class="sc-sv-h2 sc-rv">De la primera charla al primer cliente.</h2>
+                  <p class="sc-sv-lead sc-rv">Todo queda por escrito desde el principio: qué hace cada uno, cómo se cobra y cómo se paga.</p>
+                  <div class="sc-sv-btns sc-rv" style="margin-top: 30px">
+                    <a class="sc-sv-btn primario" href="agenda.html">Agendá una charla <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+
+                <ol class="sc-sv-proceso">
+                  <li class="sc-sv-paso">
+                    <span class="sc-sv-paso-num" aria-hidden="true"></span>
+                    <div>
+                      <h3>Charla inicial</h3>
+                      <p>Nos contás a qué te dedicás, qué tipo de clientes atendés y qué te piden que hoy no resolvés.</p>
+                      <small>Sin cargo</small>
+                    </div>
+                  </li>
+                  <li class="sc-sv-paso">
+                    <span class="sc-sv-paso-num" aria-hidden="true"></span>
+                    <div>
+                      <h3>Acuerdo por escrito</h3>
+                      <p>Elegimos la forma de trabajo y dejamos las condiciones firmadas: comisiones o precios, plazos y quién atiende qué.</p>
+                    </div>
+                  </li>
+                  <li class="sc-sv-paso">
+                    <span class="sc-sv-paso-num" aria-hidden="true"></span>
+                    <div>
+                      <h3>Material y presentación</h3>
+                      <p>Te pasamos casos, presentaciones y todo lo que necesitás para ofrecer los servicios.</p>
+                    </div>
+                  </li>
+                  <li class="sc-sv-paso">
+                    <span class="sc-sv-paso-num" aria-hidden="true"></span>
+                    <div>
+                      <h3>Primer cliente</h3>
+                      <p>Nos presentás al cliente o nos pasás el proyecto. Te avisamos en cada etapa hasta la entrega.</p>
+                    </div>
+                  </li>
+                  <li class="sc-sv-paso">
+                    <span class="sc-sv-paso-num" aria-hidden="true"></span>
+                    <div>
+                      <h3>Liquidación</h3>
+                      <p>Cobrás tu parte según lo acordado, con el detalle de cada cliente.</p>
+                      <small>Cuentas claras</small>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7 · ECOSISTEMA -->
+          <section class="sc-sv-seccion" style="padding-top: 0">
+            <div class="container">
+              <div class="sc-sv-cabeza lado">
+                <div class="sc-rv">
+                  <span class="sc-sv-eyebrow">Ecosistema</span>
+                  <h2 class="sc-sv-h2">Las plataformas con las que trabajamos todos los días.</h2>
+                </div>
+                <p class="sc-sv-lead sc-rv" data-rv-delay="100">
+                  Si tu cliente ya usa alguna, no tiene que cambiar nada. Si todavía no
+                  eligió, lo ayudamos a elegir la que le conviene.
+                </p>
+              </div>
+            </div>
+            <div class="sc-sv-logos-cinta sc-rv" aria-label="Plataformas con las que trabajamos">
+              <div class="sc-sv-cinta-pista">
+                <ul>
+                  <li><img class="blanco" src="assets/images/icons/tiendanube.png" alt="">Tiendanube</li><li><img src="assets/images/icons/shopify.svg" alt="">Shopify</li><li><img src="assets/images/icons/woocommerce.svg" alt="">WooCommerce</li><li><img src="assets/images/icons/wordpress.svg" alt="">WordPress</li><li><img src="assets/images/icons/webflow.svg" alt="">Webflow</li><li><img src="assets/images/icons/googleads.svg" alt="">Google Ads</li><li><img src="assets/images/icons/meta.svg" alt="">Meta Ads</li><li><img src="assets/images/icons/googleanalytics.svg" alt="">Analytics</li><li><img src="assets/images/icons/mercadopago.svg" alt="">Mercado Pago</li><li><img src="assets/images/icons/whatsapp.svg" alt="">WhatsApp</li><li><img src="assets/images/icons/n8n.svg" alt="">n8n</li><li><img src="assets/images/icons/make.svg" alt="">Make</li>
+                </ul>
+                <ul aria-hidden="true">
+                  <li><img class="blanco" src="assets/images/icons/tiendanube.png" alt="">Tiendanube</li><li><img src="assets/images/icons/shopify.svg" alt="">Shopify</li><li><img src="assets/images/icons/woocommerce.svg" alt="">WooCommerce</li><li><img src="assets/images/icons/wordpress.svg" alt="">WordPress</li><li><img src="assets/images/icons/webflow.svg" alt="">Webflow</li><li><img src="assets/images/icons/googleads.svg" alt="">Google Ads</li><li><img src="assets/images/icons/meta.svg" alt="">Meta Ads</li><li><img src="assets/images/icons/googleanalytics.svg" alt="">Analytics</li><li><img src="assets/images/icons/mercadopago.svg" alt="">Mercado Pago</li><li><img src="assets/images/icons/whatsapp.svg" alt="">WhatsApp</li><li><img src="assets/images/icons/n8n.svg" alt="">n8n</li><li><img src="assets/images/icons/make.svg" alt="">Make</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8 · PREGUNTAS FRECUENTES -->
+          <section class="sc-sv-seccion" style="padding-top: 0">
+            <div class="container">
+              <div class="sc-sv-faq-wrap">
+                <div class="sc-sv-cabeza sc-rv">
+                  <span class="sc-sv-eyebrow">Preguntas frecuentes</span>
+                  <h2 class="sc-sv-h2">Lo que nos preguntan antes de sumarse.</h2>
+                  <p class="sc-sv-lead">¿Tenés otra duda? Escribinos por <a href="https://wa.me/5491153362945?text=Hola%2C%20quiero%20ser%20partner%20de%20Studio%20Complex" target="_blank" rel="noopener" style="color: var(--tj-color-theme-primary); font-weight: 700">WhatsApp</a> y te respondemos en el día.</p>
+                </div>
+
+                <!-- el FAQPage del head se genera leyendo estas -->
+                <div class="sc-sv-faq sc-rv" data-rv-delay="100">
+                  <details open>
+                    <summary>¿Cuánto gano como partner?</summary>
+                    <p>Depende de la forma de trabajo y del servicio. Como referidor cobrás una comisión por cada cliente que se concreta; en marca blanca, la diferencia entre nuestro precio y el tuyo. Los números quedan por escrito en el acuerdo antes de arrancar.</p>
+                  </details>
+                  <details>
+                    <summary>¿Tengo que firmar exclusividad?</summary>
+                    <p>No. Podés seguir trabajando con otros proveedores y no hay un mínimo de clientes para mantenerte como partner.</p>
+                  </details>
+                  <details>
+                    <summary>En marca blanca, ¿el cliente sabe que trabajamos juntos?</summary>
+                    <p>No, salvo que vos quieras. Todo lo que ve el cliente lleva tu marca y la comunicación pasa por vos.</p>
+                  </details>
+                  <details>
+                    <summary>¿Quién le factura al cliente?</summary>
+                    <p>Como referidor, le facturamos nosotros y vos cobrás la comisión. En marca blanca le facturás vos y nosotros te facturamos a vos. En las alianzas lo definimos en cada caso.</p>
+                  </details>
+                  <details>
+                    <summary>¿Qué pasa si el cliente tiene un problema?</summary>
+                    <p>Lo resolvemos nosotros. Cada proyecto incluye una ronda de ajustes después de la entrega y seguimos disponibles para soporte.</p>
+                  </details>
+                  <details>
+                    <summary>¿Puedo ser partner si no estoy en Argentina?</summary>
+                    <p>Sí. Trabajamos a distancia con clientes de siete países de Latinoamérica.</p>
+                  </details>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <!-- end: Placeholder Section -->
+          </section>
+
+          <!-- 9 · CIERRE -->
+          <section class="sc-sv-cierre">
+            <div class="container">
+              <div class="sc-sv-cierre-caja sc-rv">
+                <h2>¿Sumamos tu <span class="sc-sv-grad">marca</span> a la nuestra?</h2>
+                <p>Contanos a qué te dedicás y qué te piden tus clientes. Te proponemos la forma de trabajo que mejor te queda.</p>
+                <div class="sc-sv-btns">
+                  <a class="sc-sv-btn primario" href="https://wa.me/5491153362945?text=Hola%2C%20quiero%20ser%20partner%20de%20Studio%20Complex" target="_blank" rel="noopener"><i class="tji-whatsapp" aria-hidden="true"></i> Quiero ser partner</a>
+                  <a class="sc-sv-btn secundario" href="agenda.html">Agendá una charla</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+        <!-- ================= fin de partners ================= -->
 
         <!-- start: Cta Section -->
         <section class="tj-cta-section">
@@ -604,6 +973,7 @@
   <!-- <script src="assets/js/sc-chat.js"></script> -->
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
   <!-- <script src="assets/js/sc-theme.js"></script> -->
+  <script src="assets/js/sc-sv.js"></script>
   <script src="assets/js/sc-cookies.js"></script>
 </body>
 
