@@ -15648,3 +15648,11 @@ h1 .grad {
 /* Sobre Nosotros: el cuadro del logo traía una imagen con el texto
    "Tekmino" (el nombre de la plantilla). Ahora es texto. */
 .about-logo-text .sc-logo-texto { display: block; font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: #07090c; text-align: center; line-height: 1.1; }
+/* Home, "Cómo trabajamos": las muescas de los costados salen de una
+   máscara SVG de 420x299 escalada con cover, así que solo quedan a la
+   altura de la línea punteada si la tarjeta tiene esa misma proporción.
+   Con los textos nuevos (más cortos) la tarjeta quedaba más baja y la
+   línea pasaba por detrás, fuera de las muescas. */
+@media (min-width: 992px) {
+  .process-wrap .process-item { aspect-ratio: 420 / 299; }
+}
