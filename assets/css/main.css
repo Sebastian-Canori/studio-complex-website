@@ -15630,3 +15630,10 @@ h1 .grad {
 @media (max-width: 991px) {
   .tj-testimonial-section.sc-testimonios-sin-video { padding-top: 70px; }
 }
+
+/* Menú principal: desplegable de Servicios. El template lo trae a 220px y
+   "Automatización de Leads" quedaba en dos líneas. */
+.mainmenu ul > li.has-dropdown > .sub-menu { width: 250px; }
+/* Menú de celular: el template pone mayúscula a cada palabra y quedaba
+   "Campañas De Ads". Los nombres van tal cual están escritos. */
+.hamburger_menu .mean-nav ul li a { text-transform: none; }
