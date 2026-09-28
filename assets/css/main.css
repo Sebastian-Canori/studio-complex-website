@@ -15645,3 +15645,6 @@ h1 .grad {
 .tj-service-section .service-item .desc { text-align: left; hyphens: manual; }
 /* Testimonios ocultos con el atributo hidden hasta tener testimonios reales. */
 .tj-testimonial-section[hidden] { display: none !important; }
+/* Sobre Nosotros: el cuadro del logo traía una imagen con el texto
+   "Tekmino" (el nombre de la plantilla). Ahora es texto. */
+.about-logo-text .sc-logo-texto { display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.01em; color: #07090c; text-align: center; line-height: 1.1; }
