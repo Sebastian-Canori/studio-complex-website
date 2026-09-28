@@ -175,3 +175,7 @@ if 'href="assets/css/sc-sv.css"' not in idx:
                       '  <link rel="stylesheet" href="assets/css/sc-legal.css">\n  <link rel="stylesheet" href="assets/css/sc-sv.css">\n', 1)
 open("index.html", "w", encoding="utf-8").write(idx)
 print("listo:", len(NOTAS), "notas")
+
+# El molde trae el canonical de Desarrollo Web: se corrige para cada página.
+import subprocess
+subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), "canonical.py")], check=True)

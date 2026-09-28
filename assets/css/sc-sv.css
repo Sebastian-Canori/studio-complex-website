@@ -1304,3 +1304,39 @@
 .sc-union-puntos i { width: 42px; height: 42px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 18px; color: var(--naranja); background: color-mix(in oklab, var(--naranja) 13%, transparent); }
 .sc-union-puntos b { display: block; color: var(--tj-color-heading-primary); font-size: 17px; margin-bottom: 2px; }
 .sc-union-puntos span { font-size: 15.5px; line-height: 1.55; color: var(--tj-color-text-body); }
+
+/* ==========================================================================
+   SEO interno (28/9, estudio de Sebastián)
+   ========================================================================== */
+/* Recuadro que distingue dos servicios parecidos (Automatización / Cierre) */
+.sc-sv-dif { padding: 40px 0 0; }
+.sc-sv-dif-caja {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px;
+  padding: 20px 24px; border-radius: 16px;
+  background: color-mix(in oklab, var(--cian) 7%, var(--sup-1));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--cian) 30%, transparent);
+}
+.sc-sv-dif-caja i { font-size: 22px; color: var(--cian); }
+.sc-sv-dif-caja p { flex: 1; min-width: 240px; margin: 0; font-size: 16px; line-height: 1.6; color: var(--tj-color-text-body); }
+.sc-sv-dif-caja p b { color: var(--tj-color-heading-primary); }
+.sc-sv-dif-caja a { font-weight: 700; color: var(--naranja); white-space: nowrap; }
+/* Nota aclaratoria debajo de los formatos (qué se paga aparte, etc.) */
+.sc-sv-nota { margin: 26px 0 0; padding: 18px 22px; border-radius: 14px; background: var(--sup-1); box-shadow: inset 0 0 0 1px var(--borde); font-size: 15.5px; line-height: 1.65; color: var(--tj-color-text-body); }
+.sc-sv-nota b { color: var(--tj-color-heading-primary); }
+/* Franja "También te puede servir" antes del cierre */
+.sc-sv-rel { padding: 0 0 50px; }
+.sc-sv-rel h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tj-color-text-body-2); margin: 0 0 16px; }
+.sc-sv-rel-lista { display: grid; gap: 14px; }
+@media (min-width: 768px) { .sc-sv-rel-lista { grid-template-columns: repeat(2, 1fr); } }
+.sc-sv-rel-lista a {
+  display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 16px;
+  background: var(--sup-1); box-shadow: inset 0 0 0 1px var(--borde);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.sc-sv-rel-lista a:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--naranja) 60%, transparent); }
+.sc-sv-rel-lista a > i:first-child { width: 44px; height: 44px; border-radius: 12px; flex: none; display: inline-flex; align-items: center; justify-content: center; font-size: 19px; color: var(--naranja); background: color-mix(in oklab, var(--naranja) 13%, transparent); }
+.sc-sv-rel-lista span { flex: 1; }
+.sc-sv-rel-lista b { display: block; font-size: 17px; color: var(--tj-color-heading-primary); }
+.sc-sv-rel-lista small { font-size: 14px; color: var(--tj-color-text-body-2); }
+.sc-sv-rel-lista a > i:last-child { color: var(--tj-color-text-body-2); }
+.sc-sv-caja p a { color: var(--cian); font-weight: 700; }
