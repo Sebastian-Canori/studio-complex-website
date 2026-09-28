@@ -15618,3 +15618,15 @@ h1 .grad {
   color: var(--tj-color-theme-primary);
 }
 .sec-heading .sc-casos-ver-todos:hover { color: var(--tj-color-theme-secondary); }
+
+/* Home, testimonios: el template les da 432px de relleno arriba porque la
+   seccion de video se montaba encima. El video se saco el 23/9 y quedaba
+   ese hueco vacio; se vuelve al relleno normal de las demas secciones.
+   Si algun dia vuelve el video, sacar la clase sc-testimonios-sin-video. */
+.tj-testimonial-section.sc-testimonios-sin-video { padding-top: 120px; }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .tj-testimonial-section.sc-testimonios-sin-video { padding-top: 100px; }
+}
+@media (max-width: 991px) {
+  .tj-testimonial-section.sc-testimonios-sin-video { padding-top: 70px; }
+}
