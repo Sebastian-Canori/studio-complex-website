@@ -81,6 +81,39 @@
     }
   }
 
+  /* ------------------------------------------------------------ 2b tienda
+     Demo de Tiendas Online: marca un producto, lo suma al carrito y
+     muestra el aviso de venta. Con menos movimiento queda quieta. */
+  var tienda = raiz.querySelector(".sc-sv-tienda");
+  if (tienda && !menosMovimiento) {
+    var prods = tienda.querySelectorAll(".sc-sv-t-prod");
+    var contador = tienda.querySelector(".sc-sv-t-carro b");
+    var venta = raiz.querySelector(".sc-sv-t-venta");
+    var cant = parseInt(contador.textContent, 10) || 0;
+    var cual = 0;
+
+    setInterval(function () {
+      Array.prototype.forEach.call(prods, function (p) { p.classList.remove("activo"); });
+      var p = prods[cual % prods.length];
+      /* Si ese producto está oculto (teléfono), pasa al siguiente visible. */
+      if (p.offsetParent === null) { cual++; p = prods[cual % prods.length]; }
+      p.classList.add("activo");
+      cual++;
+
+      setTimeout(function () {
+        cant++;
+        contador.textContent = cant;
+        contador.classList.add("salta");
+        setTimeout(function () { contador.classList.remove("salta"); }, 250);
+      }, 700);
+
+      if (venta) {
+        setTimeout(function () { venta.classList.add("ver"); }, 1100);
+        setTimeout(function () { venta.classList.remove("ver"); }, 2700);
+      }
+    }, 3200);
+  }
+
   /* ------------------------------------------------------------------ 3 */
   var comp = raiz.querySelector(".sc-sv-comp");
   if (comp) {

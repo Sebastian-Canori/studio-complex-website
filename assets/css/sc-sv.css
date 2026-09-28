@@ -777,3 +777,141 @@
   .sc-sv-cinta-pista, .sc-sv-flota, .sc-sv-v-carga::before, .sc-sv-cms div::after { animation: none; }
   .sc-sv-nav { transition: none; }
 }
+
+/* ==========================================================================
+   Piezas propias de Tiendas Online
+   ========================================================================== */
+
+/* --- Demo del encabezado: una tienda que vende sola ----------------------
+   sc-sv.js recorre los productos: marca uno, suma al carrito y muestra el
+   aviso de venta. Sin JS queda quieta y completa. */
+.sc-sv-tienda .sc-sv-nav-sitio { gap: 12px; }
+.sc-sv-t-top { display: flex; align-items: center; gap: 10px; }
+.sc-sv-t-buscar { flex: 1; height: 24px; border-radius: 12px; background: color-mix(in oklab, #fff 6%, transparent); }
+.sc-sv-t-carro {
+  position: relative;
+  width: 30px; height: 30px; border-radius: 9px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: color-mix(in oklab, #fff 7%, transparent);
+  color: var(--tj-color-heading-primary);
+  font-size: 15px;
+}
+.sc-sv-t-carro b {
+  position: absolute; top: -6px; right: -6px;
+  min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 9px;
+  background: var(--naranja); color: #07090c;
+  font-size: 11px; line-height: 18px; text-align: center;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.sc-sv-t-carro b.salta { transform: scale(1.45); }
+.sc-sv-t-cats { display: flex; gap: 8px; }
+.sc-sv-t-cats span {
+  flex: 1; height: 54px; border-radius: 11px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in oklab, var(--naranja) 55%, #121821), color-mix(in oklab, var(--cian) 45%, #121821));
+}
+.sc-sv-t-cats span:nth-child(2) { filter: hue-rotate(40deg); }
+.sc-sv-t-cats span:nth-child(3) { filter: hue-rotate(-30deg) saturate(0.8); }
+.sc-sv-t-cats span:nth-child(4) { filter: hue-rotate(90deg) saturate(0.7); }
+.sc-sv-t-cats span::after { content: ""; position: absolute; left: 8px; bottom: 8px; width: 45%; height: 6px; border-radius: 3px; background: #fff; opacity: 0.85; }
+.sc-sv-t-prods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; flex: 1; min-height: 0; }
+.sc-sv-t-prod {
+  border-radius: 12px; padding: 8px;
+  background: color-mix(in oklab, #fff 4%, transparent);
+  display: flex; flex-direction: column; gap: 6px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.sc-sv-t-prod.activo { box-shadow: inset 0 0 0 1.5px var(--naranja), 0 10px 30px -10px var(--naranja); transform: translateY(-3px); }
+.sc-sv-t-foto { flex: 1; min-height: 50px; border-radius: 8px; background: radial-gradient(60% 60% at 40% 40%, color-mix(in oklab, var(--cian) 45%, transparent), transparent 70%), #121821; }
+.sc-sv-t-prod:nth-child(2n) .sc-sv-t-foto { background: radial-gradient(60% 60% at 60% 40%, color-mix(in oklab, var(--naranja) 50%, transparent), transparent 70%), #121821; }
+.sc-sv-t-prod i { height: 6px; width: 80%; border-radius: 3px; background: color-mix(in oklab, #fff 16%, transparent); }
+.sc-sv-t-prod em { font-style: normal; font-size: 11px; font-weight: 800; color: var(--tj-color-heading-primary); }
+.sc-sv-t-prod small { font-size: 9.5px; font-weight: 700; color: var(--cian); }
+.sc-sv-t-prod u { text-decoration: none; height: 20px; border-radius: 7px; background: color-mix(in oklab, var(--naranja) 22%, transparent); }
+.sc-sv-t-prod.activo u { background: var(--naranja); }
+.sc-sv-t-envio { height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #07090c; background: var(--grad); }
+/* Aviso de venta */
+.sc-sv-t-venta {
+  position: absolute; right: -3%; bottom: 14%;
+  z-index: 4;
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 16px;
+  background: #0c1117;
+  box-shadow: 0 0 0 1px color-mix(in oklab, #fff 12%, transparent), 0 24px 50px -12px #000;
+  font-size: 13px; color: var(--tj-color-text-body);
+  opacity: 0; transform: translateY(12px) scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.sc-sv-t-venta.ver, .sc-sv:not(.sc-sv-js) .sc-sv-t-venta { opacity: 1; transform: none; }
+.sc-sv-t-venta i { width: 34px; height: 34px; border-radius: 50%; background: #22c55e; color: #07090c; display: flex; align-items: center; justify-content: center; font-style: normal; font-weight: 800; flex: none; }
+.sc-sv-t-venta b { display: block; color: #fff; font-size: 14px; }
+@media (max-width: 575px) {
+  .sc-sv-t-venta { right: 4%; bottom: 4%; }
+  .sc-sv-t-prods { grid-template-columns: repeat(2, 1fr); }
+  .sc-sv-t-prod:nth-child(3) { display: none; }
+}
+
+/* --- Comparador: tienda de plantilla vs tienda a medida ---------------- */
+.sc-sv-vt-grid { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 8px; min-height: 0; overflow: hidden; }
+.sc-sv-vt-grid div { background: #c9c9c3; display: flex; flex-direction: column; padding: 6px; gap: 4px; font: clamp(9px, 1vw, 12px) Arial, sans-serif; color: #333; }
+.sc-sv-vt-grid div::before { content: ""; flex: 1; background: #ababa4; }
+.sc-sv-vt-grid div span { color: #a33; font-weight: 700; }
+.sc-sv-vt-aviso { background: #f3e9a8; color: #6b5b10; font: clamp(9px, 1vw, 12px) Arial, sans-serif; padding: 6px 10px; text-align: center; }
+.sc-sv-nt-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(6px, 1vw, 12px); }
+.sc-sv-nt-cats span {
+  aspect-ratio: 2 / 1; border-radius: clamp(8px, 1vw, 14px); position: relative; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in oklab, var(--naranja) 60%, #121821), color-mix(in oklab, var(--cian) 50%, #121821));
+  display: flex; align-items: flex-end; padding: clamp(6px, 1vw, 12px);
+  font-size: clamp(9px, 1.1vw, 14px); font-weight: 800; color: #fff;
+}
+.sc-sv-nt-cats span:nth-child(2) { filter: hue-rotate(40deg); }
+.sc-sv-nt-cats span:nth-child(3) { filter: hue-rotate(-30deg); }
+.sc-sv-nt-cats span:nth-child(4) { filter: hue-rotate(90deg) saturate(0.7); }
+.sc-sv-nt-prods { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(6px, 1vw, 12px); min-height: 0; }
+.sc-sv-nt-prods div { border-radius: clamp(8px, 1vw, 14px); background: color-mix(in oklab, #fff 5%, transparent); padding: clamp(6px, 0.8vw, 10px); display: flex; flex-direction: column; gap: 4px; }
+.sc-sv-nt-prods div::before { content: ""; flex: 1; border-radius: 8px; background: radial-gradient(60% 60% at 40% 40%, color-mix(in oklab, var(--cian) 45%, transparent), transparent 70%), #121821; }
+.sc-sv-nt-prods b { font-size: clamp(10px, 1.1vw, 14px); color: #fff; }
+.sc-sv-nt-prods small { font-size: clamp(8px, 0.9vw, 11px); font-weight: 700; color: var(--cian); }
+.sc-sv-nt-barra { border-radius: 999px; padding: clamp(5px, 0.7vw, 8px) 12px; font-size: clamp(9px, 1vw, 13px); font-weight: 700; color: #07090c; background: var(--grad); text-align: center; }
+@media (max-width: 575px) {
+  .sc-sv-vt-grid { grid-template-columns: repeat(2, 1fr); }
+  .sc-sv-vt-grid div:nth-child(n+5) { display: none; }
+  .sc-sv-nt-cats { grid-template-columns: repeat(2, 1fr); }
+  .sc-sv-nt-prods { grid-template-columns: repeat(2, 1fr); }
+  .sc-sv-nt-prods div:nth-child(3) { display: none; }
+}
+
+/* --- Piezas de la grilla ------------------------------------------------ */
+.sc-sv-pago { display: flex; flex-direction: column; gap: 8px; }
+.sc-sv-pago div {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px; border-radius: 12px;
+  background: var(--sup-2);
+  box-shadow: inset 0 0 0 1px var(--borde);
+  font-size: 14px; color: var(--tj-color-heading-primary);
+}
+.sc-sv-pago div.sel { box-shadow: inset 0 0 0 1.5px var(--cian); }
+.sc-sv-pago img { width: 28px; height: 28px; border-radius: 7px; }
+.sc-sv-pago .ico { width: 28px; height: 28px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in oklab, #fff 8%, transparent); font-size: 14px; }
+.sc-sv-pago span:not(.ico) { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--cian); }
+.sc-sv-envio { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; }
+.sc-sv-envio label { display: flex; gap: 8px; }
+.sc-sv-envio label span { flex: 1; padding: 9px 12px; border-radius: 9px; background: var(--sup-2); box-shadow: inset 0 0 0 1px var(--borde); color: var(--tj-color-heading-primary); }
+.sc-sv-envio label em { font-style: normal; font-weight: 700; padding: 9px 14px; border-radius: 9px; background: var(--naranja); color: #07090c; }
+.sc-sv-envio div { display: flex; justify-content: space-between; padding: 8px 12px; border-radius: 9px; background: color-mix(in oklab, #fff 4%, transparent); color: var(--tj-color-text-body); }
+.sc-sv-envio div b { color: var(--tj-color-heading-primary); }
+.sc-sv-planilla { border-radius: 12px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--borde); font: 12px/1 ui-monospace, Menlo, monospace; }
+.sc-sv-planilla div { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr; gap: 8px; padding: 9px 12px; color: var(--tj-color-text-body); border-top: 1px solid var(--borde); }
+.sc-sv-planilla div:first-child { border-top: 0; background: color-mix(in oklab, var(--cian) 10%, transparent); color: var(--cian); font-weight: 700; }
+.sc-sv-planilla div:last-child { color: #22c55e; }
+/* En la demo de tienda la etiqueta de arriba taparía la barra del navegador:
+   va abajo a la izquierda, del lado opuesto al aviso de venta. */
+.sc-sv-demo:has(.sc-sv-tienda) .sc-sv-flota.a { top: auto; bottom: 8%; left: -4%; }
+/* Datos rápidos del encabezado: en teléfono van en tres columnas compactas
+   en vez de una fila cada uno. */
+@media (max-width: 575px) {
+  .sc-sv-hero-datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sc-sv-hero-datos b { font-size: 22px; }
+  .sc-sv-hero-datos span { font-size: 12.5px; line-height: 1.35; }
+  .sc-sv-t-venta { bottom: -5%; }
+}
