@@ -15640,3 +15640,6 @@ h1 .grad {
 /* Home: la sección de servicios es el destino del menú "Servicios" desde
    que se sacó service.html (28/9). El margen deja lugar al header fijo. */
 #servicios { scroll-margin-top: 110px; }
+/* Home, tarjetas de servicios: el justificado general del sitio abría
+   huecos grandes entre palabras en columnas tan angostas. */
+.tj-service-section .service-item .desc { text-align: left; hyphens: manual; }
