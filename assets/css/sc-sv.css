@@ -344,7 +344,7 @@
   background: color-mix(in oklab, var(--cian) 18%, transparent);
   color: var(--cian);
 }
-.sc-sv-flota.a { top: -3%; left: 4%; }
+.sc-sv-flota.a { bottom: 6%; left: -4%; }
 .sc-sv-flota.b { bottom: 16%; right: -2%; animation-delay: -3s; }
 .sc-sv-flota.b i { background: color-mix(in oklab, var(--naranja) 18%, transparent); color: var(--naranja); }
 @media (max-width: 575px) { .sc-sv-flota { display: none; } }
@@ -906,7 +906,7 @@
 .sc-sv-planilla div:last-child { color: #22c55e; }
 /* En la demo de tienda la etiqueta de arriba taparía la barra del navegador:
    va abajo a la izquierda, del lado opuesto al aviso de venta. */
-.sc-sv-demo:has(.sc-sv-tienda) .sc-sv-flota.a { top: auto; bottom: 8%; left: -4%; }
+
 /* Datos rápidos del encabezado: en teléfono van en tres columnas compactas
    en vez de una fila cada uno. */
 @media (max-width: 575px) {
@@ -915,3 +915,185 @@
   .sc-sv-hero-datos span { font-size: 12.5px; line-height: 1.35; }
   .sc-sv-t-venta { bottom: -5%; }
 }
+
+/* ==========================================================================
+   Panel antes / después reutilizable (.sc-sv-cx)
+   Para los servicios donde el antes y el después se cuentan como un
+   tablero con filas: SEO, Ads, Automatización y Cierre de ventas.
+   El lado viejo usa .cx-viejo (claro, apagado) y el nuevo .cx-nuevo.
+   ========================================================================== */
+.sc-sv-cx { flex: 1; display: flex; flex-direction: column; gap: clamp(8px, 1.2vw, 14px); min-height: 0; }
+.sc-sv-cx h4 { margin: 0; font-size: clamp(14px, 2vw, 26px); line-height: 1.1; letter-spacing: -0.02em; }
+.sc-sv-cx-filas { display: grid; gap: clamp(6px, 1vw, 10px); }
+.sc-sv-cx-fila {
+  display: flex; align-items: center; gap: clamp(8px, 1vw, 14px);
+  padding: clamp(8px, 1.1vw, 14px) clamp(10px, 1.4vw, 18px);
+  border-radius: clamp(8px, 1vw, 12px);
+  font-size: clamp(10px, 1.2vw, 15px);
+}
+.sc-sv-cx-fila i { width: clamp(18px, 2vw, 26px); height: clamp(18px, 2vw, 26px); border-radius: 50%; flex: none; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-weight: 800; font-size: clamp(10px, 1vw, 13px); }
+.sc-sv-cx-fila b { margin-left: auto; white-space: nowrap; }
+.viejo .sc-sv-cx h4 { color: #333; font-family: Georgia, serif; font-weight: 400; }
+.viejo .sc-sv-cx-fila { background: #c9c9c3; color: #333; font-family: Arial, sans-serif; }
+.viejo .sc-sv-cx-fila i { background: #b3261e; color: #fff; }
+.viejo .sc-sv-cx-fila b { color: #b3261e; }
+.nuevo .sc-sv-cx h4 { color: #fff; }
+.nuevo .sc-sv-cx-fila { background: color-mix(in oklab, #fff 5%, transparent); color: var(--tj-color-heading-primary); box-shadow: inset 0 0 0 1px color-mix(in oklab, #fff 8%, transparent); }
+.nuevo .sc-sv-cx-fila i { background: #22c55e; color: #07090c; }
+.nuevo .sc-sv-cx-fila b { color: var(--cian); }
+.sc-sv-cx-pie { margin-top: auto; font-size: clamp(9px, 1vw, 12px); opacity: 0.7; }
+.viejo .sc-sv-cx-pie { color: #555; font-family: Arial, sans-serif; }
+.nuevo .sc-sv-cx-pie { color: var(--tj-color-text-body-2); }
+/* Los dos lados tienen las filas en el mismo lugar y a todo el ancho:
+   con la manija en el medio se lee el problema a la izquierda (la cruz y
+   el nombre) y la solución a la derecha (el valor nuevo). Al arrastrar se
+   ve cada fila completa de un lado o del otro. */
+.sc-sv-comp:has(.sc-sv-cx) { aspect-ratio: 16 / 7; }
+@media (max-width: 575px) { .sc-sv-comp:has(.sc-sv-cx) { aspect-ratio: 4 / 5; } }
+.sc-sv-cx-filas { gap: clamp(8px, 1.2vw, 14px); }
+.sc-sv-cx-fila { padding-top: clamp(10px, 1.4vw, 18px); padding-bottom: clamp(10px, 1.4vw, 18px); font-size: clamp(11px, 1.35vw, 17px); }
+.sc-sv-cx-pie { position: absolute; top: clamp(18px, 3vw, 38px); right: clamp(16px, 3vw, 34px); margin: 0; }
+
+/* Leyenda honesta para las demos con cifras */
+.sc-sv-ejemplo { position: absolute; left: 16px; bottom: 12px; font-size: 11px; color: var(--tj-color-text-body-2); opacity: 0.8; }
+
+/* ==========================================================================
+   Demo SEO: tu resultado sube en Google
+   ========================================================================== */
+.sc-sv-goo { padding: 18px; display: flex; flex-direction: column; gap: 14px; height: calc(100% - 38px); }
+.sc-sv-goo-busca { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: color-mix(in oklab, #fff 7%, transparent); font-size: 14px; color: var(--tj-color-heading-primary); }
+.sc-sv-goo-busca i { color: var(--tj-color-text-body-2); }
+.sc-sv-goo-lista { position: relative; flex: 1; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.sc-sv-goo-lista li {
+  flex: 1;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 14px; border-radius: 12px;
+  background: color-mix(in oklab, #fff 3%, transparent);
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), box-shadow 0.3s ease;
+}
+/* Con JS los ítems quedan en su lugar del HTML y sc-sv.js los mueve con
+   transform en píxeles según el puesto que les toca. */
+.sc-sv-goo-lista.movil li { position: relative; }
+.sc-sv-goo-lista li > span { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 0; }
+.sc-sv-goo-lista li small { font-size: 11px; color: var(--tj-color-text-body-2); }
+.sc-sv-goo-lista li em { font-style: normal; height: 8px; border-radius: 4px; background: color-mix(in oklab, #8ab4f8 45%, transparent); width: 70%; }
+.sc-sv-goo-lista li u { text-decoration: none; height: 6px; border-radius: 3px; background: color-mix(in oklab, #fff 12%, transparent); width: 90%; }
+.sc-sv-goo-lista li b { font-size: 12px; font-weight: 800; color: var(--tj-color-text-body-2); width: 28px; text-align: center; }
+.sc-sv-goo-lista li.tuyo { z-index: 2; background: #0f1a22; box-shadow: inset 0 0 0 1.5px var(--cian), 0 12px 30px -10px color-mix(in oklab, var(--cian) 70%, transparent); }
+.sc-sv-goo-lista li.tuyo small { color: var(--cian); }
+.sc-sv-goo-lista li.tuyo strong { font-size: 14px; color: #8ab4f8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sc-sv-goo-lista li.tuyo b { color: var(--naranja); }
+
+/* ==========================================================================
+   Demo Ads: el tablero suma consultas
+   ========================================================================== */
+.sc-sv-ads { padding: 18px; display: flex; flex-direction: column; gap: 14px; height: calc(100% - 38px); position: relative; }
+.sc-sv-ads-tabs { display: flex; gap: 8px; }
+.sc-sv-ads-tabs span { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; background: color-mix(in oklab, #fff 6%, transparent); color: var(--tj-color-text-body); }
+.sc-sv-ads-tabs img { width: 18px; height: 18px; border-radius: 5px; }
+.sc-sv-ads-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sc-sv-ads-kpis div { padding: 12px; border-radius: 12px; background: color-mix(in oklab, #fff 4%, transparent); }
+.sc-sv-ads-kpis small { display: block; font-size: 11px; color: var(--tj-color-text-body-2); margin-bottom: 6px; }
+.sc-sv-ads-kpis b { font-size: clamp(18px, 2.2vw, 26px); line-height: 1; color: #fff; }
+.sc-sv-ads-kpis div:first-child b { color: var(--naranja); }
+.sc-sv-ads-graf { flex: 1; display: flex; align-items: flex-end; gap: 6px; padding: 10px 4px 22px; border-bottom: 1px solid var(--borde); min-height: 0; }
+.sc-sv-ads-graf i { flex: 1; border-radius: 5px 5px 0 0; background: linear-gradient(var(--cian), color-mix(in oklab, var(--naranja) 85%, transparent)); height: var(--h); transform-origin: bottom; }
+.sc-sv-js .sc-sv-ads-graf i { transform: scaleY(0.05); transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.3, 1); }
+.sc-sv-js .is-in .sc-sv-ads-graf i, .sc-sv-js .sc-sv-hero .sc-sv-ads-graf.listo i { transform: none; }
+
+/* Aviso que aparece en las demos (consulta nueva, venta cerrada) */
+.sc-sv-aviso {
+  position: absolute; right: -3%; bottom: 12%; z-index: 4;
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: 16px;
+  background: #0c1117;
+  box-shadow: 0 0 0 1px color-mix(in oklab, #fff 12%, transparent), 0 24px 50px -12px #000;
+  font-size: 13px; color: var(--tj-color-text-body);
+  opacity: 0; transform: translateY(12px) scale(0.96);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.sc-sv-aviso.ver, .sc-sv:not(.sc-sv-js) .sc-sv-aviso { opacity: 1; transform: none; }
+.sc-sv-aviso > i { width: 34px; height: 34px; border-radius: 50%; background: #22c55e; color: #07090c; display: flex; align-items: center; justify-content: center; font-style: normal; font-weight: 800; flex: none; }
+.sc-sv-aviso b { display: block; color: #fff; font-size: 14px; }
+@media (max-width: 575px) { .sc-sv-aviso { right: 4%; bottom: -5%; } }
+
+/* ==========================================================================
+   Demo Automatización: el circuito de leads
+   ========================================================================== */
+.sc-sv-flujo { position: relative; height: calc(100% - 38px); padding: 18px; }
+.sc-sv-flujo svg.lineas { position: absolute; inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); overflow: visible; }
+.sc-sv-flujo .linea { fill: none; stroke: color-mix(in oklab, #fff 18%, transparent); stroke-width: 2; stroke-dasharray: 3 7; vector-effect: non-scaling-stroke; }
+.sc-sv-flujo .dato { fill: var(--cian); filter: drop-shadow(0 0 6px var(--cian)); }
+.sc-sv-flujo .dato.n { fill: var(--naranja); filter: drop-shadow(0 0 6px var(--naranja)); }
+.sc-sv-flujo-nodo {
+  position: absolute; transform: translate(-50%, -50%);
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 12px; border-radius: 12px;
+  background: #0f151d;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, #fff 12%, transparent), 0 12px 24px -10px #000;
+  font-size: 12.5px; font-weight: 700; color: var(--tj-color-heading-primary);
+  white-space: nowrap;
+}
+.sc-sv-flujo-nodo img { width: 22px; height: 22px; border-radius: 6px; }
+.sc-sv-flujo-nodo .ico { width: 22px; height: 22px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in oklab, var(--naranja) 20%, transparent); color: var(--naranja); font-size: 12px; }
+.sc-sv-flujo-nodo.centro { padding: 16px 18px; flex-direction: column; gap: 6px; font-size: 13px; box-shadow: inset 0 0 0 1.5px var(--cian), 0 0 60px -10px color-mix(in oklab, var(--cian) 60%, transparent); }
+.sc-sv-flujo-nodo.centro img { width: 40px; height: 40px; border-radius: 10px; }
+@media (max-width: 575px) { .sc-sv-flujo-nodo { font-size: 10.5px; padding: 7px 8px; gap: 6px; } .sc-sv-flujo-nodo img, .sc-sv-flujo-nodo .ico { width: 18px; height: 18px; } }
+
+/* ==========================================================================
+   Demo Cierre de ventas: el tablero de seguimiento
+   ========================================================================== */
+.sc-sv-kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 16px; height: calc(100% - 38px); }
+.sc-sv-kanban-col { border-radius: 12px; padding: 10px 8px; background: color-mix(in oklab, #fff 3%, transparent); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sc-sv-kanban-col > b { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tj-color-text-body-2); padding: 0 4px 4px; display: flex; justify-content: space-between; }
+.sc-sv-kanban-col:last-child > b { color: #22c55e; }
+.sc-sv-tarj {
+  border-radius: 10px; padding: 9px; background: #121821;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, #fff 8%, transparent);
+  display: flex; flex-direction: column; gap: 6px;
+  animation: sc-sv-entra 0.45s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.sc-sv-tarj span { font-size: 11.5px; font-weight: 700; color: var(--tj-color-heading-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sc-sv-tarj i { height: 5px; width: 70%; border-radius: 3px; background: color-mix(in oklab, #fff 12%, transparent); }
+.sc-sv-tarj small { font-size: 10px; font-weight: 700; color: var(--cian); }
+.sc-sv-tarj.hoy small { color: var(--naranja); }
+.sc-sv-tarj.mueve { box-shadow: inset 0 0 0 1.5px var(--naranja), 0 10px 24px -10px var(--naranja); }
+@keyframes sc-sv-entra { from { opacity: 0; transform: translateY(-8px) scale(0.96); } }
+@media (max-width: 575px) {
+  .sc-sv-kanban { gap: 6px; padding: 10px; }
+  .sc-sv-kanban-col { padding: 8px 5px; }
+  .sc-sv-kanban-col > b { font-size: 9px; }
+  .sc-sv-tarj span { font-size: 10px; }
+}
+
+/* ==========================================================================
+   Piezas chicas de las grillas
+   ========================================================================== */
+.sc-sv-codigo { margin: 0; border-radius: 12px; padding: 14px; background: var(--sup-2); box-shadow: inset 0 0 0 1px var(--borde); font: 12px/1.6 ui-monospace, Menlo, monospace; color: var(--tj-color-text-body); white-space: pre; overflow: hidden; }
+.sc-sv-codigo .k { color: var(--cian); }
+.sc-sv-codigo .v { color: #ffb070; }
+.sc-sv-anuncio { border-radius: 14px; padding: 14px 16px; background: #fff; color: #202124; font-family: Arial, sans-serif; }
+.sc-sv-anuncio small { display: block; font-size: 12px; color: #202124; margin-bottom: 4px; }
+.sc-sv-anuncio small b { font-weight: 700; }
+.sc-sv-anuncio strong { display: block; font-size: 17px; font-weight: 400; color: #1a0dab; margin-bottom: 4px; }
+.sc-sv-anuncio span { font-size: 13px; line-height: 1.5; color: #4d5156; }
+.sc-sv-neg { display: flex; flex-wrap: wrap; gap: 8px; }
+.sc-sv-neg span { font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 999px; color: var(--tj-color-text-body-2); background: color-mix(in oklab, #fff 5%, transparent); text-decoration: line-through; text-decoration-color: #ef4444; text-decoration-thickness: 2px; }
+.sc-sv-chat { display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.sc-sv-chat p { margin: 0; max-width: 85%; padding: 9px 12px; border-radius: 14px; line-height: 1.45; }
+.sc-sv-chat .cli { background: color-mix(in oklab, #fff 7%, transparent); color: var(--tj-color-heading-primary); border-bottom-left-radius: 4px; }
+.sc-sv-chat .bot { align-self: flex-end; background: #005c4b; color: #e9fdf6; border-bottom-right-radius: 4px; }
+.sc-sv-chat small { align-self: flex-end; font-size: 11px; color: var(--tj-color-text-body-2); }
+.sc-sv-recor { display: flex; flex-direction: column; gap: 8px; }
+.sc-sv-recor div { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 11px; background: var(--sup-2); box-shadow: inset 0 0 0 1px var(--borde); font-size: 13.5px; color: var(--tj-color-heading-primary); }
+.sc-sv-recor div i { color: var(--naranja); }
+.sc-sv-recor div span { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--cian); }
+.sc-sv-recor div.hoy span { color: var(--naranja); }
+@media (max-width: 575px) {
+  .sc-sv-btn { padding: 14px 20px; font-size: 15px; }
+  .sc-sv-kanban-col > b em { display: none; }
+}
+/* Las columnas de la grilla del encabezado no pueden crecer por un texto
+   largo sin cortes (el título del resultado de Google en SEO lo hacía). */
+.sc-sv-hero-grid > * { min-width: 0; }
+.sc-sv-goo-lista li.tuyo strong { display: block; max-width: 100%; }

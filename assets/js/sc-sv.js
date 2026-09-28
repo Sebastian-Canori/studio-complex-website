@@ -114,6 +114,133 @@
     }, 3200);
   }
 
+  /* El circuito de Automatización anima con SVG (animateMotion), que no
+     respeta prefers-reduced-motion por sí solo: lo pausamos a mano. */
+  if (menosMovimiento) {
+    Array.prototype.forEach.call(raiz.querySelectorAll("svg.lineas"), function (svg) {
+      if (svg.pauseAnimations) svg.pauseAnimations();
+    });
+  }
+
+  /* --------------------------------------------------------------- 2c SEO
+     Tu resultado sube un puesto por vez hasta el primero, espera y vuelve
+     a empezar. Cada puesto es --pos en el li; los demás bajan uno. */
+  var goo = raiz.querySelector(".sc-sv-goo-lista");
+  if (goo) {
+    var items = Array.prototype.slice.call(goo.children);
+    var tuyo = goo.querySelector(".tuyo");
+    var orden = items.slice();
+    goo.classList.add("movil");
+    /* Cada ítem se desplaza desde su lugar en el HTML hasta el puesto que
+       le toca, en píxeles. Un var() dentro del translate no lo tomaba
+       Firefox, por eso se calcula acá. */
+    function pintarSeo() {
+      var paso = items[0].offsetHeight + 8;
+      orden.forEach(function (li, i) {
+        var original = items.indexOf(li);
+        li.style.transform = "translateY(" + (i - original) * paso + "px)";
+        var b = li.querySelector("b");
+        if (b) b.textContent = "#" + (i + 1);
+      });
+    }
+    window.addEventListener("resize", function () { pintarSeo(); });
+    /* Al correr el script el alto de los ítems todavía puede no ser el
+       final (fuentes, imágenes): se vuelve a calcular cuando carga todo. */
+    window.addEventListener("load", function () { pintarSeo(); });
+    pintarSeo();
+    if (!menosMovimiento) {
+      setInterval(function () {
+        var i = orden.indexOf(tuyo);
+        if (i > 0) {
+          orden.splice(i, 1);
+          orden.splice(i - 1, 0, tuyo);
+        } else {
+          orden = items.slice();
+        }
+        pintarSeo();
+      }, 1500);
+    } else {
+      orden.splice(orden.indexOf(tuyo), 1);
+      orden.unshift(tuyo);
+      pintarSeo();
+    }
+  }
+
+  /* --------------------------------------------------------------- 2d Ads
+     Las barras crecen al cargar y cada tanto entra una consulta nueva,
+     alternando Google y Meta. */
+  var ads = raiz.querySelector(".sc-sv-ads");
+  if (ads) {
+    var graf = ads.querySelector(".sc-sv-ads-graf");
+    setTimeout(function () { graf.classList.add("listo"); }, 200);
+    var num = ads.querySelector("[data-contador]");
+    var avisoAds = raiz.querySelector(".sc-sv-hero .sc-sv-aviso");
+    var origen = avisoAds ? avisoAds.querySelector("[data-origen]") : null;
+    var fuentes = ["Google Ads · Búsqueda", "Meta Ads · Instagram"];
+    var vuelta = 0;
+    if (!menosMovimiento && num) {
+      setInterval(function () {
+        num.textContent = parseInt(num.textContent, 10) + 1;
+        if (origen) origen.textContent = fuentes[vuelta++ % fuentes.length];
+        if (avisoAds) {
+          avisoAds.classList.add("ver");
+          setTimeout(function () { avisoAds.classList.remove("ver"); }, 1800);
+        }
+      }, 3000);
+    }
+  }
+
+  /* ----------------------------------------------------------- 2e Kanban
+     Una oportunidad avanza de columna en columna hasta Cerrada; ahí aparece
+     el aviso y entra una nueva en la primera columna. */
+  var kanban = raiz.querySelector(".sc-sv-kanban");
+  if (kanban && !menosMovimiento) {
+    var cols = kanban.querySelectorAll(".sc-sv-kanban-col");
+    var avisoK = raiz.querySelector(".sc-sv-hero .sc-sv-aviso");
+    var nombres = ["Distribuidora Sur", "Estudio Norte", "Clínica Centro", "Taller Oeste", "Mayorista Delta"];
+    var nIdx = 0;
+    var viaje = null;
+    var etapa = 0;
+
+    function contar() {
+      Array.prototype.forEach.call(cols, function (c) {
+        var e = c.querySelector("b em");
+        if (e) e.textContent = c.querySelectorAll(".sc-sv-tarj").length;
+      });
+    }
+    function nueva() {
+      var t = document.createElement("div");
+      t.className = "sc-sv-tarj";
+      t.innerHTML = "<span></span><i></i><small>Nueva consulta</small>";
+      t.querySelector("span").textContent = nombres[nIdx++ % nombres.length];
+      cols[0].insertBefore(t, cols[0].children[1] || null);
+      return t;
+    }
+    var textos = ["Nueva consulta", "Seguimiento hoy", "Propuesta enviada", "Venta cerrada"];
+    setInterval(function () {
+      if (!viaje) { viaje = nueva(); etapa = 0; contar(); return; }
+      etapa++;
+      viaje.classList.add("mueve");
+      viaje.querySelector("small").textContent = textos[etapa];
+      viaje.classList.toggle("hoy", etapa === 1);
+      cols[etapa].insertBefore(viaje, cols[etapa].children[1] || null);
+      /* Se vuelve a poner para que la animación de entrada corra. */
+      viaje.style.animation = "none"; void viaje.offsetWidth; viaje.style.animation = "";
+      if (etapa === cols.length - 1) {
+        viaje.classList.remove("mueve");
+        var ultimas = cols[etapa].querySelectorAll(".sc-sv-tarj");
+        if (ultimas.length > 3) ultimas[ultimas.length - 1].remove();
+        if (avisoK) {
+          avisoK.classList.add("ver");
+          setTimeout(function () { avisoK.classList.remove("ver"); }, 1800);
+        }
+        viaje = null;
+      }
+      contar();
+    }, 1700);
+    contar();
+  }
+
   /* ------------------------------------------------------------------ 3 */
   var comp = raiz.querySelector(".sc-sv-comp");
   if (comp) {

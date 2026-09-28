@@ -6,10 +6,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Tiendas online a medida en Tiendanube, Shopify y WooCommerce: catálogo cargado, cuotas y Mercado Pago, envíos configurados y lista para anunciar. De 3 a 6 semanas.">
+    content="Sistema de seguimiento comercial: tablero de oportunidades, recordatorios, mensajes por etapa, asistente en WhatsApp con derivación a una persona e informe de cierres.">
 
   <!-- Site Title -->
-  <title>Tiendas Online a Medida - Tiendanube, Shopify y WooCommerce - Studio Complex</title>
+  <title>Seguimiento y Cierre de Ventas por WhatsApp - Studio Complex</title>
 
   <!-- Place favicon.ico in the root directory -->
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
@@ -34,16 +34,16 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Tiendas online",
-    "serviceType": "Desarrollo de tiendas online",
-    "description": "Tiendas online a medida en Tiendanube, Shopify y WooCommerce: catálogo cargado, cuotas y Mercado Pago, envíos configurados y lista para anunciar. De 3 a 6 semanas.",
+    "name": "Cierre de Ventas",
+    "serviceType": "Consultoría y sistemas comerciales",
+    "description": "Sistema de seguimiento comercial: tablero de oportunidades, recordatorios, mensajes por etapa, asistente en WhatsApp con derivación a una persona e informe de cierres.",
     "provider": {
       "@type": "Organization",
       "name": "Studio Complex",
       "url": "https://nudge-digital-lab.github.io/studio-complex-website/"
     },
     "areaServed": "Latinoamérica",
-    "url": "https://nudge-digital-lab.github.io/studio-complex-website/servicio-tiendas-online.html"
+    "url": "https://nudge-digital-lab.github.io/studio-complex-website/servicio-cierre-de-ventas.html"
   },
   {
     "@context": "https://schema.org",
@@ -51,50 +51,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Qué plataforma me conviene?",
+        "name": "¿En qué se diferencia de la automatización de leads?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Depende de cuántos productos tenés, en qué países vendés y quién va a manejar la tienda. En la primera reunión te recomendamos una y te explicamos por qué, con lo que cuesta cada opción por mes."
+          "text": "La automatización ordena la entrada: que cada consulta llegue, se responda y quede registrada. El seguimiento empieza después: acompaña esa consulta con recordatorios y mensajes hasta que se convierte en venta. Se pueden contratar por separado o juntos."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cuánto cuesta una tienda online?",
+        "name": "¿Un bot va a hablar con mis clientes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Depende del diseño, de la cantidad de productos y de las funciones que necesites. Después de la reunión te pasamos un precio cerrado por escrito. Aparte está el abono de la plataforma, que se paga directo a ella."
+          "text": "Solo en lo que vos definas, como responder las preguntas de siempre o pedir datos. Cuando la conversación pide criterio o una negociación, pasa a una persona de tu equipo."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cuánto tarda?",
+        "name": "¿Necesito un CRM?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Una tienda completa lleva entre 3 y 6 semanas. Lo que más mueve el plazo es tener las fotos y los datos de los productos listos. Antes de arrancar tenés el cronograma con las fechas de cada etapa."
+          "text": "No necesariamente. Para equipos chicos, una planilla bien armada con recordatorios alcanza. Si tu equipo crece o ya usás un CRM, lo configuramos con tus etapas."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Ustedes cargan los productos?",
+        "name": "¿Mi equipo lo va a usar?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Si los tenés en una planilla los importamos todos juntos, con variantes y stock. Si no, te pasamos un modelo para completar y nos ocupamos del resto."
+          "text": "Es lo que más cuidamos. Lo armamos sobre cómo ya trabajan, los capacitamos con sus propias consultas y acompañamos las primeras semanas."
         }
       },
       {
         "@type": "Question",
-        "name": "Ya tengo una tienda. ¿Pueden migrarla?",
+        "name": "¿Sirve si vendo solo por WhatsApp?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Pasamos productos, fotos y categorías, y redirigimos las direcciones viejas a las nuevas para no perder el posicionamiento en Google. La tienda vieja sigue andando hasta que la nueva está lista."
+          "text": "Sí, es el caso más común. El tablero y los recordatorios se conectan con las conversaciones de WhatsApp de tu equipo."
         }
       },
       {
         "@type": "Question",
-        "name": "¿La tienda queda a mi nombre?",
+        "name": "¿Cuánto cuesta?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Siempre. La cuenta de la plataforma, el dominio y los medios de cobro son tuyos. Nosotros los configuramos y te dejamos todos los accesos."
+          "text": "Depende del tamaño del equipo y de si sumás el asistente. Después del diagnóstico te pasamos un precio cerrado por escrito."
         }
       }
     ]
@@ -451,14 +451,12 @@
 
       <main id="primary" class="site-main">
         <!-- ==================================================================
-             SERVICIO · Tiendas Online
+             SERVICIO · Seguimiento y Cierre de Ventas
              Armada sobre el molde de servicio-desarrollo-web.html.
-             Estilos: assets/css/sc-sv.css · Comportamiento: assets/js/sc-sv.js
-
-             Piezas propias de este servicio: la tienda que vende sola del
-             encabezado (.sc-sv-tienda), el comparador de tiendas (.sc-sv-vt-*
-             y .sc-sv-nt-*) y, en la grilla, pagos, envíos y planilla.
-             El resto de la estructura es la misma de todos los servicios.
+             Pieza propia: el tablero de seguimiento (.sc-sv-kanban), donde
+             una oportunidad avanza hasta Cerrada, y el panel antes / después.
+             Se diferencia de Automatización de Leads: aquella ordena la
+             entrada de consultas; esta acompaña cada una hasta la venta.
              ================================================================== -->
         <div class="sc-sv">
 
@@ -468,15 +466,15 @@
               <div class="sc-sv-hero-grid">
                 <div>
                   <nav class="sc-sv-migas" aria-label="Ubicación">
-                    <a href="service.html">Servicios</a><span aria-hidden="true">/</span><span>Tiendas online</span>
+                    <a href="service.html">Servicios</a><span aria-hidden="true">/</span><span>Cierre de ventas</span>
                   </nav>
                   <!-- [DATOS DEL SERVICIO] encabezado -->
-                  <span class="sc-sv-eyebrow">Tiendas online</span>
-                  <h1 class="sc-sv-titulo">Una tienda que <span class="sc-sv-grad">vende</span> mientras dormís.</h1>
+                  <span class="sc-sv-eyebrow">Seguimiento y cierre de ventas</span>
+                  <h1 class="sc-sv-titulo">Ninguna venta se <span class="sc-sv-grad">enfría</span> por olvido.</h1>
                   <p class="sc-sv-lead">
-                    Armamos tu tienda online con el catálogo ordenado, los pagos y los
-                    envíos resueltos y un diseño que hace fácil comprar desde el teléfono.
-                    La dejamos lista para recibir tráfico de anuncios desde el primer día.
+                    La mayoría de las ventas no se pierden por precio: se pierden porque nadie
+                    volvió a escribir. Armamos el sistema que le recuerda a tu equipo a quién
+                    seguir, cuándo y con qué mensaje, hasta que la venta se cierra.
                   </p>
                   <!-- [/DATOS DEL SERVICIO] -->
                   <div class="sc-sv-btns">
@@ -485,44 +483,51 @@
                   </div>
                   <!-- [DATOS DEL SERVICIO] datos rápidos -->
                   <ul class="sc-sv-hero-datos">
-                    <li><b>3 a 6 sem.</b><span>para una tienda completa</span></li>
-                    <li><b>+800</b><span>productos migrados en un caso</span></li>
-                    <li><b>3</b><span>plataformas para vender</span></li>
+                    <li><b>Cada consulta</b><span>con dueño y próxima fecha</span></li>
+                    <li><b>IA + persona</b><span>la máquina sigue, tu equipo cierra</span></li>
+                    <li><b>Mensual</b><span>informe de cierres</span></li>
                   </ul>
                   <!-- [/DATOS DEL SERVICIO] -->
                 </div>
 
-                <!-- Demo: una tienda que suma ventas sola -->
+                <!-- Demo: una oportunidad avanza hasta Cerrada -->
                 <div class="sc-sv-demo">
-                  <div class="sc-sv-flota a" aria-hidden="true"><i class="tji-plane"></i>Envío calculado</div>
-                  <div class="sc-sv-nav sc-sv-tienda" data-modo="escritorio" role="img" aria-label="Una tienda online de ejemplo recibiendo compras">
-                    <div class="sc-sv-nav-barra"><i></i><i></i><i></i><span class="sc-sv-nav-url">tutienda.com</span></div>
-                    <div class="sc-sv-nav-sitio">
-                      <div class="sc-sv-t-top"><span class="sc-sv-w-logo"></span><span class="sc-sv-t-buscar"></span><span class="sc-sv-t-carro"><i class="tji-budget" aria-hidden="true"></i><b>2</b></span></div>
-                      <div class="sc-sv-t-envio">Envío gratis desde $80.000</div>
-                      <div class="sc-sv-t-cats"><span></span><span></span><span></span><span></span></div>
-                      <div class="sc-sv-t-prods">
-                        <div class="sc-sv-t-prod activo"><span class="sc-sv-t-foto"></span><i></i><em>$ 34.900</em><small>6 cuotas sin interés</small><u></u></div>
-                        <div class="sc-sv-t-prod"><span class="sc-sv-t-foto"></span><i></i><em>$ 52.500</em><small>6 cuotas sin interés</small><u></u></div>
-                        <div class="sc-sv-t-prod"><span class="sc-sv-t-foto"></span><i></i><em>$ 18.700</em><small>10% off transferencia</small><u></u></div>
+                  <div class="sc-sv-flota a" aria-hidden="true"><i class="tji-bell"></i>Seguimiento de hoy</div>
+                  <div class="sc-sv-nav" role="img" aria-label="Tablero de seguimiento donde las oportunidades avanzan de nueva a venta cerrada">
+                    <div class="sc-sv-nav-barra"><i></i><i></i><i></i><span class="sc-sv-nav-url">Seguimiento comercial</span></div>
+                    <div class="sc-sv-kanban">
+                      <div class="sc-sv-kanban-col"><b>Nuevas <em>2</em></b>
+                        <div class="sc-sv-tarj"><span>Mayorista Delta</span><i></i><small>Nueva consulta</small></div>
+                        <div class="sc-sv-tarj"><span>Óptica Plaza</span><i></i><small>Nueva consulta</small></div>
+                      </div>
+                      <div class="sc-sv-kanban-col"><b>Seguimiento <em>2</em></b>
+                        <div class="sc-sv-tarj hoy"><span>Ferretería Lomas</span><i></i><small>Seguimiento hoy</small></div>
+                        <div class="sc-sv-tarj"><span>Café Molino</span><i></i><small>En 2 días</small></div>
+                      </div>
+                      <div class="sc-sv-kanban-col"><b>Propuesta <em>1</em></b>
+                        <div class="sc-sv-tarj"><span>Estudio Arce</span><i></i><small>Propuesta enviada</small></div>
+                      </div>
+                      <div class="sc-sv-kanban-col"><b>Cerradas <em>2</em></b>
+                        <div class="sc-sv-tarj"><span>Librería Sur</span><i></i><small>Venta cerrada</small></div>
+                        <div class="sc-sv-tarj"><span>Gym Norte</span><i></i><small>Venta cerrada</small></div>
                       </div>
                     </div>
                   </div>
-                  <div class="sc-sv-t-venta" aria-hidden="true"><i>✓</i><span><b>Venta aprobada</b>Pago acreditado con Mercado Pago</span></div>
+                  <div class="sc-sv-aviso" aria-hidden="true"><i>✓</i><span><b>Venta cerrada</b>Después de tres seguimientos</span></div>
                 </div>
               </div>
             </div>
           </section>
 
           <!-- 2 · CINTA -->
-          <!-- [DATOS DEL SERVICIO] cinta: la lista va dos veces para que el loop no corte -->
-          <div class="sc-sv-cinta" aria-label="Qué incluye cada tienda">
+          <!-- [DATOS DEL SERVICIO] cinta -->
+          <div class="sc-sv-cinta" aria-label="Qué incluye el servicio">
             <div class="sc-sv-cinta-pista">
               <ul>
-                <li>Diseño a medida</li><li>Cuotas y transferencia</li><li>Envíos configurados</li><li>Carga de productos</li><li>Carrito abandonado</li><li>Píxel y analítica</li><li>WhatsApp integrado</li><li>Capacitación</li>
+                <li>Tablero de oportunidades</li><li>Recordatorios</li><li>Mensajes listos</li><li>Asistente en WhatsApp</li><li>Derivación a una persona</li><li>Motivos de pérdida</li><li>Informe de cierres</li><li>Capacitación del equipo</li>
               </ul>
               <ul aria-hidden="true">
-                <li>Diseño a medida</li><li>Cuotas y transferencia</li><li>Envíos configurados</li><li>Carga de productos</li><li>Carrito abandonado</li><li>Píxel y analítica</li><li>WhatsApp integrado</li><li>Capacitación</li>
+                <li>Tablero de oportunidades</li><li>Recordatorios</li><li>Mensajes listos</li><li>Asistente en WhatsApp</li><li>Derivación a una persona</li><li>Motivos de pérdida</li><li>Informe de cierres</li><li>Capacitación del equipo</li>
               </ul>
             </div>
           </div>
@@ -537,41 +542,47 @@
                   <h2 class="sc-sv-h2">Arrastrá y mirá lo que cambia.</h2>
                 </div>
                 <p class="sc-sv-lead sc-rv" data-rv-delay="100">
-                  El que entra a comprar quiere encontrar el producto, saber cuánto le sale
-                  con envío y pagar en cuotas. Si alguna de esas tres cosas cuesta, se va a
-                  otra tienda.
+                  El que pidió un presupuesto casi nunca dice que no. Deja de contestar. Con
+                  un segundo y un tercer mensaje a tiempo, una parte de esas ventas vuelve.
                 </p>
               </div>
 
               <div class="sc-sv-comp sc-rv" style="--corte: 50%">
                 <div class="sc-sv-comp-lado viejo" aria-hidden="true">
-                  <span class="sc-sv-comp-rotulo">Tienda de plantilla</span>
-                  <div class="sc-sv-v-top"><b>MI TIENDA</b><span>Inicio | Productos | Ofertas | Nosotros | Contacto | Carrito (0)</span></div>
-                  <div class="sc-sv-vt-aviso">Consultar envío por mail · Precios sujetos a cambio</div>
-                  <div class="sc-sv-vt-grid">
-                    <div>Producto 1<span>$ 34900</span></div><div>Producto 2<span>$ 52500</span></div><div>Producto 3<span>$ 18700</span></div><div>Producto 4<span>Sin stock</span></div>
-                    <div>Producto 5<span>$ 21000</span></div><div>Producto 6<span>$ 9900</span></div><div>Producto 7<span>Consultar</span></div><div>Producto 8<span>$ 44000</span></div>
+                  <span class="sc-sv-comp-rotulo">De memoria</span>
+                  <div class="sc-sv-cx">
+                    <h4>Presupuestos del mes</h4>
+                    <div class="sc-sv-cx-filas">
+                      <div class="sc-sv-cx-fila"><i>✕</i>Seguimiento<b>Cuando alguien se acuerda</b></div>
+                      <div class="sc-sv-cx-fila"><i>✕</i>Dónde está cada uno<b>En el WhatsApp de cada vendedor</b></div>
+                      <div class="sc-sv-cx-fila"><i>✕</i>Mensajes<b>Cada uno escribe distinto</b></div>
+                      <div class="sc-sv-cx-fila"><i>✕</i>Por qué se perdió<b>No se sabe</b></div>
+                      <div class="sc-sv-cx-fila"><i>✕</i>Cuánto se cierra<b>A ojo</b></div>
+                    </div>
+                    <span class="sc-sv-cx-pie">Ejemplo ilustrativo</span>
                   </div>
-                  <span class="sc-sv-v-carga">Cargando…</span>
                 </div>
                 <div class="sc-sv-comp-lado nuevo" aria-hidden="true">
-                  <span class="sc-sv-comp-rotulo">Tienda a medida</span>
-                  <div class="sc-sv-n-top"><b></b><span>Carrito · 2</span></div>
-                  <div class="sc-sv-nt-barra">Envío gratis desde $80.000 · 6 cuotas sin interés</div>
-                  <div class="sc-sv-nt-cats"><span>Nuevos</span><span>Hombre</span><span>Mujer</span><span>Ofertas</span></div>
-                  <div class="sc-sv-nt-prods">
-                    <div><b>$ 34.900</b><small>6 cuotas de $ 5.816</small></div>
-                    <div><b>$ 52.500</b><small>6 cuotas de $ 8.750</small></div>
-                    <div><b>$ 18.700</b><small>10% off transferencia</small></div>
+                  <span class="sc-sv-comp-rotulo">Con sistema</span>
+                  <div class="sc-sv-cx">
+                    <h4>Presupuestos del mes</h4>
+                    <div class="sc-sv-cx-filas">
+                      <div class="sc-sv-cx-fila"><i>✓</i>Seguimiento<b>Con fecha y recordatorio</b></div>
+                      <div class="sc-sv-cx-fila"><i>✓</i>Dónde está cada uno<b>En un solo tablero</b></div>
+                      <div class="sc-sv-cx-fila"><i>✓</i>Mensajes<b>Probados y listos</b></div>
+                      <div class="sc-sv-cx-fila"><i>✓</i>Por qué se perdió<b>Registrado</b></div>
+                      <div class="sc-sv-cx-fila"><i>✓</i>Cuánto se cierra<b>En el informe</b></div>
+                    </div>
+                    <span class="sc-sv-cx-pie">Ejemplo ilustrativo</span>
                   </div>
                 </div>
                 <div class="sc-sv-comp-manija" aria-hidden="true"></div>
-                <input type="range" min="0" max="100" value="50" aria-label="Comparar la tienda de plantilla con la tienda a medida">
+                <input type="range" min="0" max="100" value="50" aria-label="Comparar el seguimiento de memoria con el seguimiento con sistema">
               </div>
 
               <div class="sc-sv-comp-notas">
-                <p class="sc-rv"><b>La tienda de plantilla</b>Productos en una grilla sin orden, el envío se consulta por mail y las cuotas no aparecen hasta el último paso. Cada duda es una venta que se enfría.</p>
-                <p class="bien sc-rv" data-rv-delay="100"><b>La tienda a medida</b>Categorías con foto, el precio en cuotas a la vista y el envío resuelto antes del carrito. El que llega sabe cuánto paga y cuándo le llega.</p>
+                <p class="sc-rv"><b>De memoria</b>Cada vendedor lleva sus presupuestos en la cabeza y en su teléfono. Los que no contestan quedan ahí, y nadie sabe cuántas ventas se perdieron ni por qué.</p>
+                <p class="bien sc-rv" data-rv-delay="100"><b>Con sistema</b>Cada presupuesto tiene un responsable, una próxima fecha y el mensaje que toca. Todos los días tu equipo sabe exactamente a quién escribir.</p>
               </div>
             </div>
           </section>
@@ -581,71 +592,66 @@
             <div class="container">
               <div class="sc-sv-cabeza">
                 <span class="sc-sv-eyebrow sc-rv">Qué incluye</span>
-                <h2 class="sc-sv-h2 sc-rv">Todo lo que pasa entre el clic y la venta, resuelto.</h2>
+                <h2 class="sc-sv-h2 sc-rv">Todo lo que pasa entre el presupuesto y el sí.</h2>
               </div>
 
-              <!-- [DATOS DEL SERVICIO] grilla: siete cajas, el orden define el tamaño -->
+              <!-- [DATOS DEL SERVICIO] grilla -->
               <div class="sc-sv-bento">
                 <article class="sc-sv-caja sc-rv">
-                  <span class="sc-sv-caja-ico"><i class="tji-budget"></i></span>
-                  <h3>Cobrás como tu cliente quiere pagar</h3>
-                  <p>Tarjetas en cuotas, transferencia con descuento, Mercado Pago y efectivo al retirar. Configuramos cada medio, con sus recargos y promociones, y hacemos una compra real antes de lanzar.</p>
-                  <div class="sc-sv-vis sc-sv-pago" aria-hidden="true">
-                    <div class="sel"><img src="assets/images/icons/mercadopago.svg" alt="">Mercado Pago<span>Hasta 6 cuotas</span></div>
-                    <div><span class="ico"><i class="tji-budget"></i></span>Transferencia<span>10% off</span></div>
-                    <div><span class="ico"><i class="tji-home"></i></span>Efectivo al retirar<span>En el local</span></div>
+                  <span class="sc-sv-caja-ico"><i class="tji-bell"></i></span>
+                  <h3>Recordatorios que no fallan</h3>
+                  <p>Cada oportunidad tiene su próxima fecha de contacto. Tu equipo arranca el día con la lista de a quién escribir, y el sistema avisa si alguna quedó atrasada.</p>
+                  <div class="sc-sv-vis sc-sv-recor" aria-hidden="true">
+                    <div class="hoy"><i class="tji-clock"></i>Ferretería Lomas · segundo seguimiento<span>Hoy</span></div>
+                    <div><i class="tji-clock"></i>Café Molino · enviar propuesta<span>Mañana</span></div>
+                    <div><i class="tji-clock"></i>Estudio Arce · confirmar reunión<span>Jueves</span></div>
                   </div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv" data-rv-delay="80">
-                  <span class="sc-sv-caja-ico"><i class="tji-phone-3"></i></span>
-                  <h3>Se compra con el pulgar</h3>
-                  <p>La mayoría de las compras empiezan en el teléfono. Diseñamos el recorrido para que buscar, elegir y pagar se haga con una mano.</p>
-                  <div class="sc-sv-vis sc-sv-tel" aria-hidden="true"><div><i></i><i></i><i></i><i></i><b></b></div></div>
+                  <span class="sc-sv-caja-ico"><i class="tji-whatsapp"></i></span>
+                  <h3>Asistente en WhatsApp</h3>
+                  <p>Responde las preguntas de siempre, pide los datos que faltan y pasa la conversación a una persona cuando hace falta.</p>
+                  <div class="sc-sv-vis sc-sv-chat" aria-hidden="true">
+                    <p class="cli">¿Tienen stock para 200 unidades?</p>
+                    <p class="bot">Sí. Para armarte el precio mayorista te paso con Diego, que ya tiene tus datos.</p>
+                    <small>derivado a Diego</small>
+                  </div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv">
-                  <span class="sc-sv-caja-ico"><i class="tji-plane"></i></span>
-                  <h3>Envíos sin consultas</h3>
-                  <p>El cliente pone su código postal y ve cuánto sale y cuándo llega. Sumamos retiro en el local o envío en el día si lo hacés.</p>
-                  <div class="sc-sv-vis sc-sv-envio" aria-hidden="true">
-                    <label><span>1425</span><em>Calcular</em></label>
-                    <div>A domicilio <b>2 a 4 días</b></div>
-                    <div>Retiro en el local <b>Gratis</b></div>
-                  </div>
+                  <span class="sc-sv-caja-ico"><i class="tji-window"></i></span>
+                  <h3>Un tablero para todo el equipo</h3>
+                  <p>Todas las oportunidades en un solo lugar, por etapa. Se ve qué está trabado y dónde.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Nuevas</span><span>Seguimiento</span><span>Propuesta</span><span>Cerradas</span></div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv" data-rv-delay="80">
-                  <span class="sc-sv-caja-ico"><i class="tji-window"></i></span>
-                  <h3>Catálogo cargado</h3>
-                  <p>Subimos tus productos con fotos, variantes de talle y color, stock y precios. Si ya los tenés en una planilla, los importamos de una.</p>
-                  <div class="sc-sv-vis sc-sv-planilla" aria-hidden="true">
-                    <div><span>producto</span><span>talle</span><span>stock</span></div>
-                    <div><span>Buzo oversize</span><span>M</span><span>12</span></div>
-                    <div><span>Buzo oversize</span><span>L</span><span>8</span></div>
-                    <div><span>✓ 842 importados</span><span></span><span></span></div>
-                  </div>
+                  <span class="sc-sv-caja-ico"><i class="tji-comment"></i></span>
+                  <h3>Mensajes que funcionan</h3>
+                  <p>Escribimos con vos los mensajes de cada etapa: el primer contacto, el seguimiento, el recordatorio de la propuesta.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Primer contacto</span><span>Seguimiento</span><span>Último aviso</span></div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv" data-rv-delay="160">
-                  <span class="sc-sv-caja-ico"><i class="tji-development"></i></span>
-                  <h3>Funciones a medida</h3>
-                  <p>Cuando la plataforma no alcanza, lo programamos: menú con foto por categoría, selector de modelo, precios mayoristas o lo que tu rubro pida.</p>
-                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Menú con fotos</span><span>Selector de modelo</span><span>Mayorista</span></div>
+                  <span class="sc-sv-caja-ico"><i class="tji-hand"></i></span>
+                  <h3>Siempre hay una persona</h3>
+                  <p>La automatización acompaña, pero el cierre lo hace tu equipo. Definimos cuándo pasar la conversación a una persona.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Pide precio</span><span>Tiene dudas</span><span>Está listo</span></div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv">
                   <span class="sc-sv-caja-ico"><i class="tji-chart"></i></span>
-                  <h3>Lista para anunciar</h3>
-                  <p>Dejamos instalados el píxel de Meta, Google Analytics y el seguimiento de compras. Cuando prendas los anuncios, cada venta va a quedar atribuida a la campaña que la trajo.</p>
-                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Píxel de Meta</span><span>Google Analytics</span><span>Compras medidas</span></div>
+                  <h3>Sabés por qué se pierde</h3>
+                  <p>Cada venta perdida queda con su motivo: precio, plazo, se fue a la competencia, no contestó. Con eso se decide qué mejorar, en la oferta o en el seguimiento.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Precio</span><span>Plazo</span><span>Competencia</span><span>Sin respuesta</span></div>
                 </article>
 
                 <article class="sc-sv-caja sc-rv" data-rv-delay="80">
-                  <span class="sc-sv-caja-ico"><i class="tji-bell"></i></span>
-                  <h3>Carritos que vuelven</h3>
-                  <p>El que dejó productos en el carrito recibe un recordatorio y vuelve a terminar la compra. También sumamos el botón de WhatsApp para el que prefiere preguntar antes.</p>
-                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Recordatorio por mail</span><span>WhatsApp</span><span>Cupones</span></div>
+                  <span class="sc-sv-caja-ico"><i class="tji-team"></i></span>
+                  <h3>Tu equipo, capacitado</h3>
+                  <p>Les enseñamos a usar el tablero y los mensajes. Un sistema que nadie usa no sirve, así que acompañamos las primeras semanas.</p>
+                  <div class="sc-sv-vis sc-sv-metrica" aria-hidden="true"><span>Capacitación</span><span>Guía de uso</span><span>Acompañamiento</span></div>
                 </article>
               </div>
               <!-- [/DATOS DEL SERVICIO] -->
@@ -658,51 +664,51 @@
               <div class="sc-sv-cabeza lado">
                 <div class="sc-rv">
                   <span class="sc-sv-eyebrow">Formatos</span>
-                  <h2 class="sc-sv-h2">Empezá a vender o llevá tu tienda al siguiente nivel.</h2>
+                  <h2 class="sc-sv-h2">Del orden básico al asistente que vende con vos.</h2>
                 </div>
                 <p class="sc-sv-lead sc-rv" data-rv-delay="100">
-                  Arrancás de cero, rehacés la que tenés o te mudás de plataforma. En los
-                  tres casos terminás con la tienda andando y sabiendo manejarla.
+                  Si hoy el seguimiento vive en la memoria de cada vendedor, empezamos por
+                  ordenarlo. El asistente y los informes se suman cuando la base funciona.
                 </p>
               </div>
 
               <!-- [DATOS DEL SERVICIO] formatos -->
               <div class="sc-sv-formatos">
                 <article class="sc-sv-formato sc-rv">
-                  <span class="sc-sv-formato-plazo">De 3 a 6 semanas</span>
-                  <h3>Tienda nueva</h3>
-                  <p>Tu tienda desde cero, con diseño propio, los productos cargados y los pagos y envíos funcionando.</p>
+                  <span class="sc-sv-formato-plazo">Según el alcance</span>
+                  <h3>Sistema de seguimiento</h3>
+                  <p>El tablero de oportunidades con etapas, responsables y recordatorios, listo para tu equipo.</p>
                   <ul>
-                    <li><i class="tji-check"></i>Diseño a medida de tu marca</li>
-                    <li><i class="tji-check"></i>Carga del catálogo</li>
-                    <li><i class="tji-check"></i>Pagos, envíos y analítica</li>
+                    <li><i class="tji-check"></i>Etapas de tu venta</li>
+                    <li><i class="tji-check"></i>Recordatorios automáticos</li>
+                    <li><i class="tji-check"></i>Mensajes por etapa</li>
                   </ul>
-                  <p class="sc-sv-para"><b>Para vos si</b> vendés por Instagram o WhatsApp y querés que la venta se haga sola.</p>
+                  <p class="sc-sv-para"><b>Para vos si</b> sentís que se te escapan ventas y no sabés cuántas.</p>
                 </article>
 
                 <article class="sc-sv-formato destacado sc-rv" data-rv-delay="80">
                   <span class="sc-sv-formato-plazo">Según el alcance</span>
-                  <h3>Tienda a medida</h3>
-                  <p>Para tiendas con mucho catálogo o un rubro con reglas propias, donde la plantilla se queda corta.</p>
+                  <h3>Seguimiento con asistente</h3>
+                  <p>El sistema completo más un asistente en WhatsApp que atiende, califica y deriva a tu equipo.</p>
                   <ul>
-                    <li><i class="tji-check"></i>Menú y navegación programados</li>
-                    <li><i class="tji-check"></i>Funciones propias del rubro</li>
-                    <li><i class="tji-check"></i>Integración con tu stock o sistema</li>
-                    <li><i class="tji-check"></i>Capacitación al entregar</li>
+                    <li><i class="tji-check"></i>Todo lo del sistema</li>
+                    <li><i class="tji-check"></i>Asistente en WhatsApp</li>
+                    <li><i class="tji-check"></i>Derivación a una persona</li>
+                    <li><i class="tji-check"></i>Capacitación del equipo</li>
                   </ul>
-                  <p class="sc-sv-para"><b>Para vos si</b> tu tienda ya vende y ahora tiene que vender más.</p>
+                  <p class="sc-sv-para"><b>Para vos si</b> recibís muchas consultas y tu equipo no llega a todas.</p>
                 </article>
 
                 <article class="sc-sv-formato sc-rv" data-rv-delay="160">
-                  <span class="sc-sv-formato-plazo">Según la cantidad de productos</span>
-                  <h3>Migración</h3>
-                  <p>Te mudamos de plataforma con los productos, las fotos y las categorías, y cuidamos que Google no pierda lo que ya tenías posicionado.</p>
+                  <span class="sc-sv-formato-plazo">Mensual</span>
+                  <h3>Acompañamiento comercial</h3>
+                  <p>Miramos los números con vos todos los meses y ajustamos mensajes, tiempos y etapas.</p>
                   <ul>
-                    <li><i class="tji-check"></i>Productos y variantes</li>
-                    <li><i class="tji-check"></i>Redirecciones de las URL viejas</li>
-                    <li><i class="tji-check"></i>Tienda nueva lista antes de apagar la vieja</li>
+                    <li><i class="tji-check"></i>Informe de cierres</li>
+                    <li><i class="tji-check"></i>Motivos de pérdida</li>
+                    <li><i class="tji-check"></i>Mejoras mes a mes</li>
                   </ul>
-                  <p class="sc-sv-para"><b>Para vos si</b> tu plataforma actual te limita o te cobra de más.</p>
+                  <p class="sc-sv-para"><b>Para vos si</b> querés que el porcentaje de cierre suba mes a mes.</p>
                 </article>
               </div>
               <!-- [/DATOS DEL SERVICIO] -->
@@ -715,8 +721,8 @@
               <div class="sc-sv-proceso-wrap">
                 <div class="sc-sv-cabeza">
                   <span class="sc-sv-eyebrow sc-rv">Cómo trabajamos</span>
-                  <h2 class="sc-sv-h2 sc-rv">De la primera reunión a la primera venta.</h2>
-                  <p class="sc-sv-lead sc-rv">Antes de empezar tenés el alcance, el plazo y el precio por escrito. Hablás siempre con quien está armando tu tienda.</p>
+                  <h2 class="sc-sv-h2 sc-rv">Armado sobre cómo vende tu equipo.</h2>
+                  <p class="sc-sv-lead sc-rv">No te imponemos un proceso de manual. Miramos cómo cierran hoy los que mejor venden y lo convertimos en sistema para todos.</p>
                   <div class="sc-sv-btns sc-rv" style="margin-top: 30px">
                     <a class="sc-sv-btn primario" href="agenda.html">Empezar por la reunión <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
                   </div>
@@ -728,37 +734,37 @@
                     <span class="sc-sv-paso-num" aria-hidden="true"></span>
                     <div>
                       <h3>Diagnóstico</h3>
-                      <p>Hablamos de qué vendés, cuántos productos tenés, cómo cobrás y cómo entregás. Con eso elegimos la plataforma.</p>
+                      <p>Vemos cómo sigue hoy tu equipo cada consulta, cuánto tarda en responder y dónde se caen las ventas.</p>
                       <small>Sin cargo</small>
                     </div>
                   </li>
                   <li class="sc-sv-paso">
                     <span class="sc-sv-paso-num" aria-hidden="true"></span>
                     <div>
-                      <h3>Propuesta</h3>
-                      <p>Te pasamos qué incluye la tienda, cuánto tarda, cuánto sale y lo que cuesta mantener la plataforma por mes.</p>
+                      <h3>Etapas y mensajes</h3>
+                      <p>Definimos con vos las etapas de tu venta, cuándo toca cada contacto y qué se dice en cada uno.</p>
                     </div>
                   </li>
                   <li class="sc-sv-paso">
                     <span class="sc-sv-paso-num" aria-hidden="true"></span>
                     <div>
-                      <h3>Diseño</h3>
-                      <p>Ves la tienda diseñada con tus productos reales antes de armarla. La ajustamos con vos hasta que te cierre.</p>
+                      <h3>Armado del sistema</h3>
+                      <p>Tablero, recordatorios, conexión con WhatsApp y, si corresponde, el asistente.</p>
                     </div>
                   </li>
                   <li class="sc-sv-paso">
                     <span class="sc-sv-paso-num" aria-hidden="true"></span>
                     <div>
-                      <h3>Armado y carga</h3>
-                      <p>Cargamos el catálogo, configuramos pagos y envíos, y hacemos compras de prueba reales hasta que todo sale bien.</p>
+                      <h3>Capacitación</h3>
+                      <p>Tu equipo aprende a usarlo con sus propias consultas, no con ejemplos inventados.</p>
                     </div>
                   </li>
                   <li class="sc-sv-paso">
                     <span class="sc-sv-paso-num" aria-hidden="true"></span>
                     <div>
-                      <h3>Lanzamiento y capacitación</h3>
-                      <p>La publicamos en tu dominio y te enseñamos a cargar productos, ver pedidos y armar promociones. Después del lanzamiento hay una ronda de ajustes incluida.</p>
-                      <small>Seguimos disponibles para soporte</small>
+                      <h3>Seguimiento y ajustes</h3>
+                      <p>Acompañamos las primeras semanas, miramos los números y ajustamos lo que haga falta.</p>
+                      <small>Informe mensual</small>
                     </div>
                   </li>
                 </ol>
@@ -767,42 +773,41 @@
             </div>
           </section>
 
-          <!-- 7 · PLATAFORMAS -->
+          <!-- 7 · HERRAMIENTAS -->
           <section class="sc-sv-seccion" style="padding-top: 0">
             <div class="container">
               <div class="sc-sv-cabeza lado">
                 <div class="sc-rv">
-                  <span class="sc-sv-eyebrow">Plataformas</span>
-                  <h2 class="sc-sv-h2">La plataforma que mejor le queda a tu negocio.</h2>
+                  <span class="sc-sv-eyebrow">Herramientas</span>
+                  <h2 class="sc-sv-h2">Simple de usar para todo el equipo.</h2>
                 </div>
                 <p class="sc-sv-lead sc-rv" data-rv-delay="100">
-                  Cada una tiene su abono, sus comisiones y sus fortalezas. En la propuesta
-                  te las mostramos comparadas con tus números y elegís con toda la
-                  información.
+                  La mejor herramienta es la que tu equipo va a abrir todos los días. Por
+                  eso elegimos según quién la va a usar, no según la moda.
                 </p>
               </div>
 
-              <!-- [DATOS DEL SERVICIO] plataformas -->
+              <!-- [DATOS DEL SERVICIO] herramientas -->
               <div class="sc-sv-plataformas">
                 <article class="sc-sv-plat sc-rv">
-                  <img src="assets/images/icons/tiendanube.png" alt="Logo de Tiendanube" width="52" height="52" loading="lazy" style="background:#fff;padding:9px">
-                  <h3>Tiendanube</h3>
-                  <p>Simple de manejar y con pagos y envíos de la región ya integrados. Ideal para arrancar rápido.</p>
+                  <img src="assets/images/icons/pipedrive.svg" alt="Logo de Pipedrive" width="52" height="52" loading="lazy">
+                  <h3>CRM</h3>
+                  <p>Pipedrive u otro CRM que ya uses, configurado con las etapas de tu venta.</p>
                 </article>
                 <article class="sc-sv-plat sc-rv" data-rv-delay="60">
-                  <img src="assets/images/icons/shopify.svg" alt="Logo de Shopify" width="52" height="52" loading="lazy">
-                  <h3>Shopify</h3>
-                  <p>Muy completa y con miles de aplicaciones. Conviene si vendés en varios países o en varias monedas.</p>
+                  <img src="assets/images/icons/whatsapp.svg" alt="Logo de WhatsApp" width="52" height="52" loading="lazy">
+                  <h3>WhatsApp</h3>
+                  <p>Donde pasa la conversación, conectado al tablero para no perder nada.</p>
                 </article>
                 <article class="sc-sv-plat sc-rv" data-rv-delay="120">
-                  <img src="assets/images/icons/woocommerce.svg" alt="Logo de WooCommerce" width="52" height="52" loading="lazy">
-                  <h3>WooCommerce</h3>
-                  <p>La tienda dentro de WordPress, sin abono de plataforma. Flexible para catálogos con reglas propias.</p>
+                  <img src="assets/images/icons/googlesheets.svg" alt="Logo de Google Sheets" width="52" height="52" loading="lazy">
+                  <h3>Planilla</h3>
+                  <p>Si tu equipo es chico, una planilla bien armada con recordatorios alcanza para empezar.</p>
                 </article>
                 <article class="sc-sv-plat sc-rv" data-rv-delay="180">
-                  <img src="assets/images/icons/mercadopago.svg" alt="Logo de Mercado Pago" width="52" height="52" loading="lazy">
-                  <h3>Mercado Pago</h3>
-                  <p>Lo integramos en cualquiera de las tres, con cuotas, promociones y el cobro acreditado en tu cuenta.</p>
+                  <img src="assets/images/icons/chatgpt.svg" alt="Logo de ChatGPT" width="52" height="52" loading="lazy">
+                  <h3>Asistentes con IA</h3>
+                  <p>Para atender las preguntas de siempre y dejarle a tu equipo las conversaciones que cierran.</p>
                 </article>
               </div>
               <!-- [/DATOS DEL SERVICIO] -->
@@ -815,7 +820,7 @@
               <div class="sc-sv-cabeza lado">
                 <div class="sc-rv">
                   <span class="sc-sv-eyebrow">Trabajos</span>
-                  <h2 class="sc-sv-h2">Tiendas que ya están vendiendo.</h2>
+                  <h2 class="sc-sv-h2">Sistemas que ya están funcionando.</h2>
                 </div>
                 <p class="sc-sv-lead sc-rv" data-rv-delay="100">
                   Cada caso cuenta el problema que había, cómo lo encaramos y qué cambió.
@@ -823,11 +828,11 @@
                 </p>
               </div>
 
-              <!-- [DATOS DEL SERVICIO] casos relacionados: las portadas salen de tools/portadas-casos.html -->
+              <!-- [DATOS DEL SERVICIO] casos relacionados -->
               <div class="sc-sv-casos">
-                <a class="sc-sv-caso sc-rv" href="caso-tienda-a-medida.html">
-                  <img src="assets/images/casos/tienda-a-medida.jpg" alt="Tienda con menú programado a medida" loading="lazy">
-                  <div class="sc-sv-caso-txt"><span>E-commerce a medida</span><h3>Una tienda con el menú programado a medida</h3><em>Ver el caso <i class="tji-arrow-right-2" aria-hidden="true"></i></em></div>
+                <a class="sc-sv-caso sc-rv" href="caso-reparto-de-consultas.html">
+                  <img src="assets/images/casos/reparto-de-consultas.jpg" alt="Consultas de WhatsApp repartidas entre asesores" loading="lazy">
+                  <div class="sc-sv-caso-txt"><span>Automatización</span><h3>Las consultas se reparten entre los asesores</h3><em>Ver el caso <i class="tji-arrow-right-2" aria-hidden="true"></i></em></div>
                 </a>
                 <a class="sc-sv-caso sc-rv" href="caso-plataforma-de-cursos.html" data-rv-delay="80">
                   <img src="assets/images/casos/plataforma-de-cursos.jpg" alt="Tiendanube, Make y aula virtual conectados" loading="lazy">
@@ -855,28 +860,28 @@
                 <!-- [DATOS DEL SERVICIO] preguntas: el FAQPage del head se genera leyendo estas -->
                 <div class="sc-sv-faq sc-rv" data-rv-delay="100">
                   <details open>
-                    <summary>¿Qué plataforma me conviene?</summary>
-                    <p>Depende de cuántos productos tenés, en qué países vendés y quién va a manejar la tienda. En la primera reunión te recomendamos una y te explicamos por qué, con lo que cuesta cada opción por mes.</p>
+                    <summary>¿En qué se diferencia de la automatización de leads?</summary>
+                    <p>La automatización ordena la entrada: que cada consulta llegue, se responda y quede registrada. El seguimiento empieza después: acompaña esa consulta con recordatorios y mensajes hasta que se convierte en venta. Se pueden contratar por separado o juntos.</p>
                   </details>
                   <details>
-                    <summary>¿Cuánto cuesta una tienda online?</summary>
-                    <p>Depende del diseño, de la cantidad de productos y de las funciones que necesites. Después de la reunión te pasamos un precio cerrado por escrito. Aparte está el abono de la plataforma, que se paga directo a ella.</p>
+                    <summary>¿Un bot va a hablar con mis clientes?</summary>
+                    <p>Solo en lo que vos definas, como responder las preguntas de siempre o pedir datos. Cuando la conversación pide criterio o una negociación, pasa a una persona de tu equipo.</p>
                   </details>
                   <details>
-                    <summary>¿Cuánto tarda?</summary>
-                    <p>Una tienda completa lleva entre 3 y 6 semanas. Lo que más mueve el plazo es tener las fotos y los datos de los productos listos. Antes de arrancar tenés el cronograma con las fechas de cada etapa.</p>
+                    <summary>¿Necesito un CRM?</summary>
+                    <p>No necesariamente. Para equipos chicos, una planilla bien armada con recordatorios alcanza. Si tu equipo crece o ya usás un CRM, lo configuramos con tus etapas.</p>
                   </details>
                   <details>
-                    <summary>¿Ustedes cargan los productos?</summary>
-                    <p>Sí. Si los tenés en una planilla los importamos todos juntos, con variantes y stock. Si no, te pasamos un modelo para completar y nos ocupamos del resto.</p>
+                    <summary>¿Mi equipo lo va a usar?</summary>
+                    <p>Es lo que más cuidamos. Lo armamos sobre cómo ya trabajan, los capacitamos con sus propias consultas y acompañamos las primeras semanas.</p>
                   </details>
                   <details>
-                    <summary>Ya tengo una tienda. ¿Pueden migrarla?</summary>
-                    <p>Sí. Pasamos productos, fotos y categorías, y redirigimos las direcciones viejas a las nuevas para no perder el posicionamiento en Google. La tienda vieja sigue andando hasta que la nueva está lista.</p>
+                    <summary>¿Sirve si vendo solo por WhatsApp?</summary>
+                    <p>Sí, es el caso más común. El tablero y los recordatorios se conectan con las conversaciones de WhatsApp de tu equipo.</p>
                   </details>
                   <details>
-                    <summary>¿La tienda queda a mi nombre?</summary>
-                    <p>Siempre. La cuenta de la plataforma, el dominio y los medios de cobro son tuyos. Nosotros los configuramos y te dejamos todos los accesos.</p>
+                    <summary>¿Cuánto cuesta?</summary>
+                    <p>Depende del tamaño del equipo y de si sumás el asistente. Después del diagnóstico te pasamos un precio cerrado por escrito.</p>
                   </details>
                 </div>
                 <!-- [/DATOS DEL SERVICIO] -->
@@ -888,11 +893,11 @@
           <section class="sc-sv-cierre">
             <div class="container">
               <div class="sc-sv-cierre-caja sc-rv">
-                <h2>¿Arrancamos con tu <span class="sc-sv-grad">tienda</span>?</h2>
-                <p>Media hora de reunión y te decimos qué plataforma te conviene, cuánto tarda y cuánto sale.</p>
+                <h2>¿Recuperamos las ventas que se te <span class="sc-sv-grad">escapan</span>?</h2>
+                <p>Contanos cómo sigue hoy tu equipo cada presupuesto y te mostramos dónde se están cayendo las ventas.</p>
                 <div class="sc-sv-btns">
                   <a class="sc-sv-btn primario" href="agenda.html">Agendá una reunión <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
-                  <a class="sc-sv-btn secundario" href="https://wa.me/5491153362945?text=Hola%2C%20quiero%20consultar%20por%20una%20tienda%20online" target="_blank" rel="noopener"><i class="tji-whatsapp" aria-hidden="true"></i> Escribinos por WhatsApp</a>
+                  <a class="sc-sv-btn secundario" href="https://wa.me/5491153362945?text=Hola%2C%20quiero%20consultar%20por%20el%20seguimiento%20de%20ventas" target="_blank" rel="noopener"><i class="tji-whatsapp" aria-hidden="true"></i> Escribinos por WhatsApp</a>
                 </div>
               </div>
             </div>
@@ -1084,8 +1089,8 @@
         </div>
 
         <div class="sc-campo">
-          <label for="sc-mensaje">¿Qué necesitás de tu tienda?</label>
-          <textarea id="sc-mensaje" name="mensaje" placeholder="Contanos qué vendés y cómo lo vendés hoy."></textarea>
+          <label for="sc-mensaje">¿Dónde se te escapan las ventas?</label>
+          <textarea id="sc-mensaje" name="mensaje" placeholder="Contanos cómo sigue hoy tu equipo cada presupuesto."></textarea>
         </div>
 
         <button type="submit" class="sc-modal-enviar">Enviar consulta</button>
