@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="assets/css/meanmenu.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/sc-legal.css">
+  <link rel="stylesheet" href="assets/css/sc-sv.css">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
   <!-- <link rel="stylesheet" href="assets/css/sc-chat.css"> -->
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
@@ -1838,95 +1839,44 @@
         <!-- end: Contact Section -->
 
         <!-- start: Blog Section -->
-        <section class="tj-blog-section section-gap fix">
+        <!-- Notas del blog: las tres más nuevas. Estilos en sc-sv.css (bloque Blog). -->
+        <section class="tj-blog-section section-gap fix sc-sv" style="overflow:visible">
           <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="sec-heading sec-heading-centered">
-                  <span class="sub-title tj-fade-anim">Novedades</span>
-                  <h2 class="sec-title tj-split-text-1">Últimas Novedades en Automatización.</h2>
-                </div>
-              </div>
+            <div class="sec-heading sec-heading-centered">
+              <span class="sub-title tj-fade-anim">Blog</span>
+              <h2 class="sec-title tj-split-text-1">Notas para Vender Mejor en Digital.</h2>
             </div>
-            <div class="row rg-30">
-              <div class="col-lg-4 col-md-6">
-                <div class="blog-item tj-fade-anim" data-delay="0.1">
-                  <div class="blog-thumb img-reveal-2">
-                    <a href="blog-details.html"><img src="assets/images/blog/blog-1.webp" alt=""></a>
-                    <div class="blog-date">
-                      <span class="date">28</span>
-                      <span class="month">Feb</span>
-                    </div>
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span class="categories"><a href="blog-details.html">Desarrollo Web</a></span>
-                      <span>Por <a href="blog-details.html">Ellinien Loma</a></span>
-                    </div>
-                    <h4 class="title"><a href="blog-details.html">5 Señales de que tu Web Necesita un Rediseño</a>
-                    </h4>
-                    <a class="tj-text-btn" href="blog-details.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Leer Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="blog-item tj-fade-anim" data-delay="0.2">
-                  <div class="blog-thumb img-reveal-2">
-                    <a href="blog-details.html"><img src="assets/images/blog/blog-2.webp" alt=""></a>
-                    <div class="blog-date">
-                      <span class="date">28</span>
-                      <span class="month">Feb</span>
-                    </div>
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span class="categories"><a href="blog-details.html">SEO & Ads</a></span>
-                      <span>Por <a href="blog-details.html">Ellinien Loma</a></span>
-                    </div>
-                    <h4 class="title"><a href="blog-details.html">SEO vs. Ads: Cuál Conviene Según tu Negocio</a>
-                    </h4>
-                    <a class="tj-text-btn" href="blog-details.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Leer Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="blog-item tj-fade-anim" data-delay="0.3">
-                  <div class="blog-thumb img-reveal-2">
-                    <a href="blog-details.html"><img src="assets/images/blog/blog-3.webp" alt=""></a>
-                    <div class="blog-date">
-                      <span class="date">28</span>
-                      <span class="month">Feb</span>
-                    </div>
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span class="categories"><a href="blog-details.html">Guías</a></span>
-                      <span>Por <a href="blog-details.html">Ellinien Loma</a></span>
-                    </div>
-                    <h4 class="title"><a href="blog-details.html">Cómo el Seguimiento por WhatsApp Cierra Más Ventas</a>
-                    </h4>
-                    <a class="tj-text-btn" href="blog-details.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Leer Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div class="sc-nb-grid">
+              <a class="sc-nb" href="nota-senales-web-necesita-redisenio.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/senales-web-necesita-redisenio.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>Desarrollo web</b><span>5 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">Cinco señales de que tu web ya no está a la altura de tu empresa</strong>
+                  <span class="sc-nb-bajada">La empresa creció, cambió lo que vende y hasta el equipo es otro. Si la web sigue igual que hace años, está contando una historia que ya no es la tuya.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a class="sc-nb" href="nota-tiendanube-shopify-o-woocommerce.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/tiendanube-shopify-o-woocommerce.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>Tiendas online</b><span>6 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">Tiendanube, Shopify o WooCommerce: cómo elegir la plataforma de tu tienda</strong>
+                  <span class="sc-nb-bajada">Las tres sirven para vender online. La diferencia está en cuánto pagás por mes, en qué países vendés y en quién va a manejar la tienda todos los días.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a class="sc-nb" href="nota-seo-tecnico-antes-que-el-contenido.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/seo-tecnico-antes-que-el-contenido.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>SEO</b><span>5 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">Por qué el SEO técnico va antes que escribir notas para Google</strong>
+                  <span class="sc-nb-bajada">Publicar contenido en un sitio que Google no puede leer bien es como imprimir folletos y dejarlos en un cajón. Primero se ordena la casa.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+            </div>
+            <div class="text-center" style="margin-top: 40px">
+              <a class="sc-sv-btn secundario" href="blog.html">Ver todas las notas <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
             </div>
           </div>
         </section>
