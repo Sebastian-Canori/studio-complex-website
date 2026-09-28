@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Portadas de los casos de éxito para el carrusel del home (900x1200).
+     Cada portada es un <div class="cv" data-c="N">; se ve una por vez con ?c=N.
+     Para sumar un caso: copiar un .cv, cambiar data-c y el contenido.
+     Render (Mac): firefox --headless --no-remote --profile <dir> --window-size=900,1200
+       --screenshot out.png "http://localhost:4599/tools/portadas-casos.html?c=N"
+     y pasar a jpg: sips -s format jpeg -s formatOptions 84 out.png --out assets/images/casos/<caso>.jpg --><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:900px;height:1200px;overflow:hidden;background:#07090c;font-family:Figtree,sans-serif;color:#fff}
+.cv{position:relative;width:900px;height:1200px;overflow:hidden;
+ background:radial-gradient(600px 480px at 18% 18%,rgba(242,128,30,.30),transparent 70%),
+ radial-gradient(640px 520px at 88% 42%,rgba(34,211,238,.22),transparent 70%),#0a0e13}
+.cv:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000 20%,transparent 75%)}
+.stage{position:absolute;left:0;right:0;top:130px;height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px}
+.row{display:flex;align-items:center;gap:22px}
+.tile{border-radius:34px;box-shadow:0 30px 60px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.12)}
+.dim{filter:grayscale(1) brightness(.6)}
+.glow-c{box-shadow:0 0 90px rgba(34,211,238,.45),0 30px 60px rgba(0,0,0,.55)}
+.glow-g{box-shadow:0 0 90px rgba(37,211,102,.4),0 30px 60px rgba(0,0,0,.55)}
+.tn{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:30px}
+.tn img{width:62%;height:62%;image-rendering:auto}
+.chips{display:flex;gap:14px}
+.chips span{font-size:30px;font-weight:700;padding:12px 26px;border-radius:99px;background:rgba(34,211,238,.12);color:#7ee8f7;box-shadow:inset 0 0 0 2px rgba(34,211,238,.35)}
+.chips span.o{background:rgba(242,128,30,.14);color:#ffb070;box-shadow:inset 0 0 0 2px rgba(242,128,30,.45)}
+.note{display:flex;align-items:center;gap:22px;padding:26px 34px;border-radius:26px;background:rgba(16,21,28,.9);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 30px 60px rgba(0,0,0,.5)}
+.note i{width:60px;height:60px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:34px;font-weight:800}
+.note b{display:block;font-size:34px}.note small{font-size:24px;color:#9aa7b4}
+.bars{display:flex;align-items:flex-end;gap:14px;height:220px;padding:0 10px;border-bottom:2px solid rgba(255,255,255,.12)}
+.bars i{width:34px;border-radius:8px 8px 0 0;background:linear-gradient(#22D3EE,rgba(242,128,30,.9))}
+.hub{display:flex;flex-direction:column;align-items:center}
+.avs{display:flex;gap:250px;margin-top:-6px}.avs .av:first-child{margin-left:0}
+.av{width:96px;height:96px;border-radius:50%;background:#131a22;box-shadow:inset 0 0 0 3px rgba(242,128,30,.8);display:flex;align-items:center;justify-content:center}
+.av span{font-size:30px;font-weight:800;color:#ffb070}
+.avs{gap:124px}
+.row.sm{gap:18px}.lbl{font-size:30px;font-weight:700;color:#cfd8e1}
+.shop{width:640px;border-radius:28px;background:rgba(16,21,28,.92);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 40px 80px rgba(0,0,0,.55);padding:22px}
+.shop .bar{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.shop .bar .tn{border-radius:14px}
+.shop .bar span:not(.tn){flex:1;height:18px;border-radius:9px;background:rgba(255,255,255,.1)}
+.shop .bar span.sm{flex:.35;background:rgba(242,128,30,.6)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid div{border-radius:16px;background:#131a22;padding:10px}
+.grid i{display:block;height:110px;border-radius:10px;background:linear-gradient(135deg,rgba(242,128,30,.75),rgba(34,211,238,.6))}
+.grid b{display:block;height:12px;width:70%;margin-top:12px;border-radius:6px;background:rgba(255,255,255,.18)}
+</style></head><body>
+<div class="cv" data-c="1"><div class="stage"><div class="row"><svg class="tile dim" width="150" height="150" viewBox="0 0 56 56"><rect width="56" height="56" rx="14" fill="#21759B"/><g transform="translate(14 14) scale(1.1667)" fill="#fff"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></g></svg><svg class="arrow" width="120" height="30" viewBox="0 0 120 30"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#F2801E"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><path d="M4 15h100M92 4l14 11-14 11" fill="none" stroke="url(#g1)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="tile glow-c" width="190" height="190" viewBox="0 0 56 56"><rect width="56" height="56" rx="14" fill="#146EF5"/><g transform="translate(14 14) scale(1.1667)" fill="#fff"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></g></svg></div>
+<div class="chips"><span>ES</span><span>EN</span><span>PT</span><span class="o">CMS</span></div></div></div><div class="cv" data-c="2"><div class="stage"><div class="row"><span class="tile tn" style="width:130px;height:130px"><img src="../assets/images/icons/tiendanube.png" alt=""></span><svg class="arrow" width="120" height="30" viewBox="0 0 120 30"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#F2801E"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><path d="M4 15h100M92 4l14 11-14 11" fill="none" stroke="url(#g2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><img class="tile " src="../assets/images/icons/make.svg" width="130" height="130" alt=""><svg class="arrow" width="120" height="30" viewBox="0 0 120 30"><defs><linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#F2801E"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><path d="M4 15h100M92 4l14 11-14 11" fill="none" stroke="url(#g3)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="tile" width="150" height="150" viewBox="0 0 56 56"><rect width="56" height="56" rx="14" fill="#F2801E"/><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M10 23l18-8 18 8-18 8z"/><path d="M18 27v9c0 3 5 5 10 5s10-2 10-5v-9"/><path d="M46 23v10"/></g></svg></div>
+<div class="note"><i>✓</i><div><b>Pago aprobado</b><small>Acceso al aula habilitado · 23:14</small></div></div></div></div><div class="cv" data-c="3"><div class="stage"><div class="row"><svg class="tile glow-c" width="170" height="170" viewBox="0 0 56 56"><rect width="56" height="56" rx="14" fill="#4285F4"/><g transform="translate(14 14) scale(1.1667)" fill="#fff"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></g></svg></div>
+<div class="bars"><i style="height:28%"></i><i style="height:36%"></i><i style="height:33%"></i><i style="height:45%"></i><i style="height:52%"></i><i style="height:49%"></i><i style="height:61%"></i><i style="height:58%"></i><i style="height:70%"></i><i style="height:76%"></i><i style="height:83%"></i><i style="height:92%"></i></div>
+<div class="chips"><span class="o">0 suspensiones</span><span>3 meses</span></div></div></div><div class="cv" data-c="4"><div class="stage"><div class="hub"><img class="tile glow-g" src="../assets/images/icons/whatsapp.svg" width="160" height="160" alt="">
+<svg class="lines" width="640" height="140" viewBox="0 0 640 140"><g fill="none" stroke="#22D3EE" stroke-opacity=".55" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"><path d="M320 0 C320 70 100 60 100 140"/><path d="M320 0 V140"/><path d="M320 0 C320 70 540 60 540 140"/></g></svg>
+<div class="avs"><div class="av"><span>A1</span></div><div class="av"><span>A2</span></div><div class="av"><span>A3</span></div></div></div>
+<div class="row sm"><svg class="tile " width="90" height="90" viewBox="0 0 56 56"><rect width="56" height="56" rx="14" fill="#34A853"/><g transform="translate(14 14) scale(1.1667)" fill="#fff"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></g></svg><span class="lbl">Cada consulta, registrada</span></div></div></div><div class="cv" data-c="5"><div class="stage"><div class="shop"><div class="bar"><span class="tile tn" style="width:56px;height:56px"><img src="../assets/images/icons/tiendanube.png" alt=""></span><span></span><span class="sm"></span></div>
+<div class="grid"><div><i></i><b></b></div><div><i></i><b></b></div><div><i></i><b></b></div><div><i></i><b></b></div><div><i></i><b></b></div><div><i></i><b></b></div></div></div>
+<div class="chips"><span class="o">+800 productos</span><span>Menú a medida</span></div></div></div>
+<script>
+var c=(location.search.match(/c=(\d)/)||[])[1]||"1";
+document.querySelectorAll(".cv").forEach(function(e){e.style.display=e.dataset.c===c?"block":"none"});
+</script></body></html>
