@@ -1340,3 +1340,85 @@
 .sc-sv-rel-lista small { font-size: 14px; color: var(--tj-color-text-body-2); }
 .sc-sv-rel-lista a > i:last-child { color: var(--tj-color-text-body-2); }
 .sc-sv-caja p a { color: var(--cian); font-weight: 700; }
+
+/* ==========================================================================
+   Home · Servicios en grilla bento (28/9)
+   Seis tarjetas de distintos tamaños, cada una con una mini pieza visual.
+   Desktop: 12 columnas. Tablet: 2 columnas. Teléfono: 1.
+   ========================================================================== */
+.sc-bento-sec { padding: 110px 0; }
+.sc-bento-cab { display: grid; gap: 22px; margin-bottom: 40px; }
+@media (min-width: 992px) { .sc-bento-cab { grid-template-columns: 1.2fr 1fr; align-items: end; } }
+.sc-bento-cab .sc-sv-h2 { margin: 0; }
+.sc-bento-cab p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--tj-color-text-body); }
+.sc-bento { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .sc-bento { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) {
+  .sc-bento { grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(250px, auto); gap: 18px; }
+  .sc-bento .b-web    { grid-column: span 7; grid-row: span 2; }
+  .sc-bento .b-tienda { grid-column: span 5; }
+  .sc-bento .b-seo    { grid-column: span 5; }
+  .sc-bento .b-ads    { grid-column: span 4; }
+  .sc-bento .b-auto   { grid-column: span 4; }
+  .sc-bento .b-cierre { grid-column: span 4; }
+}
+.sc-bento a.b {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 26px; border-radius: 22px; min-height: 250px;
+  background: linear-gradient(180deg, color-mix(in oklab, #fff 4%, var(--sup-1)), var(--sup-1));
+  box-shadow: inset 0 0 0 1px var(--borde);
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+}
+.sc-bento a.b:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--naranja) 55%, transparent), 0 30px 60px -30px color-mix(in oklab, var(--naranja) 50%, transparent); }
+.sc-bento .b-num { font-size: 13px; font-weight: 700; letter-spacing: .12em; color: var(--tj-color-text-body-2); }
+.sc-bento h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.1; letter-spacing: -.02em; margin: 0; color: var(--tj-color-heading-primary); }
+.sc-bento .b-web h3 { font-size: clamp(28px, 3vw, 40px); }
+.sc-bento p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--tj-color-text-body); max-width: 42ch; text-align: left; }
+.sc-bento .b-ir { margin-top: auto; padding-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: var(--tj-color-heading-primary); }
+.sc-bento .b-ir i { transition: transform .25s ease; color: var(--naranja); }
+.sc-bento a.b:hover .b-ir i { transform: translateX(4px); }
+.sc-bento .b-vis { margin-top: 8px; }
+/* Tarjeta grande: fondo con halo */
+.sc-bento .b-web::before { content: ""; position: absolute; inset: auto -20% -30% 20%; height: 70%; z-index: -1; pointer-events: none;
+  background: radial-gradient(50% 60% at 50% 50%, color-mix(in oklab, var(--naranja) 30%, transparent), transparent 70%); }
+/* Mini navegador (Web) */
+.b-nav { margin-top: 18px; border-radius: 14px; background: #0c1117; box-shadow: 0 0 0 1px color-mix(in oklab, #fff 9%, transparent), 0 30px 60px -25px #000; overflow: hidden; flex: 1; min-height: 240px; display: flex; flex-direction: column; }
+.b-nav-barra { display: flex; gap: 6px; align-items: center; height: 30px; padding: 0 12px; border-bottom: 1px solid color-mix(in oklab, #fff 7%, transparent); }
+.b-nav-barra i { width: 8px; height: 8px; border-radius: 50%; background: color-mix(in oklab, #fff 16%, transparent); }
+.b-nav-barra span { margin-left: 8px; font-size: 11px; color: var(--tj-color-text-body-2); }
+.b-nav-cuerpo { flex: 1; display: grid; grid-template-columns: 1.1fr 1fr; gap: 14px; padding: 18px; align-items: center; }
+.b-nav-txt { display: grid; gap: 8px; }
+.b-nav-txt i { height: 12px; border-radius: 6px; background: color-mix(in oklab, #fff 70%, transparent); }
+.b-nav-txt i:nth-child(2) { width: 75%; background: var(--grad); }
+.b-nav-txt i.f { height: 6px; background: color-mix(in oklab, #fff 16%, transparent); }
+.b-nav-txt b { width: 90px; height: 24px; border-radius: 12px; background: var(--naranja); margin-top: 6px; box-shadow: 0 0 20px -4px var(--naranja); }
+.b-nav-img { aspect-ratio: 4/3; border-radius: 12px; background: radial-gradient(60% 60% at 30% 30%, color-mix(in oklab, var(--naranja) 70%, transparent), transparent 70%), radial-gradient(60% 60% at 75% 70%, color-mix(in oklab, var(--cian) 60%, transparent), transparent 70%), #121821; }
+/* Mini productos (Tiendas) */
+.b-prods { display: flex; gap: 10px; }
+.b-prods div { flex: 1; border-radius: 12px; padding: 8px; background: var(--sup-2); box-shadow: inset 0 0 0 1px var(--borde); display: grid; gap: 5px; }
+.b-prods div::before { content: ""; height: 54px; border-radius: 8px; background: linear-gradient(135deg, color-mix(in oklab, var(--naranja) 60%, #121821), color-mix(in oklab, var(--cian) 45%, #121821)); }
+.b-prods div:nth-child(2)::before { filter: hue-rotate(40deg); } .b-prods div:nth-child(3)::before { filter: hue-rotate(-30deg); }
+.b-prods b { font-size: 12px; color: var(--tj-color-heading-primary); }
+.b-prods small { font-size: 10.5px; font-weight: 700; color: var(--cian); }
+/* Mini resultado de Google (SEO) */
+.b-serp { display: grid; gap: 7px; }
+.b-serp div { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; background: color-mix(in oklab, #fff 3%, transparent); font-size: 12.5px; color: var(--tj-color-text-body-2); }
+.b-serp div b { font-size: 12px; width: 22px; }
+.b-serp div.tuyo { background: #0f1a22; box-shadow: inset 0 0 0 1.5px var(--cian); color: #8ab4f8; font-weight: 700; }
+.b-serp div.tuyo b { color: var(--naranja); }
+/* Mini barras (Ads) */
+.b-barras { display: flex; align-items: flex-end; gap: 5px; height: 76px; border-bottom: 1px solid var(--borde); }
+.b-barras i { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(var(--cian), color-mix(in oklab, var(--naranja) 85%, transparent)); }
+/* Mini reparto (Automatización) */
+.b-reparto { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.b-reparto img { width: 42px; height: 42px; border-radius: 12px; }
+.b-reparto .linea { flex: 1; height: 2px; background: repeating-linear-gradient(90deg, var(--cian) 0 4px, transparent 4px 9px); opacity: .6; }
+.b-reparto .av { display: grid; gap: 6px; }
+.b-reparto .av span { font-size: 11px; font-weight: 800; padding: 5px 9px; border-radius: 999px; color: var(--naranja); box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--naranja) 60%, transparent); }
+/* Mini chat (Cierre) */
+.b-chat { display: grid; gap: 6px; font-size: 12.5px; }
+.b-chat span { max-width: 88%; padding: 8px 11px; border-radius: 12px; line-height: 1.4; }
+.b-chat .c { background: color-mix(in oklab, #fff 7%, transparent); color: var(--tj-color-heading-primary); border-bottom-left-radius: 4px; }
+.b-chat .s { justify-self: end; background: #005c4b; color: #e9fdf6; border-bottom-right-radius: 4px; }
+@media (max-width: 575px) { .b-nav-cuerpo { grid-template-columns: 1fr; } .b-nav-img { display: none; } .sc-bento a.b { padding: 22px; } }

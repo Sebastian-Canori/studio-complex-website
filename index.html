@@ -22,11 +22,11 @@
   <link rel="stylesheet" href="assets/css/swiper.min.css">
   <link rel="stylesheet" href="assets/css/venobox.min.css">
   <link rel="stylesheet" href="assets/css/meanmenu.css">
-  <link rel="stylesheet" href="assets/css/main.css?v=202609281601">
-  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609281601">
-  <link rel="stylesheet" href="assets/css/sc-sv.css?v=202609281601">
+  <link rel="stylesheet" href="assets/css/main.css?v=202609282337">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609282337">
+  <link rel="stylesheet" href="assets/css/sc-sv.css?v=202609282337">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
-  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609281601"> -->
+  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609282337"> -->
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
        para reactivarlo sin rehacerlo. Al no correr este script no se aplica
        ningun data-theme, asi que el sitio arranca y se queda en oscuro, que es
@@ -835,180 +835,71 @@
         <!-- end: About Section -->
 
         <!-- start: Service Section -->
-        <div class="tj-service-section section-gap" id="servicios">
+        <!-- Servicios en grilla bento (28/9). Estilos en sc-sv.css, bloque
+             "Home · Servicios en grilla bento". Cada tarjeta lleva a su
+             página de servicio. El id "servicios" es el destino del menú. -->
+        <section class="sc-sv sc-bento-sec" id="servicios" style="overflow:visible">
           <div class="container">
-            <div class="row rg-30">
-              <div class="col-lg-4 col-md-6">
-                <div class="sec-heading mt-30 mb-0 tj-fade-anim" data-delay=".1" data-direction="bottom">
-                  <span class="sub-title tj-fade-anim">Nuestros Servicios</span>
-                  <h2 class="sec-title tj-split-text-1">Todo lo Digital de tu Empresa, Trabajando para Vender.</h2>
-                  <a class="tj-primary-btn mt-20 d-md-inline-flex d-none" href="agenda.html">
-                    <span class="btn-text"><span>Agendá una reunión</span></span>
-                    <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
-                  </a>
-                </div>
+            <div class="sc-bento-cab">
+              <div>
+                <span class="sc-sv-eyebrow">Nuestros servicios</span>
+                <h2 class="sc-sv-h2">Todo lo Digital de tu Empresa, <span class="sc-sv-grad">Trabajando para Vender</span>.</h2>
               </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="service-item tj-fade-anim" data-delay="0.3" data-direction="bottom">
-                  <div class="service-inner">
-                    <div class="service-icon">
-                      <i class="tji-window"></i>
-                    </div>
-                    <div class="service-content">
-                      <h4 class="title"><a href="servicio-desarrollo-web.html">Desarrollo Web</a></h4>
-                      <p class="desc">Tu web como tu mejor vendedor: clara, rápida y pensada para traer consultas.</p>
-                    </div>
-                    <div class="service-list">
-                      <ul class="list-style-2">
-                        <li><i class="tji-check-2"></i>Diseño propio, cero plantillas</li>
-                        <li><i class="tji-check-2"></i>Carga al instante en cualquier teléfono</li>
-                        <li><i class="tji-check-2"></i>Lo editás vos, sin depender de nadie</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <span class="item-count">01.</span>
-                  <div class="service-btn">
-                    <a class="tj-text-btn" href="servicio-desarrollo-web.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Ver Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="service-item tj-fade-anim" data-delay="0.5" data-direction="bottom">
-                  <div class="service-inner">
-                    <div class="service-icon">
-                      <i class="tji-budget"></i>
-                    </div>
-                    <div class="service-content">
-                      <h4 class="title"><a href="servicio-tiendas-online.html">Tiendas Online</a></h4>
-                      <p class="desc">Tu catálogo abierto las 24 horas, con pagos, cuotas y envíos resueltos.</p>
-                    </div>
-                    <div class="service-list">
-                      <ul class="list-style-2">
-                        <li><i class="tji-check-2"></i>Cuotas y Mercado Pago integrados</li>
-                        <li><i class="tji-check-2"></i>Envío calculado antes del carrito</li>
-                        <li><i class="tji-check-2"></i>Lista para recibir tráfico de anuncios</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <span class="item-count">02.</span>
-                  <div class="service-btn">
-                    <a class="tj-text-btn" href="servicio-tiendas-online.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Ver Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="service-item tj-fade-anim" data-delay="0.1" data-direction="bottom">
-                  <div class="service-inner">
-                    <div class="service-icon">
-                      <i class="tji-search"></i>
-                    </div>
-                    <div class="service-content">
-                      <h4 class="title"><a href="servicio-seo-tecnico.html">SEO Técnico</a></h4>
-                      <p class="desc">Aparecé primero cuando tu cliente ya está buscando lo que vendés.</p>
-                    </div>
-                    <div class="service-list">
-                      <ul class="list-style-2">
-                        <li><i class="tji-check-2"></i>Auditoría técnica de punta a punta</li>
-                        <li><i class="tji-check-2"></i>Velocidad y estructura que Google premia</li>
-                        <li><i class="tji-check-2"></i>Informe mensual de posiciones</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <span class="item-count">03.</span>
-                  <div class="service-btn">
-                    <a class="tj-text-btn" href="servicio-seo-tecnico.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Ver Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="service-item tj-fade-anim" data-delay="0.3" data-direction="bottom">
-                  <div class="service-inner">
-                    <div class="service-icon">
-                      <i class="tji-rocket"></i>
-                    </div>
-                    <div class="service-content">
-                      <h4 class="title"><a href="servicio-campanas-ads.html">Campañas de Ads</a></h4>
-                      <p class="desc">Cada peso invertido, medido y puesto donde vende.
-                      </p>
-                    </div>
-                    <div class="service-list">
-                      <ul class="list-style-2">
-                        <li><i class="tji-check-2"></i>Google y Meta en un solo equipo</li>
-                        <li><i class="tji-check-2"></i>Conversiones medidas desde el primer día</li>
-                        <li><i class="tji-check-2"></i>Presupuesto ajustado cada semana</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <span class="item-count">04.</span>
-                  <div class="service-btn">
-                    <a class="tj-text-btn" href="servicio-campanas-ads.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Ver Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="service-item tj-fade-anim" data-delay="0.5" data-direction="bottom">
-                  <div class="service-inner">
-                    <div class="service-icon">
-                      <i class="tji-whatsapp"></i>
-                    </div>
-                    <div class="service-content">
-                      <h4 class="title"><a href="servicio-cierre-de-ventas.html">Seguimiento y Cierre de Ventas</a></h4>
-                      <p class="desc">Ninguna consulta sin respuesta, ninguna venta que se enfríe por olvido.
-                      </p>
-                    </div>
-                    <div class="service-list">
-                      <ul class="list-style-2">
-                        <li><i class="tji-check-2"></i>Respuesta al instante por WhatsApp</li>
-                        <li><i class="tji-check-2"></i>Recordatorios de seguimiento para tu equipo</li>
-                        <li><i class="tji-check-2"></i>Una persona entra cuando hace falta</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <span class="item-count">05.</span>
-                  <div class="service-btn">
-                    <a class="tj-text-btn" href="servicio-cierre-de-ventas.html">
-                      <span class="btn-inner">
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                        <span class="btn-text"><span>Ver Más</span></span>
-                        <span class="btn-icon"><span><i class="tji-arrow-right-4"></i></span></span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              <p>Seis servicios que funcionan solos o conectados entre sí. Empezás por el que más te urge y sumás el resto cuando lo necesites.</p>
             </div>
-            <div class="d-md-none text-center mt-40">
-              <a class="tj-primary-btn" href="agenda.html">
-                <span class="btn-text"><span>Agendá una reunión</span></span>
-                <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+
+            <div class="sc-bento">
+              <a class="b b-web" href="servicio-desarrollo-web.html">
+                <span class="b-num">01 · DESARROLLO WEB</span>
+                <h3>Tu web como tu mejor vendedor.</h3>
+                <p>Clara, rápida y pensada para traer consultas. Diseño propio, lista para Google y la editás vos.</p>
+                <div class="b-nav" aria-hidden="true">
+                  <div class="b-nav-barra"><i></i><i></i><i></i><span>tuempresa.com</span></div>
+                  <div class="b-nav-cuerpo"><div class="b-nav-txt"><i></i><i></i><i class="f"></i><i class="f"></i><b></b></div><div class="b-nav-img"></div></div>
+                </div>
+                <span class="b-ir">Ver desarrollo web <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+              </a>
+
+              <a class="b b-tienda" href="servicio-tiendas-online.html">
+                <span class="b-num">02 · TIENDAS ONLINE</span>
+                <h3>Tu catálogo abierto las 24 horas.</h3>
+                <p>Pagos, cuotas y envíos resueltos en Tiendanube, Shopify o WooCommerce.</p>
+                <div class="b-vis b-prods" aria-hidden="true"><div><b>$34.900</b><small>6 cuotas</small></div><div><b>$52.500</b><small>6 cuotas</small></div><div><b>$18.700</b><small>10% off</small></div></div>
+                <span class="b-ir">Ver tiendas <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+              </a>
+
+              <a class="b b-seo" href="servicio-seo-tecnico.html">
+                <span class="b-num">03 · SEO TÉCNICO</span>
+                <h3>Aparecé primero cuando te buscan.</h3>
+                <div class="b-vis b-serp" aria-hidden="true"><div class="tuyo"><b>#1</b>tuempresa.com</div><div><b>#2</b>competidor-a.com</div><div><b>#3</b>competidor-b.com</div></div>
+                <span class="b-ir">Ver SEO técnico <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+              </a>
+
+              <a class="b b-ads" href="servicio-campanas-ads.html">
+                <span class="b-num">04 · CAMPAÑAS DE ADS</span>
+                <h3>Cada peso, medido.</h3>
+                <p>Google Ads y Meta Ads en un solo equipo.</p>
+                <div class="b-vis b-barras" aria-hidden="true"><i style="height:24%"></i><i style="height:32%"></i><i style="height:28%"></i><i style="height:42%"></i><i style="height:50%"></i><i style="height:47%"></i><i style="height:62%"></i><i style="height:70%"></i><i style="height:84%"></i><i style="height:96%"></i></div>
+                <span class="b-ir">Ver campañas <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+              </a>
+
+              <a class="b b-auto" href="servicio-automatizacion-leads.html">
+                <span class="b-num">05 · AUTOMATIZACIÓN</span>
+                <h3>Cada consulta, en su lugar.</h3>
+                <p>Se reparte sola entre tu equipo y queda registrada.</p>
+                <div class="b-vis b-reparto" aria-hidden="true"><img src="assets/images/icons/whatsapp.svg" alt=""><span class="linea"></span><span class="av"><span>Asesor 1</span><span>Asesor 2</span></span></div>
+                <span class="b-ir">Ver automatización <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+              </a>
+
+              <a class="b b-cierre" href="servicio-cierre-de-ventas.html">
+                <span class="b-num">06 · CIERRE DE VENTAS</span>
+                <h3>Ninguna venta se enfría.</h3>
+                <div class="b-vis b-chat" aria-hidden="true"><span class="c">¿Me pasás el precio final?</span><span class="s">Te lo mando ahora, y el jueves te escribo para confirmar.</span></div>
+                <span class="b-ir">Ver cierre de ventas <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
               </a>
             </div>
           </div>
-        </div>
+        </section>
         <!-- end: Service Section -->
 
         <!-- Seccion de video institucional eliminada a pedido del 23/9.
@@ -2031,13 +1922,13 @@
   <script src="assets/js/venobox.min.js"></script>
   <script src="assets/js/meanmenu.js"></script>
   <script src="assets/js/gsap-animation.js"></script>
-  <script src="assets/js/main.js?v=202609281601"></script>
+  <script src="assets/js/main.js?v=202609282337"></script>
   <script src="assets/js/contact-form.js"></script>
-  <!-- <script src="assets/js/sc-chat.js?v=202609281601"></script> -->
+  <!-- <script src="assets/js/sc-chat.js?v=202609282337"></script> -->
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
-  <!-- <script src="assets/js/sc-theme.js?v=202609281601"></script> -->
-  <script src="assets/js/sc-hero-panel.js?v=202609281601"></script>
-  <script src="assets/js/sc-cookies.js?v=202609281601"></script>
+  <!-- <script src="assets/js/sc-theme.js?v=202609282337"></script> -->
+  <script src="assets/js/sc-hero-panel.js?v=202609282337"></script>
+  <script src="assets/js/sc-cookies.js?v=202609282337"></script>
 </body>
 
 </html>
