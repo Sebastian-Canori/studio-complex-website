@@ -117,7 +117,7 @@
     var t = tld(dom);
     var n = ++pedido;
     if (TLD_CONFIABLES.indexOf(t) === -1) {
-      caja.innerHTML = '<div class="sc-bus-dom"><p><b>' + esc(dom) + '</b></p><p class="sc-bus-ayuda">Los dominios .' + esc(t) + ' no se pueden consultar desde acá. Escribinos y lo revisamos por vos.</p><a class="sc-bus-btn" href="' + wa("Hola, quiero saber si está libre el dominio " + dom) + '" target="_blank" rel="noopener">Consultar por WhatsApp</a></div>';
+      caja.innerHTML = '<div class="sc-bus-dom"><p><b>' + esc(dom) + '</b></p><p class="sc-bus-ayuda">Los dominios .' + esc(t) + ' no se pueden consultar desde acá. Escribinos y lo revisamos por vos.</p><button type="button" class="sc-bus-btn" data-proyecto="' + esc(dom) + '" data-motivo="consultar">Consultarlo con nosotros</button></div>';
       return;
     }
     caja.innerHTML = '<p class="sc-bus-ayuda">Consultando <b>' + esc(dom) + '</b>…</p>';
@@ -141,7 +141,7 @@
             (alta ? "<dt>Registrado el</dt><dd>" + esc(alta) + "</dd>" : "") +
             (vence ? "<dt>Vence el</dt><dd>" + esc(vence) + "</dd>" : "") +
             (ns.length ? "<dt>Servidores</dt><dd>" + esc(ns.join(", ")) + "</dd>" : "") +
-            '</dl><a class="sc-bus-btn sec" href="' + wa("Hola, me interesa el dominio " + dom + ". ¿Me ayudan con alternativas?") + '" target="_blank" rel="noopener">Buscar alternativas con nosotros</a></div>';
+            '</dl><button type="button" class="sc-bus-btn sec" data-proyecto="' + esc(dom) + '" data-motivo="alternativas">Buscar alternativas y arrancar un proyecto</button></div>';
         });
       })
       .catch(function () {
@@ -165,11 +165,79 @@
   function libre(dom, ar) {
     caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Disponible</span><p><b>' + esc(dom) + '</b> ' +
       (ar ? 'no figura registrado en NIC Argentina.' : 'está libre para registrar.') +
-      '</p><a class="sc-bus-btn" href="' + wa("Hola, quiero registrar el dominio " + dom + " y armar mi web") + '" target="_blank" rel="noopener">Quiero este dominio</a></div>';
+      '</p><button type="button" class="sc-bus-btn" data-proyecto="' + esc(dom) + '" data-motivo="registrar">Registrarlo y empezar mi proyecto</button></div>';
   }
   function sinRespuesta(dom) {
-    caja.innerHTML = '<p class="sc-bus-ayuda">No pudimos consultar <b>' + esc(dom) + '</b> ahora. <a href="' + wa("Hola, quiero saber si está libre el dominio " + dom) + '" target="_blank" rel="noopener">Preguntanos por WhatsApp</a>.</p>';
+    caja.innerHTML = '<p class="sc-bus-ayuda">No pudimos consultar <b>' + esc(dom) + '</b> ahora. <button type="button" class="sc-bus-link" data-proyecto="' + esc(dom) + '" data-motivo="consultar">Dejanos tus datos y lo revisamos</button>.</p>';
   }
+
+  /* ------------------------------------------------------------------
+     Formulario de nuevo proyecto (reemplaza el paso directo a WhatsApp).
+     A DÓNDE VAN LOS DATOS: el sitio es estático, así que hace falta un
+     receptor. Cuando esté el mail de la agencia se completa ENDPOINT (un
+     Apps Script propio o Formspree) y la consulta llega por mail y a una
+     planilla. Mientras ENDPOINT esté vacío, el envío arma el mensaje con
+     todos los datos y lo abre en el WhatsApp de Studio Complex, para que
+     ninguna consulta se pierda.
+     ------------------------------------------------------------------ */
+  var ENDPOINT = ""; /* URL del receptor de formularios, cuando exista */
+  var MOTIVOS = {
+    registrar: "Quiero registrar este dominio y arrancar un proyecto.",
+    alternativas: "El dominio está ocupado: quiero ver alternativas y arrancar un proyecto.",
+    consultar: "Quiero saber si este dominio está disponible."
+  };
+
+  function formProyecto(dom, motivo) {
+    caja.innerHTML =
+      '<form class="sc-bus-form" novalidate>' +
+        '<h3>Tu nuevo proyecto</h3>' +
+        '<p class="sc-bus-ayuda">' + esc(MOTIVOS[motivo] || MOTIVOS.registrar) + ' Te respondemos en 24 horas hábiles.</p>' +
+        '<div class="sc-bus-campos">' +
+          '<label>Dominio<input name="dominio" value="' + esc(dom) + '" autocomplete="off"></label>' +
+          '<label>¿Qué querés armar?<select name="proyecto">' +
+            '<option>Sitio web</option><option>Tienda online</option><option>Landing page</option><option>Solo registrar el dominio</option><option>Todavía no sé</option>' +
+          '</select></label>' +
+          '<label>Nombre *<input name="nombre" autocomplete="name" required></label>' +
+          '<label>Email *<input name="email" type="email" autocomplete="email" required></label>' +
+          '<label>WhatsApp<input name="telefono" type="tel" autocomplete="tel" placeholder="Opcional"></label>' +
+          '<label class="ancho">Contanos en dos líneas<textarea name="mensaje" rows="3" placeholder="Qué vendés, para quién, y si ya tenés algo armado"></textarea></label>' +
+        '</div>' +
+        '<p class="sc-bus-error" hidden>Completá tu nombre y un email válido.</p>' +
+        '<button type="submit" class="sc-bus-btn">Enviar</button>' +
+      '</form>';
+    var f = caja.querySelector("form");
+    f.querySelector('[name="nombre"]').focus();
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var d = {};
+      Array.prototype.forEach.call(f.elements, function (el) { if (el.name) d[el.name] = el.value.trim(); });
+      var ok = d.nombre && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
+      f.querySelector(".sc-bus-error").hidden = !!ok;
+      if (!ok) return;
+      d.motivo = MOTIVOS[motivo] || "";
+      d.origen = "Buscador de dominios · " + location.pathname;
+      var gracias = function () {
+        caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Recibido</span><p>Gracias, ' + esc(d.nombre.split(" ")[0]) + '. Te escribimos a <b>' + esc(d.email) + '</b> en las próximas 24 horas hábiles.</p></div>';
+      };
+      if (ENDPOINT) {
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d) })
+          .then(gracias).catch(gracias);
+        return;
+      }
+      var txt = "Hola! Consulta desde la web.\n" +
+        "Dominio: " + d.dominio + "\nProyecto: " + d.proyecto + "\n" + d.motivo + "\n" +
+        "Nombre: " + d.nombre + "\nEmail: " + d.email + (d.telefono ? "\nWhatsApp: " + d.telefono : "") +
+        (d.mensaje ? "\n\n" + d.mensaje : "");
+      window.open(wa(txt), "_blank", "noopener");
+      gracias();
+    });
+  }
+
+  caja.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-proyecto]");
+    if (!b) return;
+    formProyecto(b.getAttribute("data-proyecto"), b.getAttribute("data-motivo"));
+  });
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();

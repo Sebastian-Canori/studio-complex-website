@@ -15685,3 +15685,17 @@ h1 .grad {
 .sc-bus-dom dd { margin: 0; color: var(--tj-color-heading-primary); word-break: break-word; }
 .sc-bus-btn { margin-top: 6px; display: inline-flex; align-items: center; padding: 12px 20px; border-radius: 999px; font-weight: 700; background: var(--tj-color-theme-primary); color: #07090c !important; }
 .sc-bus-btn.sec { background: transparent; color: var(--tj-color-heading-primary) !important; box-shadow: inset 0 0 0 1.5px color-mix(in oklab, #fff 25%, transparent); }
+/* Formulario de nuevo proyecto dentro del buscador */
+.sc-bus-link { border: 0; background: none; padding: 0; font: inherit; font-weight: 700; color: var(--tj-color-theme-primary); cursor: pointer; }
+button.sc-bus-btn { border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.sc-bus-form { padding: 24px; border-radius: 18px; background: var(--sc-surface-1); box-shadow: inset 0 0 0 1px var(--sc-border); display: grid; gap: 14px; }
+.sc-bus-form h3 { margin: 0; font-size: 22px; }
+.sc-bus-campos { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 600px) { .sc-bus-campos { grid-template-columns: 1fr; } }
+.sc-bus-campos label { display: grid; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--tj-color-text-body-2); }
+.sc-bus-campos label.ancho { grid-column: 1 / -1; }
+.sc-bus-campos input, .sc-bus-campos select, .sc-bus-campos textarea { width: 100%; font: inherit; font-size: 15px; color: var(--tj-color-heading-primary); background: var(--sc-surface-2); border: 0; border-radius: 10px; padding: 11px 13px; box-shadow: inset 0 0 0 1px var(--sc-border); }
+.sc-bus-campos input:focus, .sc-bus-campos select:focus, .sc-bus-campos textarea:focus { outline: none; box-shadow: inset 0 0 0 1.5px var(--tj-color-theme-primary); }
+.sc-bus-error { margin: 0; color: #f87171; font-size: 14px; }
+.sc-bus-error[hidden] { display: none; }
+.search_popup .sc-bus { max-height: 62vh; overflow-y: auto; }
