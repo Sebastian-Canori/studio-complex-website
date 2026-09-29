@@ -56,15 +56,15 @@
   var titulo = popup.querySelector(".search_input .title");
   if (!form || !input) return;
 
-  if (titulo) titulo.textContent = "Buscá en el sitio o consultá un dominio.";
-  input.placeholder = "Ej: tiendas, SEO… o tuempresa.com.ar";
-  input.setAttribute("aria-label", "Buscar en el sitio o consultar un dominio");
+  if (titulo) titulo.textContent = "Empezá tu proyecto por un dominio.";
+  input.placeholder = "Ej: tuempresa.com.ar";
+  input.setAttribute("aria-label", "Consultar un dominio o buscar en el sitio");
   input.removeAttribute("required");
 
   var caja = document.createElement("div");
   caja.className = "sc-bus";
   caja.setAttribute("aria-live", "polite");
-  caja.innerHTML = '<p class="sc-bus-ayuda">Si escribís un dominio (con punto, sin espacios) te decimos si está libre.</p>';
+  caja.innerHTML = '<p class="sc-bus-ayuda">Escribí el dominio que querés y te decimos si está libre. También podés buscar en el sitio: tiendas, SEO, Ads…</p>';
   form.parentNode.appendChild(caja);
 
   function norm(s) {
