@@ -22,11 +22,11 @@
   <link rel="stylesheet" href="assets/css/swiper.min.css">
   <link rel="stylesheet" href="assets/css/venobox.min.css">
   <link rel="stylesheet" href="assets/css/meanmenu.css">
-  <link rel="stylesheet" href="assets/css/main.css?v=202609282357">
-  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609282357">
+  <link rel="stylesheet" href="assets/css/main.css?v=202609290005">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609290005">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
-  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609282357"> -->
-  <link rel="stylesheet" href="assets/css/sc-caso.css?v=202609282357">
+  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609290005"> -->
+  <link rel="stylesheet" href="assets/css/sc-caso.css?v=202609290005">
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
        para reactivarlo sin rehacerlo. Al no correr este script no se aplica
        ningun data-theme, asi que el sitio arranca y se queda en oscuro, que es
@@ -587,7 +587,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <div class="sc-caso-desafio-caja sc-rv">
+                  <div class="sc-caso-desafio-caja con-vis sc-rv">
                     <h2 class="sc-caso-h2">El problema</h2>
                     <!-- [DATOS DEL CASO] problema -->
                     <p>
@@ -602,6 +602,16 @@
                       Sin ese dato no hay forma de saber si la inversión en anuncios está
                       trayendo gente o no.
                     </p>
+                    <!-- Escena del antes (se ve a la derecha en escritorio, abajo en teléfono) -->
+                    <div class="sc-prob-vis" aria-hidden="true">
+                      <span class="sc-prob-rot">Antes</span>
+                      <div class="sc-prob-embudo">
+                        <div class="sc-prob-botones"><span>Botón 1</span><span>Botón 2</span><span>Botón 3</span><span>Botón 4</span><span>Botón 5</span><span>Botón 6</span><span>Botón 7</span></div>
+                        <div class="sc-prob-lineas"></div>
+                        <div class="sc-prob-tel"><em>2 esperando</em><span>Hola, ¿qué precio tiene?</span><span>Quiero una alarma para el local</span><span>¿Hacen instalación?</span></div>
+                      </div>
+                      <div class="sc-prob-t alerta"><i>?</i><span>¿Cuántas vinieron de la publicidad?<small>Sin registro de ninguna consulta</small></span></div>
+                    </div>
                     <!-- [/DATOS DEL CASO] -->
                   </div>
                 </div>
@@ -1077,14 +1087,14 @@
   <script src="assets/js/venobox.min.js"></script>
   <script src="assets/js/meanmenu.js"></script>
   <script src="assets/js/gsap-animation.js"></script>
-  <script src="assets/js/main.js?v=202609282357"></script>
-  <!-- <script src="assets/js/sc-chat.js?v=202609282357"></script> -->
-  <script src="assets/js/sc-caso.js?v=202609282357"></script>
-  <script src="assets/js/sc-modal.js?v=202609282357"></script>
+  <script src="assets/js/main.js?v=202609290005"></script>
+  <!-- <script src="assets/js/sc-chat.js?v=202609290005"></script> -->
+  <script src="assets/js/sc-caso.js?v=202609290005"></script>
+  <script src="assets/js/sc-modal.js?v=202609290005"></script>
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
-  <!-- <script src="assets/js/sc-theme.js?v=202609282357"></script> -->
-  <script src="assets/js/sc-buscador.js?v=202609282357"></script>
-  <script src="assets/js/sc-cookies.js?v=202609282357"></script>
+  <!-- <script src="assets/js/sc-theme.js?v=202609290005"></script> -->
+  <script src="assets/js/sc-buscador.js?v=202609290005"></script>
+  <script src="assets/js/sc-cookies.js?v=202609290005"></script>
 </body>
 
 </html>
