@@ -1588,7 +1588,7 @@
 .sc-pf-cuerpo { display: flex; flex-direction: column; gap: 10px; padding: 22px 24px 24px; }
 .sc-pf-tipo { font-size: 13px; font-weight: 700; color: var(--tj-color-theme-primary); }
 .sc-pf-titulo { font-size: 22px; line-height: 1.2; font-weight: 700; color: var(--tj-color-heading-primary); text-wrap: balance; }
-.sc-pf-bajada { font-size: 15.5px; line-height: 1.6; color: var(--tj-color-text-body); text-align: left; hyphens: manual; }
+.sc-pf-bajada { font-size: 15.5px; line-height: 1.6; color: var(--tj-color-text-body); }
 .sc-pf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
 .sc-pf-tags li { font-size: 12.5px; font-weight: 600; padding: 6px 10px; border-radius: 999px; color: var(--tj-color-theme-secondary); background: color-mix(in oklab, var(--tj-color-theme-secondary) 11%, transparent); }
 .sc-pf-ver { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--tj-color-heading-primary); }
@@ -1735,5 +1735,3 @@
 .sc-prob-tel span { font-size: 10.5px; padding: 6px 8px; border-radius: 10px; background: color-mix(in oklab, #fff 7%, transparent); color: var(--tj-color-heading-primary); }
 .sc-prob-tel em { position: absolute; top: -10px; right: -10px; font-style: normal; font-size: 11px; font-weight: 800; padding: 4px 8px; border-radius: 999px; background: #f87171; color: #1a0605; box-shadow: 0 0 0 3px var(--sc-surface-1); }
 @media (max-width: 575px) { .sc-prob-t:nth-child(even) { transform: rotate(1.2deg); } }
-/* Texto de los casos sin justificado ni cortes con guion */
-.sc-caso p, .sc-caso li { text-align: left; -webkit-hyphens: manual; hyphens: manual; }

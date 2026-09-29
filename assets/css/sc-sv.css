@@ -28,8 +28,7 @@
   .sc-sv .container { padding-left: 34px; padding-right: 34px; }
 }
 .sc-sv h1, .sc-sv h2, .sc-sv h3 { text-wrap: balance; }
-.sc-sv p { text-align: left; }
-.sc-sv p, .sc-sv li, .sc-sv h1, .sc-sv h2, .sc-sv h3 { -webkit-hyphens: manual; hyphens: manual; }
+.sc-sv h1, .sc-sv h2, .sc-sv h3 { -webkit-hyphens: manual; hyphens: manual; }
 
 /* --- Revelado al entrar en pantalla (lo maneja sc-sv.js) --------- */
 .sc-sv-js .sc-rv {
@@ -1230,13 +1229,13 @@
 .sc-nota-hero > .container { position: relative; z-index: 1; }
 .sc-nota-ancho { max-width: 780px; margin: 0 auto; }
 .sc-nota-titulo { font-size: clamp(2.1rem, 5.6vw, 3.4rem); line-height: 1.06; letter-spacing: -0.03em; margin: 0 0 20px; text-wrap: balance; }
-.sc-nota-bajada { font-size: clamp(1.1rem, 2.6vw, 1.3rem); line-height: 1.6; color: var(--tj-color-text-body); margin: 0 0 24px; text-align: left; }
+.sc-nota-bajada { font-size: clamp(1.1rem, 2.6vw, 1.3rem); line-height: 1.6; color: var(--tj-color-text-body); margin: 0 0 24px; }
 .sc-nota-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--tj-color-text-body-2); padding-top: 20px; border-top: 1px solid var(--borde); }
 .sc-nota-meta b { color: var(--tj-color-heading-primary); font-weight: 600; }
 .sc-nota-portada { margin: 10px auto 0; max-width: 1000px; }
 .sc-nota-portada img { display: block; width: 100%; border-radius: 22px; box-shadow: 0 0 0 1px var(--borde), 0 40px 80px -40px #000; }
 .sc-nota-cuerpo { padding: 56px 0 30px; }
-.sc-nota-cuerpo p, .sc-nota-cuerpo li { font-size: 18px; line-height: 1.75; color: var(--tj-color-text-body); text-align: left; hyphens: manual; }
+.sc-nota-cuerpo p, .sc-nota-cuerpo li { font-size: 18px; line-height: 1.75; color: var(--tj-color-text-body); }
 .sc-nota-cuerpo p { margin: 0 0 22px; }
 .sc-nota-cuerpo h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); line-height: 1.2; margin: 48px 0 16px; letter-spacing: -0.02em; }
 .sc-nota-cuerpo ul { margin: 0 0 24px; padding-left: 0; list-style: none; display: grid; gap: 12px; }
@@ -1374,7 +1373,7 @@
 .sc-bento .b-num { font-size: 13px; font-weight: 700; letter-spacing: .12em; color: var(--tj-color-text-body-2); }
 .sc-bento h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.1; letter-spacing: -.02em; margin: 0; color: var(--tj-color-heading-primary); }
 .sc-bento .b-web h3 { font-size: clamp(28px, 3vw, 40px); }
-.sc-bento p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--tj-color-text-body); max-width: 42ch; text-align: left; }
+.sc-bento p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--tj-color-text-body); max-width: 42ch; }
 .sc-bento .b-ir { margin-top: auto; padding-top: 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: var(--tj-color-heading-primary); }
 .sc-bento .b-ir i { transition: transform .25s ease; color: var(--naranja); }
 .sc-bento a.b:hover .b-ir i { transform: translateX(4px); }

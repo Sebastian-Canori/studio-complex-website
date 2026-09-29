@@ -15642,7 +15642,7 @@ h1 .grad {
 #servicios { scroll-margin-top: 110px; }
 /* Home, tarjetas de servicios: el justificado general del sitio abría
    huecos grandes entre palabras en columnas tan angostas. */
-.tj-service-section .service-item .desc { text-align: left; hyphens: manual; }
+
 /* Testimonios ocultos con el atributo hidden hasta tener testimonios reales. */
 .tj-testimonial-section[hidden] { display: none !important; }
 /* Sobre Nosotros: el cuadro del logo traía una imagen con el texto
@@ -15663,7 +15663,7 @@ h1 .grad {
    quedaba angosta, alineada a la izquierda y con palabras cortadas con
    guion ("gigan-tes"). Va centrada, sin cortes y del ancho del título. */
 .sec-heading-centered .desc, .tj-team-section .sec-heading-centered .desc,
-.sec-heading-centered p { text-align: center; -webkit-hyphens: manual; hyphens: manual; max-width: 52ch; margin-left: auto; margin-right: auto; }
+.sec-heading-centered p { max-width: 52ch; margin-left: auto; margin-right: auto; }
 
 /* Buscador del menú con Whois (sc-buscador.js) */
 .sc-bus { margin-top: 22px; max-width: 760px; }
@@ -15699,3 +15699,27 @@ button.sc-bus-btn { border: 0; cursor: pointer; font: inherit; font-weight: 700;
 .sc-bus-error { margin: 0; color: #f87171; font-size: 14px; }
 .sc-bus-error[hidden] { display: none; }
 .search_popup .sc-bus { max-height: 62vh; overflow-y: auto; }
+
+/* === Texto justificado en TODAS las secciones (regla del usuario, 29/9) ===
+   Todo el texto corrido va justificado, con partición en sílabas para que
+   no se abran huecos. En los bloques centrados (encabezados centrados y
+   cierres) también se justifica y solo la última línea va al centro. No
+   aplica a etiquetas, botones ni a las mini piezas visuales.
+   Lleva "html body" delante para ganarle a sc-sv.css y sc-caso.css, que
+   se cargan después de main.css. */
+html body .sc-sv p, html body .sc-sv li, html body .sc-caso p, html body .sc-caso li,
+html body .sc-caso-intro, html body .sc-pf-bajada, html body .sc-nb-bajada,
+html body .sc-nota-bajada, html body .sc-nota-cuerpo p, html body .sc-nota-cuerpo li,
+html body .sc-bento p, html body .sc-sv-lead, html body .service-item .desc,
+html body .sec-heading .desc, html body .sec-heading-centered p,
+html body .sc-union-puntos span, html body .sc-bus-ayuda {
+  text-align: justify;
+  -webkit-hyphens: auto; hyphens: auto;
+  -webkit-hyphenate-limit-chars: 6 3 3; hyphenate-limit-chars: 6 3 3;
+}
+html body .sec-heading-centered p, html body .sc-sv-cierre-caja p,
+html body .sc-caso-cta-caja p, html body .sc-caso .sc-caso-cta-caja p, html body .text-center p, html body .fin p { text-align: justify; text-align-last: center; }
+/* Las mini piezas visuales (maquetas, chats, tableros) no se justifican */
+html body .sc-sv-vis p, html body .sc-sv-chat p, html body .b-vis p, html body .sc-prob-vis p,
+html body .sc-sv-comp-lado p { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+html body .sc-sv-v-txt { text-align: center; }
