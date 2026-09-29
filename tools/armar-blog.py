@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 from importlib import import_module
 NOTAS = import_module("blog-notas").NOTAS
 
-BASE = "https://nudge-digital-lab.github.io/studio-complex-website/"
+BASE = "https://studiocomplex.com.ar/"
 FECHA_ISO = "2026-09-28"
 FECHA = "28 sep 2026"
 AUTOR = "Equipo Studio Complex"

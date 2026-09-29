@@ -3,7 +3,7 @@
 # cambiar BASE y volver a correr:  python3 tools/canonical.py
 # (también actualiza el og:url si existe). La home canónica es BASE a secas.
 import glob, re
-BASE = "https://nudge-digital-lab.github.io/studio-complex-website/"
+BASE = "https://studiocomplex.com.ar/"
 n = 0
 for f in sorted(glob.glob("*.html")):
     if f.startswith("_") or f == "error.html":  # el 404 no lleva canonical
