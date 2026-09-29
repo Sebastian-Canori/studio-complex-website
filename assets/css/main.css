@@ -15659,3 +15659,8 @@ h1 .grad {
 /* Equipo: ícono de Behance (la fuente de la plantilla no lo trae). Mismo
    tamaño que los tji- de las redes. */
 .team-item .social-links .sc-ico-behance { width: 16px; height: 16px; display: block; }
+/* Encabezados centrados: la bajada heredaba el justificado general y
+   quedaba angosta, alineada a la izquierda y con palabras cortadas con
+   guion ("gigan-tes"). Va centrada, sin cortes y del ancho del título. */
+.sec-heading-centered .desc, .tj-team-section .sec-heading-centered .desc,
+.sec-heading-centered p { text-align: center; -webkit-hyphens: manual; hyphens: manual; max-width: 52ch; margin-left: auto; margin-right: auto; }
