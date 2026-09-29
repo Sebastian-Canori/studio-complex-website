@@ -15656,3 +15656,6 @@ h1 .grad {
 @media (min-width: 992px) {
   .process-wrap .process-item { aspect-ratio: 420 / 299; }
 }
+/* Equipo: ícono de Behance (la fuente de la plantilla no lo trae). Mismo
+   tamaño que los tji- de las redes. */
+.team-item .social-links .sc-ico-behance { width: 16px; height: 16px; display: block; }
