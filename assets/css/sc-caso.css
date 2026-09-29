@@ -1601,3 +1601,93 @@
    dejaba un bloque vacío debajo de los puntos. */
 .sc-portfolio-carrusel { padding-bottom: 60px; }
 .sc-pf-cabeza .sec-heading { margin: 0; }
+
+/* ==========================================================================
+   Capa de impacto (28/9)
+   Lleva los casos al mismo lenguaje que las páginas de servicio: títulos
+   más grandes, más aire entre secciones, halo y cuadrícula en el
+   encabezado, tarjetas con brillo al pasar, cifras en degradé y cierre con
+   fondo de color. Solo CSS: no cambia el HTML de ningún caso. Para
+   volver al diseño anterior alcanza con borrar este bloque.
+   ========================================================================== */
+.sc-caso { --grad: linear-gradient(100deg, var(--tj-color-theme-primary) 0%, var(--tj-color-theme-primary) 42%, var(--tj-color-theme-secondary) 62%, var(--tj-color-theme-secondary) 100%); }
+
+/* Encabezado */
+.sc-caso-hero { padding-bottom: 90px; }
+.sc-caso-hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: linear-gradient(color-mix(in oklab, #fff 5%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, #fff 5%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, #000 10%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 60% at 65% 40%, #000 10%, transparent 75%);
+}
+.sc-caso-hero::before { height: 640px; }
+.sc-caso-titulo { font-size: clamp(2.5rem, 7.6vw, 4.6rem); line-height: 1; letter-spacing: -0.035em; margin-bottom: 22px; }
+.sc-caso-bajada { font-size: clamp(1.08rem, 2.6vw, 1.3rem); line-height: 1.6; }
+.sc-caso-eyebrow { display: flex; align-items: center; gap: 10px; }
+.sc-caso-eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--tj-color-theme-secondary); box-shadow: 0 0 12px var(--tj-color-theme-secondary); }
+.sc-caso-tags li { font-size: 14px; padding: 10px 15px; }
+
+/* Títulos de sección y aire */
+.sc-caso-h2 { font-size: clamp(2rem, 5.4vw, 3.2rem); line-height: 1.06; letter-spacing: -0.025em; margin-bottom: 20px; }
+.sc-caso-desafio, .sc-caso-flujo, .sc-caso-incluye, .sc-caso-cifras, .sc-caso-stack { padding-top: 90px; padding-bottom: 20px; }
+@media (min-width: 992px) { .sc-caso-desafio, .sc-caso-flujo, .sc-caso-incluye, .sc-caso-cifras, .sc-caso-stack { padding-top: 120px; } }
+.sc-caso-intro, .sc-caso-desafio p { font-size: clamp(1.05rem, 2.4vw, 1.2rem); line-height: 1.65; max-width: 64ch; }
+
+/* El problema: caja con borde en degradé en vez de la línea lateral */
+.sc-caso-desafio-caja {
+  border-left: 0; border-radius: 24px; padding: clamp(28px, 5vw, 52px);
+  background: linear-gradient(var(--sc-surface-1), var(--sc-surface-1)) padding-box, var(--grad) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 40px 80px -50px color-mix(in oklab, var(--tj-color-theme-primary) 60%, transparent);
+}
+
+/* Pasos */
+.sc-caso-paso-t { font-size: 1.28rem; }
+.sc-caso-paso-d { font-size: 1rem; }
+.sc-caso-paso-ico { width: 52px; height: 52px; font-size: 23px; }
+
+/* Qué resolvimos: tarjetas con más cuerpo, brillo al pasar y la primera
+   destacada en escritorio (formato bento) */
+.sc-caso-card {
+  border-radius: 22px !important; padding: 28px !important;
+  background: linear-gradient(180deg, color-mix(in oklab, #fff 4%, var(--sc-surface-1)), var(--sc-surface-1)) !important;
+  box-shadow: inset 0 0 0 1px var(--sc-border);
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+}
+.sc-caso-card:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tj-color-theme-secondary) 45%, transparent), 0 30px 60px -30px color-mix(in oklab, var(--tj-color-theme-secondary) 45%, transparent); }
+.sc-caso-card h3, .sc-caso-card h4 { font-size: 1.3rem !important; }
+.sc-caso-card p { font-size: 1rem !important; line-height: 1.6; }
+.sc-caso-card-ico { width: 50px !important; height: 50px !important; font-size: 22px !important; border-radius: 14px !important; }
+@media (min-width: 1200px) {
+  .sc-caso-grid > .sc-caso-card:first-child:nth-last-child(6) { grid-column: span 2; background: radial-gradient(60% 90% at 90% 0%, color-mix(in oklab, var(--tj-color-theme-primary) 18%, transparent), transparent 70%), linear-gradient(180deg, color-mix(in oklab, #fff 4%, var(--sc-surface-1)), var(--sc-surface-1)) !important; }
+  .sc-caso-grid > .sc-caso-card:first-child:nth-last-child(6) h3, .sc-caso-grid > .sc-caso-card:first-child:nth-last-child(6) h4 { font-size: 1.7rem !important; }
+  /* Con 6 tarjetas en 3 columnas, la primera y la última ocupan dos: queda 2+1 / 1+1+1 / 3, sin huecos. */
+  .sc-caso-grid > .sc-caso-card:last-child:nth-child(6) { grid-column: span 3; }
+}
+
+/* Qué cambió: caja con halo y cifras grandes en degradé */
+.sc-caso-cifras-caja {
+  border-radius: 28px !important; padding: clamp(30px, 5vw, 60px) !important;
+  background: radial-gradient(60% 90% at 10% 0%, color-mix(in oklab, var(--tj-color-theme-primary) 22%, transparent), transparent 70%), radial-gradient(60% 90% at 95% 100%, color-mix(in oklab, var(--tj-color-theme-secondary) 16%, transparent), transparent 70%), var(--sc-surface-1) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, #fff 9%, transparent);
+}
+.sc-caso-cifra-n { font-size: clamp(2.2rem, 3.8vw, 3.6rem); font-weight: 800; white-space: nowrap; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sc-caso-cifra-t { font-size: 1.02rem; }
+
+/* Tecnologías: fichas más grandes */
+.sc-caso-stack-item { padding: 18px 20px !important; border-radius: 18px !important; }
+.sc-caso-stack-item img, .sc-caso-stack-ico { width: 48px !important; height: 48px !important; }
+
+/* Cierre con fondo de color, como en las páginas de servicio */
+.sc-caso-cta-caja {
+  border-radius: 28px !important; padding: clamp(40px, 7vw, 84px) clamp(24px, 6vw, 70px) !important;
+  background: radial-gradient(60% 90% at 15% 0%, color-mix(in oklab, var(--tj-color-theme-primary) 38%, transparent), transparent 70%), radial-gradient(60% 90% at 90% 100%, color-mix(in oklab, var(--tj-color-theme-secondary) 30%, transparent), transparent 70%), var(--sc-surface-1) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, #fff 10%, transparent);
+}
+.sc-caso-cta-caja h2, .sc-caso-cta-caja .sc-caso-h2 { font-size: clamp(2.1rem, 5.6vw, 3.6rem); }
+.sc-caso-cta-caja p { font-size: 1.12rem; }
+
+/* Navegación entre casos */
+.sc-caso-nav-link { border-radius: 18px !important; padding: 22px !important; transition: box-shadow .25s ease, transform .25s ease; }
+.sc-caso-nav-link:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--tj-color-theme-primary) 55%, transparent); }
