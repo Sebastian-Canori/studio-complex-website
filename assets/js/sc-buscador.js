@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Studio Complex · Buscador del menú (lupa) con Whois
+   --------------------------------------------------------------------------
+   El buscador de la plantilla no hacía nada (form action="#"). Ahora:
+
+   - Si lo que se escribe parece un dominio (tiene un punto y no tiene
+     espacios), consulta si está registrado con RDAP, el reemplazo moderno
+     de Whois, desde el navegador: https://rdap.org/domain/<dominio>
+     rdap.org deriva al registro de cada terminación (NIC Argentina para
+     .ar, Verisign para .com, etc.) y responde con CORS abierto, así que no
+     hace falta servidor propio.
+   - Si no, busca en las páginas del sitio (índice de abajo).
+
+   OJO con las terminaciones: varios países de la región (.uy, .cl, .co,
+   .mx, .pe, .py) y .io no publican RDAP y responden 404 aunque el dominio
+   exista. Solo se afirma "libre" para las terminaciones de TLD_CONFIABLES,
+   verificadas el 28/9/2026. Para el resto se deriva a WhatsApp.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var WHATSAPP = "5491153362945";
+
+  var TLD_CONFIABLES = [
+    "com.ar", "net.ar", "org.ar", "gob.ar", "tur.ar", "ar",
+    "com", "net", "org", "info", "biz", "site", "online", "store", "shop",
+    "app", "dev", "ai", "xyz", "tech", "agency", "digital", "studio", "design", "art"
+  ];
+
+  var PAGINAS = [
+    { t: "Desarrollo Web", d: "Sitios a medida, landing en 48 horas, sitios corporativos", u: "servicio-desarrollo-web.html", k: "web sitio pagina landing wordpress webflow corporativo diseño" },
+    { t: "Tiendas Online", d: "Tiendanube, Shopify y WooCommerce, cuotas y envíos", u: "servicio-tiendas-online.html", k: "tienda ecommerce e-commerce tiendanube shopify woocommerce mercado pago catalogo" },
+    { t: "SEO Técnico", d: "Aparecer en Google: auditoría, velocidad, posicionamiento", u: "servicio-seo-tecnico.html", k: "seo google posicionamiento buscador auditoria velocidad" },
+    { t: "Campañas de Ads", d: "Google Ads y Meta Ads medidos de punta a punta", u: "servicio-campanas-ads.html", k: "ads anuncios google meta facebook instagram publicidad campañas remarketing" },
+    { t: "Automatización de Leads", d: "Reparto de consultas de WhatsApp y registro automático", u: "servicio-automatizacion-leads.html", k: "automatizacion whatsapp consultas leads n8n make reparto asesores" },
+    { t: "Cierre de Ventas", d: "Seguimiento de presupuestos hasta el sí", u: "servicio-cierre-de-ventas.html", k: "ventas seguimiento crm presupuestos cierre asistente" },
+    { t: "Portfolio", d: "Todos los casos de éxito", u: "project.html", k: "casos trabajos portfolio proyectos" },
+    { t: "Caso: De WordPress a Webflow", d: "Marker, sitio B2B en tres idiomas", u: "caso-marker-webflow.html", k: "marker webflow wordpress migracion" },
+    { t: "Caso: El alumno paga y entra al aula solo", d: "Tiendanube + Make + aula virtual", u: "caso-plataforma-de-cursos.html", k: "cursos aula elearning tiendanube make" },
+    { t: "Caso: Google Ads en un rubro con restricciones", d: "Retail sin suspensiones", u: "caso-retail-rubro-restringido.html", k: "google ads restringido retail" },
+    { t: "Caso: Las consultas se reparten entre los asesores", d: "WhatsApp y planilla", u: "caso-reparto-de-consultas.html", k: "whatsapp asesores reparto consultas" },
+    { t: "Caso: Una tienda con el menú a medida", d: "Más de 800 productos migrados", u: "caso-tienda-a-medida.html", k: "tienda menu tiendanube migracion" },
+    { t: "Blog", d: "Notas sobre web, tiendas, SEO, Ads y ventas", u: "blog.html", k: "blog notas articulos" },
+    { t: "Partners", d: "Programa para agencias y freelancers", u: "partners.html", k: "partners socios agencias freelancers referidos marca blanca" },
+    { t: "Sobre Nosotros", d: "Quiénes somos y cómo nacimos", u: "about.html", k: "nosotros equipo empresa quienes" },
+    { t: "Equipo", d: "Las personas de Studio Complex", u: "team.html", k: "equipo personas jorge sebastian" },
+    { t: "Preguntas Frecuentes", d: "Plazos, precios y cómo trabajamos", u: "faq.html", k: "preguntas faq dudas" },
+    { t: "Agendá una reunión", d: "Media hora sin cargo", u: "agenda.html", k: "reunion agenda turno calendly llamada" },
+    { t: "Contacto", d: "Escribinos", u: "contact.html", k: "contacto mail email telefono whatsapp" }
+  ];
+
+  var popup = document.querySelector(".search_popup");
+  if (!popup) return;
+  var form = popup.querySelector("form");
+  var input = popup.querySelector(".search-input-field");
+  var titulo = popup.querySelector(".search_input .title");
+  if (!form || !input) return;
+
+  if (titulo) titulo.textContent = "Buscá en el sitio o consultá un dominio.";
+  input.placeholder = "Ej: tiendas, SEO… o tuempresa.com.ar";
+  input.setAttribute("aria-label", "Buscar en el sitio o consultar un dominio");
+  input.removeAttribute("required");
+
+  var caja = document.createElement("div");
+  caja.className = "sc-bus";
+  caja.setAttribute("aria-live", "polite");
+  caja.innerHTML = '<p class="sc-bus-ayuda">Si escribís un dominio (con punto, sin espacios) te decimos si está libre.</p>';
+  form.parentNode.appendChild(caja);
+
+  function norm(s) {
+    return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function limpiarDominio(v) {
+    v = v.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "");
+    return v.split(/[\/?#]/)[0];
+  }
+  function pareceDominio(v) {
+    return /^[a-z0-9áéíóúñü-]+(\.[a-z0-9-]+)+$/i.test(limpiarDominio(v)) && v.indexOf(" ") === -1;
+  }
+  function tld(dom) {
+    var p = dom.split(".");
+    var dos = p.slice(-2).join(".");
+    return TLD_CONFIABLES.indexOf(dos) !== -1 ? dos : p[p.length - 1];
+  }
+  function wa(texto) {
+    return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto);
+  }
+  function fecha(iso) {
+    try { return new Date(iso).toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric" }); }
+    catch (e) { return iso; }
+  }
+
+  function buscarSitio(q) {
+    var t = norm(q).split(/\s+/).filter(Boolean);
+    var res = PAGINAS.map(function (p) {
+      var h = norm(p.t + " " + p.d + " " + p.k), s = 0;
+      t.forEach(function (w) { if (h.indexOf(w) !== -1) s++; });
+      return { p: p, s: s };
+    }).filter(function (r) { return r.s > 0; }).sort(function (a, b) { return b.s - a.s; }).slice(0, 6);
+    if (!res.length) {
+      caja.innerHTML = '<p class="sc-bus-ayuda">No encontramos "' + esc(q) + '". Probá con otra palabra o <a href="' + wa("Hola, estoy buscando: " + q) + '" target="_blank" rel="noopener">preguntanos por WhatsApp</a>.</p>';
+      return;
+    }
+    caja.innerHTML = '<ul class="sc-bus-lista">' + res.map(function (r) {
+      return '<li><a href="' + r.p.u + '"><b>' + esc(r.p.t) + '</b><span>' + esc(r.p.d) + '</span></a></li>';
+    }).join("") + "</ul>";
+  }
+
+  var pedido = 0;
+  function consultarDominio(v) {
+    var dom = limpiarDominio(v);
+    var t = tld(dom);
+    var n = ++pedido;
+    if (TLD_CONFIABLES.indexOf(t) === -1) {
+      caja.innerHTML = '<div class="sc-bus-dom"><p><b>' + esc(dom) + '</b></p><p class="sc-bus-ayuda">Los dominios .' + esc(t) + ' no se pueden consultar desde acá. Escribinos y lo revisamos por vos.</p><a class="sc-bus-btn" href="' + wa("Hola, quiero saber si está libre el dominio " + dom) + '" target="_blank" rel="noopener">Consultar por WhatsApp</a></div>';
+      return;
+    }
+    caja.innerHTML = '<p class="sc-bus-ayuda">Consultando <b>' + esc(dom) + '</b>…</p>';
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var tope = setTimeout(function () { if (ctrl) ctrl.abort(); }, 12000);
+    fetch("https://rdap.org/domain/" + encodeURIComponent(dom), ctrl ? { signal: ctrl.signal } : {})
+      .then(function (r) {
+        clearTimeout(tope);
+        if (n !== pedido) return;
+        if (r.status === 404) { libre(dom, false); return; }
+        if (!r.ok) throw new Error("rdap " + r.status);
+        return r.json().then(function (d) {
+          if (n !== pedido) return;
+          var vence = "", alta = "";
+          (d.events || []).forEach(function (e) {
+            if (e.eventAction === "expiration") vence = fecha(e.eventDate);
+            if (e.eventAction === "registration") alta = fecha(e.eventDate);
+          });
+          var ns = (d.nameservers || []).map(function (x) { return (x.ldhName || "").toLowerCase(); }).filter(Boolean);
+          caja.innerHTML = '<div class="sc-bus-dom ocupado"><span class="sc-bus-estado">Registrado</span><p><b>' + esc(dom) + '</b> ya tiene dueño.</p><dl>' +
+            (alta ? "<dt>Registrado el</dt><dd>" + esc(alta) + "</dd>" : "") +
+            (vence ? "<dt>Vence el</dt><dd>" + esc(vence) + "</dd>" : "") +
+            (ns.length ? "<dt>Servidores</dt><dd>" + esc(ns.join(", ")) + "</dd>" : "") +
+            '</dl><a class="sc-bus-btn sec" href="' + wa("Hola, me interesa el dominio " + dom + ". ¿Me ayudan con alternativas?") + '" target="_blank" rel="noopener">Buscar alternativas con nosotros</a></div>';
+        });
+      })
+      .catch(function () {
+        clearTimeout(tope);
+        if (n !== pedido) return;
+        /* NIC Argentina responde el 404 (dominio no registrado) sin cabecera
+           CORS, así que el navegador lo ve como error de red. Para
+           distinguirlo de una caída real, se consulta un .ar que existe: si
+           ese responde, el dominio buscado no está registrado. */
+        if (/\.ar$/.test(dom)) {
+          fetch("https://rdap.org/domain/nic.ar").then(function (r) {
+            if (n !== pedido) return;
+            if (r.ok) libre(dom, true); else sinRespuesta(dom);
+          }).catch(function () { if (n === pedido) sinRespuesta(dom); });
+          return;
+        }
+        sinRespuesta(dom);
+      });
+  }
+
+  function libre(dom, ar) {
+    caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Disponible</span><p><b>' + esc(dom) + '</b> ' +
+      (ar ? 'no figura registrado en NIC Argentina.' : 'está libre para registrar.') +
+      '</p><a class="sc-bus-btn" href="' + wa("Hola, quiero registrar el dominio " + dom + " y armar mi web") + '" target="_blank" rel="noopener">Quiero este dominio</a></div>';
+  }
+  function sinRespuesta(dom) {
+    caja.innerHTML = '<p class="sc-bus-ayuda">No pudimos consultar <b>' + esc(dom) + '</b> ahora. <a href="' + wa("Hola, quiero saber si está libre el dominio " + dom) + '" target="_blank" rel="noopener">Preguntanos por WhatsApp</a>.</p>';
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = input.value.trim();
+    if (!v) return;
+    if (pareceDominio(v)) consultarDominio(v); else buscarSitio(v);
+  });
+})();
