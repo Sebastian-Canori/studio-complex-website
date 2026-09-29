@@ -245,4 +245,35 @@
     if (!v) return;
     if (pareceDominio(v)) consultarDominio(v); else buscarSitio(v);
   });
+
+  /* En el teléfono la lupa del encabezado no se ve: el buscador está en el
+     menú hamburguesa, que era el de la plantilla y no hacía nada. Ahora
+     cierra el menú y abre este mismo buscador con lo que se escribió. */
+  var hamb = document.querySelector(".hamburger_search form");
+  if (hamb) {
+    var hInput = hamb.querySelector("input");
+    var hTitulo = document.querySelector(".hamburger-search-area .hamburger-title");
+    if (hTitulo) hTitulo.textContent = "Empezá por un dominio";
+    if (hInput) {
+      hInput.placeholder = "tuempresa.com.ar";
+      hInput.setAttribute("aria-label", "Consultar un dominio o buscar en el sitio");
+    }
+    hamb.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = hInput ? hInput.value.trim() : "";
+      [".hamburger-area", ".tj-offcanvas-area", ".body-overlay"].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el) el.classList.remove("opened");
+      });
+      popup.classList.add("search-opened");
+      var capa = document.querySelector(".search-popup-overlay");
+      if (capa) capa.classList.add("opened");
+      input.value = v;
+      if (v) {
+        if (pareceDominio(v)) consultarDominio(v); else buscarSitio(v);
+      } else {
+        input.focus();
+      }
+    });
+  }
 })();
