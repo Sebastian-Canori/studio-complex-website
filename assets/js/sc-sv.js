@@ -19,6 +19,14 @@
   var menosMovimiento =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Las demos del encabezado son el contenido de la página (muestran el
+     servicio andando), no decoración: corren siempre. Windows marca
+     "menos movimiento" solo con apagar los efectos de animación, y en
+     muchas PC de escritorio vienen apagados; así las demos quedaban
+     quietas (29/9, lo vio Seba en su monitor). El resto de la página
+     sigue respetando la preferencia. */
+  var demosQuietas = false;
+
   /* ------------------------------------------------------------------ 1 */
   var bloques = raiz.querySelectorAll(".sc-rv");
   function mostrarTodo() {
@@ -73,7 +81,7 @@
       });
     });
 
-    if (!menosMovimiento) {
+    if (!demosQuietas) {
       auto = setInterval(function () {
         indice = (indice + 1) % modos.length;
         poner(modos[indice]);
@@ -85,7 +93,7 @@
      Demo de Tiendas Online: marca un producto, lo suma al carrito y
      muestra el aviso de venta. Con menos movimiento queda quieta. */
   var tienda = raiz.querySelector(".sc-sv-tienda");
-  if (tienda && !menosMovimiento) {
+  if (tienda && !demosQuietas) {
     var prods = tienda.querySelectorAll(".sc-sv-t-prod");
     var contador = tienda.querySelector(".sc-sv-t-carro b");
     var venta = raiz.querySelector(".sc-sv-t-venta");
@@ -116,7 +124,7 @@
 
   /* El circuito de Automatización anima con SVG (animateMotion), que no
      respeta prefers-reduced-motion por sí solo: lo pausamos a mano. */
-  if (menosMovimiento) {
+  if (demosQuietas) {
     Array.prototype.forEach.call(raiz.querySelectorAll("svg.lineas"), function (svg) {
       if (svg.pauseAnimations) svg.pauseAnimations();
     });
@@ -148,7 +156,7 @@
        final (fuentes, imágenes): se vuelve a calcular cuando carga todo. */
     window.addEventListener("load", function () { pintarSeo(); });
     pintarSeo();
-    if (!menosMovimiento) {
+    if (!demosQuietas) {
       setInterval(function () {
         var i = orden.indexOf(tuyo);
         if (i > 0) {
@@ -178,7 +186,7 @@
     var origen = avisoAds ? avisoAds.querySelector("[data-origen]") : null;
     var fuentes = ["Google Ads · Búsqueda", "Meta Ads · Instagram"];
     var vuelta = 0;
-    if (!menosMovimiento && num) {
+    if (!demosQuietas && num) {
       setInterval(function () {
         num.textContent = parseInt(num.textContent, 10) + 1;
         if (origen) origen.textContent = fuentes[vuelta++ % fuentes.length];
@@ -194,7 +202,7 @@
      Una oportunidad avanza de columna en columna hasta Cerrada; ahí aparece
      el aviso y entra una nueva en la primera columna. */
   var kanban = raiz.querySelector(".sc-sv-kanban");
-  if (kanban && !menosMovimiento) {
+  if (kanban && !demosQuietas) {
     var cols = kanban.querySelectorAll(".sc-sv-kanban-col");
     var avisoK = raiz.querySelector(".sc-sv-hero .sc-sv-aviso");
     var nombres = ["Distribuidora Sur", "Estudio Norte", "Clínica Centro", "Taller Oeste", "Mayorista Delta"];

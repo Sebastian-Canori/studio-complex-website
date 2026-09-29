@@ -773,8 +773,7 @@
 .sc-sv-cierre-caja .sc-sv-btns { justify-content: center; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sc-sv-cinta-pista, .sc-sv-flota, .sc-sv-v-carga::before, .sc-sv-cms div::after { animation: none; }
-  .sc-sv-nav { transition: none; }
+  .sc-sv-cinta-pista, .sc-sv-cms div::after { animation: none; }
 }
 
 /* ==========================================================================
