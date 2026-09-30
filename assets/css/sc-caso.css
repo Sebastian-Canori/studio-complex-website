@@ -136,6 +136,10 @@
   color: var(--sc-ink-accent);
   background-color: color-mix(in oklab, var(--tj-color-theme-primary) 12%, transparent);
 }
+/* Botón al sitio publicado del trabajo, debajo de las etiquetas. */
+.sc-caso-vivo {
+  margin-top: 28px;
+}
 
 /* --- Mockup de la plataforma ---------------------------------------------
    Escritorio y teléfono dibujados con HTML y CSS, sin imagen. Se eligió así
