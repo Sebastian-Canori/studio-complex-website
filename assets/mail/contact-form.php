@@ -1,65 +1,65 @@
 <?php
+// Sends the site contact forms (#contact-form and #contact-form-2) via SMTP2GO.
+require __DIR__ . '/smtp-mailer.php';
+require __DIR__ . '/recaptcha-verify.php';
+
 header('Content-Type: application/json; charset=utf-8');
 
-/**
- * FIXME: set the real destination inbox before going live.
- */
-$recipient = 'your-email@yourdomain.com';
+function respond($status, $message) {
+    echo json_encode(['status' => $status, 'message' => $message]);
+    exit;
+}
 
-$subjects = [
-  '1' => 'Desarrollo Web',
-  '2' => 'Tiendas Online',
-  '3' => 'SEO Técnico',
-  '4' => 'Campañas de Ads',
-  '5' => 'Automatización de Leads',
-  '6' => 'Cierre de Ventas Automatizado',
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    respond('error', 'Método no permitido.');
+}
+
+$SUBJECT_LABELS = [
+    '1' => 'Desarrollo Web',
+    '2' => 'Tiendas Online',
+    '3' => 'SEO Técnico',
+    '4' => 'Campañas de Ads',
+    '5' => 'Automatización de Leads',
+    '6' => 'Cierre de Ventas Automatizado',
 ];
 
-function clean_field($value) {
-  $value = trim($value ?? '');
-  // Strip line breaks so a field can never inject extra mail headers.
-  $value = str_replace(["\r", "\n"], '', $value);
-  return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+$name    = trim($_POST['cfName'] ?? $_POST['cfName2'] ?? '');
+$email   = trim($_POST['cfEmail'] ?? $_POST['cfEmail2'] ?? '');
+$phone   = trim($_POST['cfPhone'] ?? $_POST['cfPhone2'] ?? '');
+$subject = trim($_POST['cfSubject'] ?? $_POST['cfSubject2'] ?? '');
+$message = trim($_POST['cfMessage'] ?? $_POST['cfMessage2'] ?? '');
+
+if ($name === '' || $email === '' || $phone === '' || $subject === '') {
+    respond('error', 'Completá todos los campos obligatorios.');
 }
 
-// The homepage's mini contact form uses a "2"-suffixed field naming
-// convention; accept either so both forms share this one handler.
-function field($primary, $fallback) {
-  return $_POST[$primary] ?? $_POST[$fallback] ?? '';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    respond('error', 'El email ingresado no es válido.');
 }
 
-$name = clean_field(field('cfName', 'cfName2'));
-$email = trim(field('cfEmail', 'cfEmail2'));
-$phone = clean_field(field('cfPhone', 'cfPhone2'));
-$subject = $subjects[field('cfSubject', 'cfSubject2')] ?? 'Consulta General';
-$message = clean_field(field('cfMessage', 'cfMessage2'));
-
-if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  http_response_code(400);
-  echo json_encode(['status' => 'error', 'message' => 'Completá todos los campos obligatorios con un email válido.']);
-  exit;
+if (!sc_verify_recaptcha($_POST['recaptcha_token'] ?? '', 'contact')) {
+    respond('error', 'No pudimos validar el formulario. Recargá la página e intentá de nuevo.');
 }
 
-$emailSubject = "Nuevo mensaje del sitio web: $subject";
+$subjectLabel = $SUBJECT_LABELS[$subject] ?? 'Consulta general';
 
-$body = "Tenés un nuevo mensaje desde el formulario de contacto del sitio\n";
-$body .= "=====================================================\n\n";
-$body .= "Nombre: $name\n";
-$body .= "Email: $email\n";
-$body .= "Teléfono: $phone\n";
-$body .= "Servicio de interés: $subject\n\n";
-$body .= "Mensaje:\n$message\n";
+try {
+    $body = "Nombre: {$name}\n"
+          . "Email: {$email}\n"
+          . "Teléfono: {$phone}\n"
+          . "Motivo: {$subjectLabel}\n\n"
+          . "Mensaje:\n{$message}";
 
-// The From header stays on our own domain; the visitor's email only goes in
-// Reply-To, so a malicious value can't be used to spoof or inject headers.
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$headers = "From: no-reply@$host\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= 'X-Mailer: PHP/' . phpversion();
+    sc_send_smtp_mail(
+        'hola@studiocomplex.com.ar',
+        'Nueva consulta web - ' . $subjectLabel,
+        $body,
+        $email,
+        $name
+    );
 
-if (mail($recipient, $emailSubject, $body, $headers)) {
-  echo json_encode(['status' => 'success', 'message' => '¡Gracias! Tu mensaje fue enviado.']);
-} else {
-  http_response_code(500);
-  echo json_encode(['status' => 'error', 'message' => 'Hubo un problema al enviar tu mensaje. Probá de nuevo más tarde.']);
+    respond('success', '¡Gracias! Te vamos a contactar a la brevedad.');
+} catch (Exception $e) {
+    error_log('contact-form.php mail error: ' . $e->getMessage());
+    respond('error', 'No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.');
 }
