@@ -12,6 +12,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://studiocomplex.com.ar%{REQUEST_URI} [L,R=301]
 
+# team-details.html era la ficha de ejemplo de la plantilla (texto falso): se sacó el 30/9
+RewriteRule ^team-details\.html$ /team.html [L,R=301]
+
 # Los CSS y JS llevan ?v= en cada publicación (tools/version-assets.py),
 # así que se pueden guardar mucho tiempo. El HTML se revisa siempre.
 <IfModule mod_expires.c>
