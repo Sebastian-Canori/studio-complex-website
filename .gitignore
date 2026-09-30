@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 .publicado
+
+# Claves de los formularios: viven solo en el servidor, nunca en el repo (es público)
+assets/mail/*config*.php
