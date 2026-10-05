@@ -1,7 +1,9 @@
 <?php
-// Sends the site contact forms (#contact-form and #contact-form-2) via SMTP2GO.
+// Sends the site contact forms (#contact-form and #contact-form-2) via SMTP2GO and
+// files the contact in the CRM as a prospect (see crm-lead.php).
 require __DIR__ . '/smtp-mailer.php';
 require __DIR__ . '/recaptcha-verify.php';
+require __DIR__ . '/crm-lead.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -43,6 +45,14 @@ if (!sc_verify_recaptcha($_POST['recaptcha_token'] ?? '', 'contact')) {
 
 $subjectLabel = $SUBJECT_LABELS[$subject] ?? 'Consulta general';
 
+// Campaign the visit came from (utm_*, gclid, fbclid, landing page): sent by
+// contact-form.js, empty when the person arrived directly.
+$attribution = [];
+foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'landing_page'] as $key) {
+    $attribution[$key] = substr(trim((string) ($_POST[$key] ?? '')), 0, 300);
+}
+
+$mailSent = false;
 try {
     $body = "Nombre: {$name}\n"
           . "Email: {$email}\n"
@@ -57,9 +67,21 @@ try {
         $email,
         $name
     );
-
-    respond('success', '¡Gracias! Te vamos a contactar a la brevedad.');
+    $mailSent = true;
 } catch (Exception $e) {
     error_log('contact-form.php mail error: ' . $e->getMessage());
-    respond('error', 'No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.');
 }
+
+// The CRM is independent of the mail: if either one got the contact, it is not lost.
+$crmSent = sc_send_lead_to_crm(array_merge($attribution, [
+    'name'    => $name,
+    'email'   => $email,
+    'phone'   => $phone,
+    'message' => 'Motivo: ' . $subjectLabel . ($message !== '' ? "\n\n" . $message : ''),
+    'website' => '',
+]));
+
+if ($mailSent || $crmSent) {
+    respond('success', '¡Gracias! Te vamos a contactar a la brevedad.');
+}
+respond('error', 'No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.');

@@ -176,3 +176,55 @@
     iniciar();
   }
 })();
+
+/* Origen de campaña.
+
+   Si la persona llega desde un anuncio o un link con parámetros de campaña
+   (utm_*, gclid de Google Ads, fbclid de Meta), se guarda en sessionStorage:
+   se borra al cerrar la pestaña y no sale del navegador. Solo viaja a nuestro
+   servidor si envía el formulario de contacto (contact-form.js llama a
+   window.scOrigenCampana). Una visita sin parámetros no pisa el dato guardado,
+   así que navegar por el sitio no pierde la campaña. */
+(function () {
+  "use strict";
+
+  var CLAVE = "sc-origen";
+  var PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid"];
+
+  function guardar() {
+    var query;
+    try {
+      query = new URLSearchParams(window.location.search);
+    } catch (e) {
+      return;
+    }
+    var origen = {};
+    var hay = false;
+    PARAMS.forEach(function (nombre) {
+      var valor = (query.get(nombre) || "").trim().slice(0, 200);
+      if (valor) {
+        origen[nombre] = valor;
+        hay = true;
+      }
+    });
+    if (!hay) return;
+    // Solo la ruta de la página: la URL completa puede traer datos de más.
+    origen.landing_page = window.location.pathname;
+    try {
+      window.sessionStorage.setItem(CLAVE, JSON.stringify(origen));
+    } catch (e) {
+      // Almacenamiento bloqueado: el formulario se envía igual, sin campaña.
+    }
+  }
+
+  window.scOrigenCampana = function () {
+    try {
+      var guardado = JSON.parse(window.sessionStorage.getItem(CLAVE) || "{}");
+      return guardado && typeof guardado === "object" ? guardado : {};
+    } catch (e) {
+      return {};
+    }
+  };
+
+  guardar();
+})();

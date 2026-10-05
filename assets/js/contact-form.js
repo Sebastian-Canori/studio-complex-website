@@ -50,7 +50,14 @@
             url: "assets/mail/contact-form.php",
             type: "POST",
             dataType: "json",
-            data: $form.serialize() + "&recaptcha_token=" + encodeURIComponent(token),
+            data: [
+              $form.serialize(),
+              "recaptcha_token=" + encodeURIComponent(token),
+              // De qué campaña llegó (vacío si entró directo); ver sc-cookies.js.
+              $.param(window.scOrigenCampana ? window.scOrigenCampana() : {}),
+            ]
+              .filter(Boolean)
+              .join("&"),
           })
             .done(function (response) {
               $messages
