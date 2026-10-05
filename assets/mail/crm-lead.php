@@ -39,7 +39,8 @@ function sc_send_lead_to_crm(array $lead) {
     $response = curl_exec($ch);
     $status   = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $error    = curl_error($ch);
-    curl_close($ch);
+    // No curl_close(): since PHP 8.0 it has no effect (the handle is freed on its own),
+    // and PHP 8.5 reports it as deprecated, which would print a notice before the JSON.
 
     if ($response === false || $status < 200 || $status >= 300) {
         error_log('crm-lead.php: HTTP ' . $status . ' ' . $error);
