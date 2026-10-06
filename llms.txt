@@ -1,0 +1,35 @@
+# Studio Complex
+
+> Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Hace desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico y campañas de Google Ads y Meta Ads. Como complemento, ayuda a ordenar el seguimiento de consultas y ventas por WhatsApp. Idioma: español. Primera reunión sin cargo.
+
+Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://studiocomplex.com.ar/contact.html
+
+## Servicios
+
+- [Automatización de Leads y Consultas por WhatsApp](https://studiocomplex.com.ar/servicio-automatizacion-leads.html): Automatización de consultas: reparto entre asesores, respuesta al instante, registro en planilla o CRM y origen de cada lead, con n8n, Make y WhatsApp.
+- [Campañas de Google Ads y Meta Ads Gestionadas](https://studiocomplex.com.ar/servicio-campanas-ads.html): Gestión de campañas de Google Ads y Meta Ads medidas de punta a punta: conversiones, palabras negativas, remarketing, rubros restringidos e informe mensual.
+- [Seguimiento y Cierre de Ventas por WhatsApp](https://studiocomplex.com.ar/servicio-cierre-de-ventas.html): Seguimiento comercial: tablero de oportunidades, recordatorios, mensajes por etapa, asistente en WhatsApp con derivación a una persona e informe de cierres.
+- [Diseño y Desarrollo Web a Medida para Empresas](https://studiocomplex.com.ar/servicio-desarrollo-web.html): Diseño y desarrollo web a medida para empresas: landing en 48 horas, sitios corporativos en 3 a 6 semanas, SEO técnico, carga rápida y panel para editarlo vos.
+- [SEO Técnico: Auditoría y Posicionamiento en Google](https://studiocomplex.com.ar/servicio-seo-tecnico.html): SEO técnico para aparecer en Google: auditoría del sitio, velocidad de carga, indexación, datos estructurados, palabras clave, SEO local e informe mensual.
+- [Tiendas Online a Medida - Tiendanube, Shopify y WooCommerce](https://studiocomplex.com.ar/servicio-tiendas-online.html): Tiendas online a medida en Tiendanube, Shopify y WooCommerce: catálogo cargado, cuotas, Mercado Pago y envíos configurados. De 3 a 6 semanas.
+## Casos de éxito
+
+- [Migración de WordPress a Webflow - Caso de éxito](https://studiocomplex.com.ar/caso-marker-webflow.html): Migración del sitio B2B de Marker de WordPress a Webflow: arquitectura de contenidos, CMS, SEO y versiones en español, inglés y portugués.
+- [Plataforma de cursos online con acceso automático - Caso de éxito](https://studiocomplex.com.ar/caso-plataforma-de-cursos.html): El alumno paga el curso en la tienda y entra al aula sin que nadie lo habilite. Cómo conectamos la venta con la matriculación.
+- [Reparto automático de consultas de WhatsApp - Caso de éxito](https://studiocomplex.com.ar/caso-reparto-de-consultas.html): Siete botones de WhatsApp que van al asesor que le toca, con el mensaje escrito y la consulta anotada sola.
+- [Google Ads en un rubro con restricciones - Caso de éxito](https://studiocomplex.com.ar/caso-retail-rubro-restringido.html): Cómo sostenemos una cuenta de Google Ads en un rubro donde Shopping, Display y Performance Max no están disponibles.
+- [Tienda Tiendanube con menú a medida - Caso de éxito](https://studiocomplex.com.ar/caso-tienda-a-medida.html): Menú con foto por categoría, selector de modelo y más de 800 productos migrados. Cómo se personaliza una tienda Tiendanube.
+## Notas del blog
+
+- [Antes de poner un peso en Google Ads, dejá medido esto](https://studiocomplex.com.ar/nota-antes-de-invertir-en-google-ads.html): Una campaña sin medición gasta igual que una medida. La diferencia es que a fin de mes no sabés qué te trajo, y no tenés cómo mejorarla.
+- [Cómo repartir las consultas de WhatsApp entre tu equipo sin pagar la API](https://studiocomplex.com.ar/nota-repartir-consultas-whatsapp-entre-asesores.html): Si todas las consultas le llegan a la misma persona, o cada asesor tiene su botón y nadie sabe cuántas atiende el otro, hay una forma más ordenada de hacerlo.
+- [Cinco señales de que tu web ya no está a la altura de tu empresa](https://studiocomplex.com.ar/nota-senales-web-necesita-redisenio.html): La empresa creció, cambió lo que vende y hasta el equipo es otro. Si la web sigue igual que hace años, está contando una historia que ya no es la tuya.
+- [Por qué el SEO técnico va antes que escribir notas para Google](https://studiocomplex.com.ar/nota-seo-tecnico-antes-que-el-contenido.html): Publicar contenido en un sitio que Google no puede leer bien es como imprimir folletos y dejarlos en un cajón. Primero se ordena la casa.
+- [Tiendanube, Shopify o WooCommerce: cómo elegir la plataforma de tu tienda](https://studiocomplex.com.ar/nota-tiendanube-shopify-o-woocommerce.html): Las tres sirven para vender online. La diferencia está en cuánto pagás por mes, en qué países vendés y en quién va a manejar la tienda todos los días.
+- [Las ventas que se pierden después de mandar el presupuesto](https://studiocomplex.com.ar/nota-ventas-que-se-pierden-despues-del-presupuesto.html): El cliente pidió precio, se lo mandaste y no contestó más. Casi nunca es un no: es una venta que nadie volvió a buscar.
+## Información
+
+- [Sobre Nosotros, tu Equipo Digital](https://studiocomplex.com.ar/about.html): Somos el equipo detrás de tu presencia digital: desarrollo web, tiendas online, Ads y automatización con IA, todo coordinado por las mismas personas.
+- [Equipo - Los Socios Detrás de Studio Complex](https://studiocomplex.com.ar/team.html): Conocé al equipo de Studio Complex: desarrollo, paid media y automatización con IA trabajando juntos para hacer crecer tu negocio.
+- [Planes - Web, Tiendas y Automatización a tu Medida](https://studiocomplex.com.ar/pricing.html): Elegí el plan que necesita tu negocio: sitio web, tienda online o digital completo con Ads y automatización con IA. Cotizá sin compromiso.
+- [Preguntas Frecuentes](https://studiocomplex.com.ar/faq.html): Resolvemos tus dudas sobre desarrollo web, tiendas online, SEO, Ads y automatización con IA. Todo lo que necesitás saber antes de empezar.
