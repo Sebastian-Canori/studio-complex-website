@@ -50,6 +50,211 @@ NOTAS = [
 """
 },
 {
+"slug": "cuanto-cuesta-una-tienda-online",
+"cat": "Tiendas online",
+"serv": ("servicio-tiendas-online.html", "Tiendas Online"),
+"titulo": "¿Cuánto cuesta una tienda online? Qué mueve el precio",
+"bajada": "No hay un precio único, pero sí cuatro cosas que lo explican. Si las conocés antes de pedir presupuestos, vas a comparar mejor.",
+"min": 5,
+"portada": "costo",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> el costo de una tienda online depende de cuatro cosas: el diseño, la cantidad de productos, las funciones que necesites y la plataforma que uses. Por eso no existe un precio fijo para todos, y desconfiá de quien te lo da sin preguntarte nada. Lo que sí tenés que pedir es un presupuesto cerrado por escrito y saber qué se paga aparte.</p>
+
+<h2>1. El diseño: plantilla o a medida</h2>
+<p>Una tienda sobre una plantilla ordenada, con tu logo y tus colores, sale menos que una diseñada y programada para tu negocio. A medida vale la pena cuando la plantilla te limita de verdad. Un ejemplo: una tienda de accesorios con más de ochocientos productos y sesenta y nueve categorías necesitaba un menú con foto por categoría, que la plataforma no trae y hubo que programar.</p>
+
+<h2>2. La cantidad de productos y cómo vienen cargados</h2>
+<p>Cargar diez productos y cargar quinientos no es el mismo trabajo. Si ya los tenés en una planilla, con variantes y stock, se importan juntos. Lo que más mueve el plazo y el trabajo son las fotos y los datos: cuanto más listo llegue ese material, menos cuesta y menos tarda.</p>
+
+<h2>3. Las funciones que necesitás</h2>
+<p>Medios de pago, envíos, cuotas, cupones, integración con un sistema de gestión, venta por mayor y por menor, varios idiomas. Cada función suma trabajo de configuración o de programación. Conviene arrancar con lo imprescindible y sumar el resto cuando las ventas lo justifiquen.</p>
+
+<h2>4. La plataforma, que se paga aparte</h2>
+<p>Tiendanube, Shopify y WooCommerce tienen costos distintos: un abono mensual, comisiones por venta o el hosting y los plugins. Ese abono lo pagás directo a la plataforma y no forma parte del trabajo de armado. Antes de elegir, sumá lo que vas a pagar por mes, no solo lo que cuesta empezar. Si todavía no elegiste, mirá <a href="nota-tiendanube-shopify-o-woocommerce.html">cómo elegir entre Tiendanube, Shopify y WooCommerce</a>.</p>
+
+<h2>Qué tiene que incluir un buen presupuesto</h2>
+<ul>
+<li>Qué se entrega: catálogo, medios de pago, páginas y capacitación para que la manejes vos.</li>
+<li>Un cronograma con fechas. Una tienda completa suele llevar entre 3 y 6 semanas.</li>
+<li>Qué queda a tu nombre: la cuenta de la plataforma, el dominio y los medios de cobro tienen que ser tuyos.</li>
+<li>Qué se paga aparte y cada cuánto.</li>
+<li>Cuántas rondas de ajustes incluye después del lanzamiento.</li>
+</ul>
+
+<blockquote>El presupuesto más barato no es el que menos cuesta: es el que no te deja costos escondidos para después.</blockquote>
+
+<h2>Cómo lo hacemos nosotros</h2>
+<p>En Studio Complex cada tienda se cotiza a medida. Después de una primera reunión te pasamos un precio cerrado por escrito, con el cronograma y lo que queda aparte. Sin sorpresas a mitad de camino.</p>
+"""
+},
+{
+"slug": "cuanto-tarda-en-posicionar-una-web-en-google",
+"cat": "SEO",
+"serv": ("servicio-seo-tecnico.html", "SEO Técnico"),
+"titulo": "¿Cuánto tarda una web en posicionar en Google?",
+"bajada": "Algunas mejoras se notan en semanas y otras llevan meses. Te contamos qué esperar en cada etapa y qué no creerle a quien promete el primer puesto.",
+"min": 5,
+"portada": "tiempos",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> los arreglos técnicos de un sitio se notan en semanas, cuando Google vuelve a recorrerlo. Subir posiciones en búsquedas con competencia lleva meses. Y nadie puede garantizarte el primer puesto, porque el orden lo decide Google.</p>
+
+<h2>Primeras semanas: lo técnico</h2>
+<p>Lo primero es lo que impide que Google entienda tu sitio: páginas que no se indexan, direcciones duplicadas, carga lenta, títulos y descripciones vacíos, datos estructurados que faltan. Cuando se corrige, Google tiene que volver a visitar las páginas para registrar el cambio, y eso tarda días o semanas según el tamaño del sitio. Es la etapa en la que más rápido se ve movimiento.</p>
+
+<h2>Del primer al tercer mes: aparecer en búsquedas concretas</h2>
+<p>Con la base ordenada, el sitio empieza a aparecer en búsquedas específicas, sobre todo las de tu zona o las muy puntuales de tu rubro. Todavía no es el momento de esperar un salto en ventas, pero ya se ve en Search Console qué búsquedas traen gente y cuáles están cerca de dar el salto.</p>
+
+<h2>Del tercer mes en adelante: competir por las búsquedas difíciles</h2>
+<p>Las búsquedas con mucha competencia se ganan con tiempo: contenido útil, enlaces de otros sitios y un sitio que funcione bien. Acá no hay atajos, y por eso el SEO se piensa como un trabajo continuo y no como un arreglo de una vez.</p>
+
+<h2>Qué hace que tarde más o menos</h2>
+<ul>
+<li><b>La competencia del rubro:</b> posicionar "abogado" tiene otro costo que posicionar un servicio de nicho en tu ciudad.</li>
+<li><b>La antigüedad y el estado del sitio:</b> un dominio con historia y sin errores parte con ventaja.</li>
+<li><b>El tamaño:</b> más páginas implican más tiempo para que Google las recorra.</li>
+<li><b>Si publicás contenido nuevo:</b> el blog suma cuando tus clientes investigan mucho antes de comprar, pero no siempre hace falta.</li>
+</ul>
+
+<h2>SEO y Google Ads: cuándo usar cada uno</h2>
+<p>Con Ads pagás por cada clic y aparecés desde el primer día. Con SEO aparecés sin pagar el clic, pero lleva más tiempo. Lo ideal es combinarlos: la pauta trae ventas ahora mientras el posicionamiento crece. Si querés ver cómo ordenarlo, leé <a href="nota-seo-tecnico-antes-que-el-contenido.html">por qué el SEO técnico va antes que escribir notas</a>.</p>
+
+<blockquote>Desconfiá de quien te promete el primer puesto: lo que se puede garantizar es que tu sitio cumpla lo que Google pide y que midas cómo evoluciona cada mes.</blockquote>
+
+<h2>Cómo medir si va bien</h2>
+<p>Mirá tres datos en Search Console: cuántas páginas están indexadas, cuántas búsquedas muestran tu sitio y en qué posición promedio aparecés. Si los tres suben mes a mes, el trabajo está funcionando aunque las ventas todavía no se noten.</p>
+"""
+},
+{
+"slug": "wordpress-o-webflow-cuando-conviene-migrar",
+"cat": "Desarrollo web",
+"serv": ("servicio-desarrollo-web.html", "Desarrollo Web"),
+"titulo": "WordPress o Webflow: cuándo conviene migrar",
+"bajada": "Ninguna de las dos es mejor en general. Lo que importa es cuánto trabajo de mantenimiento te genera hoy y qué necesita crecer mañana.",
+"min": 5,
+"portada": "wpwebflow",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> conviene migrar de WordPress a Webflow cuando mantener el sitio se volvió una tarea fija (actualizar plugins, aplicar parches de seguridad) y cuando publicar contenido nuevo exige que alguien programe. Si tu WordPress funciona bien y lo manejás sin problemas, no hay motivo para mudarlo.</p>
+
+<h2>Cuándo WordPress sigue siendo buena idea</h2>
+<ul>
+<li>Tu sitio es sencillo y casi no cambia.</li>
+<li>Ya tenés un equipo o un proveedor que lo mantiene al día.</li>
+<li>Necesitás una función muy específica que solo existe como plugin.</li>
+<li>Vendés con WooCommerce y funciona bien.</li>
+</ul>
+
+<h2>Las señales de que es momento de migrar</h2>
+<ul>
+<li><b>El mantenimiento es una rutina fija:</b> cada mes hay plugins que actualizar y parches que aplicar.</li>
+<li><b>Muchos plugins, muchas puertas:</b> cuantos más tiene el sitio, más entradas posibles para un problema de seguridad.</li>
+<li><b>Cada página nueva se arma desde cero:</b> si tu oferta crece, esa cuenta no cierra.</li>
+<li><b>Querés cargar contenido sin programar:</b> con un CMS bien armado, sumar una solución o un artículo es cargar un registro.</li>
+</ul>
+
+<h2>Un caso real: Marker</h2>
+<p>Marker vende tecnología geoespacial a empresas de toda Latinoamérica y trabaja con HERE, CARTO y Precisely, además de desarrollos propios. Su sitio vivía en WordPress y todo eso entraba en una única página de soluciones. Lo migramos a Webflow y lo reordenamos: una página por cada capacidad, colecciones de CMS para que el contenido crezca sin rehacer nada y tres idiomas (español, inglés y portugués). El problema de fondo no era la plataforma: era la estructura. Podés ver <a href="caso-marker-webflow.html">el caso completo</a>.</p>
+
+<h2>Lo que no se pierde si se hace bien</h2>
+<p>El miedo más común es perder el posicionamiento. Una migración bien hecha mantiene las direcciones o las redirige, conserva los títulos y los textos que ya rinden, y revisa la indexación después de publicar. Por eso conviene empezar entendiendo qué hay antes de tocar nada.</p>
+
+<h2>Cómo decidirlo en una tarde</h2>
+<ul>
+<li>Anotá cuánto tiempo al mes se va en mantener el sitio.</li>
+<li>Listá qué contenido nuevo querés sumar en el próximo año.</li>
+<li>Preguntate si quien lo hace hoy puede hacerlo sin programar.</li>
+</ul>
+
+<blockquote>No migres por moda. Migrá cuando la plataforma actual te cueste más tiempo del que te devuelve.</blockquote>
+"""
+},
+{
+"slug": "google-ads-en-rubros-con-restricciones",
+"cat": "Publicidad",
+"serv": ("servicio-campanas-ads.html", "Campañas de Ads"),
+"titulo": "Google Ads en un rubro con restricciones: cómo evitar que te suspendan la cuenta",
+"bajada": "Hay rubros que Google deja vender pero casi no deja publicitar. Con una estructura cuidadosa se puede pautar sin poner en riesgo la cuenta.",
+"min": 5,
+"portada": "restringido",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> sí se puede hacer Google Ads en un rubro con restricciones, pero hay que cuidar tres cosas: que los anuncios cumplan la política, que no se acumulen rechazos y que la tienda de destino también cumpla. Lo que se juega no es un anuncio suelto, sino la cuenta entera, porque recuperarla después de una suspensión es muy difícil.</p>
+
+<h2>Por qué es distinto en estos rubros</h2>
+<p>En los rubros restringidos los anuncios quedan limitados por política todo el tiempo, y cada anuncio nuevo pasa por una revisión que puede rechazarlo. Además, quedan afuera algunos de los formatos más usados en comercio electrónico, así que toda la inversión tiene que entrar por los que sí están habilitados.</p>
+
+<h2>Cuatro decisiones que sostienen la cuenta</h2>
+<ul>
+<li><b>Separar por zona:</b> una campaña para el radio del local y otra para el resto del país, con presupuestos aparte. Así se corrige una sin afectar a la otra.</li>
+<li><b>Elegir bien las búsquedas:</b> que el aviso aparezca solo en búsquedas muy parecidas a las elegidas, nunca en cualquier cosa relacionada.</li>
+<li><b>Excluir lo que no corresponde:</b> una lista de términos bloqueados que se revisa todos los meses con las búsquedas reales, no una lista armada una sola vez.</li>
+<li><b>Mirar el estado de políticas:</b> revisar seguido qué anuncios quedaron limitados y por qué. Un rechazo se corrige; una racha sin mirar termina mal.</li>
+</ul>
+
+<h2>No te olvides de la tienda</h2>
+<p>Google mira la página de destino además del anuncio. Si el catálogo o la ficha de producto no cumplen, el anuncio puede caerse aunque el texto esté bien. Revisar la tienda forma parte del trabajo de la campaña.</p>
+
+<h2>Medir de verdad</h2>
+<p>Hay que comprobar que las ventas que marca Google coincidan con las de la tienda, y seguir el saldo y los impuestos que no figuran en el panel. Sin esos controles, la inversión se decide a ciegas.</p>
+
+<h2>Un caso real</h2>
+<p>Le llevamos las campañas a un comercio de un rubro con la mitad de los formatos bloqueados. La cuenta publica desde julio y no tuvo una sola suspensión. Con 40.618 impresiones obtuvo 2.469 clics, un CTR de 6,1 %. Los números están en <a href="caso-retail-rubro-restringido.html">el caso completo</a>.</p>
+
+<blockquote>En un rubro restringido, lo más caro no es un clic: es empezar de nuevo con una cuenta nueva.</blockquote>
+
+<h2>Antes de arrancar</h2>
+<p>Dejá medido lo básico y definí cuánto estás dispuesto a invertir. Para eso sirve <a href="nota-antes-de-invertir-en-google-ads.html">esta lista de qué dejar medido antes de poner un peso en Google Ads</a>.</p>
+"""
+},
+{
+"slug": "vender-cursos-online-con-acceso-automatico",
+"cat": "Tiendas online",
+"serv": ("servicio-tiendas-online.html", "Tiendas Online"),
+"titulo": "Cómo vender cursos online con acceso automático para el alumno",
+"bajada": "Que el alumno pague y entre al aula sin que nadie lo habilite es posible, y no hace falta una plataforma que te cobre por cada inscripto.",
+"min": 5,
+"portada": "cursos",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> para vender cursos con acceso automático necesitás tres piezas conectadas: una tienda que cobre, un aviso automático cuando el pago se acredita y un aula virtual que dé de alta al alumno. Si las tres están enlazadas, quien compra entra al aula en segundos, a cualquier hora, sin que nadie de tu equipo haga nada.</p>
+
+<h2>El problema de hacerlo a mano</h2>
+<p>Cuando cada venta termina en trabajo manual (revisar que el pago esté acreditado, crear el usuario, mandar los accesos por mail), el que compra a las once de la noche quiere entrar esa misma noche. Si tiene que esperar hasta mañana, empieza a dudar de la compra.</p>
+
+<h2>Las dos formas de resolverlo</h2>
+<ul>
+<li><b>Una plataforma de cursos con abono mensual:</b> es rápida de arrancar, pero suele cobrar por alumno, así que el costo sube justo cuando el negocio empieza a andar.</li>
+<li><b>Una tienda propia conectada a un aula:</b> el esfuerzo está al principio, y después vender diez o vender mil cuesta el mismo trabajo.</li>
+</ul>
+
+<h2>Cómo funciona el circuito</h2>
+<ul>
+<li><b>Compra:</b> el alumno elige el curso en la tienda y paga con los medios de pago que ya trae la plataforma, como tarjeta, transferencia o cuotas.</li>
+<li><b>Aviso:</b> cuando el pago se acredita, la tienda manda un aviso automático con los datos de la compra. En la jerga se llama webhook.</li>
+<li><b>Alta:</b> una herramienta de automatización, como Make, recibe el aviso, ve qué curso compró y quién es, y hace los pasos que antes hacía una persona.</li>
+<li><b>Acceso:</b> el alumno queda matriculado y puede empezar a cursar.</li>
+</ul>
+
+<h2>Qué ganás</h2>
+<ul>
+<li>Acceso inmediato, sea martes al mediodía o domingo a la madrugada.</li>
+<li>Un aula con tu marca y tu dominio, no dentro de la plataforma de otro.</li>
+<li>Sin comisión por cada inscripción.</li>
+<li>Menos tareas repetitivas para tu equipo.</li>
+</ul>
+
+<h2>Un caso real</h2>
+<p>Le armamos a un cliente una tienda en Tiendanube para vender sus cursos y la conectamos con su aula virtual. Cuando alguien compra, el sistema lo da de alta y le abre el acceso solo. Está contado en <a href="caso-plataforma-de-cursos.html">el caso completo</a>.</p>
+
+<blockquote>Un alumno que entra en segundos después de pagar es un alumno que no se arrepiente.</blockquote>
+
+<h2>Qué tener listo antes de arrancar</h2>
+<p>Definí qué cursos vendés y a qué precio, tené los contenidos cargados o por cargar en el aula, y elegí la plataforma de tienda. Si estás en duda, te servirá <a href="nota-tiendanube-shopify-o-woocommerce.html">esta comparación entre Tiendanube, Shopify y WooCommerce</a>.</p>
+"""
+},
+{
 "slug": "senales-web-necesita-redisenio",
 "cat": "Desarrollo web",
 "serv": ("servicio-desarrollo-web.html", "Desarrollo Web"),
