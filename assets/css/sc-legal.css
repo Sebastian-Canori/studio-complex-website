@@ -222,3 +222,28 @@
     bottom: 190px;
   }
 }
+
+/* --- Insignia de reCAPTCHA ------------------------------------------------- */
+
+/* Google la dibuja como un cuadrado y solo deja cambiarla por CSS. Cerrada es
+   un circulo; al pasar el mouse se abre como pastilla y muestra los enlaces de
+   privacidad y terminos, que Google exige que sigan visibles. */
+html .grecaptcha-badge {
+  width: 60px !important;
+  height: 60px !important;
+  right: 14px !important;
+  border-radius: 30px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+  transition: width 0.3s ease !important;
+}
+html .grecaptcha-badge:hover,
+html .grecaptcha-badge:focus-within {
+  width: 256px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .grecaptcha-badge {
+    transition: none !important;
+  }
+}
