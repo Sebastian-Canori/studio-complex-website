@@ -5,6 +5,51 @@
 
 NOTAS = [
 {
+"slug": "lanzar-producto-o-servicio-con-marca-personal",
+"cat": "Marca personal",
+"serv": ("servicio-desarrollo-web.html", "Desarrollo Web"),
+"titulo": "Cómo lanzar un producto o un servicio con tu marca personal",
+"bajada": "Un curso, una mentoría o una consultoría necesitan más que seguidores. Estos son los pasos, en orden, para pasar de la audiencia a las ventas.",
+"min": 6,
+"portada": "marca",
+"fecha": ("2026-10-06", "6 oct 2026"),
+"cuerpo": """
+<p><b>Respuesta corta:</b> para lanzar algo con tu marca personal necesitás cinco cosas, en este orden: una oferta que se entienda en una frase, una página propia que la explique, una forma de medir qué funciona, tráfico que no dependa de una sola red social y un seguimiento de cada consulta. Las redes traen atención. La web es donde esa atención se convierte en venta.</p>
+
+<h2>1. Una oferta que se entienda en una frase</h2>
+<p>Antes de pensar en diseño o en anuncios, escribí en una línea qué vendés, para quién y qué cambia en esa persona después de comprarte. "Mentoría de ocho semanas para que un diseñador consiga sus primeros clientes" funciona. "Acompañamiento integral de crecimiento profesional" no le dice nada a nadie. Si la frase no sale clara, ningún sitio la va a arreglar.</p>
+
+<h2>2. Una página propia, no el link de la bio</h2>
+<p>Un link con ocho botones obliga a elegir antes de entender. Lo que convierte es una página que cuente, en este orden: qué es, para quién es, qué incluye, cuánto cuesta o cómo se accede, y un único botón para dar el siguiente paso. Cuando el contenido ya está definido, una página así se puede tener lista en 48 horas. Lo que más demora no es la web: es decidir la oferta.</p>
+
+<h2>3. Tu nombre y tu dominio, que son tuyos</h2>
+<p>Una marca personal vive de que te encuentren por tu nombre. Registrá el dominio con tu nombre o el de tu proyecto, y armá la web para que, al buscarte en Google, aparezca primero tu sitio y no un perfil que no controlás. Un sitio bien armado también le explica a los buscadores y a las herramientas de IA quién sos, qué ofrecés y dónde trabajás, y eso suma para que te recomienden.</p>
+
+<h2>4. Medir desde el primer día</h2>
+<p>Si lanzás sin medir, no vas a saber cuál publicación trajo consultas ni cuánto costó cada una. Alcanza con saber cuántas personas llegan a la página, cuántas tocan el botón de WhatsApp o completan el formulario, y desde dónde vinieron. Con eso, la segunda semana ya decidís con datos y no por intuición.</p>
+
+<h2>5. Tráfico que no dependa de un algoritmo</h2>
+<p>Publicar contenido ayuda, pero un cambio en la red social puede dejarte sin alcance de un día para el otro. Combiná tres fuentes: contenido orgánico, una pauta chica en Meta o Google que lleve directo a tu página, y una lista de contactos propia (email o WhatsApp) para volver a hablarles. Para un lanzamiento, una pauta acotada y bien medida suele dar más información que meses de publicaciones.</p>
+
+<h2>6. Responder rápido y dar seguimiento</h2>
+<p>En servicios y mentorías, la venta casi siempre se cierra por conversación. Quien escribe y no recibe respuesta en el día, compra en otro lado. Dejá un único canal de contacto, respondé con un mensaje que ordene los próximos pasos y anotá cada consulta con su origen y su estado. Es un trabajo simple, pero es donde más ventas se pierden.</p>
+
+<h2>Errores que vemos seguido</h2>
+<ul>
+<li>Lanzar sin página propia y mandar todo a mensajes directos.</li>
+<li>Explicar la trayectoria y no el resultado que consigue el cliente.</li>
+<li>Pagar anuncios sin haber definido qué se mide.</li>
+<li>Tener tres ofertas distintas en la misma página.</li>
+<li>No contestar las consultas fuera del horario de trabajo.</li>
+</ul>
+
+<blockquote>Tu marca personal consigue que te presten atención. Tu sitio consigue que esa atención termine en una venta.</blockquote>
+
+<h2>Por dónde empezar esta semana</h2>
+<p>Escribí la oferta en una frase, definí el único botón que querés que la gente toque y armá la página alrededor de eso. Todo lo demás (anuncios, contenido, automatizaciones) se apoya en esa base. Si querés que la armemos juntos, la web, el posicionamiento y las campañas son justo lo que hacemos.</p>
+"""
+},
+{
 "slug": "senales-web-necesita-redisenio",
 "cat": "Desarrollo web",
 "serv": ("servicio-desarrollo-web.html", "Desarrollo Web"),

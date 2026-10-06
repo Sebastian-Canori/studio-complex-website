@@ -69,7 +69,7 @@ for i, n in enumerate(NOTAS):
                   <span class="sc-sv-eyebrow">{n['cat']}</span>
                   <h1 class="sc-nota-titulo">{n['titulo']}</h1>
                   <p class="sc-nota-bajada">{n['bajada']}</p>
-                  <div class="sc-nota-meta"><span>Por <b>{AUTOR}</b></span><span><time datetime="{FECHA_ISO}">{FECHA}</time></span><span>{n['min']} min de lectura</span></div>
+                  <div class="sc-nota-meta"><span>Por <b>{AUTOR}</b></span><span><time datetime="{n.get("fecha", (FECHA_ISO, FECHA))[0]}">{n.get("fecha", (FECHA_ISO, FECHA))[1]}</time></span><span>{n['min']} min de lectura</span></div>
                 </div>
               </div>
             </header>
@@ -109,8 +109,9 @@ for i, n in enumerate(NOTAS):
         </div>
         <!-- ================= fin del servicio ================= -->
 '''
+    fiso, ftxt = n.get("fecha", (FECHA_ISO, FECHA))
     ld = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": n["titulo"], "description": n["bajada"],
-          "image": BASE + f"assets/images/notas/{n['slug']}.jpg", "datePublished": FECHA_ISO, "inLanguage": "es",
+          "image": BASE + f"assets/images/notas/{n['slug']}.jpg", "datePublished": fiso, "inLanguage": "es",
           "author": {"@type": "Organization", "name": "Studio Complex", "url": BASE},
           "publisher": {"@type": "Organization", "name": "Studio Complex", "url": BASE},
           "mainEntityOfPage": BASE + f"nota-{n['slug']}.html"}
@@ -142,7 +143,7 @@ main = f'''        <!-- ========================================================
         <!-- ================= fin del servicio ================= -->
 '''
 ld = {"@context": "https://schema.org", "@type": "Blog", "name": "Blog de Studio Complex", "url": BASE + "blog.html",
-      "blogPost": [{"@type": "BlogPosting", "headline": n["titulo"], "url": BASE + f"nota-{n['slug']}.html", "datePublished": FECHA_ISO} for n in NOTAS]}
+      "blogPost": [{"@type": "BlogPosting", "headline": n["titulo"], "url": BASE + f"nota-{n['slug']}.html", "datePublished": n.get("fecha", (FECHA_ISO,))[0]} for n in NOTAS]}
 open("blog.html", "w", encoding="utf-8").write(
     pagina(main, "Blog: Web, Tiendas, SEO, Ads y Automatización | Studio Complex",
            "Notas de Studio Complex sobre sitios web, tiendas online, SEO técnico, Google Ads, automatización de consultas y seguimiento de ventas.", ld))
