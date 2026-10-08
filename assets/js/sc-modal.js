@@ -131,6 +131,7 @@
       "WhatsApp: " + d.whatsapp + "\n" +
       (d.mensaje ? "\nQué necesito: " + d.mensaje + "\n" : "") +
       "\nVengo de: " + document.title;
+    if (window.scEvento) window.scEvento("generate_lead", { lead_source: "modal_contanos_tu_caso_whatsapp" });
     window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto), "_blank", "noopener");
     cerrar();
   }
@@ -147,6 +148,7 @@
       body: JSON.stringify(Object.assign({ origen: document.title }, d))
     })
       .then(function () {
+        if (window.scEvento) window.scEvento("generate_lead", { lead_source: "modal_contanos_tu_caso" });
         form.innerHTML =
           '<p class="sc-modal-intro" style="margin:0;text-align:center;">' +
           "Listo, recibimos tu consulta. Te escribimos a la brevedad.</p>";

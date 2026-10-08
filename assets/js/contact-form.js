@@ -57,6 +57,7 @@
                 .text(response.message)
                 .css("color", response.status === "success" ? "green" : "red");
               if (response.status === "success") {
+                if (window.scEvento) window.scEvento("generate_lead", { lead_source: "formulario_contacto" });
                 $form[0].reset();
               }
             })

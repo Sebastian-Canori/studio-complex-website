@@ -217,6 +217,7 @@
       d.motivo = MOTIVOS[motivo] || "";
       d.origen = "Buscador de dominios · " + location.pathname;
       var gracias = function () {
+        if (window.scEvento) window.scEvento("generate_lead", { lead_source: "buscador_dominios" });
         caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Recibido</span><p>Gracias, ' + esc(d.nombre.split(" ")[0]) + '. Te escribimos a <b>' + esc(d.email) + '</b> en las próximas 24 horas hábiles.</p></div>';
       };
       if (ENDPOINT) {
