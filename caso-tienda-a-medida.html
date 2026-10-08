@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="assets/css/venobox.min.css">
   <link rel="stylesheet" href="assets/css/meanmenu.css">
   <link rel="stylesheet" href="assets/css/main.css?v=202609300856">
-  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609300856">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202610081800">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
   <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609300856"> -->
   <link rel="stylesheet" href="assets/css/sc-caso.css?v=202609300856">
@@ -143,23 +143,31 @@
     ]
   }
   </script>
-<!-- Analytics: GA4 + Clarity (production host only) -->
+<!-- Analytics: GA4 + Clarity (production host only). Solo cargan si la persona acepta en el aviso de cookies (sc-cookies.js). -->
 <script>
   (function () {
     if (!/(^|\.)studiocomplex\.com\.ar$/.test(location.hostname)) return;
-    var g = document.createElement("script");
-    g.async = true;
-    g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
-    document.head.appendChild(g);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag("js", new Date());
-    gtag("config", "G-4B82XMYNSR");
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "yrfrc3lgnm");
+    var cargado = false;
+    window.scCargarAnalitica = function () {
+      if (cargado) return;
+      cargado = true;
+      var g = document.createElement("script");
+      g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", "G-4B82XMYNSR");
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yrfrc3lgnm");
+    };
+    try {
+      if (window.localStorage.getItem("sc-consent") === "granted") window.scCargarAnalitica();
+    } catch (e) {}
   })();
 </script>
   <!-- Migas de pan (schema): las genera tools/seo-tags.py -->
@@ -216,9 +224,10 @@
   <!-- Va fuera de #smooth-content: ese contenedor tiene will-change: transform
        y rompe cualquier position: fixed que quede adentro. -->
   <div class="sc-cookies" id="sc-cookies" role="region" aria-label="Aviso de cookies" hidden>
-    <p>Este sitio no usa cookies de seguimiento. Solo recuerda si preferís el modo claro u oscuro. <a href="cookies.html">Cómo funciona</a></p>
+    <p>Usamos Google Analytics y Microsoft Clarity para medir cómo se usa el sitio y mejorarlo. Solo se activan si las aceptás. Además, recordamos si preferís el modo claro u oscuro. <a href="cookies.html">Cómo funciona</a></p>
     <div class="sc-cookies-acciones">
-      <button type="button" class="sc-cookies-ok">Entendido</button>
+      <button type="button" class="sc-cookies-ok">Aceptar</button>
+      <button type="button" class="sc-cookies-no">Rechazar</button>
     </div>
   </div>
   <!-- end: Aviso de cookies -->
@@ -1141,7 +1150,7 @@
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
   <!-- <script src="assets/js/sc-theme.js?v=202609300856"></script> -->
   <script src="assets/js/sc-buscador.js?v=202609300856"></script>
-  <script src="assets/js/sc-cookies.js?v=202609300856"></script>
+  <script src="assets/js/sc-cookies.js?v=202610081800"></script>
 </body>
 
 </html>

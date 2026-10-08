@@ -1,12 +1,15 @@
 /* ==========================================================================
-   Studio Complex · Aviso de cookies
+   Studio Complex · Aviso de cookies y consentimiento de analítica
    --------------------------------------------------------------------------
-   Muestra la barra de abajo una sola vez. Cuando la persona toca "Entendido"
-   se guarda esa marca en el navegador y no vuelve a aparecer.
+   Pregunta una sola vez si se acepta la analítica (Google Analytics y
+   Microsoft Clarity). La decisión se guarda en el navegador con la clave
+   "sc-consent" ("granted" o "denied"). Hasta que no se acepta, esas
+   herramientas no se cargan: el snippet de cada <head> expone
+   window.scCargarAnalitica y este archivo la llama solo al aceptar.
 
-   Lo único que se guarda es que el aviso ya se cerró. No hay analítica ni
-   pixeles en el sitio: si mañana se suman, este archivo es el lugar donde
-   enganchar el consentimiento antes de que carguen.
+   Desde cookies.html, un botón con data-sc-cookies-abrir permite cambiar la
+   decisión. Si se rechaza después de haber aceptado, se corta la medición en
+   el momento y el cambio rige por completo desde la próxima página.
 
    No usa requestAnimationFrame: en algunos navegadores del equipo no llega a
    dispararse y el aviso quedaba invisible. Se fuerza un reflow, igual que en
@@ -16,41 +19,70 @@
 (function () {
   "use strict";
 
-  var CLAVE = "sc-cookies-ok";
+  var CLAVE = "sc-consent";
+  var GA_ID = "G-4B82XMYNSR";
+
+  function leer() {
+    try {
+      return window.localStorage.getItem(CLAVE);
+    } catch (e) {
+      return null; // almacenamiento bloqueado: se pregunta igual
+    }
+  }
+
+  function guardar(valor) {
+    try {
+      window.localStorage.setItem(CLAVE, valor);
+    } catch (e) {
+      // Si no se puede guardar, el aviso vuelve en la próxima visita.
+    }
+  }
+
+  function aplicar(valor) {
+    if (valor === "granted") {
+      if (typeof window.scCargarAnalitica === "function") window.scCargarAnalitica();
+      if (window.clarity) window.clarity("consent", true);
+    } else {
+      window["ga-disable-" + GA_ID] = true;
+      if (window.clarity) window.clarity("consent", false);
+    }
+  }
 
   function iniciar() {
     var aviso = document.getElementById("sc-cookies");
     if (!aviso) return;
 
-    var yaCerrado = false;
-    try {
-      yaCerrado = window.localStorage.getItem(CLAVE) === "1";
-    } catch (e) {
-      // Navegación privada con almacenamiento bloqueado: se muestra igual.
-      yaCerrado = false;
+    function mostrar() {
+      aviso.hidden = false;
+      document.body.classList.add("sc-cookies-visible");
+      void aviso.offsetHeight; // fuerza el reflow para que la transición corra
+      aviso.classList.add("is-visible");
     }
-    if (yaCerrado) return;
 
-    aviso.hidden = false;
-    document.body.classList.add("sc-cookies-visible");
-    void aviso.offsetHeight; // fuerza el reflow para que la transición corra
-    aviso.classList.add("is-visible");
-
-    var boton = aviso.querySelector(".sc-cookies-ok");
-    if (!boton) return;
-
-    boton.addEventListener("click", function () {
+    function cerrar() {
       aviso.classList.remove("is-visible");
       document.body.classList.remove("sc-cookies-visible");
-      try {
-        window.localStorage.setItem(CLAVE, "1");
-      } catch (e) {
-        // Si no se puede guardar, el aviso vuelve en la próxima visita.
-      }
       window.setTimeout(function () {
         aviso.hidden = true;
       }, 350);
+    }
+
+    function decidir(valor) {
+      guardar(valor);
+      aplicar(valor);
+      cerrar();
+    }
+
+    var si = aviso.querySelector(".sc-cookies-ok");
+    var no = aviso.querySelector(".sc-cookies-no");
+    if (si) si.addEventListener("click", function () { decidir("granted"); });
+    if (no) no.addEventListener("click", function () { decidir("denied"); });
+
+    document.querySelectorAll("[data-sc-cookies-abrir]").forEach(function (el) {
+      el.addEventListener("click", mostrar);
     });
+
+    if (leer() === null) mostrar();
   }
 
   if (document.readyState === "loading") {

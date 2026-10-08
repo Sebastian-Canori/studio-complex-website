@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Qué guarda este sitio en tu navegador y qué no. Hoy no usamos analítica ni cookies de seguimiento.">
+    content="Qué guarda este sitio en tu navegador y qué no. Usamos analítica solo si la aceptás, y podés cambiar tu elección cuando quieras.">
 
   <!-- Site Title -->
   <link rel="canonical" href="https://studiocomplex.com.ar/cookies.html">
@@ -15,12 +15,12 @@
   <meta property="og:site_name" content="Studio Complex">
   <meta property="og:locale" content="es_AR">
   <meta property="og:title" content="Cookies - Studio Complex">
-  <meta property="og:description" content="Qué guarda este sitio en tu navegador y qué no. Hoy no usamos analítica ni cookies de seguimiento.">
+  <meta property="og:description" content="Qué guarda este sitio en tu navegador y qué no. Usamos analítica solo si la aceptás, y podés cambiar tu elección cuando quieras.">
   <meta property="og:url" content="https://studiocomplex.com.ar/cookies.html">
   <meta property="og:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cookies - Studio Complex">
-  <meta name="twitter:description" content="Qué guarda este sitio en tu navegador y qué no. Hoy no usamos analítica ni cookies de seguimiento.">
+  <meta name="twitter:description" content="Qué guarda este sitio en tu navegador y qué no. Usamos analítica solo si la aceptás, y podés cambiar tu elección cuando quieras.">
   <meta name="twitter:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
   <title>Cookies - Studio Complex</title>
 
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="assets/css/venobox.min.css">
   <link rel="stylesheet" href="assets/css/meanmenu.css">
   <link rel="stylesheet" href="assets/css/main.css?v=202609300856">
-  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202609300856">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202610081800">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
   <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202609300856"> -->
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
@@ -55,23 +55,31 @@
     })();
   </script>
   -->
-<!-- Analytics: GA4 + Clarity (production host only) -->
+<!-- Analytics: GA4 + Clarity (production host only). Solo cargan si la persona acepta en el aviso de cookies (sc-cookies.js). -->
 <script>
   (function () {
     if (!/(^|\.)studiocomplex\.com\.ar$/.test(location.hostname)) return;
-    var g = document.createElement("script");
-    g.async = true;
-    g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
-    document.head.appendChild(g);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag("js", new Date());
-    gtag("config", "G-4B82XMYNSR");
-    (function (c, l, a, r, i, t, y) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "yrfrc3lgnm");
+    var cargado = false;
+    window.scCargarAnalitica = function () {
+      if (cargado) return;
+      cargado = true;
+      var g = document.createElement("script");
+      g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", "G-4B82XMYNSR");
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yrfrc3lgnm");
+    };
+    try {
+      if (window.localStorage.getItem("sc-consent") === "granted") window.scCargarAnalitica();
+    } catch (e) {}
   })();
 </script>
   <!-- Migas de pan (schema): las genera tools/seo-tags.py -->
@@ -122,9 +130,10 @@
   <!-- Va fuera de #smooth-content: ese contenedor tiene will-change: transform
        y rompe cualquier position: fixed que quede adentro. -->
   <div class="sc-cookies" id="sc-cookies" role="region" aria-label="Aviso de cookies" hidden>
-    <p>Este sitio no usa cookies de seguimiento. Solo recuerda si preferís el modo claro u oscuro. <a href="cookies.html">Cómo funciona</a></p>
+    <p>Usamos Google Analytics y Microsoft Clarity para medir cómo se usa el sitio y mejorarlo. Solo se activan si las aceptás. Además, recordamos si preferís el modo claro u oscuro. <a href="cookies.html">Cómo funciona</a></p>
     <div class="sc-cookies-acciones">
-      <button type="button" class="sc-cookies-ok">Entendido</button>
+      <button type="button" class="sc-cookies-ok">Aceptar</button>
+      <button type="button" class="sc-cookies-no">Rechazar</button>
     </div>
   </div>
   <!-- end: Aviso de cookies -->
@@ -492,32 +501,45 @@
           <div class="container">
             <div class="sc-legal-caja">
 
-              <span class="sc-legal-fecha">Última actualización: septiembre de 2026</span>
+              <span class="sc-legal-fecha">Última actualización: octubre de 2026</span>
 
               <p>Casi todos los sitios guardan algo en el navegador de quien los visita. Acá contamos exactamente qué guardamos nosotros, que hoy es muy poco, y qué podés hacer al respecto.</p>
 
               <h2>Qué guarda este sitio</h2>
 
-              <p>Dos cosas, las dos para que la web funcione como esperás:</p>
+              <p>Para que la web funcione como esperás, guardamos en tu navegador:</p>
 
               <ul>
                 <li>Si elegiste el modo claro o el oscuro, para que la próxima vez que entres lo encuentres como lo dejaste.</li>
-                <li>Si ya cerraste el aviso de cookies, para no volver a mostrártelo en cada página.</li>
+                <li>Tu decisión sobre la analítica (aceptar o rechazar), para no volver a preguntarte en cada página.</li>
               </ul>
 
-              <p>Nada de eso sale de tu navegador ni llega a un servidor nuestro. Son preferencias tuyas, guardadas en tu propio equipo.</p>
+              <p>Esas dos cosas son preferencias tuyas, guardadas en tu propio equipo, y no llegan a un servidor nuestro.</p>
+
+              <h2>Analítica: solo si la aceptás</h2>
+
+              <p>Si aceptás en el aviso, cargamos dos herramientas para entender cómo se usa el sitio y mejorarlo:</p>
+
+              <ul>
+                <li><strong>Google Analytics 4</strong>: cuenta visitas, páginas vistas, de dónde llegás y si usás el WhatsApp, la agenda o el formulario. Usa cookies propias de Google (por ejemplo <code>_ga</code>).</li>
+                <li><strong>Microsoft Clarity</strong>: muestra mapas de calor y grabaciones anónimas de cómo se navega la página. Usa cookies propias de Microsoft (por ejemplo <code>_clck</code>, <code>_clsk</code>).</li>
+              </ul>
+
+              <p>Si rechazás o no respondés, ninguna de las dos se carga y el sitio funciona igual. Podés cambiar tu elección cuando quieras:</p>
+
+              <p><button type="button" class="sc-cookies-no" data-sc-cookies-abrir>Cambiar mi elección</button></p>
 
               <h2>Qué no hacemos</h2>
 
-              <p>Hoy el sitio no tiene analítica, ni pixel de Facebook, ni etiquetas de publicidad, ni ninguna herramienta que siga tu recorrido por internet. No armamos un perfil tuyo, no vendemos datos y no compartimos nada con terceros, porque sencillamente no hay nada que compartir.</p>
+              <p>No usamos pixel de Facebook ni etiquetas de publicidad. No armamos un perfil tuyo y no vendemos datos. Los datos de analítica los procesan Google y Microsoft, y solo si los aceptaste.</p>
 
-              <p>Si en algún momento sumamos una herramienta de medición, vamos a actualizar esta página antes de activarla y el aviso va a pedirte permiso de verdad, no solo informarte.</p>
+              <p>Si en algún momento sumamos otra herramienta de medición, vamos a actualizar esta página antes de activarla y el aviso va a pedirte permiso de nuevo.</p>
 
               <h2>Cómo lo borrás</h2>
 
               <p>Todo lo que guardamos se borra desde tu navegador, sin pedirnos nada. En Chrome, Firefox, Safari o Edge alcanza con entrar a la configuración, buscar la sección de privacidad y borrar los datos de sitios. También podés usar una ventana privada o de incógnito: ahí no queda nada cuando la cerrás.</p>
 
-              <p>Si borrás estos datos, el sitio vuelve a arrancar en el tema por defecto y el aviso de cookies aparece de nuevo. Nada más que eso.</p>
+              <p>Si borrás estos datos, el sitio vuelve a arrancar en el tema por defecto y el aviso de cookies aparece de nuevo y te vuelve a preguntar. Para borrar también las cookies de Google y Microsoft, usá la misma opción del navegador.</p>
 
               <h2>Cuándo cambia esta página</h2>
 
@@ -682,7 +704,7 @@
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
   <!-- <script src="assets/js/sc-theme.js?v=202609300856"></script> -->
   <script src="assets/js/sc-buscador.js?v=202609300856"></script>
-  <script src="assets/js/sc-cookies.js?v=202609300856"></script>
+  <script src="assets/js/sc-cookies.js?v=202610081800"></script>
 </body>
 
 </html>

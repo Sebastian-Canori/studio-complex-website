@@ -184,10 +184,31 @@
 .sc-cookies-ok:hover {
   background-color: #ff9333;
 }
+
+/* "Rechazar" pesa lo mismo que "Aceptar": mismo tamaño, borde en vez de relleno. */
+.sc-cookies-no {
+  padding: 8px 22px;
+  border: 2px solid #f2801e;
+  border-radius: 99px;
+  background-color: transparent;
+  color: #f2801e;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.sc-cookies-no:hover {
+  background-color: #f2801e;
+  color: #07090c;
+}
+.sc-cookies-no:active {
+  transform: translateY(1px);
+}
 .sc-cookies-ok:active {
   transform: translateY(1px);
 }
 .sc-cookies-ok:focus-visible,
+.sc-cookies-no:focus-visible,
 .sc-cookies a:focus-visible {
   outline: 2px solid #22d3ee;
   outline-offset: 3px;
