@@ -5,7 +5,7 @@
 #   python3 tools/armar-blog.py && python3 tools/seo-tags.py
 import glob, re
 
-IMG = "https://studiocomplex.com.ar/assets/images/og-studio-complex.png"
+IMG = "https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png"
 BLOQUE = re.compile(r"\n  <!-- Open Graph / Twitter -->.*?name=\"twitter:image\" content=\"[^\"]*\">", re.S)
 
 n = 0
