@@ -14,8 +14,9 @@ Notas:
 - El buscador de dominios muestra su "Gracias" también si el envío falla (comportamiento previo), así que ese `lead_source` puede sobrecontar.
 - El modal en modo WhatsApp cuenta el lead al abrir WhatsApp, no al enviar el mensaje.
 
-## Pendiente en la consola de GA4 (propiedad G-4B82XMYNSR)
+## Estado en la consola de GA4 (propiedad G-4B82XMYNSR, cuenta analiticasc2026@gmail.com)
 
-1. Admin → Eventos: esperar a que aparezcan y marcar como evento clave `generate_lead`, `click_whatsapp` y `click_agenda`.
-2. Admin → Definiciones personalizadas: crear la dimensión `lead_source` y `link_location` (alcance: evento).
-3. Probar en Tiempo real aceptando las cookies y haciendo clic en un botón de WhatsApp.
+- Hecho el 8/10: prueba en Tiempo real. Aceptando las cookies y haciendo clic en el WhatsApp llegó `click_whatsapp` a GA4.
+- Hecho el 8/10: creadas las dimensiones personalizadas de alcance evento `lead_source` y `link_location`.
+- Pendiente (Google tarda hasta 24 h en listar los eventos nuevos): en Admin → Eventos → pestaña "Eventos recientes", marcar con la estrella como evento clave `generate_lead`, `click_whatsapp` y `click_agenda`. `generate_lead` solo aparece cuando entra el primer envío real de un formulario.
+- Nota: el parámetro `link_location` casi siempre sale como `contenido` o `footer`; los selectores de header de `sc-eventos.js` no coinciden con el menú del tema. Si se quiere separar el header, ajustar `zona()`.
