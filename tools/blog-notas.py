@@ -319,7 +319,7 @@ NOTAS = [
 <h2>Si ya tenés tienda y te queda chica</h2>
 <p>Mudarse de plataforma es posible sin empezar de cero: se pasan productos, fotos y categorías, y se redirigen las direcciones viejas para no perder lo que ya tenías posicionado en Google. La clave es tener la tienda nueva lista antes de apagar la vieja.</p>
 
-<p>Si ya te decidiste por Tiendanube, mirá <a href="servicio-tiendanube.html">cómo armamos tiendas en Tiendanube</a>: qué incluye, cuánto tarda, la migración desde otra plataforma y las automatizaciones.</p>
+<p>Si ya te decidiste, mirá cómo armamos tiendas en <a href="servicio-tiendanube.html">Tiendanube</a>, en <a href="servicio-shopify.html">Shopify</a> o en <a href="servicio-woocommerce.html">WooCommerce</a>: qué incluye cada una, cuánto tarda, la migración desde otra plataforma y las automatizaciones.</p>
 """
 },
 {

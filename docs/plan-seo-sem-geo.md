@@ -8,8 +8,8 @@ Reglas de contenido: solo afirmaciones que ya están probadas en el sitio (casos
 
 | # | Pieza | Por qué va en este lugar | Estado |
 |---|---|---|---|
-| 1 | Página `servicio-tiendanube.html` | Búsquedas con intención de compra, y es la plataforma local con más agencias buscadas. Se indexa en días. | En revisión (rama `seo/pagina-tiendanube`) |
-| 2 | Páginas de Shopify y de WooCommerce/WordPress | Mismo molde (`tools/armar-plataformas.py`): cada una es de horas, no de días. | Pendiente |
+| 1 | Página `servicio-tiendanube.html` | Búsquedas con intención de compra, y es la plataforma local con más agencias buscadas. Se indexa en días. | En revisión (PR #6) |
+| 2 | Páginas de Shopify y de WooCommerce/WordPress | Mismo molde (`tools/armar-plataformas.py`): cada una es de horas, no de días. | Armadas (rama `seo/paginas-shopify-woocommerce`, apilada sobre el PR #6) |
 | 3 | Medición: eventos de conversión en GA4 (clic en WhatsApp, formulario, agenda) | Sin esto no se sabe qué página trae consultas y no se puede pautar con criterio. | Pendiente |
 | 4 | Técnico rápido: `BreadcrumbList` en servicios y notas, `lang="es-AR"`, enlaces internos y entrada en el menú | Horas de trabajo y mejora la lectura que hace Google del sitio. | Parcial (la página 1 ya trae breadcrumbs) |
 | 5 | Perfiles y menciones: LinkedIn de la empresa, Google Business Profile, directorios y programas de socios de Tiendanube y Shopify | Las menciones externas son lo que más pesa para posicionar y para que las IA te citen. Requiere altas de Sebastián. | Pendiente |
