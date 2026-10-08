@@ -4,7 +4,7 @@ Actualizado el 8 de octubre de 2026. Sirve para que el repo y el sitio publicado
 
 ## Qué es producción hoy
 
-Producción (`studiocomplex.com.ar`) es **la rama `seo/caso-sosvosjeans`**. Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
+Producción (`studiocomplex.com.ar`) es **la rama `seo/mejoras-tecnicas`** (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan y arreglo de las tarjetas del caso WooCommerce en home y trabajos; respaldo previo y 39 de 39 iguales). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
 
 ```
 python3 tools/comparar-con-produccion.py
@@ -28,7 +28,8 @@ El `.htaccess` de la raíz sí es el del repo (el servidor lo protege y no se pu
 |---|---|---|
 | `seo/geo-ai-visibility` (PR #5) | SEO y GEO del 6/10 y 6 notas nuevas del blog, más la analítica y los PR #2, #3 y #4. | Sí |
 | `seo/redirects-favicons` | Lo anterior más redirecciones 301, favicon e imagen para compartir con Figtree. | Sí |
-| `seo/caso-sosvosjeans` | Lo anterior más el caso de éxito de WooCommerce. **Es producción.** | Sí |
+| `seo/caso-sosvosjeans` | Lo anterior más el caso de éxito de WooCommerce. | Sí |
+| `seo/mejoras-tecnicas` | Lo anterior más `lang="es-AR"`, BreadcrumbList y arreglo de tarjetas. **Es producción.** | Sí |
 | `seo/pagina-tiendanube` (PR #6) | Lo anterior más la página de Tiendanube y las herramientas para generar páginas de plataforma. | **No** |
 | `seo/paginas-shopify-woocommerce` | Lo anterior más las páginas de Shopify y WooCommerce. | **No** |
 | `feat/form-a-crm`, `docs/claude-md` | Formulario conectado al CRM y `CLAUDE.md`. | No (solo locales) |
