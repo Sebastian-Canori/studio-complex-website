@@ -102,3 +102,18 @@ Orden sugerido para mergear: PR #2, #3 y #4 primero (el diff del #5 queda solo c
 - Perfiles de LinkedIn y X de la empresa, si existen: sumarlos al `sameAs` y al footer.
 - Cifras reales en las notas de costos y tiempos cuando se quiera mostrar rangos (hoy los planes dicen "A cotizar").
 - Confirmar si `_spf.google.com` sigue haciendo falta y subir DMARC a `p=quarantine` cuando los reportes pasen (ver `docs/dns-y-mail.md`).
+
+## 10. Actualización del 8 de octubre
+
+Todo lo de esta sección está **publicado en producción** salvo lo que dice "en revisión". Los números de las secciones anteriores son del 6/10.
+
+| Qué | Detalle | Estado |
+|---|---|---|
+| Redirecciones 301 | 13 reglas en `.htaccess` desde las URLs del WordPress anterior que Google todavía conoce (`/diseno-y-desarrollo-web/`, `/contacto/`, `/blog/`, `/alianzas/`, `/trabajos-destacados/`, `/procesos/`, casos de éxito, posts y tienda vieja) hacia sus páginas equivalentes. | Publicado |
+| Favicon | `favicon.ico` y PNG de 48, 96, 192 y 180 px, con las etiquetas en las 35 páginas. Google pide múltiplos de 48 px. | Publicado |
+| Imagen para compartir | `assets/images/og-studio-complex-v2.png`, hecha con Figtree (la tipografía del sitio). Nombre nuevo para saltear la caché de WhatsApp y redes. `tools/seo-tags.py` apunta a esta imagen. | Publicado |
+| Caso de éxito WooCommerce | `caso-woocommerce-minorista-mayorista.html`: una marca de ropa pasó a dos tiendas WooCommerce, minorista y mayorista, para manejar mejor el stock y las promociones; alojada y mantenida por el estudio hace unos cinco años. Cliente real, sin nombrarlo en el texto. Con portada, listado en Trabajos y en el home. | Publicado |
+| Páginas de plataforma | `servicio-tiendanube.html`, `servicio-shopify.html` y `servicio-woocommerce.html`, generadas con `tools/armar-plataformas.py`. Sin casos propios de Shopify ni de WooCommerce: la página lo dice. | En revisión (PR #6 y rama de Shopify y WooCommerce) |
+| Search Console y Bing | Sitemap reenviado, indexación pedida para la home, el blog, las 6 notas nuevas y las URLs viejas con redirección. Bing: 25 URLs. | Hecho |
+
+Cómo está armado el repo respecto de producción, el orden de merge y cómo comprobar que están alineados: ver `docs/estado-publicacion.md`.
