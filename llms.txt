@@ -19,6 +19,7 @@ Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://st
 - [Reparto automático de consultas de WhatsApp - Caso de éxito](https://studiocomplex.com.ar/caso-reparto-de-consultas.html): Siete botones de WhatsApp que van al asesor que le toca, con el mensaje escrito y la consulta anotada sola.
 - [Google Ads en un rubro con restricciones - Caso de éxito](https://studiocomplex.com.ar/caso-retail-rubro-restringido.html): Cómo sostenemos una cuenta de Google Ads en un rubro donde Shopping, Display y Performance Max no están disponibles.
 - [Tienda Tiendanube con menú a medida - Caso de éxito](https://studiocomplex.com.ar/caso-tienda-a-medida.html): Menú con foto por categoría, selector de modelo y más de 800 productos migrados. Cómo se personaliza una tienda Tiendanube.
+- [WooCommerce minorista y mayorista - Caso de éxito](https://studiocomplex.com.ar/caso-woocommerce-minorista-mayorista.html): Rediseñamos el sitio de una marca de ropa en dos tiendas WooCommerce, una minorista y otra mayorista, para ordenar el stock y las promociones.
 ## Notas del blog
 
 - [Antes de poner un peso en Google Ads, dejá medido esto](https://studiocomplex.com.ar/nota-antes-de-invertir-en-google-ads.html): Una campaña sin medición gasta igual que una medida. La diferencia es que a fin de mes no sabés qué te trajo, y no tenés cómo mejorarla.
