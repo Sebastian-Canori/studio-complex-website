@@ -28,6 +28,8 @@ RewriteRule ^2025/01/15/optimizacion-seo/?$ /nota-seo-tecnico-antes-que-el-conte
 RewriteRule ^2025/09/29/wordpress-vs-webflow-comparativa-para-elegir-la-mejor-plataforma-en-2025/?$ /nota-wordpress-o-webflow-cuando-conviene-migrar.html [R=301,L]
 RewriteRule ^2025/09/26/como-ganar-productividad-con-habitos-foco-y-diseno-de-rutinas/?$ /blog.html [R=301,L]
 RewriteRule ^author/ /blog.html [R=301,L]
+RewriteRule ^(case-studies-list/.*|caso-de-exito-.*)$ /project.html [R=301,L]
+RewriteRule ^(producto/.*|categoria-producto/.*|lista-de-deseos/?)$ / [R=301,L]
 
 # Los CSS y JS llevan ?v= en cada publicación (tools/version-assets.py),
 # así que se pueden guardar mucho tiempo. El HTML se revisa siempre.
