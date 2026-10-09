@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Studio Complex · Formulario de contacto
+   --------------------------------------------------------------------------
+   Estilos del bloque .contact-form (contact.html y el formulario del home):
+   tarjeta con borde de luz como las de los casos, campos con foco naranja,
+   estados de error y de envio, y una nota de privacidad. Se carga despues de
+   main.css y solo pisa lo necesario. Respeta prefers-reduced-motion.
+   ========================================================================== */
+
+.contact-form {
+  position: relative;
+  padding: 56px 40px 44px;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(242, 128, 30, 0.1), transparent 55%),
+    radial-gradient(90% 70% at 100% 100%, rgba(34, 211, 238, 0.07), transparent 60%),
+    var(--sc-surface-1);
+  box-shadow: 0 30px 60px -30px #000;
+}
+/* Borde de luz: naranja arriba a la izquierda, cian abajo a la derecha. */
+.contact-form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(242, 128, 30, 0.55), rgba(255, 255, 255, 0.06) 40%, rgba(34, 211, 238, 0.45));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.contact-form .title {
+  margin-bottom: 8px;
+}
+.contact-form .sc-form-intro {
+  margin: 0 0 32px;
+  color: var(--tj-color-text-body-2);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.contact-form .form-input input,
+.contact-form .form-input textarea,
+.contact-form .form-input .nice-select {
+  border-radius: 12px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.contact-form .form-input input:hover,
+.contact-form .form-input textarea:hover,
+.contact-form .form-input .nice-select:hover {
+  border-color: rgba(242, 128, 30, 0.45);
+}
+.contact-form .form-input input:focus,
+.contact-form .form-input textarea:focus,
+.contact-form .form-input .nice-select:focus,
+.contact-form .form-input .nice-select.open {
+  outline: none;
+  border-color: var(--sc-ink-accent);
+  box-shadow: 0 0 0 3px rgba(242, 128, 30, 0.22);
+}
+.contact-form .form-input textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.contact-form .form-input input:focus-visible,
+.contact-form .form-input textarea:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+/* Mensajes del envio (los escribe contact-form.js en #form-messages). */
+.contact-form #form-messages,
+.contact-form #form-messages-2 {
+  margin: 4px 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.contact-form #form-messages:empty,
+.contact-form #form-messages-2:empty {
+  display: none;
+}
+
+.contact-form .submit-btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+.contact-form .submit-btn button[disabled] {
+  opacity: 0.65;
+  cursor: progress;
+}
+.contact-form .sc-form-nota {
+  text-align: left;
+  margin: 0;
+  flex: 1 1 240px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--tj-color-text-body-2);
+}
+.contact-form .sc-form-nota a {
+  color: var(--sc-ink-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  .contact-form {
+    padding: 36px 20px 28px;
+    margin-inline-end: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-form .form-input input,
+  .contact-form .form-input textarea,
+  .contact-form .form-input .nice-select {
+    transition: none;
+  }
+}
+
+/* --- Pagina de gracias (gracias.html) ------------------------------------- */
+.sc-gracias {
+  max-width: 640px;
+  margin-inline: auto;
+}
+.sc-gracias-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+  font-size: 34px;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  box-shadow: inset 0 0 0 1.5px rgba(34, 197, 94, 0.45), 0 0 40px -10px rgba(34, 197, 94, 0.6);
+}
+.sc-gracias-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 28px;
+}
+.sc-gracias-sec {
+  color: var(--tj-color-text-body-2);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.25s ease;
+}
+.sc-gracias-sec:hover {
+  color: var(--sc-ink-accent);
+}
