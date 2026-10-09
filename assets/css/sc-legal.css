@@ -263,6 +263,17 @@ html .grecaptcha-badge:focus-within {
   width: 256px !important;
 }
 
+/* El logo de Google queda dibujado unos pixeles corrido dentro del circulo
+   (a la derecha y arriba). Se corre el iframe para centrarlo. Al abrirse como
+   pastilla vuelve a su lugar para no cortar el texto. */
+html .grecaptcha-badge iframe {
+  transform: translate(-5px, 3px) !important;
+}
+html .grecaptcha-badge:hover iframe,
+html .grecaptcha-badge:focus-within iframe {
+  transform: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html .grecaptcha-badge {
     transition: none !important;
