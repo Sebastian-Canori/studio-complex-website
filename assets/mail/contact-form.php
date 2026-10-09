@@ -77,7 +77,8 @@ $crmSent = sc_send_lead_to_crm(array_merge($attribution, [
     'name'    => $name,
     'email'   => $email,
     'phone'   => $phone,
-    'message' => 'Motivo: ' . $subjectLabel . ($message !== '' ? "\n\n" . $message : ''),
+    'subject' => $subjectLabel,
+    'message' => $message,
     'website' => '',
 ]));
 

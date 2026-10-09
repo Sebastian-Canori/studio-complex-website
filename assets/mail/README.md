@@ -15,15 +15,17 @@ Los formularios mandan por SMTP2GO y validan con reCAPTCHA v3.
 - `tools/publicar.py` no sube nada de `assets/mail/`. Los PHP se suben a mano, y solo después de pasar por el repo.
 - **Pendiente:** mover las claves a un archivo fuera de `public_html`. Con eso, los cuatro PHP pueden estar en el repo.
 
-## Conexión con el CRM
+## Conexión con el CRM (hoy: WordPress `/CRM-ventas`)
 
-`contact-form.php` manda el mail y además carga el contacto en el CRM (tablero «Formulario web» de Prospectos). Para activarlo, crear en el servidor `assets/mail/crm-config.php` (nunca en el repo; `.gitignore` bloquea `*config*.php`):
+`contact-form.php` y `newsletter-form.php` mandan el mail y además guardan el dato en el CRM mediante `crm-lead.php` (`sc_send_to_crm`). Crear en el servidor `assets/mail/crm-config.php` (nunca en el repo; `.gitignore` bloquea `*config*.php`):
 
 ```php
-<?php return ['url' => 'https://<url-del-crm>/api/integrations/leads', 'secret' => '<LEAD_INTAKE_SECRET del CRM>'];
+<?php return ['url' => 'https://studiocomplex.com.ar/CRM-ventas/index.php?rest_route=/sc-crm/v1/intake', 'secret' => '<secreto de intake>'];
 ```
 
-- Antes de crear ese archivo, el formulario funciona igual que siempre (solo el mail).
-- Si el CRM no responde, el mail sale igual y el error queda en el log del servidor. Si falla el mail pero el CRM lo recibió, la persona ve el mensaje de éxito: el contacto no se pierde.
-- La campaña (utm_*, gclid, fbclid y la página de entrada) la guarda `sc-cookies.js` solo mientras la pestaña está abierta y la manda `contact-form.js` junto con el formulario.
-- Orden de salida a producción: primero el CRM en producción con `LEAD_INTAKE_SECRET` cargado, después `crm-lead.php` y `contact-form.php` y, al final, `crm-config.php`. Los anuncios llevan `utm_source=facebook&utm_medium=paid_social&utm_campaign=<nombre>` (Meta) o auto-etiquetado `gclid` (Google Ads).
+- En el CRM de WordPress el endpoint lo da el mu-plugin `sc-crm-intake.php` (fuera del repo), que lee el mismo secreto de `wp-content/sc-crm-intake-config.php`. Solo puede crear contactos, leads y suscriptores del grupo «Newsletter».
+- Al pasar al CRM propio solo cambia `url` (mismo contrato: JSON con `Authorization: Bearer`).
+- Contacto: guarda nombre, mail, teléfono, motivo, mensaje y campaña (utm_*, gclid, fbclid, página de entrada; la recuerda `sc-cookies.js` solo mientras la pestaña está abierta).
+- Newsletter: guarda el mail con consentimiento en el grupo «Newsletter» y manda un mail de gracias con la forma de pedir la baja.
+- Sin `crm-config.php` los formularios funcionan como siempre (solo mail). Si el CRM no responde, el mail sale igual y el registro se agrega a `sc-intake-fallback.jsonl`, en la carpeta superior a `public_html`, para no perderlo.
+- Si falla el mail pero el CRM lo recibió (o al revés), la persona ve el mensaje de éxito.
