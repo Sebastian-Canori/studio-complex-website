@@ -4,7 +4,7 @@ Actualizado el 8 de octubre de 2026. Sirve para que el repo y el sitio publicado
 
 ## Qué es producción hoy
 
-Producción (`studiocomplex.com.ar`) es **la rama `seo/paginas-nicho`** (publicada el 9/10: páginas de Tiendanube, Shopify y WooCommerce con enlaces en menú y footer, 42 de 42 iguales; antes fue `seo/mejoras-tecnicas`) (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan arreglo de las tarjetas del caso WooCommerce en home y trabajos, y consentimiento de cookies: GA4 y Clarity solo cargan si se acepta, y eventos de GA4 (`sc-eventos.js`), publicados también el 8/10; respaldo previo y 39 de 39 iguales, más `sc-cookies.js` y `sc-legal.css`). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
+Producción (`studiocomplex.com.ar`) es **la rama `seo/paginas-nicho`** (publicada el 9/10: páginas de Tiendanube, Shopify y WooCommerce con enlaces en menú y footer, aviso de cookies sin mención al tema claro/oscuro e ícono de reCAPTCHA centrado, 42 de 42 iguales; antes fue `seo/mejoras-tecnicas`) (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan arreglo de las tarjetas del caso WooCommerce en home y trabajos, y consentimiento de cookies: GA4 y Clarity solo cargan si se acepta, y eventos de GA4 (`sc-eventos.js`), publicados también el 8/10; respaldo previo y 39 de 39 iguales, más `sc-cookies.js` y `sc-legal.css`). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
 
 ```
 python3 tools/comparar-con-produccion.py
