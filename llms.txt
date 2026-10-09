@@ -2,7 +2,7 @@
 
 > Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Hace desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico y campañas de Google Ads y Meta Ads. Como complemento, ayuda a ordenar el seguimiento de consultas y ventas por WhatsApp. Idioma: español. Primera reunión sin cargo.
 
-Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://studiocomplex.com.ar/contact.html
+Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://studiocomplex.com.ar/contacto.html
 
 ## Servicios
 
@@ -39,7 +39,7 @@ Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://st
 - [WordPress o Webflow: cuándo conviene migrar](https://studiocomplex.com.ar/nota-wordpress-o-webflow-cuando-conviene-migrar.html): Ninguna de las dos es mejor en general. Lo que importa es cuánto trabajo de mantenimiento te genera hoy y qué necesita crecer mañana.
 ## Información
 
-- [Sobre Nosotros, tu Equipo Digital](https://studiocomplex.com.ar/about.html): Somos el equipo detrás de tu presencia digital: desarrollo web, tiendas online, Ads y automatización con IA, todo coordinado por las mismas personas.
-- [Equipo - Los Socios Detrás de Studio Complex](https://studiocomplex.com.ar/team.html): Conocé al equipo de Studio Complex: desarrollo, paid media y automatización con IA trabajando juntos para hacer crecer tu negocio.
-- [Planes - Web, Tiendas y Automatización a tu Medida](https://studiocomplex.com.ar/pricing.html): Elegí el plan que necesita tu negocio: sitio web, tienda online o digital completo con Ads y automatización con IA. Cotizá sin compromiso.
-- [Preguntas Frecuentes](https://studiocomplex.com.ar/faq.html): Resolvemos tus dudas sobre desarrollo web, tiendas online, SEO, Ads y automatización con IA. Todo lo que necesitás saber antes de empezar.
+- [Sobre Nosotros, tu Equipo Digital](https://studiocomplex.com.ar/sobre-nosotros.html): Somos el equipo detrás de tu presencia digital: desarrollo web, tiendas online, Ads y automatización con IA, todo coordinado por las mismas personas.
+- [Equipo - Los Socios Detrás de Studio Complex](https://studiocomplex.com.ar/equipo.html): Conocé al equipo de Studio Complex: desarrollo, paid media y automatización con IA trabajando juntos para hacer crecer tu negocio.
+- [Planes - Web, Tiendas y Automatización a tu Medida](https://studiocomplex.com.ar/planes.html): Elegí el plan que necesita tu negocio: sitio web, tienda online o digital completo con Ads y automatización con IA. Cotizá sin compromiso.
+- [Preguntas Frecuentes](https://studiocomplex.com.ar/preguntas-frecuentes.html): Resolvemos tus dudas sobre desarrollo web, tiendas online, SEO, Ads y automatización con IA. Todo lo que necesitás saber antes de empezar.

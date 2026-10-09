@@ -12,23 +12,32 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://studiocomplex.com.ar%{REQUEST_URI} [L,R=301]
 
+# Cambio de nombres de pagina (9/10/2026): la URL pasa a decir lo mismo que el titulo de la seccion.
+# Las direcciones viejas redirigen con 301 a las nuevas.
+RewriteRule ^about\.html$ /sobre-nosotros.html [L,R=301]
+RewriteRule ^contact\.html$ /contacto.html [L,R=301]
+RewriteRule ^faq\.html$ /preguntas-frecuentes.html [L,R=301]
+RewriteRule ^pricing\.html$ /planes.html [L,R=301]
+RewriteRule ^project\.html$ /trabajos.html [L,R=301]
+RewriteRule ^team\.html$ /equipo.html [L,R=301]
+
 # team-details.html era la ficha de ejemplo de la plantilla (texto falso): se sacó el 30/9
-RewriteRule ^team-details\.html$ /team.html [L,R=301]
+RewriteRule ^team-details\.html$ /equipo.html [L,R=301]
 
 # Redirecciones del sitio anterior (WordPress) al sitio nuevo, 8/10/2026.
 # Google todavia tiene indexadas estas direcciones: el 301 pasa su posicionamiento a la pagina equivalente.
 RewriteRule ^diseno-y-desarrollo-web/?$ /servicio-desarrollo-web.html [R=301,L]
-RewriteRule ^contacto/?$ /contact.html [R=301,L]
+RewriteRule ^contacto/?$ /contacto.html [R=301,L]
 RewriteRule ^blog/?$ /blog.html [R=301,L]
 RewriteRule ^alianzas/?$ /partners.html [R=301,L]
-RewriteRule ^trabajos-destacados/?$ /project.html [R=301,L]
-RewriteRule ^procesos/?$ /about.html [R=301,L]
+RewriteRule ^trabajos-destacados/?$ /trabajos.html [R=301,L]
+RewriteRule ^procesos/?$ /sobre-nosotros.html [R=301,L]
 RewriteRule ^(estrategia-de-marca|posicionamiento-de-marca)/?$ / [R=301,L]
 RewriteRule ^2025/01/15/optimizacion-seo/?$ /nota-seo-tecnico-antes-que-el-contenido.html [R=301,L]
 RewriteRule ^2025/09/29/wordpress-vs-webflow-comparativa-para-elegir-la-mejor-plataforma-en-2025/?$ /nota-wordpress-o-webflow-cuando-conviene-migrar.html [R=301,L]
 RewriteRule ^2025/09/26/como-ganar-productividad-con-habitos-foco-y-diseno-de-rutinas/?$ /blog.html [R=301,L]
 RewriteRule ^author/ /blog.html [R=301,L]
-RewriteRule ^(case-studies-list/.*|caso-de-exito-.*)$ /project.html [R=301,L]
+RewriteRule ^(case-studies-list/.*|caso-de-exito-.*)$ /trabajos.html [R=301,L]
 RewriteRule ^(producto/.*|categoria-producto/.*|lista-de-deseos/?)$ / [R=301,L]
 
 # Los CSS y JS llevan ?v= en cada publicación (tools/version-assets.py),

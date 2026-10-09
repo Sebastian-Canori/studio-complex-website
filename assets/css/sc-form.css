@@ -1,7 +1,7 @@
 /* ==========================================================================
    Studio Complex · Formulario de contacto
    --------------------------------------------------------------------------
-   Estilos del bloque .contact-form (contact.html y el formulario del home):
+   Estilos del bloque .contact-form (contacto.html y el formulario del home):
    tarjeta con borde de luz como las de los casos, campos con foco naranja,
    estados de error y de envio, y una nota de privacidad. Se carga despues de
    main.css y solo pisa lo necesario. Respeta prefers-reduced-motion.

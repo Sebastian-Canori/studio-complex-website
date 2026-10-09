@@ -30,12 +30,12 @@ def migas(f, s, titulo, url):
     inicio = ("Inicio", BASE)
     if f == "blog.html":
         return [inicio, ("Blog", url)]
-    if f == "project.html":
-        return [inicio, ("Trabajos realizados", url)]
+    if f == "trabajos.html":
+        return [inicio, ("Trabajos", url)]
     if f.startswith("nota-"):
         return [inicio, ("Blog", BASE + "blog.html"), (nombre_corto(titulo), url)]
     if f.startswith("caso-"):
-        return [inicio, ("Trabajos realizados", BASE + "project.html"), (nombre_corto(titulo), url)]
+        return [inicio, ("Trabajos", BASE + "trabajos.html"), (nombre_corto(titulo), url)]
     if f.startswith("servicio-"):
         m = re.search(r'class="sc-sv-migas".*?<span>([^<]+)</span>\s*</nav>', s, re.S)
         nombre = html.unescape(m.group(1)).strip() if m else nombre_corto(titulo)

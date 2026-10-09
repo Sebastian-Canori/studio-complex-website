@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Studio Complex · Filtro del portfolio (project.html)
+   Studio Complex · Filtro del portfolio (trabajos.html)
    Cada tarjeta lleva data-cat con sus categorías separadas por espacio.
    El botón elegido muestra solo las que la incluyen; "todos" las muestra
    a todas. Sin JS se ven todas y los botones no hacen nada.

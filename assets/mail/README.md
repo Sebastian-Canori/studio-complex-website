@@ -4,7 +4,7 @@ Los formularios mandan por SMTP2GO y validan con reCAPTCHA v3.
 
 | Archivo | En el repo | Qué hace |
 | --- | --- | --- |
-| `contact-form.php` | Sí | Formulario de contacto (home y contact.html) → hola@studiocomplex.com.ar |
+| `contact-form.php` | Sí | Formulario de contacto (home y contacto.html) → hola@studiocomplex.com.ar |
 | `newsletter-form.php` | Sí | Suscripción del pie → hola@studiocomplex.com.ar |
 | `smtp-mailer.php` | **No** | Cliente SMTP. Tiene la clave de SMTP2GO: vive solo en el servidor |
 | `recaptcha-verify.php` | **No** | Valida el token. Tiene la clave secreta de reCAPTCHA: vive solo en el servidor |

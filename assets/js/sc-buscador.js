@@ -34,7 +34,7 @@
     { t: "Campañas de Ads", d: "Google Ads y Meta Ads medidos de punta a punta", u: "servicio-campanas-ads.html", k: "ads anuncios google meta facebook instagram publicidad campañas remarketing" },
     { t: "Automatización de Leads", d: "Reparto de consultas de WhatsApp y registro automático", u: "servicio-automatizacion-leads.html", k: "automatizacion whatsapp consultas leads n8n make reparto asesores" },
     { t: "Cierre de Ventas", d: "Seguimiento de presupuestos hasta el sí", u: "servicio-cierre-de-ventas.html", k: "ventas seguimiento crm presupuestos cierre asistente" },
-    { t: "Portfolio", d: "Todos los casos de éxito", u: "project.html", k: "casos trabajos portfolio proyectos" },
+    { t: "Trabajos", d: "Todos los casos de éxito", u: "trabajos.html", k: "casos trabajos portfolio proyectos" },
     { t: "Caso: De WordPress a Webflow", d: "Marker, sitio B2B en tres idiomas", u: "caso-marker-webflow.html", k: "marker webflow wordpress migracion" },
     { t: "Caso: El alumno paga y entra al aula solo", d: "Tiendanube + Make + aula virtual", u: "caso-plataforma-de-cursos.html", k: "cursos aula elearning tiendanube make" },
     { t: "Caso: Google Ads en un rubro con restricciones", d: "Retail sin suspensiones", u: "caso-retail-rubro-restringido.html", k: "google ads restringido retail" },
@@ -42,11 +42,11 @@
     { t: "Caso: Una tienda con el menú a medida", d: "Más de 800 productos migrados", u: "caso-tienda-a-medida.html", k: "tienda menu tiendanube migracion" },
     { t: "Blog", d: "Notas sobre web, tiendas, SEO, Ads y ventas", u: "blog.html", k: "blog notas articulos" },
     { t: "Partners", d: "Programa para agencias y freelancers", u: "partners.html", k: "partners socios agencias freelancers referidos marca blanca" },
-    { t: "Sobre Nosotros", d: "Quiénes somos y cómo nacimos", u: "about.html", k: "nosotros equipo empresa quienes" },
-    { t: "Equipo", d: "Las personas de Studio Complex", u: "team.html", k: "equipo personas jorge sebastian" },
-    { t: "Preguntas Frecuentes", d: "Plazos, precios y cómo trabajamos", u: "faq.html", k: "preguntas faq dudas" },
+    { t: "Sobre Nosotros", d: "Quiénes somos y cómo nacimos", u: "sobre-nosotros.html", k: "nosotros equipo empresa quienes" },
+    { t: "Equipo", d: "Las personas de Studio Complex", u: "equipo.html", k: "equipo personas jorge sebastian" },
+    { t: "Preguntas Frecuentes", d: "Plazos, precios y cómo trabajamos", u: "preguntas-frecuentes.html", k: "preguntas faq dudas" },
     { t: "Agendá una reunión", d: "Media hora sin cargo", u: "agenda.html", k: "reunion agenda turno calendly llamada" },
-    { t: "Contacto", d: "Escribinos", u: "contact.html", k: "contacto mail email telefono whatsapp" }
+    { t: "Contacto", d: "Escribinos", u: "contacto.html", k: "contacto mail email telefono whatsapp" }
   ];
 
   var popup = document.querySelector(".search_popup");

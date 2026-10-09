@@ -200,7 +200,7 @@ def pagina(p):
                   <h2 class="sc-sv-h2">{e(p.get("casos_h2", "Tiendas que ya están vendiendo."))}</h2>
                 </div>
                 <p class="sc-sv-lead sc-rv" data-rv-delay="100">{e(p["casos_lead"])}
-                  <a href="project.html" style="color: var(--tj-color-theme-primary); font-weight: 700; white-space: nowrap">Ver todos <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
+                  <a href="trabajos.html" style="color: var(--tj-color-theme-primary); font-weight: 700; white-space: nowrap">Ver todos <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
                 </p>
               </div>
               <div class="sc-sv-casos">{casos}              </div>

@@ -178,7 +178,7 @@
         "También podés dejar tus datos en el formulario de la página de Contacto.",
       ],
       chips: [
-        { label: "Ir a Contacto", href: "contact.html" },
+        { label: "Ir a Contacto", href: "contacto.html" },
         { label: "Volver", go: "inicio" },
       ],
     },
