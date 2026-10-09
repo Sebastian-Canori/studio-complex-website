@@ -30,6 +30,7 @@ El `.htaccess` de la raíz sí es el del repo (el servidor lo protege y no se pu
 | `seo/redirects-favicons` | Lo anterior más redirecciones 301, favicon e imagen para compartir con Figtree. | Sí |
 | `seo/caso-sosvosjeans` | Lo anterior más el caso de éxito de WooCommerce. | Sí |
 | `seo/mejoras-tecnicas` | Lo anterior más `lang="es-AR"`, BreadcrumbList y arreglo de tarjetas. **Es producción.** | Sí |
+| `seo/paginas-nicho` | Producción más las páginas de Tiendanube, Shopify y WooCommerce, con enlaces en menú y footer. | **No** (pendiente de publicar) |
 | `seo/pagina-tiendanube` (PR #6) | Lo anterior más la página de Tiendanube y las herramientas para generar páginas de plataforma. | **No** |
 | `seo/paginas-shopify-woocommerce` | Lo anterior más las páginas de Shopify y WooCommerce. | **No** |
 | `feat/form-a-crm`, `docs/claude-md` | Formulario conectado al CRM y `CLAUDE.md`. | No (solo locales) |
