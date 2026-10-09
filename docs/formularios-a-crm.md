@@ -20,7 +20,9 @@ El endpoint solo crea contactos, leads y suscriptores del grupo Newsletter. Sin 
 ## Estado de publicación (9/10/2026)
 - Publicado por cPanel (zip extraído en `public_html`, producción 43 de 43 iguales al repo, zip a la papelera): PHP de formularios, `sc-cookies.js`, `contact-form.js`, HTML con versión de caché nueva.
 - Publicado: `sc-crm-intake.php` en `mu-plugins`. Verificado: el endpoint responde 503 "Intake disabled" y el CRM sigue igual (login 401, sitio 200).
-- **Falta:** subir las dos configuraciones y pegar el secreto. Hasta entonces el formulario solo manda mail (y guarda el respaldo local).
+- Configuraciones subidas y secreto pegado por Sebastián en ambos archivos (9/10, ~22:15).
+- **Prueba real del formulario de contacto: OK.** Redirigió a `gracias.html` y el lead "PRUEBA CRM borrar" (id 4) apareció en Leads con origen "Web - Tiendas Online" y una nota con motivo, teléfono y mensaje. Borrar ese registro de prueba.
+- Falta probar el newsletter (grupo Newsletter con consentimiento).
 - Respaldo de los PHP anteriores: `~/Downloads/sc-live-backup-20261009-form/`.
 
 ## Cómo probar (después de pegar el secreto)
