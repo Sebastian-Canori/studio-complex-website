@@ -22,7 +22,8 @@ El endpoint solo crea contactos, leads y suscriptores del grupo Newsletter. Sin 
 - Publicado: `sc-crm-intake.php` en `mu-plugins`. Verificado: el endpoint responde 503 "Intake disabled" y el CRM sigue igual (login 401, sitio 200).
 - Configuraciones subidas y secreto pegado por Sebastián en ambos archivos (9/10, ~22:15).
 - **Prueba real del formulario de contacto: OK.** Redirigió a `gracias.html` y el lead "PRUEBA CRM borrar" (id 4) apareció en Leads con origen "Web - Tiendas Online" y una nota con motivo, teléfono y mensaje. Borrar ese registro de prueba.
-- Falta probar el newsletter (grupo Newsletter con consentimiento).
+- **Prueba real del newsletter: OK.** El mail quedó como contacto "Suscriptor" (origen "Web - newsletter (pie)") y el grupo Newsletter pasó a tener 1 contacto. El mail de gracias queda por confirmar en la bandeja del suscriptor.
+- Dónde se ve: CRM > Contactos (columna Origen) y CRM > Grupos > Newsletter.
 - Respaldo de los PHP anteriores: `~/Downloads/sc-live-backup-20261009-form/`.
 
 ## Cómo probar (después de pegar el secreto)
