@@ -4,7 +4,7 @@ Actualizado el 8 de octubre de 2026. Sirve para que el repo y el sitio publicado
 
 ## Qué es producción hoy
 
-Producción (`studiocomplex.com.ar`) es **la rama `seo/mejoras-tecnicas`** (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan arreglo de las tarjetas del caso WooCommerce en home y trabajos, y consentimiento de cookies: GA4 y Clarity solo cargan si se acepta, y eventos de GA4 (`sc-eventos.js`), publicados también el 8/10; respaldo previo y 39 de 39 iguales, más `sc-cookies.js` y `sc-legal.css`). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
+Producción (`studiocomplex.com.ar`) es **la rama `seo/paginas-nicho`** (publicada el 9/10: páginas de Tiendanube, Shopify y WooCommerce con enlaces en menú y footer, 42 de 42 iguales; antes fue `seo/mejoras-tecnicas`) (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan arreglo de las tarjetas del caso WooCommerce en home y trabajos, y consentimiento de cookies: GA4 y Clarity solo cargan si se acepta, y eventos de GA4 (`sc-eventos.js`), publicados también el 8/10; respaldo previo y 39 de 39 iguales, más `sc-cookies.js` y `sc-legal.css`). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:
 
 ```
 python3 tools/comparar-con-produccion.py
@@ -30,7 +30,7 @@ El `.htaccess` de la raíz sí es el del repo (el servidor lo protege y no se pu
 | `seo/redirects-favicons` | Lo anterior más redirecciones 301, favicon e imagen para compartir con Figtree. | Sí |
 | `seo/caso-sosvosjeans` | Lo anterior más el caso de éxito de WooCommerce. | Sí |
 | `seo/mejoras-tecnicas` | Lo anterior más `lang="es-AR"`, BreadcrumbList y arreglo de tarjetas. **Es producción.** | Sí |
-| `seo/paginas-nicho` | Producción más las páginas de Tiendanube, Shopify y WooCommerce, con enlaces en menú y footer. | **No** (pendiente de publicar) |
+| `seo/paginas-nicho` | Producción más las páginas de Tiendanube, Shopify y WooCommerce, con enlaces en menú y footer. **Es producción.** | Sí |
 | `seo/pagina-tiendanube` (PR #6) | Lo anterior más la página de Tiendanube y las herramientas para generar páginas de plataforma. | **No** |
 | `seo/paginas-shopify-woocommerce` | Lo anterior más las páginas de Shopify y WooCommerce. | **No** |
 | `feat/form-a-crm`, `docs/claude-md` | Formulario conectado al CRM y `CLAUDE.md`. | No (solo locales) |
