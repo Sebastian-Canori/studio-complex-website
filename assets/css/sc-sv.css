@@ -1452,3 +1452,8 @@
 .sc-so-datos b { font-size: clamp(26px, 4.4vw, 34px); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .sc-so-datos .sc-so-mas { flex-direction: row; font-size: 30px; font-weight: 800; color: var(--tj-color-text-body-2); line-height: 1; }
 @media (max-width: 575px) { .sc-so-datos .sc-so-mas { display: none; } }
+/* Logos dentro de los círculos de "Cómo nacimos" */
+.sc-union-logo { display: block; text-transform: none; letter-spacing: normal; }
+.sc-union-sc { font-size: clamp(17px, 2.7vw, 27px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: var(--tj-color-heading-primary); text-align: left; position: relative; }
+.sc-union-sc i { display: block; width: 36%; height: 3px; border-radius: 2px; margin-top: 8px; background: var(--naranja); }
+.sc-union-nudge { width: clamp(76px, 15.5%, 118px); height: auto; margin-left: auto; }
