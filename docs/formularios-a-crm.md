@@ -39,3 +39,13 @@ Solo cambia `url` en `crm-config.php`. El contrato es el mismo (JSON con `Author
 - Solapa propia de newsletter en el CRM (fecha de alta, consentimiento, origen).
 - Sacar de `public_html` el `CRM-Altas.zip` (48 MB) y `.htaccess.bak-20261008`.
 - Cabecera `X-Robots-Tag: noindex` en `CRM-Altas` (hoy sin ninguna protección contra indexación).
+
+## Tareas por proyecto en el CRM de ventas (`sc-crm-project-tasks.php`)
+Plugin aparte (mu-plugin, `CRM-ventas/wp-content/mu-plugins/`), sin tocar el plugin del CRM. Agrega a la página de cada proyecto el panel **Tareas del proyecto**:
+- Alta de tarea con título, fecha límite y responsable.
+- Estados: Pendiente, En curso, Bloqueada, Hecha (cambia desde el desplegable de cada tarea).
+- Barra de avance "X de N tareas", aviso de bloqueadas y marca de vencidas.
+- Al marcar una tarea como Hecha deja una línea en el timeline del proyecto.
+- Tabla propia `wp_sc_crm_project_tasks` (se crea sola al entrar al admin).
+- Rollback: borrar el archivo de `mu-plugins` (la tabla queda con los datos).
+- Lectura: solo usuarios con `manage_options`; acciones con nonce.
