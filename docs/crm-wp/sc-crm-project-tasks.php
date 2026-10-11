@@ -227,13 +227,14 @@ add_action(
 		?>
 <div id="sc-pt-panel" class="sc-crm-form">
 	<style>
+		#sc-pt-panel{grid-column:1/-1;width:100%;max-width:none;box-sizing:border-box;margin-top:16px}
 		#sc-pt-panel .sc-pt-bar{height:10px;border-radius:999px;background:#e6e8ee;overflow:hidden;margin:6px 0 10px}
 		#sc-pt-panel .sc-pt-bar span{display:block;height:100%;background:#e8590c;border-radius:999px}
 		#sc-pt-panel .sc-pt-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-		#sc-pt-panel .sc-pt-add{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin:12px 0}
+		#sc-pt-panel .sc-pt-add{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr) minmax(0,1fr) auto;gap:10px;margin:14px 0;align-items:center}
 		#sc-pt-panel .sc-pt-add input,#sc-pt-panel .sc-pt-add select,#sc-pt-panel select.sc-pt-st{width:100%;padding:8px 10px;border:1px solid #d5d9e2;border-radius:10px;background:#fff}
 		#sc-pt-panel ul.sc-pt-list{list-style:none;margin:0;padding:0}
-		#sc-pt-panel li.sc-pt-item{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #eceef3}
+		#sc-pt-panel li.sc-pt-item{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #eceef3}
 		#sc-pt-panel .sc-pt-title.is-done{text-decoration:line-through;color:#8a90a0}
 		#sc-pt-panel .sc-pt-meta{font-size:12px;color:#6b7280}
 		#sc-pt-panel .sc-pt-late{color:#c92a2a;font-weight:600}
@@ -313,9 +314,11 @@ add_action(
 (function () {
 	var panel = document.getElementById('sc-pt-panel');
 	if (!panel) { return; }
-	var files = document.querySelector('.sc-crm-project-main .sc-crm-files');
-	if (files && files.parentNode) {
-		files.parentNode.insertBefore(panel, files);
+	var main = document.querySelector('.sc-crm-project-main');
+	if (main && main.parentNode && main.parentNode.parentNode) {
+		// Place after the whole project layout so the panel spans the full width.
+		var layout = main.parentNode;
+		layout.parentNode.insertBefore(panel, layout.nextSibling);
 		return;
 	}
 	var app = document.getElementById('sc-crm-app');
