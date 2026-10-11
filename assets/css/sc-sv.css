@@ -1420,3 +1420,31 @@
 .b-chat .c { background: color-mix(in oklab, #fff 7%, transparent); color: var(--tj-color-heading-primary); border-bottom-left-radius: 4px; }
 .b-chat .s { justify-self: end; background: #005c4b; color: #e9fdf6; border-bottom-right-radius: 4px; }
 @media (max-width: 575px) { .b-nav-cuerpo { grid-template-columns: 1fr; } .b-nav-img { display: none; } .sc-bento a.b { padding: 22px; } }
+
+/* ==========================================================================
+   Sobre nosotros · foto del hero, principios y etapas (prefijo sc-so-)
+   ========================================================================== */
+.sc-so-foto { border-radius: var(--radio); overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6); border: 1px solid var(--borde); }
+.sc-so-foto img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.sc-so-principios { display: grid; gap: 18px; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .sc-so-principios { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+@media (min-width: 1200px) { .sc-so-principios { grid-template-columns: repeat(4, 1fr); } }
+.sc-so-card { position: relative; padding: 32px 28px 30px; border-radius: var(--radio); background: var(--sup-1); border: 1px solid var(--borde); overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease; }
+.sc-so-card:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--naranja) 55%, var(--borde)); }
+.sc-so-num { display: block; font-size: 54px; line-height: 1; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 22px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sc-so-card h3 { font-size: 21px; line-height: 1.2; margin: 0 0 10px; color: var(--tj-color-heading-primary); }
+.sc-so-card p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--tj-color-text-body); }
+.sc-so-etapas { list-style: none; margin: 0; padding: 0; display: grid; gap: 26px; grid-template-columns: 1fr; counter-reset: none; }
+@media (min-width: 768px) { .sc-so-etapas { grid-template-columns: repeat(2, 1fr); gap: 34px 28px; } }
+@media (min-width: 1200px) { .sc-so-etapas { grid-template-columns: repeat(4, 1fr); gap: 28px; } }
+.sc-so-etapas li { position: relative; padding-top: 26px; border-top: 2px solid var(--borde); }
+.sc-so-etapas li::before { content: ""; position: absolute; top: -2px; left: 0; width: 56px; height: 2px; background: var(--naranja); }
+.sc-so-paso { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; font-weight: 800; color: #07090c; background: var(--naranja); margin-bottom: 16px; }
+.sc-so-etapas h3 { font-size: 21px; margin: 0 0 8px; color: var(--tj-color-heading-primary); }
+.sc-so-etapas p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--tj-color-text-body); }
+@media (prefers-reduced-motion: reduce) { .sc-so-card { transition: none; } .sc-so-card:hover { transform: none; } }
+.sc-so-card p, .sc-so-etapas p { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
+.sc-so-foto { max-width: 760px; width: 100%; margin: 0 auto; }
+.sc-so-foto img { aspect-ratio: 16 / 11; }
+@media (min-width: 1200px) { .sc-so-foto { margin: 0 0 0 auto; } .sc-so-foto img { aspect-ratio: 4 / 4.2; } }
+.sc-so-hero .sc-sv-lead, .sc-sv-cabeza .sc-sv-lead { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
