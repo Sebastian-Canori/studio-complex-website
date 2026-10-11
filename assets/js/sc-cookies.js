@@ -133,7 +133,7 @@
       aviso.className = "sc-newsletter-aviso";
       aviso.textContent =
         "Al suscribirte aceptás recibir novedades de Studio Complex. Guardamos tu email para eso y podés pedir la baja cuando quieras escribiéndonos a hola@studiocomplex.com.ar.";
-      aviso.style.cssText = "display:block;margin-top:8px;font-size:12px;line-height:1.4;opacity:.7";
+      aviso.style.cssText = "display:block;margin-top:10px;font-size:13px;line-height:1.45;color:#0b0e14;opacity:1";
       form.appendChild(aviso);
 
       form.addEventListener("submit", function (e) {
