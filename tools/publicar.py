@@ -6,6 +6,11 @@ en tandas por una misma conexión, así tarda segundos y no minutos.
 
     python3 tools/publicar.py          # solo lo que cambió
     python3 tools/publicar.py --todo   # todo el sitio
+    python3 tools/publicar.py --solo a.html b.jpg   # solo esos archivos
+    python3 tools/publicar.py --ver    # lista lo que subiría, sin subir
+
+Con --solo no se toca .publicado y, tras subir, se compara el SHA-256 de cada
+archivo contra lo que sirve https://studiocomplex.com.ar.
 
 La última publicación se anota en .publicado (fuera de git). La clave vive
 en el Llavero de macOS (servicio "ftp-studiocomplex"), nunca en archivos.
@@ -13,7 +18,9 @@ El servidor exige TLS 1.2: con 1.3 los archivos de +14 KB fallan con 451.
 Si tocaste CSS o JS, corré antes tools/version-assets.py y commiteá: se
 sube lo que está en git, para que el repo y el servidor sean lo mismo.
 """
+import hashlib
 import os
+import urllib.request
 import subprocess
 import sys
 import tempfile
@@ -36,12 +43,31 @@ def publicable(f):
     return not f.startswith(EXCLUIR) and not f.endswith(".md") and f != ".gitignore" and os.path.isfile(os.path.join(RAIZ, f))
 
 
+def local(f):
+    return hashlib.sha256(open(os.path.join(RAIZ, f), "rb").read()).hexdigest()
+
+
+def remoto(f):
+    req = urllib.request.Request("https://studiocomplex.com.ar/%s?v=%s" % (f, os.urandom(4).hex()),
+                                 headers={"User-Agent": "sc-publicar", "Cache-Control": "no-cache"})
+    try:
+        return hashlib.sha256(urllib.request.urlopen(req, timeout=20).read()).hexdigest()
+    except Exception:
+        return None
+
+
 def main():
     if git("status", "--porcelain").strip():
         sys.exit("Hay cambios sin commitear. Commiteá antes de publicar (se sube lo que está en git).")
     actual = git("rev-parse", "HEAD").strip()
-    todo = "--todo" in sys.argv or not os.path.exists(MARCA)
-    if todo:
+    solo = "--solo" in sys.argv
+    todo = "--todo" in sys.argv or (not solo and not os.path.exists(MARCA))
+    if solo:
+        archivos = [a for a in sys.argv[sys.argv.index("--solo") + 1:] if not a.startswith("--")]
+        faltan = [f for f in archivos if not publicable(f)]
+        if faltan:
+            sys.exit("No se pueden publicar: " + ", ".join(faltan))
+    elif todo:
         archivos = git("ls-files").split() + EXTRA
     else:
         previo = open(MARCA).read().strip()
@@ -49,6 +75,10 @@ def main():
     archivos = sorted({f for f in archivos if publicable(f)})
     if not archivos:
         print("No hay cambios para publicar.")
+        return
+    if "--ver" in sys.argv:
+        print("Subiría %d archivos:" % len(archivos))
+        print("\n".join("  " + f for f in archivos))
         return
 
     clave = subprocess.run(["security", "find-generic-password", "-s", SERVICIO, "-a", USUARIO, "-w"],
@@ -72,7 +102,13 @@ def main():
         os.unlink(netrc.name)
     if errores:
         sys.exit("Errores al subir:\n" + "\n".join(errores))
-    open(MARCA, "w").write(actual + "\n")
+    if solo:
+        malos = [f for f in archivos if remoto(f) != local(f)]
+        if malos:
+            sys.exit("El servidor no coincide con el local en: " + ", ".join(malos))
+        print("Verificado (SHA-256): %d archivos coinciden con el servidor." % len(archivos))
+    else:
+        open(MARCA, "w").write(actual + "\n")
     print("Publicados %d archivos en https://studiocomplex.com.ar" % len(archivos))
     for f in archivos[:15]:
         print("  " + f)
