@@ -15723,3 +15723,9 @@ html body .sc-caso-cta-caja p, html body .sc-caso .sc-caso-cta-caja p, html body
 html body .sc-sv-vis p, html body .sc-sv-chat p, html body .b-vis p, html body .sc-prob-vis p,
 html body .sc-sv-comp-lado p { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
 html body .sc-sv-v-txt { text-align: center; }
+
+/* Menú Servicios: Tiendanube, Shopify y WooCommerce se despliegan al costado
+   de "Tiendas Online". */
+.mainmenu ul > li > .sub-menu > li.has-dropdown > a { padding-right: 40px; }
+.mainmenu ul > li > .sub-menu > li > .sub-menu { width: 200px; }
+.mainmenu ul > li > .sub-menu > li:hover > .sub-menu { pointer-events: auto; }
