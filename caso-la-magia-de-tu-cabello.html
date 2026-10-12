@@ -1,0 +1,1151 @@
+<!doctype html>
+<html class="no-js" lang="es-AR">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Migración de la tienda La Magia de Tu Cabello de HTML y PHP a WordPress con WooCommerce: gestión de envíos con Correo Argentino, blog, SEO y GEO.">
+
+  <!-- Site Title -->
+  <link rel="canonical" href="https://studiocomplex.com.ar/caso-la-magia-de-tu-cabello.html">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Studio Complex">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Tienda en WooCommerce - Caso de éxito - Studio Complex">
+  <meta property="og:description" content="Migración de la tienda La Magia de Tu Cabello de HTML y PHP a WordPress con WooCommerce: gestión de envíos con Correo Argentino, blog, SEO y GEO.">
+  <meta property="og:url" content="https://studiocomplex.com.ar/caso-la-magia-de-tu-cabello.html">
+  <meta property="og:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tienda en WooCommerce - Caso de éxito - Studio Complex">
+  <meta name="twitter:description" content="Migración de la tienda La Magia de Tu Cabello de HTML y PHP a WordPress con WooCommerce: gestión de envíos con Correo Argentino, blog, SEO y GEO.">
+  <meta name="twitter:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
+  <title>Tienda en WooCommerce - Caso de éxito - Studio Complex</title>
+
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/tekmino-icon.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/venobox.min.css">
+  <link rel="stylesheet" href="assets/css/meanmenu.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=202610120819">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202610120819">
+  <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
+  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202610120819"> -->
+  <link rel="stylesheet" href="assets/css/sc-caso.css?v=202610121130">
+  <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
+       para reactivarlo sin rehacerlo. Al no correr este script no se aplica
+       ningun data-theme, asi que el sitio arranca y se queda en oscuro, que es
+       el valor por defecto del CSS. Para volver: descomentar esto y el script
+       sc-theme.js del final del body.
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('sc-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  -->
+  <!-- Datos estructurados: le dicen a Google y a los modelos de IA que esto
+       es un caso de trabajo, de quien es y de que trata. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Una tienda en WooCommerce con envíos por Correo Argentino",
+    "description": "Migración de la tienda La Magia de Tu Cabello de HTML y PHP a WordPress con WooCommerce: gestión de envíos con Correo Argentino, blog, SEO y GEO.",
+    "keywords": "tienda WooCommerce, migración de tienda online, envíos Correo Argentino, WordPress, Woodmart, SEO, GEO",
+    "inLanguage": "es",
+    "url": "https://studiocomplex.com.ar/caso-la-magia-de-tu-cabello.html",
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "Trabajos realizados",
+      "url": "https://studiocomplex.com.ar/trabajos.html"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Studio Complex",
+      "url": "https://studiocomplex.com.ar/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Studio Complex"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "La Magia de Tu Cabello"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "es",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Por qué migrar una tienda de HTML y PHP a WooCommerce?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Un sitio hecho a mano en HTML y PHP con código obsoleto es difícil de mantener y de ampliar. En este caso, además, el cliente necesitaba resolver los envíos y quería evitar las comisiones de Tiendanube. WordPress con WooCommerce respondió a esas necesidades." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿WooCommerce evita pagar comisiones?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Depende del caso. En este proyecto la decisión respondió a que el cliente quería evitar las comisiones de Tiendanube. No elimina todos los costos: siguen existiendo el hosting, el mantenimiento y los costos de los medios de pago que se usen." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se pueden gestionar los envíos con Correo Argentino desde una tienda en WooCommerce?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí. En este proyecto se integró la gestión automática de envíos con Correo Argentino. El alcance exacto depende de lo que necesite cada tienda." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es Woodmart?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Es la plantilla de WordPress sobre la que se armó la tienda, junto con WooCommerce. El desarrollo se hizo a medida de lo que planteó el cliente." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El SEO y el GEO garantizan posicionamiento?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Se trabajaron para mejorar la visibilidad del negocio en buscadores y en respuestas de herramientas de inteligencia artificial, pero no garantizan una posición. El resultado depende de la competencia y del tiempo." }
+      }
+    ]
+  }
+  </script>
+<!-- Analytics: GA4 + Clarity (production host only). Solo cargan si la persona acepta en el aviso de cookies (sc-cookies.js). -->
+<script>
+  (function () {
+    if (!/(^|\.)studiocomplex\.com\.ar$/.test(location.hostname)) return;
+    var cargado = false;
+    window.scCargarAnalitica = function () {
+      if (cargado) return;
+      cargado = true;
+      var g = document.createElement("script");
+      g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", "G-4B82XMYNSR");
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yrfrc3lgnm");
+    };
+    try {
+      if (window.localStorage.getItem("sc-consent") === "granted") window.scCargarAnalitica();
+    } catch (e) {}
+  })();
+</script>
+  <!-- Migas de pan (schema): las genera tools/seo-tags.py -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://studiocomplex.com.ar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Trabajos",
+      "item": "https://studiocomplex.com.ar/trabajos.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Tienda WooCommerce con envíos",
+      "item": "https://studiocomplex.com.ar/caso-la-magia-de-tu-cabello.html"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Preloader Start -->
+  <div class="preloader is-loading">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-icon"><img src="assets/images/logos/logo-icon.png" alt="Loading"></div>
+    </div>
+  </div>
+  <!-- Preloader end -->
+
+  <!-- back to top start -->
+  <div class="back-to-top-wrapper">
+    <button id="back_to_top" type="button" class="back-to-top-btn">
+      <span class="back_to_top_icon"><i class="tji-arrow-up-4"></i></span>
+      <span class="back_to_top_text">Subir</span>
+    </button>
+  </div>
+  <!-- back to top end -->
+
+  <!-- start: Aviso de cookies -->
+  <!-- Va fuera de #smooth-content: ese contenedor tiene will-change: transform
+       y rompe cualquier position: fixed que quede adentro. -->
+  <div class="sc-cookies" id="sc-cookies" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Usamos Google Analytics y Microsoft Clarity para medir cómo se usa el sitio y mejorarlo. Solo se activan si las aceptás. <a href="cookies.html">Cómo funciona</a></p>
+    <div class="sc-cookies-acciones">
+      <button type="button" class="sc-cookies-ok">Aceptar</button>
+      <button type="button" class="sc-cookies-no">Rechazar</button>
+    </div>
+  </div>
+  <!-- end: Aviso de cookies -->
+
+
+
+  <!-- start: Search Popup -->
+  <div class="search_popup">
+    <div class="search_close">
+      <button type="button" class="search_close_btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="tj_search_wrapper">
+            <div class="search_form">
+              <form action="#">
+                <div class="search_input">
+                  <h4 class="title">Buscar Proyectos, Servicios o Blog.</h4>
+                  <div class="search-box">
+                    <input class="search-input-field" type="search" placeholder="Buscar..." required="">
+                    <button type="submit">
+                      <i class="tji-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-popup-overlay"></div>
+  <!-- end: Search Popup -->
+
+  <!-- start: Offcanvas Menu -->
+  <div class="tj-offcanvas-area d-none d-lg-block">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="index.html" class="mobile_logo">
+              <img src="assets/images/logos/primary-logo.png" alt="Logo">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="offcanvas-text">
+          <p>Desarrollamos tu web o tienda, la posicionamos, la potenciamos con Ads y hacemos seguimiento de cada venta.</p>
+        </div>
+        <div class="hamburger-search-area">
+          <h5 class="hamburger-title">Buscar</h5>
+          <div class="hamburger_search">
+            <form method="get" action="index.html">
+              <button type="submit"><i class="tji-search"></i></button>
+              <input type="search" autocomplete="off" name="s" value="" placeholder="Buscar...">
+            </form>
+          </div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Datos de Contacto</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">WhatsApp</span>
+              <a class="contact-link" href="https://wa.me/5491153362945" target="_blank" rel="noopener">+54 9 11 5336-2945</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:hola@studiocomplex.com.ar">hola@studiocomplex.com.ar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Síguenos</h5>
+        <div class="social-links style-2">
+          <ul>
+            <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Offcanvas Menu -->
+
+  <!-- start: Hamburger Menu -->
+  <div class="hamburger-area d-lg-none">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="index.html" class="mobile_logo">
+              <img src="assets/images/logos/primary-logo.png" alt="Logo">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hamburger_menu">
+          <div class="mobile_menu"></div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Datos de Contacto</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">WhatsApp</span>
+              <a class="contact-link" href="https://wa.me/5491153362945" target="_blank" rel="noopener">+54 9 11 5336-2945</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:hola@studiocomplex.com.ar">hola@studiocomplex.com.ar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Síguenos</h5>
+        <div class="social-links style-2">
+          <ul>
+            <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Hamburger Menu -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 header-absolute">
+    <div class="header-top d-lg-block d-none">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-top-content">
+              <p class="topbar-text"><i class="tji-spark"></i> Trabajamos con empresas de toda Latinoamérica. Hablemos de la tuya. <a
+                  href="contacto.html">Empezar</a>
+              </p>
+              <div class="header-info">
+                <div class="info-item">
+                  <span><i class="tji-clock"></i></span>
+                  <span>9 a 18 hs [lun-sáb]</span>
+                </div>
+                <div class="info-item">
+                  <span><i class="tji-gear"></i></span>
+                  <a href="contacto.html">Soporte</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-wrapper">
+              <!-- site logo -->
+              <div class="site_logo">
+                <a class="logo" href="index.html"><img src="assets/images/logos/primary-logo.png" alt="Logo"></a>
+              </div>
+
+              <!-- navigation -->
+              <div class="menu-area d-none d-lg-inline-flex align-items-center">
+                <nav id="mobile-menu" class="mainmenu">
+                  <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Conocenos</a></li>
+                    <li class="has-dropdown current-menu-ancestor"><a href="index.html#servicios">Servicios</a>
+                      <ul class="sub-menu">
+                        <li><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>
+                        <li class="has-dropdown"><a href="servicio-tiendas-online.html">Tiendas Online</a>
+                          <ul class="sub-menu">
+                            <li><a href="servicio-tiendanube.html">Tiendanube</a></li>
+                            <li><a href="servicio-shopify.html">Shopify</a></li>
+                            <li><a href="servicio-woocommerce.html">WooCommerce</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="servicio-seo-tecnico.html">SEO Técnico</a></li>
+                        <li><a href="servicio-campanas-ads.html">Campañas de Ads</a></li>
+                        <li><a href="servicio-automatizacion-leads.html">Automatización de Leads</a></li>
+                        <li><a href="servicio-cierre-de-ventas.html">Cierre de Ventas</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- header right info -->
+              <div class="header-right-item d-none d-lg-inline-flex">
+                <div class="header-search">
+                  <button class="search">
+                    <i class="tji-search"></i>
+                  </button>
+                </div>
+                <div class="header-button d-xl-block d-none">
+                  <a class="tj-primary-btn" href="contacto.html">
+                    <span class="btn-text"><span>Empezar</span></span>
+                    <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+                  </a>
+                </div>
+                <!-- menu bar -->
+                <button class="menu_btn menu_offcanvas d-none d-lg-block">
+                  <span class="cubes">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </button>
+              </div>
+
+              <!-- menu bar -->
+              <button class="menu_btn mobile_menu_bar d-lg-none">
+                <span class="cubes">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 header-duplicate header-sticky">
+    <div class="header-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-wrapper">
+              <!-- site logo -->
+              <div class="site_logo">
+                <a class="logo" href="index.html"><img src="assets/images/logos/primary-logo.png" alt="Logo"></a>
+              </div>
+
+              <!-- navigation -->
+              <div class="menu-area d-none d-lg-inline-flex align-items-center">
+                <nav class="mainmenu">
+                  <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Conocenos</a></li>
+                    <li class="has-dropdown current-menu-ancestor"><a href="index.html#servicios">Servicios</a>
+                      <ul class="sub-menu">
+                        <li><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>
+                        <li class="has-dropdown"><a href="servicio-tiendas-online.html">Tiendas Online</a>
+                          <ul class="sub-menu">
+                            <li><a href="servicio-tiendanube.html">Tiendanube</a></li>
+                            <li><a href="servicio-shopify.html">Shopify</a></li>
+                            <li><a href="servicio-woocommerce.html">WooCommerce</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="servicio-seo-tecnico.html">SEO Técnico</a></li>
+                        <li><a href="servicio-campanas-ads.html">Campañas de Ads</a></li>
+                        <li><a href="servicio-automatizacion-leads.html">Automatización de Leads</a></li>
+                        <li><a href="servicio-cierre-de-ventas.html">Cierre de Ventas</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- header right info -->
+              <div class="header-right-item d-none d-lg-inline-flex">
+                <div class="header-search">
+                  <button class="search">
+                    <i class="tji-search"></i>
+                  </button>
+                </div>
+                <div class="header-button d-xl-block d-none">
+                  <a class="tj-primary-btn" href="contacto.html">
+                    <span class="btn-text"><span>Empezar</span></span>
+                    <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+                  </a>
+                </div>
+                <!-- menu bar -->
+                <button class="menu_btn menu_offcanvas d-none d-lg-block">
+                  <span class="cubes">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </button>
+              </div>
+
+              <!-- menu bar -->
+              <button class="menu_btn mobile_menu_bar d-lg-none">
+                <span class="cubes">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <main id="primary" class="site-main">
+        <!-- ==================================================================
+  CASO · La Magia de Tu Cabello · Tienda en WooCommerce con envíos
+  Misma estructura que los otros casos (ver caso-la-magia-de-tu-cabello.html):
+  1 Encabezado (monitor + teléfono, con capturas reales del sitio)
+  2 El problema
+  3 Cómo lo encaramos (cinco pasos)
+  4 Qué resolvimos (seis tarjetas)
+  4b Sección propia: la tienda hoy (captura real)
+  5 Qué cambió (antes y ahora, sin cifras)
+  6 Qué tecnologías utilizamos
+  7 Preguntas frecuentes
+  8 Cierre
+  9 Navegación entre casos
+
+  REGLAS DEL BRIEF:
+  · Sin métricas, porcentajes, fechas ni resultados comerciales inventados.
+  · SEO y GEO se presentan como trabajo hecho, no como resultado logrado.
+  · No se afirma que se eliminaron costos o comisiones.
+  · Las capturas son del sitio público del cliente (lamagiadetucabello.com.ar).
+
+  PENDIENTE DE COMPLETAR ANTES DE PUBLICAR (buscar "[FALTA"):
+  · Alcance de la integración con Correo Argentino (paso 3).
+  · Resultados medidos del proyecto, con permiso del cliente (Qué cambió).
+  · [FALTA: testimonio aprobado por el cliente]. Este molde no lleva bloque
+    de testimonio; si el cliente aprueba uno, va entre "Qué cambió" y
+    "Qué tecnologías utilizamos".
+  ================================================================== -->
+        <div class="sc-caso">
+
+  <!-- 1 · ENCABEZADO -->
+  <section class="sc-caso-hero">
+  <div class="container">
+  <div class="row align-items-center rg-40">
+  <div class="col-lg-6">
+  <a class="sc-caso-volver" href="trabajos.html">
+  <i class="tji-arrow-left-2" aria-hidden="true"></i>
+  <span>Trabajos realizados</span>
+  </a>
+
+  <!-- [DATOS DEL CASO] encabezado -->
+  <span class="sc-caso-eyebrow sc-rv">Caso de éxito</span>
+  <h1 class="sc-caso-titulo sc-rv" data-rv-delay="60">
+  Una tienda en WooCommerce con envíos por Correo Argentino
+  </h1>
+  <p class="sc-caso-bajada sc-rv" data-rv-delay="120">
+  La Magia de Tu Cabello vende productos para el cabello. Llegó por
+  recomendación con una necesidad concreta: gestionar los envíos de la
+  tienda, algo que su solución anterior no le resolvía como necesitaba.
+  Migramos la tienda a WordPress con WooCommerce, integramos los envíos con
+  Correo Argentino y sumamos un blog, con SEO y GEO trabajados.
+  </p>
+  <ul class="sc-caso-tags sc-rv" data-rv-delay="180">
+  <li>WooCommerce</li>
+  <li>Migración</li>
+  <li>Envíos</li>
+  <li>SEO y GEO</li>
+  </ul>
+  <div class="sc-caso-vivo sc-rv" data-rv-delay="240">
+  <a class="tj-primary-btn" href="https://lamagiadetucabello.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="Ver sitio en vivo (se abre en una pestaña nueva)">
+  <span class="btn-text"><span>Ver sitio en vivo</span></span>
+  <span class="btn-icon"><i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+  </a>
+  </div>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+
+  <div class="col-lg-6">
+  <div class="sc-caso-mk sc-rv" data-rv-delay="240" role="img"
+  aria-label="La tienda de La Magia de Tu Cabello en un monitor y en un teléfono: el catálogo de productos en escritorio y el mismo listado en pantalla chica.">
+  <div class="sc-caso-mk-monitor">
+  <div class="sc-caso-mk-desk">
+  <div class="sc-caso-mk-barra">
+  <span class="sc-caso-mk-punto"></span>
+  <span class="sc-caso-mk-punto"></span>
+  <span class="sc-caso-mk-punto"></span>
+  <span class="sc-caso-mk-url"></span>
+  </div>
+  <div class="sc-caso-mk-pantalla es-captura">
+  <img src="assets/images/casos/magia-de-tu-cabello-escritorio.jpg" width="1200" height="750" alt="" decoding="async">
+  </div>
+  </div>
+  <span class="sc-caso-mk-base" aria-hidden="true"></span>
+  </div>
+  <div class="sc-caso-mk-tel">
+  <div class="sc-caso-mk-tel-pantalla es-captura">
+  <img src="assets/images/casos/magia-de-tu-cabello-movil.jpg" width="390" height="780" alt="" decoding="async">
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <!-- 2 · EL PROBLEMA -->
+  <section class="sc-caso-desafio">
+  <div class="container">
+  <div class="row">
+  <div class="col-12">
+  <div class="sc-caso-desafio-caja con-vis sc-rv">
+  <h2 class="sc-caso-h2">El problema</h2>
+  <!-- [DATOS DEL CASO] problema -->
+  <p>
+  La Magia de Tu Cabello es una tienda de productos para el cabello que
+  llegó a nosotros por recomendación. Lo que necesitaba era concreto:
+  manejar bien los envíos. La solución que tenía no se lo resolvía como el
+  negocio lo pedía.
+  </p>
+  <p>
+  Además, el sitio estaba hecho en HTML y PHP, con código obsoleto. Una base
+  así es difícil de mantener y de ampliar, justo cuando la tienda necesitaba
+  sumar funciones.
+  </p>
+  <p>
+  Y había una decisión de plataforma: el cliente quería evitar las
+  comisiones de Tiendanube. Por eso la tienda se armó en WordPress con
+  WooCommerce.
+  </p>
+  <!-- Escena del antes (se ve a la derecha en escritorio, abajo en teléfono) -->
+  <div class="sc-prob-vis" aria-hidden="true">
+  <span class="sc-prob-rot">Antes</span>
+  <div class="sc-prob-t alerta"><i>!</i><span>Gestión de envíos<small>La solución anterior no lo resolvía</small></span><b class="r">Sin resolver</b></div>
+  <div class="sc-prob-t"><i>&lt;/&gt;</i><span>Sitio en HTML y PHP<small>Con código obsoleto</small></span><b class="a">Obsoleto</b></div>
+  <div class="sc-prob-t"><i>%</i><span>Comisiones de Tiendanube<small>El cliente quería evitarlas</small></span></div>
+  </div>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <!-- 3 · CÓMO LO ENCARAMOS -->
+  <section class="sc-caso-flujo">
+  <div class="container">
+  <div class="sc-caso-flujo-cab sc-rv">
+  <h2 class="sc-caso-h2">Cómo lo encaramos</h2>
+  </div>
+
+  <!-- [DATOS DEL CASO] pasos -->
+  <ol class="sc-caso-pasos">
+  <li class="sc-caso-paso">
+  <span class="sc-caso-paso-ico" aria-hidden="true"><i class="tji-search"></i></span>
+  <span class="sc-caso-paso-n">Paso 1</span>
+  <h3 class="sc-caso-paso-t">Primero entender qué necesitaba la tienda</h3>
+  <p class="sc-caso-paso-d">
+  Partimos de lo que planteó el cliente: gestionar bien los envíos y salir
+  de un código obsoleto. Con eso definimos qué tenía que resolver la tienda
+  nueva.
+  </p>
+  </li>
+  <li class="sc-caso-paso">
+  <span class="sc-caso-paso-ico" aria-hidden="true"><i class="tji-cloud"></i></span>
+  <span class="sc-caso-paso-n">Paso 2</span>
+  <h3 class="sc-caso-paso-t">La mudanza a WordPress y WooCommerce</h3>
+  <p class="sc-caso-paso-d">
+  Migramos la tienda a WordPress con WooCommerce, sobre la plantilla
+  Woodmart. Era la plataforma que respondía a lo que el cliente quería:
+  evitar las comisiones de Tiendanube.
+  </p>
+  </li>
+  <li class="sc-caso-paso">
+  <span class="sc-caso-paso-ico" aria-hidden="true"><i class="tji-development"></i></span>
+  <span class="sc-caso-paso-n">Paso 3</span>
+  <h3 class="sc-caso-paso-t">Los envíos con Correo Argentino</h3>
+  <p class="sc-caso-paso-d">
+  Integramos la gestión automática de envíos con Correo Argentino, que era
+  el punto que la solución anterior no resolvía. [FALTA: alcance de la
+  integración, por ejemplo qué se automatiza en el pedido y en el envío]
+  </p>
+  </li>
+  <li class="sc-caso-paso">
+  <span class="sc-caso-paso-ico" aria-hidden="true"><i class="tji-window"></i></span>
+  <span class="sc-caso-paso-n">Paso 4</span>
+  <h3 class="sc-caso-paso-t">Un blog para la tienda</h3>
+  <p class="sc-caso-paso-d">
+  Sumamos un blog, para que la tienda tenga un lugar propio donde publicar
+  contenido además del catálogo.
+  </p>
+  </li>
+  <li class="sc-caso-paso">
+  <span class="sc-caso-paso-ico" aria-hidden="true"><i class="tji-globe"></i></span>
+  <span class="sc-caso-paso-n">Paso 5</span>
+  <h3 class="sc-caso-paso-t">SEO y GEO</h3>
+  <p class="sc-caso-paso-d">
+  Trabajamos el SEO y el GEO para mejorar la visibilidad del negocio en
+  buscadores y en las respuestas de herramientas de inteligencia artificial.
+  </p>
+  </li>
+  </ol>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 4 · QUÉ RESOLVIMOS -->
+  <section class="sc-caso-incluye">
+  <div class="container">
+  <div class="sc-rv"><h2 class="sc-caso-h2">Qué resolvimos</h2></div>
+
+  <p class="sc-caso-intro sc-rv">Cada punto responde a algo que el cliente planteó al empezar: los envíos, el código viejo y las comisiones de la plataforma.</p>
+
+  <!-- [DATOS DEL CASO] prestaciones -->
+  <div class="sc-caso-grid">
+  <article class="sc-caso-card sc-rv">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-rocket"></i></span>
+  <h3>Envíos gestionados desde la tienda</h3>
+  <p>La tienda se conectó con Correo Argentino para gestionar los envíos de forma automática, el punto que el cliente necesitaba resolver.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="60">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-shield"></i></span>
+  <h3>Se deja atrás el código obsoleto</h3>
+  <p>La tienda pasa de HTML y PHP a WordPress con WooCommerce, una base que se puede mantener y ampliar con herramientas actuales.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="120">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-cloud"></i></span>
+  <h3>Una decisión pensada para el negocio</h3>
+  <p>El cliente quería evitar las comisiones de Tiendanube. WooCommerce fue la respuesta a esa necesidad.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="180">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-development"></i></span>
+  <h3>Desarrollo a medida</h3>
+  <p>Se trabajó sobre lo que planteó el cliente, no sobre una receta cerrada.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="240">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-window"></i></span>
+  <h3>Un lugar para el contenido</h3>
+  <p>El blog le da a la tienda espacio para publicar sin mezclarlo con el catálogo de productos.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="300">
+  <span class="sc-caso-card-ico" aria-hidden="true"><i class="tji-search"></i></span>
+  <h3>Pensada para que la encuentren</h3>
+  <p>Se trabajó el SEO y el GEO, para sumar visibilidad en buscadores y en respuestas de inteligencia artificial.</p>
+  </article>
+  </div>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 4b · SECCIÓN PROPIA DE ESTE CASO: la tienda hoy -->
+  <section class="sc-caso-desafio">
+  <div class="container">
+  <div class="sc-rv"><h2 class="sc-caso-h2">La tienda hoy</h2></div>
+
+  <!-- [DATOS DEL CASO] captura -->
+  <p class="sc-caso-intro sc-rv">Así se ve una ficha de producto en la tienda publicada: el cliente elige color, medida, cantidad de capas, tipo y sistema antes de comprar.</p>
+  <figure class="sc-caso-figura sc-rv">
+  <img src="assets/images/casos/magia-de-tu-cabello-producto.jpg" width="1200" height="750" alt="Ficha de producto de la tienda La Magia de Tu Cabello, con las opciones de color, medida, capas, tipo y sistema." loading="lazy" decoding="async">
+  <figcaption>Captura de lamagiadetucabello.com.ar, la tienda en producción.</figcaption>
+  </figure>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 5 · QUÉ CAMBIÓ -->
+  <section class="sc-caso-incluye">
+  <div class="container">
+  <div class="sc-rv"><h2 class="sc-caso-h2">Qué cambió</h2></div>
+
+  <!-- [DATOS DEL CASO] antes y ahora -->
+  <div class="sc-caso-grid">
+  <article class="sc-caso-card sc-rv">
+  <h3 class="sc-caso-hallazgo-tit">Los envíos</h3>
+  <p><b>Antes:</b> la solución anterior no resolvía la gestión como el negocio necesitaba.<br><b>Ahora:</b> la tienda gestiona los envíos con Correo Argentino.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="60">
+  <h3 class="sc-caso-hallazgo-tit">La base técnica</h3>
+  <p><b>Antes:</b> un sitio en HTML y PHP con código obsoleto.<br><b>Ahora:</b> una tienda en WordPress con WooCommerce y la plantilla Woodmart.</p>
+  </article>
+  <article class="sc-caso-card sc-rv" data-rv-delay="120">
+  <h3 class="sc-caso-hallazgo-tit">El contenido y la visibilidad</h3>
+  <p><b>Antes:</b> sin un lugar propio para publicar.<br><b>Ahora:</b> un blog incorporado y el SEO y el GEO trabajados.</p>
+  </article>
+  </div>
+  <p class="sc-caso-cifras-pie sc-rv">Todavía no publicamos cifras de este proyecto. [FALTA: resultados medidos (ventas, visitas, posicionamiento o tiempo de gestión de los envíos) y permiso del cliente para publicarlos]. Lo de arriba describe lo que se construyó, no un resultado comercial.</p>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 6 · CON QUÉ ESTÁ HECHO -->
+  <section class="sc-caso-stack">
+  <div class="container">
+  <div class="sc-rv"><h2 class="sc-caso-h2">Qué tecnologías utilizamos</h2></div>
+
+  <!-- [DATOS DEL CASO] herramientas -->
+  <ul class="sc-caso-stack-lista">
+  <li class="sc-caso-stack-item sc-rv">
+  <span class="sc-caso-stack-ico" aria-hidden="true"><i class="tji-cloud"></i></span>
+  <span><b>WordPress</b><span>Plataforma de la tienda y del blog</span></span>
+  </li>
+  <li class="sc-caso-stack-item sc-rv" data-rv-delay="60">
+  <span class="sc-caso-stack-ico" aria-hidden="true"><i class="tji-budget"></i></span>
+  <span><b>WooCommerce</b><span>Catálogo, carrito y pedidos</span></span>
+  </li>
+  <li class="sc-caso-stack-item sc-rv" data-rv-delay="120">
+  <span class="sc-caso-stack-ico" aria-hidden="true"><i class="tji-window"></i></span>
+  <span><b>Woodmart</b><span>Plantilla de la tienda</span></span>
+  </li>
+  <li class="sc-caso-stack-item sc-rv" data-rv-delay="180">
+  <span class="sc-caso-stack-ico" aria-hidden="true"><i class="tji-rocket"></i></span>
+  <span><b>Correo Argentino</b><span>Integración para la gestión automática de envíos</span></span>
+  </li>
+  </ul>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 7 · PREGUNTAS FRECUENTES -->
+  <section class="sc-caso-stack">
+  <div class="container">
+  <div class="sc-rv"><h2 class="sc-caso-h2">Preguntas frecuentes</h2></div>
+
+  <!-- [DATOS DEL CASO] preguntas -->
+  <dl class="sc-caso-faq sc-rv">
+  <div>
+  <dt>¿Por qué migrar una tienda de HTML y PHP a WooCommerce?</dt>
+  <dd>Un sitio hecho a mano en HTML y PHP con código obsoleto es difícil de mantener y de ampliar. En este caso, además, el cliente necesitaba resolver los envíos y quería evitar las comisiones de Tiendanube. WordPress con WooCommerce respondió a esas necesidades.</dd>
+  </div>
+  <div>
+  <dt>¿WooCommerce evita pagar comisiones?</dt>
+  <dd>Depende del caso. En este proyecto la decisión respondió a que el cliente quería evitar las comisiones de Tiendanube. No elimina todos los costos: siguen existiendo el hosting, el mantenimiento y los costos de los medios de pago que se usen.</dd>
+  </div>
+  <div>
+  <dt>¿Se pueden gestionar los envíos con Correo Argentino desde una tienda en WooCommerce?</dt>
+  <dd>Sí. En este proyecto se integró la gestión automática de envíos con Correo Argentino. El alcance exacto depende de lo que necesite cada tienda.</dd>
+  </div>
+  <div>
+  <dt>¿Qué es Woodmart?</dt>
+  <dd>Es la plantilla de WordPress sobre la que se armó la tienda, junto con WooCommerce. El desarrollo se hizo a medida de lo que planteó el cliente.</dd>
+  </div>
+  <div>
+  <dt>¿El SEO y el GEO garantizan posicionamiento?</dt>
+  <dd>No. Se trabajaron para mejorar la visibilidad del negocio en buscadores y en respuestas de herramientas de inteligencia artificial, pero no garantizan una posición. El resultado depende de la competencia y del tiempo.</dd>
+  </div>
+  </dl>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </section>
+
+  <!-- 8 · CIERRE -->
+  <section class="sc-caso-cta">
+  <div class="container">
+  <div class="sc-caso-cta-caja sc-rv">
+  <!-- [DATOS DEL CASO] cierre -->
+  <h2 class="sc-caso-h2">¿Tu tienda no te resuelve los envíos?</h2>
+  <p>Contanos cómo vendés hoy y qué te falta, y te decimos si conviene migrar o ajustar lo que ya tenés.</p>
+  <!-- [/DATOS DEL CASO] -->
+  <a class="tj-primary-btn" href="contacto.html" data-sc-modal>
+  <span class="btn-text"><span>Hablemos de tu caso</span></span>
+  <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+  </a>
+  </div>
+  </div>
+  </section>
+
+  <!-- 9 · NAVEGACIÓN -->
+  <nav class="sc-caso-nav" aria-label="Navegación entre casos">
+  <div class="container">
+  <div class="sc-caso-nav-grid">
+  <!-- [DATOS DEL CASO] navegación -->
+  <a class="sc-caso-nav-link" href="caso-woocommerce-minorista-mayorista.html">
+  <small>Caso anterior</small>
+  <b>Dos tiendas WooCommerce: una para minoristas y otra para mayoristas</b>
+  </a>
+  <a class="sc-caso-nav-link is-next" href="caso-la-magia-de-tu-cabello.html">
+  <small>Caso siguiente</small>
+  <b>De WordPress a un ecosistema digital en Webflow</b>
+  </a>
+  <!-- [/DATOS DEL CASO] -->
+  </div>
+  </div>
+  </nav>
+
+        </div>
+        <!-- ================= fin del caso ================= -->
+
+        <!-- start: Cta Section -->
+        <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area tj-fade-anim">
+                  <div class="cta-content">
+                    <h2 class="title">No te Quedes Afuera del Futuro!</h2>
+                  </div>
+                  <div class="cta-right">
+                    <div class="subscribe-form cta-form">
+                      <form action="#">
+                        <input type="email" name="email" placeholder="Ingresá tu email...">
+                        <button class="tj-primary-btn style-2" type="submit">
+                          <span class="btn-text"><span>Suscribirme</span></span>
+                          <span class="btn-icon"><i class="tji-bell"></i></span>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="social-links cta-social">
+                      <span class="title">Seguinos:</span>
+                      <ul>
+                        <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Cta Section -->
+      </main>
+
+      <!-- start: Footer Section -->
+      <footer class="tj-footer-section footer-1 section-gap-x">
+        <div class="bg-img" data-bg-image="assets/images/footer/footer-bg.webp"></div>
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="footer_widget_wrapper">
+                  <div class="footer-widget footer-col-1">
+                    <div class="footer-logo">
+                      <a href="index.html">
+                        <img src="assets/images/logos/primary-logo.png" alt="Logo">
+                      </a>
+                    </div>
+                    <div class="footer-text">
+                      <p>Desarrollo web, tiendas online, SEO, Ads y seguimiento de ventas, todo en un solo equipo.</p>
+                    </div>
+                  </div>
+                  <div class="footer-widget widget-nav-menu">
+                    <h5 class="title">Servicios</h5>
+                    <ul>
+                      <li><a href="servicio-desarrollo-web.html"><span>Desarrollo Web</span></a></li>
+                      <li><a href="servicio-tiendas-online.html"><span>Tiendas Online</span></a></li>
+                      <li><a href="servicio-tiendanube.html"><span>Tiendas en Tiendanube</span></a></li>
+                      <li><a href="servicio-shopify.html"><span>Tiendas en Shopify</span></a></li>
+                      <li><a href="servicio-woocommerce.html"><span>Tiendas en WooCommerce</span></a></li>
+                      <li><a href="servicio-seo-tecnico.html"><span>SEO Técnico</span></a></li>
+                      <li><a href="servicio-campanas-ads.html"><span>Campañas de Ads</span></a></li>
+                      <li><a href="servicio-automatizacion-leads.html"><span>Automatización de Leads</span></a></li>
+                      <li><a href="servicio-cierre-de-ventas.html"><span>Cierre de Ventas</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-widget widget-nav-menu">
+                    <h5 class="title">Recursos</h5>
+                    <ul>
+                      <li><a href="sobre-nosotros.html"><span>Sobre Nosotros</span></a></li>
+                      <li><a href="preguntas-frecuentes.html"><span>Preguntas Frecuentes</span></a></li>
+                      <li><a href="planes.html"><span>Planes</span></a></li>
+                      <li><a href="contacto.html"><span>Contacto</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-widget widget-contact">
+                    <h5 class="title">Hablemos</h5>
+                    <div class="footer-contact-info">
+                      <div class="contact-item">
+                        <div class="sc-footer-cta">
+                          <p class="sc-footer-cta-gancho">Media hora y te decimos por dónde empezar.</p>
+                          <a class="sc-footer-agenda" href="agenda.html">
+                            <span class="sc-footer-agenda-txt">Agendá una reunión</span>
+                            <span class="sc-footer-agenda-ico" aria-hidden="true"><i class="tji-calendar"></i></span>
+                          </a>
+                          <span class="sc-footer-cta-letra">Sin cargo y sin compromiso</span>
+                        </div>
+                      </div>
+                      <div class="contact-item sc-regions">
+                        <span class="sc-regions-label">Trabajamos en toda Latinoamérica</span>
+                        <span class="sc-regions-flags">
+                          <img src="assets/images/flags/ar.svg" alt="Argentina" title="Argentina" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/uy.svg" alt="Uruguay" title="Uruguay" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/py.svg" alt="Paraguay" title="Paraguay" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/cl.svg" alt="Chile" title="Chile" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/pe.svg" alt="Perú" title="Perú" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/co.svg" alt="Colombia" title="Colombia" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/mx.svg" alt="México" title="México" width="24" height="16" loading="lazy">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area">
+          <div class="copyright-wrap">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <div class="copyright-content-area">
+                    <div class="copyright-text">
+                      <p>Studio Complex &copy; 2026. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="copyright-text">
+                      <p><a class="sc-legal-link" href="cookies.html">Cookies</a></p>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+
+  <!-- JS here -->
+  <!-- ==================================================================
+       VENTANA DE CONTACTO
+       Vive como hija directa de body, FUERA de main, a proposito.
+       #smooth-content (de GSAP ScrollSmoother) lleva will-change: transform,
+       y eso crea bloque contenedor para cualquier position:fixed que este
+       adentro: el modal tomaba la altura de toda la pagina en vez de la de
+       la ventana y la caja quedaba centrada a 1790px, fuera de pantalla.
+       Cualquier elemento fijo nuevo de este sitio tiene que ir aca tambien.
+       El comportamiento vive en assets/js/sc-modal.js.
+       ================================================================== -->
+  <!-- ==================================================================
+       VENTANA DE CONTACTO
+       Se abre desde cualquier elemento con el atributo data-sc-modal.
+       El comportamiento vive en assets/js/sc-modal.js.
+       ================================================================== -->
+  <div class="sc-modal" id="sc-modal-contacto" role="dialog" aria-modal="true"
+    aria-labelledby="sc-modal-titulo" hidden>
+    <div class="sc-modal-fondo" data-sc-cerrar></div>
+    <div class="sc-modal-centro">
+    <div class="sc-modal-caja">
+
+      <button type="button" class="sc-modal-cerrar" data-sc-cerrar aria-label="Cerrar">
+        <i class="tji-x-mark" aria-hidden="true"></i>
+      </button>
+
+      <h2 id="sc-modal-titulo">Contanos tu caso</h2>
+      <p class="sc-modal-intro">
+        Dejanos tus datos y en qué andás. Te respondemos con una primera idea de
+        por dónde empezar.
+      </p>
+
+      <form novalidate>
+        <div class="sc-campo">
+          <label for="sc-nombre">Nombre</label>
+          <input type="text" id="sc-nombre" name="nombre" autocomplete="name" placeholder="Cómo te llamás">
+          <span class="sc-campo-error">Necesitamos tu nombre.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-email">Email</label>
+          <input type="email" id="sc-email" name="email" autocomplete="email" placeholder="tu@email.com">
+          <span class="sc-campo-error">Revisá el email, parece incompleto.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-whatsapp">WhatsApp</label>
+          <input type="tel" id="sc-whatsapp" name="whatsapp" autocomplete="tel" placeholder="Ej: 11 6470 7497">
+          <span class="sc-campo-error">Dejanos un número para escribirte.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-mensaje">¿Qué querés automatizar?</label>
+          <textarea id="sc-mensaje" name="mensaje" placeholder="Contanos en dos líneas qué estás haciendo a mano hoy."></textarea>
+        </div>
+
+        <button type="submit" class="sc-modal-enviar">Enviar consulta</button>
+        <p class="sc-modal-pie">Te contactamos dentro de las 24 hs hábiles.</p>
+      </form>
+
+    </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/gsap-scroll-smoother.js"></script>
+  <script src="assets/js/gsap-scroll-to-plugin.min.js"></script>
+  <script src="assets/js/gsap-scroll-trigger.min.js"></script>
+  <script src="assets/js/gsap-split-text.min.js"></script>
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <script src="assets/js/swiper.min.js"></script>
+  <script src="assets/js/waypoints.min.js"></script>
+  <script src="assets/js/counterup.min.js"></script>
+  <script src="assets/js/venobox.min.js"></script>
+  <script src="assets/js/meanmenu.js"></script>
+  <script src="assets/js/gsap-animation.js"></script>
+  <script src="assets/js/main.js?v=202610120819"></script>
+  <!-- <script src="assets/js/sc-chat.js?v=202610120819"></script> -->
+  <script src="assets/js/sc-caso.js?v=202610120819"></script>
+  <script src="assets/js/sc-modal.js?v=202610120819"></script>
+  <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
+  <!-- <script src="assets/js/sc-theme.js?v=202610120819"></script> -->
+  <script src="assets/js/sc-buscador.js?v=202610120819"></script>
+  <script src="assets/js/sc-cookies.js?v=202610120819"></script>
+  <script src="assets/js/sc-eventos.js?v=202610120819"></script>
+</body>
+
+</html>
