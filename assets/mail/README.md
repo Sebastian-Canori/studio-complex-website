@@ -29,3 +29,17 @@ Los formularios mandan por SMTP2GO y validan con reCAPTCHA v3.
 - Newsletter: guarda el mail con consentimiento en el grupo «Newsletter» y manda un mail de gracias con la forma de pedir la baja.
 - Sin `crm-config.php` los formularios funcionan como siempre (solo mail). Si el CRM no responde, el mail sale igual y el registro se agrega a `sc-intake-fallback.jsonl`, en la carpeta superior a `public_html`, para no perderlo.
 - Si falla el mail pero el CRM lo recibió (o al revés), la persona ve el mensaje de éxito.
+
+## lead-intake.php: todo lo demás que captura la web
+
+Receptor público único (JSON `text/plain`, mismo origen) para lo que no es el formulario de contacto ni el newsletter:
+
+| `tipo` | Qué es | Adónde va |
+|---|---|---|
+| `form` (`form`: `modal` o `buscador`) | Quien dejó nombre y mail en «Contanos tu caso» o en el buscador de dominios | Lead en el CRM de ventas (mismo `intake` que `contact-form.php`, `subject` = el formulario) + mail a hola@ |
+| `interaccion` | Clic anónimo en WhatsApp, agenda, teléfono o mail (lo manda `sc-eventos.js`) | Contador en el panel de clientes: Solicitudes web → Interacciones. Sin cookies, sin IP, sin datos personales |
+
+- **Config (fuera del repo, `.gitignore`):** `crm-config.php` (CRM, ya existe) y `panel-config.php` con `url` y `secret`; el secreto es el `secreto_web` de `panel/wp-content/sc-vinculo.php`. Plantilla: `panel-config.example.php`.
+- **Anti-spam:** campo trampa `web`, tiempo mínimo de 1,5 s (`t` en ms), límite por visitante (8 formularios y 200 clics por hora, con un hash diario de la IP en un archivo temporal, sin guardarla) y bots descartados por user-agent.
+- Si el panel no responde, la interacción queda en `sc-interactions-fallback.jsonl` fuera de `public_html`. Si el formulario no llega al servidor, el modal y el buscador siguen por WhatsApp como antes: no se pierde la consulta.
+- Los clics se cuentan aunque la persona no haya aceptado las cookies de analítica porque no identifican a nadie; es una decisión a confirmar entre los socios.

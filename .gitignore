@@ -4,6 +4,7 @@ Thumbs.db
 
 # Claves de los formularios: viven solo en el servidor, nunca en el repo (es público)
 assets/mail/*config*.php
+!assets/mail/*config.example.php
 # Estos dos tienen la clave de SMTP2GO y la secreta de reCAPTCHA escritas
 # adentro (30/9). Hasta pasarlas a un config fuera de public_html, que nunca
 # entren al repo: cualquier fork los publicaría.

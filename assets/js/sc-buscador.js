@@ -180,7 +180,7 @@
      todos los datos y lo abre en el WhatsApp de Studio Complex, para que
      ninguna consulta se pierda.
      ------------------------------------------------------------------ */
-  var ENDPOINT = ""; /* URL del receptor de formularios, cuando exista */
+  var ENDPOINT = "assets/mail/lead-intake.php"; /* receptor de la web: carga el lead en el CRM */
   var MOTIVOS = {
     registrar: "Quiero registrar este dominio y arrancar un proyecto.",
     alternativas: "El dominio está ocupado: quiero ver alternativas y arrancar un proyecto.",
@@ -206,6 +206,7 @@
         '<button type="submit" class="sc-bus-btn">Enviar</button>' +
       '</form>';
     var f = caja.querySelector("form");
+    var mostrado = Date.now();
     f.querySelector('[name="nombre"]').focus();
     f.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -220,17 +221,22 @@
         if (window.scEvento) window.scEvento("generate_lead", { lead_source: "buscador_dominios" });
         caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Recibido</span><p>Gracias, ' + esc(d.nombre.split(" ")[0]) + '. Te escribimos a <b>' + esc(d.email) + '</b> en las próximas 24 horas hábiles.</p></div>';
       };
+      var porWhatsApp = function () {
+        var txt = "Hola! Consulta desde la web.\n" +
+          "Dominio: " + d.dominio + "\nProyecto: " + d.proyecto + "\n" + d.motivo + "\n" +
+          "Nombre: " + d.nombre + "\nEmail: " + d.email + (d.telefono ? "\nWhatsApp: " + d.telefono : "") +
+          (d.mensaje ? "\n\n" + d.mensaje : "");
+        window.open(wa(txt), "_blank", "noopener");
+        gracias();
+      };
       if (ENDPOINT) {
-        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d) })
-          .then(gracias).catch(gracias);
+        var envio = Object.assign({ tipo: "form", form: "buscador", pagina: location.pathname, t: Date.now() - mostrado, web: "" }, d);
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(envio) })
+          .then(function (r) { if (!r.ok) throw new Error("http " + r.status); gracias(); })
+          .catch(porWhatsApp); // si no llegó al servidor, que no se pierda: sigue por WhatsApp
         return;
       }
-      var txt = "Hola! Consulta desde la web.\n" +
-        "Dominio: " + d.dominio + "\nProyecto: " + d.proyecto + "\n" + d.motivo + "\n" +
-        "Nombre: " + d.nombre + "\nEmail: " + d.email + (d.telefono ? "\nWhatsApp: " + d.telefono : "") +
-        (d.mensaje ? "\n\n" + d.mensaje : "");
-      window.open(wa(txt), "_blank", "noopener");
-      gracias();
+      porWhatsApp();
     });
   }
 
