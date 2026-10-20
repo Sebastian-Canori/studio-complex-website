@@ -156,3 +156,20 @@
 .sc-gracias-sec:hover {
   color: var(--sc-ink-accent);
 }
+
+/* Casilla de consentimiento dentro de un formulario: separada del botón de envío
+   para que no quede pegada y sea fácil de tocar en el celular. */
+.contact-form label.sc-form-nota {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 10px 0 30px;
+  cursor: pointer;
+}
+.contact-form label.sc-form-nota input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--tj-color-theme-primary);
+}
