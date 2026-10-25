@@ -12,6 +12,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://studiocomplex.com.ar%{REQUEST_URI} [L,R=301]
 
+# El CRM de ventas vive en /CRM-ventas (el servidor distingue mayúsculas): en minúscula caía en la página de error del sitio.
+RewriteRule ^crm-ventas(/.*)?$ /CRM-ventas$1 [R=301,L,NC]
+
 # team-details.html era la ficha de ejemplo de la plantilla (texto falso): se sacó el 30/9
 RewriteRule ^team-details\.html$ /team.html [L,R=301]
 
