@@ -5,6 +5,7 @@ require __DIR__ . '/smtp-mailer.php';
 require __DIR__ . '/recaptcha-verify.php';
 require __DIR__ . '/crm-lead.php';
 require __DIR__ . '/closer-lib.php';
+require __DIR__ . '/airtable.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sc_closer_respond('error', 'Método no permitido.');
@@ -73,7 +74,23 @@ $crmSent = sc_send_lead_to_crm([
     'website' => '',
 ]);
 
-if ($mailSent || $crmSent) {
+// Airtable is one more copy of the application: it never blocks the answer.
+$airtableSaved = sc_airtable_create('Postulaciones', [
+    'Email'                => strtolower($email),
+    'Nombre'               => $name,
+    'WhatsApp'             => $phone,
+    'Ciudad y país'        => $location,
+    'Perfil'               => $profile,
+    'Años cerrando ventas' => $experience,
+    'Disponibilidad'       => $availability,
+    'Vendió a pymes'       => $b2b,
+    'Experiencia'          => $sold,
+    'Pasa corte'           => $qualifies,
+    'Estado'               => 'Nuevo',
+    'Fecha de envío'       => gmdate('c'),
+]);
+
+if ($mailSent || $crmSent || $airtableSaved) {
     sc_closer_respond('success', $qualifies
         ? '¡Gracias! Recibimos tu postulación.'
         : '¡Gracias! Revisamos tu postulación y, si avanza, te mandamos el paso siguiente por mail.');

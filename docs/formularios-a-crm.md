@@ -39,3 +39,13 @@ Solo cambia `url` en `crm-config.php`. El contrato es el mismo (JSON con `Author
 - Solapa propia de newsletter en el CRM (fecha de alta, consentimiento, origen).
 - Sacar de `public_html` el `CRM-Altas.zip` (48 MB) y `.htaccess.bak-20261008`.
 - Cabecera `X-Robots-Tag: noindex` en `CRM-Altas` (hoy sin ninguna protección contra indexación).
+
+
+## Closers → Airtable (rama `seba/closers`)
+Las dos etapas de la postulación de closers guardan además cada envío en Airtable (base **Reclutamiento Studio Complex**), sin cambiar lo que ve el postulante:
+- **Postulaciones** (`closer-form.php`, etapa 1): un registro por envío, con `Pasa corte` (1 año o más y vendió a pymes), `Estado` (Nuevo por defecto), `Puntaje` y `Notas internas` para el equipo.
+- **Perfiles** (`closer-perfil.php`, etapa 2): las 13 respuestas y el link del video, vinculado a su postulación por email; si no hay postulación se crea igual con `Sin postulación previa`.
+- El código está en `assets/mail/airtable.php`. Si Airtable no responde, el mail y el CRM salen igual y el registro se agrega a `sc-airtable-fallback.jsonl`, fuera de `public_html`.
+- **Configuración:** `assets/mail/airtable-config.php` solo en el servidor (token + ID de base; plantilla en `airtable-config.example.php`). El token necesita `data.records:read` y `data.records:write` sobre la base.
+- **Crear la base:** `python3 tools/airtable-crear-base.py <workspaceId>` (lee el token del llavero `airtable-studiocomplex`).
+- **Probado** con un Airtable simulado en local (registros bien armados, vínculo por email, respaldo con Airtable caído). Falta la prueba real con el token.

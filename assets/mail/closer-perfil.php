@@ -5,6 +5,7 @@ require __DIR__ . '/smtp-mailer.php';
 require __DIR__ . '/recaptcha-verify.php';
 require __DIR__ . '/crm-lead.php';
 require __DIR__ . '/closer-lib.php';
+require __DIR__ . '/airtable.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sc_closer_respond('error', 'Método no permitido.');
@@ -75,7 +76,33 @@ $crmSent = sc_send_lead_to_crm([
     'website' => '',
 ]);
 
-if ($mailSent || $crmSent) {
+// Airtable copy, linked to the stage 1 record by email (created anyway if there is none).
+$postulacionId = sc_airtable_find_postulacion($email);
+$airtableFields = [
+    'Email'                   => strtolower($email),
+    'Día típico'              => $answers['clDia'],
+    'Cómo se define'          => $answers['clPerfil'],
+    'Experiencia comercial'   => $answers['clExp'],
+    'Recomendaciones'         => $answers['clRecom'],
+    'Libros'                  => $answers['clLibros'],
+    'Cursos'                  => $answers['clCursos'],
+    'Curso con más resultado' => $answers['clCursoTop'],
+    'Motivación'              => $answers['clMotiv'],
+    'Motivación a largo plazo' => $answers['clLargo'],
+    'Ocupación'               => $answers['clOcup'],
+    'Ingreso actual (USD)'    => $answers['clIngreso'],
+    'Éxito'                   => $answers['clExito'],
+    'Video'                   => $video,
+    'Fecha de envío'          => gmdate('c'),
+];
+if ($postulacionId !== null) {
+    $airtableFields['Postulación'] = [$postulacionId];
+} else {
+    $airtableFields['Sin postulación previa'] = true;
+}
+$airtableSaved = sc_airtable_create('Perfiles', $airtableFields);
+
+if ($mailSent || $crmSent || $airtableSaved) {
     sc_closer_respond('success', '¡Recibimos tu perfil! Lo revisamos y te respondemos por mail.');
 }
 sc_closer_respond('error', 'No se pudo enviar. Intentá nuevamente en unos minutos.');
