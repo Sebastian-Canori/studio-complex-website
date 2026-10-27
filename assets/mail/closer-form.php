@@ -88,7 +88,7 @@ $airtableSaved = sc_airtable_create('Postulaciones', [
     'Pasa corte'           => $qualifies,
     'Estado'               => 'Nuevo',
     'Fecha de envío'       => gmdate('c'),
-]);
+], $mailSent || $crmSent);
 
 if ($mailSent || $crmSent || $airtableSaved) {
     sc_closer_respond('success', $qualifies

@@ -100,7 +100,7 @@ if ($postulacionId !== null) {
 } else {
     $airtableFields['Sin postulación previa'] = true;
 }
-$airtableSaved = sc_airtable_create('Perfiles', $airtableFields);
+$airtableSaved = sc_airtable_create('Perfiles', $airtableFields, $mailSent || $crmSent);
 
 if ($mailSent || $crmSent || $airtableSaved) {
     sc_closer_respond('success', '¡Recibimos tu perfil! Lo revisamos y te respondemos por mail.');

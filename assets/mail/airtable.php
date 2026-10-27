@@ -6,7 +6,10 @@
 // server (.gitignore blocks *config*.php; the repo is public). Without that file
 // nothing is sent and the forms keep working with mail + CRM only.
 // If Airtable does not answer, the record is appended to a file OUTSIDE
-// public_html (sc-airtable-fallback.jsonl) so no application is lost.
+// public_html (sc-airtable-fallback.jsonl) so no application is lost. That file
+// empties itself: after the next successful create the pending records are sent.
+// Nothing is kept when the applicant sees an error (mail, CRM and Airtable all
+// failed): they will retry, and keeping it would duplicate the record.
 
 function sc_airtable_config() {
     $file = __DIR__ . '/airtable-config.php';
@@ -21,12 +24,86 @@ function sc_airtable_config() {
     return $config;
 }
 
+function sc_airtable_fallback_file() {
+    return dirname(__DIR__, 3) . '/sc-airtable-fallback.jsonl';
+}
+
 function sc_airtable_fallback($table, array $fields) {
-    $file = dirname(__DIR__, 3) . '/sc-airtable-fallback.jsonl';
-    $line = json_encode(['table' => $table, 'fields' => $fields, 'saved_at' => date('c')], JSON_UNESCAPED_UNICODE) . "\n";
+    $file = sc_airtable_fallback_file();
+    // Substitute invalid UTF-8: json_encode would return false and the record would be lost.
+    $line = json_encode(['table' => $table, 'fields' => $fields, 'saved_at' => date('c')], JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE) . "\n";
     if (@file_put_contents($file, $line, FILE_APPEND | LOCK_EX) === false) {
         error_log('airtable.php: fallback file not writable');
+        return;
     }
+    // Personal data: only the account owner reads it.
+    @chmod($file, 0600);
+}
+
+// Sends back records saved while Airtable was down. Called after a successful create
+// (so Airtable is up) and capped at 3 per call: the applicant is waiting on the form.
+function sc_airtable_drain_fallback() {
+    $file = sc_airtable_fallback_file();
+    clearstatcache(true, $file);
+    if (!is_file($file) || filesize($file) === 0) {
+        return;
+    }
+    // One replayer at a time, or the same record would be sent twice.
+    $guard = @fopen($file . '.lock', 'c');
+    if (!$guard || !flock($guard, LOCK_EX | LOCK_NB)) {
+        return;
+    }
+    $sent   = [];
+    $budget = 3;
+    foreach (file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $line) {
+        $item = json_decode($line, true);
+        if ($budget === 0) {
+            break;
+        }
+        if (!is_array($item) || !isset($item['table'], $item['fields'])) {
+            continue;
+        }
+        $budget--;
+        // A profile saved without its application (Airtable was down at stage 1): link it now.
+        if ($item['table'] === 'Perfiles' && !empty($item['fields']['Sin postulación previa'])) {
+            $postulacionId = sc_airtable_find_postulacion($item['fields']['Email'] ?? '');
+            if ($postulacionId !== null) {
+                unset($item['fields']['Sin postulación previa']);
+                $item['fields']['Postulación'] = [$postulacionId];
+            }
+        }
+        $result = sc_airtable_request('POST', rawurlencode($item['table']), [
+            'fields'   => $item['fields'],
+            'typecast' => true,
+        ]);
+        if (empty($result['id'])) {
+            break; // Airtable is failing again: keep the rest for the next time.
+        }
+        $sent[] = $line;
+    }
+    if ($sent) {
+        // Re-read under the file lock: other requests may have appended meanwhile.
+        $fh = @fopen($file, 'c+');
+        if ($fh && flock($fh, LOCK_EX)) {
+            $current = array_filter(explode("\n", (string) stream_get_contents($fh)), 'strlen');
+            foreach ($sent as $line) {
+                $i = array_search($line, $current, true);
+                if ($i !== false) {
+                    unset($current[$i]);
+                }
+            }
+            ftruncate($fh, 0);
+            rewind($fh);
+            fwrite($fh, $current ? implode("\n", $current) . "\n" : '');
+            fflush($fh);
+            flock($fh, LOCK_UN);
+        }
+        if ($fh) {
+            fclose($fh);
+        }
+    }
+    flock($guard, LOCK_UN);
+    fclose($guard);
 }
 
 // Returns the decoded JSON body on success, null on failure.
@@ -63,8 +140,9 @@ function sc_airtable_request($method, $path, $body = null) {
 }
 
 // Creates one record. typecast lets Airtable accept new select options.
-// Returns the new record id, or false (the record then goes to the fallback file).
-function sc_airtable_create($table, array $fields) {
+// Returns the new record id, or false. On failure the record goes to the fallback
+// file only if $keepOnFailure (the applicant got a success through mail or CRM).
+function sc_airtable_create($table, array $fields, $keepOnFailure = true) {
     if (sc_airtable_config() === null) {
         return false;
     }
@@ -73,9 +151,12 @@ function sc_airtable_create($table, array $fields) {
         'typecast' => true,
     ]);
     if ($result === null || empty($result['id'])) {
-        sc_airtable_fallback($table, $fields);
+        if ($keepOnFailure) {
+            sc_airtable_fallback($table, $fields);
+        }
         return false;
     }
+    sc_airtable_drain_fallback();
     return $result['id'];
 }
 

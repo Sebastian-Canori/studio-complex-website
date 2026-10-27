@@ -45,7 +45,9 @@ Solo cambia `url` en `crm-config.php`. El contrato es el mismo (JSON con `Author
 Las dos etapas de la postulación de closers guardan además cada envío en Airtable (base **Reclutamiento Studio Complex**), sin cambiar lo que ve el postulante:
 - **Postulaciones** (`closer-form.php`, etapa 1): un registro por envío, con `Pasa corte` (1 año o más y vendió a pymes), `Estado` (Nuevo por defecto), `Puntaje` y `Notas internas` para el equipo.
 - **Perfiles** (`closer-perfil.php`, etapa 2): las 13 respuestas y el link del video, vinculado a su postulación por email; si no hay postulación se crea igual con `Sin postulación previa`.
-- El código está en `assets/mail/airtable.php`. Si Airtable no responde, el mail y el CRM salen igual y el registro se agrega a `sc-airtable-fallback.jsonl`, fuera de `public_html`.
+- El código está en `assets/mail/airtable.php`. Si Airtable no responde, el mail y el CRM salen igual y el registro se agrega a `sc-airtable-fallback.jsonl`, fuera de `public_html` (permisos 600).
+- **El respaldo se vacía solo:** tras el siguiente envío que Airtable acepte, se reenvían hasta 3 registros pendientes por vez (un perfil que quedó sin postulación se vincula en ese momento). No hace falta ningún paso manual; si el archivo no baja a cero, Airtable sigue fallando o el token venció.
+- **Sin duplicados:** si fallan el mail, el CRM y Airtable, el postulante ve el error y reintenta, así que ese envío no se guarda en el respaldo.
 - **Configuración:** `assets/mail/airtable-config.php` solo en el servidor (token + ID de base; plantilla en `airtable-config.example.php`). El token necesita `data.records:read` y `data.records:write` sobre la base.
 - **Crear la base:** `python3 tools/airtable-crear-base.py <workspaceId>` (lee el token del llavero `airtable-studiocomplex`).
 - **Probado** con un Airtable simulado en local (registros bien armados, vínculo por email, respaldo con Airtable caído). Falta la prueba real con el token.
