@@ -1,0 +1,25 @@
+/* Escena 3D del caso "ecosistema" (assets/js/sc-ecosistema.js). */
+.sc-eco-stage {
+  position: relative; min-width: 0; max-width: 100%; aspect-ratio: 1.12 / 1;
+  border-radius: 22px; overflow: hidden;
+  background: radial-gradient(110% 85% at 42% 46%, #121a23, #0b0f14 72%);
+  border: 1px solid rgba(255, 255, 255, .08);
+}
+@media (max-width: 860px) { .sc-eco-stage { aspect-ratio: 1 / 1.08; } }
+.sc-eco-stage canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; }
+.sc-eco-labels { position: absolute; inset: 0; pointer-events: none; }
+.sc-eco-lbl {
+  position: absolute; left: 0; top: 0; white-space: nowrap;
+  font: 500 11px/1 'IBM Plex Mono', ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase;
+  color: #a7aca6; background: rgba(11, 15, 20, .78); border: 1px solid #232d38;
+  padding: 6px 9px; border-radius: 999px; opacity: 0;
+  transition: color .2s, border-color .2s, opacity .4s;
+}
+.sc-eco-lbl.on { color: #f6f7f7; border-color: #F2801E; }
+@media (max-width: 520px) { .sc-eco-lbl { font-size: 9.5px; padding: 5px 7px; } }
+.sc-eco-hint { position: absolute; left: 16px; bottom: 14px; font: 500 11px/1.3 'IBM Plex Mono', ui-monospace, Menlo, monospace; letter-spacing: .06em; color: #a7aca6; margin: 0; text-align: left; }
+@media (hover: none) { .sc-eco-hint { display: none; } }
+.sc-eco-stage.sc-eco-nogl::after { content: "Esta animación necesita WebGL."; position: absolute; inset: 0; display: grid; place-items: center; color: #a7aca6; font: 500 13px ui-monospace, Menlo, monospace; }
+.sc-eco-play { position: absolute; left: 50%; bottom: 44px; transform: translateX(-50%); font: 700 15px/1 'Figtree', system-ui, sans-serif; color: #0b0f14; background: #F2801E; border: 0; border-radius: 999px; padding: 14px 20px; cursor: pointer; box-shadow: 0 0 28px rgba(242, 128, 30, .45); white-space: nowrap; }
+.sc-eco-play:hover { background: #fff; }
+.sc-eco-play:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }

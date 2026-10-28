@@ -2,6 +2,20 @@
 
 Actualizado el 8 de octubre de 2026. Sirve para que el repo y el sitio publicado queden alineados sin adivinar.
 
+## Actualización del 28 de octubre: copia de producción
+
+Producción ya no coincide con ninguna rama. La rama `seba/snapshot-produccion-2026-10-28` es una copia de lo que sirve el dominio ese día, armada sin tocar el servidor (solo lectura por HTTP):
+
+- Base: `feat/portfolio-banner`, la rama más parecida a producción.
+- Encima, la versión publicada de los 43 archivos de la raíz que difieren (páginas, `llms.txt` y `sitemap.xml`), de 4 recursos que difieren y de 7 archivos que faltaban, con finales de línea LF (el servidor los sirve con CRLF).
+- Lo que trae producción y no tiene la base:
+  - Publicación del 16/10: `<meta charset>` como primera etiqueta del `<head>` en todas las páginas, y versiones nuevas de `sc-buscador.js`, `sc-eventos.js`, `sc-modal.js` y `sc-caso.css`.
+  - Caso `caso-simulador-de-financiacion.html`, con su imagen, `sc-simulador-3d.js`, `three.r128.min.js` y `sc-ecosistema.css`, y su tarjeta en la home y en Trabajos. Los recursos coinciden con `upstream/agenda-google-calendar` (rama del socio); la página no coincide con ninguna rama.
+  - `formulario-ingreso.html` y `formulario-institucional.html`, casi iguales a `seba/formulario-institucional`.
+- Quedan afuera a propósito: `about.html`, `contact.html`, `faq.html`, `pricing.html`, `project.html` y `team.html`, páginas viejas en inglés que siguen en el servidor pero que el repo reemplazó por las versiones en español. También `.htaccess` y los PHP del servidor, que no se pueden leer por web.
+
+Antes de volver a publicar desde cualquier rama, hay que partir de esta copia o integrarla; si no, se pisa lo que está en vivo. La comprobación de `tools/comparar-con-produccion.py` hay que correrla en macOS o en un checkout con LF: en Windows con `core.autocrlf=true` todo da distinto por los finales de línea.
+
 ## Qué es producción hoy
 
 Producción (`studiocomplex.com.ar`) es **la rama `seo/paginas-nicho`** (publicada el 9/10: páginas de Tiendanube, Shopify y WooCommerce con enlaces en menú y footer, aviso de cookies sin mención al tema claro/oscuro e ícono de reCAPTCHA centrado, 42 de 42 iguales; antes fue `seo/mejoras-tecnicas`) (publicada el 8/10 por cPanel: `lang="es-AR"`, migas de pan arreglo de las tarjetas del caso WooCommerce en home y trabajos, y consentimiento de cookies: GA4 y Clarity solo cargan si se acepta, y eventos de GA4 (`sc-eventos.js`), publicados también el 8/10; respaldo previo y 39 de 39 iguales, más `sc-cookies.js` y `sc-legal.css`). Se comprobó por hash: los 39 archivos `.html`, `.txt` y `.xml` versionados en la raíz son idénticos a lo que sirve el dominio. Para repetir la comprobación en cualquier momento:

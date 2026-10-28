@@ -1757,26 +1757,14 @@
 }
 .sc-caso-figura figcaption { margin-top: 12px; font-size: 0.92rem; color: var(--tj-color-text-body); }
 
-/* Trabajos: el encabezado toma el fondo del banner principal del home (foto
-   centrada y el mismo halo naranja y cian), en vez del mancha naranja difusa
-   del template que se veía apagada. */
-.tj-page-header.sc-pf-header .hero-bg { background-position: center; opacity: 0.2; }
-.tj-page-header.sc-pf-header::before {
-  inset: -10% -6% auto -6%;
-  width: auto;
-  height: 100%;
-  bottom: auto;
-  left: -6%;
-  filter: none;
-  border-radius: 0;
-  opacity: 1;
-  background:
-    radial-gradient(60% 70% at 20% 30%,
-      color-mix(in oklab, var(--tj-color-theme-primary) 26%, transparent) 0%,
-      color-mix(in oklab, var(--tj-color-theme-primary) 10%, transparent) 38%,
-      transparent 72%),
-    radial-gradient(52% 62% at 84% 20%,
-      color-mix(in oklab, var(--tj-color-theme-secondary) 24%, transparent) 0%,
-      color-mix(in oklab, var(--tj-color-theme-secondary) 9%, transparent) 38%,
-      transparent 72%);
+/* ==========================================================================
+   Caso simulador de financiación: mismo mockup con marca, en naranja.
+   Las dos tarjetas de abajo (WhatsApp y planilla) reusan las del reparto.
+   ========================================================================== */
+.sc-caso-mk.tiene-marca.es-financiacion {
+  --marca: #F2801E;
+  --marca-fondo: #0d0d0d;
 }
+.sc-caso-mk.es-financiacion .sc-caso-mk-pantalla .sc-caso-mk-cta { justify-content: space-between; padding: 0 14px; }
+.sc-caso-mk.es-financiacion .sc-caso-mk-tel .sc-caso-mk-cta { justify-content: center; padding: 0; }
+.sc-caso-mk.es-financiacion .sc-caso-mk-asesor.es-turno i { background-color: #25D366; color: #0d0d0d; }

@@ -6,6 +6,7 @@
      click_agenda    → cualquier enlace a agenda.html
      click_tel       → enlaces tel:
      click_email     → enlaces mailto:
+   Además cada uno de esos clics se cuenta como interacción sin datos en el panel (scInteraccion).
    Los formularios llaman a scEvento("generate_lead", { lead_source }) cuando
    el envío salió bien (contact-form.js, sc-modal.js, sc-buscador.js).
 
@@ -20,6 +21,40 @@
   window.scEvento = function (nombre, parametros) {
     try {
       if (typeof window.gtag === "function") window.gtag("event", nombre, parametros || {});
+    } catch (e) {
+      // La medición nunca debe romper la página.
+    }
+  };
+
+
+  /* Interacciones sin datos: cada clic en WhatsApp, agenda, teléfono o mail se cuenta en el panel de clientes
+     (Solicitudes web > Interacciones) para ver la demanda aunque la persona no deje nombre. Sin cookies ni IP,
+     sin datos personales: solo canal, zona de la página, ruta y el tema del botón. No depende de las cookies de
+     analítica porque no identifica a nadie. */
+  var CANALES = { click_whatsapp: "whatsapp", click_agenda: "agenda", click_tel: "telefono", click_email: "email" };
+  var ultimo = {};
+
+  window.scInteraccion = function (evento, a, href) {
+    try {
+      if (navigator.webdriver) return;
+      var canal = CANALES[evento];
+      if (!canal) return;
+      var clave = canal + "|" + href;
+      var ahora = Date.now();
+      if (ultimo[clave] && ahora - ultimo[clave] < 5000) return; // doble clic
+      ultimo[clave] = ahora;
+      var tema = "";
+      if (canal === "whatsapp") {
+        var m = href.match(/[?&]text=([^&#]*)/);
+        if (m) { try { tema = decodeURIComponent(m[1].replace(/\+/g, " ")); } catch (e) { tema = ""; } }
+      } else if (canal === "agenda") {
+        tema = "Agendar reunión";
+      }
+      var datos = JSON.stringify({ tipo: "interaccion", canal: canal, zona: zona(a), pagina: location.pathname, tema: tema.slice(0, 100) });
+      var blob = new Blob([datos], { type: "text/plain;charset=UTF-8" });
+      if (!(navigator.sendBeacon && navigator.sendBeacon("assets/mail/lead-intake.php", blob))) {
+        fetch("assets/mail/lead-intake.php", { method: "POST", body: datos, keepalive: true, headers: { "Content-Type": "text/plain;charset=UTF-8" } });
+      }
     } catch (e) {
       // La medición nunca debe romper la página.
     }
@@ -45,6 +80,7 @@
       else if (href.indexOf("mailto:") === 0) nombre = "click_email";
       if (!nombre) return;
       window.scEvento(nombre, { link_location: zona(a), page_path: location.pathname });
+      window.scInteraccion(nombre, a, href);
     },
     true
   );

@@ -20,13 +20,14 @@
   "use strict";
 
   var WHATSAPP = "5491153362945";
-  var ENDPOINT = ""; /* Apps Script de Studio Complex, cuando exista */
+  var ENDPOINT = "assets/mail/lead-intake.php"; /* receptor de la web: carga el lead en el CRM */
 
   var modal = document.getElementById("sc-modal-contacto");
   if (!modal) return;
 
   var caja = modal.querySelector(".sc-modal-caja");
   var form = modal.querySelector("form");
+  var abierto = Date.now(); /* para descartar bots que envían en menos de 1,5 s */
   var ultimoFoco = null;
 
   /* ---------------------------------------------------------------- abrir */
@@ -38,6 +39,7 @@
   });
 
   function abrir(disparador) {
+    abierto = Date.now();
     ultimoFoco = disparador || document.activeElement;
     modal.hidden = false;
     document.body.style.overflow = "hidden";
@@ -143,11 +145,11 @@
     boton.textContent = "Enviando…";
     fetch(ENDPOINT, {
       method: "POST",
-      mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(Object.assign({ origen: document.title }, d))
+      body: JSON.stringify(Object.assign({ tipo: "form", form: "modal", origen: document.title, pagina: location.pathname, t: Date.now() - abierto, web: "" }, d))
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) throw new Error("http " + r.status);
         if (window.scEvento) window.scEvento("generate_lead", { lead_source: "modal_contanos_tu_caso" });
         form.innerHTML =
           '<p class="sc-modal-intro" style="margin:0;text-align:center;">' +

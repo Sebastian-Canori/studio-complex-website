@@ -40,12 +40,13 @@
     { t: "Caso: Google Ads en un rubro con restricciones", d: "Retail sin suspensiones", u: "caso-retail-rubro-restringido.html", k: "google ads restringido retail" },
     { t: "Caso: Las consultas se reparten entre los asesores", d: "WhatsApp y planilla", u: "caso-reparto-de-consultas.html", k: "whatsapp asesores reparto consultas" },
     { t: "Caso: Una tienda con el menú a medida", d: "Más de 800 productos migrados", u: "caso-tienda-a-medida.html", k: "tienda menu tiendanube migracion" },
+    { t: "Caso: El cliente elige la moto y la consulta llega sola", d: "Simulador de financiación en WooCommerce", u: "caso-simulador-de-financiacion.html", k: "simulador financiacion cuotas woocommerce whatsapp motos planilla" },
     { t: "Blog", d: "Notas sobre web, tiendas, SEO, Ads y ventas", u: "blog.html", k: "blog notas articulos" },
     { t: "Partners", d: "Programa para agencias y freelancers", u: "partners.html", k: "partners socios agencias freelancers referidos marca blanca" },
     { t: "Sobre Nosotros", d: "Quiénes somos y cómo nacimos", u: "sobre-nosotros.html", k: "nosotros equipo empresa quienes" },
     { t: "Equipo", d: "Las personas de Studio Complex", u: "equipo.html", k: "equipo personas jorge sebastian" },
     { t: "Preguntas Frecuentes", d: "Plazos, precios y cómo trabajamos", u: "preguntas-frecuentes.html", k: "preguntas faq dudas" },
-    { t: "Agendá una reunión", d: "Media hora sin cargo", u: "agenda.html", k: "reunion agenda turno calendly llamada" },
+    { t: "Agendá una reunión", d: "Veinte minutos sin cargo", u: "agenda.html", k: "reunion agenda turno calendly llamada" },
     { t: "Contacto", d: "Escribinos", u: "contacto.html", k: "contacto mail email telefono whatsapp" }
   ];
 
@@ -180,7 +181,7 @@
      todos los datos y lo abre en el WhatsApp de Studio Complex, para que
      ninguna consulta se pierda.
      ------------------------------------------------------------------ */
-  var ENDPOINT = ""; /* URL del receptor de formularios, cuando exista */
+  var ENDPOINT = "assets/mail/lead-intake.php"; /* receptor de la web: carga el lead en el CRM */
   var MOTIVOS = {
     registrar: "Quiero registrar este dominio y arrancar un proyecto.",
     alternativas: "El dominio está ocupado: quiero ver alternativas y arrancar un proyecto.",
@@ -206,6 +207,7 @@
         '<button type="submit" class="sc-bus-btn">Enviar</button>' +
       '</form>';
     var f = caja.querySelector("form");
+    var mostrado = Date.now();
     f.querySelector('[name="nombre"]').focus();
     f.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -220,17 +222,22 @@
         if (window.scEvento) window.scEvento("generate_lead", { lead_source: "buscador_dominios" });
         caja.innerHTML = '<div class="sc-bus-dom libre"><span class="sc-bus-estado">✓ Recibido</span><p>Gracias, ' + esc(d.nombre.split(" ")[0]) + '. Te escribimos a <b>' + esc(d.email) + '</b> en las próximas 24 horas hábiles.</p></div>';
       };
+      var porWhatsApp = function () {
+        var txt = "Hola! Consulta desde la web.\n" +
+          "Dominio: " + d.dominio + "\nProyecto: " + d.proyecto + "\n" + d.motivo + "\n" +
+          "Nombre: " + d.nombre + "\nEmail: " + d.email + (d.telefono ? "\nWhatsApp: " + d.telefono : "") +
+          (d.mensaje ? "\n\n" + d.mensaje : "");
+        window.open(wa(txt), "_blank", "noopener");
+        gracias();
+      };
       if (ENDPOINT) {
-        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d) })
-          .then(gracias).catch(gracias);
+        var envio = Object.assign({ tipo: "form", form: "buscador", pagina: location.pathname, t: Date.now() - mostrado, web: "" }, d);
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(envio) })
+          .then(function (r) { if (!r.ok) throw new Error("http " + r.status); gracias(); })
+          .catch(porWhatsApp); // si no llegó al servidor, que no se pierda: sigue por WhatsApp
         return;
       }
-      var txt = "Hola! Consulta desde la web.\n" +
-        "Dominio: " + d.dominio + "\nProyecto: " + d.proyecto + "\n" + d.motivo + "\n" +
-        "Nombre: " + d.nombre + "\nEmail: " + d.email + (d.telefono ? "\nWhatsApp: " + d.telefono : "") +
-        (d.mensaje ? "\n\n" + d.mensaje : "");
-      window.open(wa(txt), "_blank", "noopener");
-      gracias();
+      porWhatsApp();
     });
   }
 
