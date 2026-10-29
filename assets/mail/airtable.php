@@ -163,7 +163,8 @@ function sc_airtable_create($table, array $fields, $keepOnFailure = true) {
 // Finds the most recent "Postulaciones" record for an email, or null.
 function sc_airtable_find_postulacion($email) {
     $email = strtolower(trim($email));
-    $formula = "LOWER({Email})='" . str_replace("'", "\\'", $email) . "'";
+    // Backslash first, or the one added before a quote would be escaped again.
+    $formula = "LOWER({Email})='" . str_replace(['\\', "'"], ['\\\\', "\\'"], $email) . "'";
     $result = sc_airtable_request('GET', 'Postulaciones?maxRecords=1&sort%5B0%5D%5Bfield%5D=Fecha%20de%20env%C3%ADo&sort%5B0%5D%5Bdirection%5D=desc&filterByFormula=' . rawurlencode($formula));
     return $result['records'][0]['id'] ?? null;
 }
