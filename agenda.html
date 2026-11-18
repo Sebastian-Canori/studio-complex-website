@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="assets/css/leaflet.css" />
   <link rel="stylesheet" href="assets/css/main.css?v=202610120819">
   <link rel="stylesheet" href="assets/css/sc-legal.css?v=202610120819">
+  <link rel="stylesheet" href="assets/css/sc-ajustes.css?v=202611151500">
   <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
   <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202610120819"> -->
   <!-- Tema claro DESACTIVADO el 23/9: no convencia visualmente. Queda comentado
@@ -550,7 +551,7 @@
                     <span class="sc-agenda-icono"><i class="tji-calendar"></i></span>
                     <h3 class="sc-agenda-titulo">Ver los horarios disponibles</h3>
                     <p class="sc-agenda-desc">
-                      El calendario lo maneja Calendly. Lo cargamos solo cuando lo pedís,
+                      El calendario es de Google Calendar. Lo cargamos solo cuando lo pedís,
                       así no dejamos cookies de terceros en tu navegador sin avisarte.
                     </p>
                     <button type="button" class="tj-primary-btn" id="sc-agenda-abrir">
@@ -721,37 +722,33 @@
   <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
   <!-- <script src="assets/js/sc-theme.js?v=202610120819"></script> -->
   <script>
-    /* Calendly se carga a pedido: el script de ellos deja cookies de
-       terceros, y no corresponde ponerlas antes de que la persona quiera
-       ver el calendario.
-       PENDIENTE: reemplazar por la URL real de Calendly de Studio Complex.
-       La cuenta conectada en la agencia es la de nudge, que es otra empresa. */
+    /* The Google Calendar booking page loads on demand: Google sets
+       third-party cookies, so it only loads once the visitor asks for it.
+       Booking page owned by studiocomplexadmin@gmail.com
+       (short link: https://calendar.app.google/haq8ThafNBtNtpqa9). */
     (function () {
-      var URL_CALENDLY = "https://calendly.com/studio-complex/reunion-inicial";
+      var BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3nbMly2esV6-DS-ttK_7W04FR3bhmU7pmfYtBKR6WUr6D303xn0aW_UwsHA639i5TbVBOHSQfF?gv=true";
 
-      var boton = document.getElementById("sc-agenda-abrir");
-      var previa = document.getElementById("sc-agenda-previa");
-      var caja = document.getElementById("sc-agenda-widget");
-      if (!boton || !previa || !caja) return;
+      var button = document.getElementById("sc-agenda-abrir");
+      var preview = document.getElementById("sc-agenda-previa");
+      var box = document.getElementById("sc-agenda-widget");
+      if (!button || !preview || !box) return;
 
-      boton.addEventListener("click", function () {
-        var tema = document.documentElement.getAttribute("data-theme") === "light" ? "ffffff" : "10151c";
-        var widget = document.createElement("div");
-        widget.className = "calendly-inline-widget";
-        widget.style.minWidth = "320px";
-        widget.style.height = "700px";
-        widget.setAttribute(
-          "data-url",
-          URL_CALENDLY + "?hide_gdpr_banner=1&background_color=" + tema + "&primary_color=f2801e"
-        );
-        caja.appendChild(widget);
-        caja.hidden = false;
-        previa.hidden = true;
-
-        var s = document.createElement("script");
-        s.src = "https://assets.calendly.com/assets/external/widget.js";
-        s.async = true;
-        document.body.appendChild(s);
+      button.addEventListener("click", function () {
+        var frame = document.createElement("iframe");
+        frame.src = BOOKING_URL;
+        frame.title = "Reservar una reunión inicial con Studio Complex";
+        frame.loading = "lazy";
+        frame.style.width = "100%";
+        frame.style.minWidth = "300px";
+        frame.style.height = "720px";
+        frame.style.border = "0";
+        frame.style.borderRadius = "12px";
+        frame.style.background = "#ffffff";
+        box.appendChild(frame);
+        box.hidden = false;
+        preview.hidden = true;
+        frame.focus();
       });
     })();
   </script>
