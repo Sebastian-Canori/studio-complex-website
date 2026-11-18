@@ -14,6 +14,12 @@
    No usa requestAnimationFrame: en algunos navegadores del equipo no llega a
    dispararse y el aviso quedaba invisible. Se fuerza un reflow, igual que en
    sc-modal.js.
+
+   2026-11 (English, per repo rule for new code): the same consent now also
+   loads the Meta pixel (dataset 1880635999759892) on the production host.
+   «sc-consent-version» = "2" marks a decision taken after the pixel was
+   added: people who had accepted before are asked again, as cookies.html
+   promises. People who had rejected stay rejected and nothing loads.
    ========================================================================== */
 
 (function () {
@@ -21,6 +27,68 @@
 
   var CLAVE = "sc-consent";
   var GA_ID = "G-4B82XMYNSR";
+  var VERSION_KEY = "sc-consent-version";
+  var CURRENT_VERSION = "2"; // 2 = the decision already covers the Meta pixel
+  var META_PIXEL_ID = "1880635999759892";
+
+  function isProductionHost() {
+    return /(^|\.)studiocomplex\.com\.ar$/.test(window.location.hostname);
+  }
+
+  function versionIsCurrent() {
+    try {
+      return window.localStorage.getItem(VERSION_KEY) === CURRENT_VERSION;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Standard Meta base code, only after consent and only on the production host.
+  function loadMetaPixel() {
+    if (!isProductionHost() || window.fbq) return;
+    var fbq = (window.fbq = function () {
+      if (fbq.callMethod) fbq.callMethod.apply(fbq, arguments);
+      else fbq.queue.push(arguments);
+    });
+    if (!window._fbq) window._fbq = fbq;
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = "2.0";
+    fbq.queue = [];
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    document.head.appendChild(script);
+    fbq("init", META_PIXEL_ID);
+    fbq("track", "PageView");
+    if (/\/agenda\.html$/.test(window.location.pathname)) {
+      fbq("track", "ViewContent", { content_name: "agenda" });
+    }
+  }
+
+  function trackMeta() {
+    if (typeof window.fbq === "function") window.fbq.apply(null, arguments);
+  }
+
+  // WhatsApp and e-mail links count as Contact, links to the agenda as a custom
+  // event, and a valid submit of the contact forms as Lead. Without consent
+  // window.fbq does not exist and nothing is sent.
+  function watchActions() {
+    document.addEventListener("click", function (e) {
+      var link = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!link) return;
+      var href = link.getAttribute("href") || "";
+      if (/wa\.me|api\.whatsapp\.com|whatsapp:/i.test(href)) trackMeta("track", "Contact", { content_name: "whatsapp" });
+      else if (/^mailto:/i.test(href)) trackMeta("track", "Contact", { content_name: "email" });
+      else if (/agenda\.html/i.test(href)) trackMeta("trackCustom", "AgendaClick");
+    }, true);
+    document.addEventListener("submit", function (e) {
+      var form = e.target;
+      if (!form || !/^contact-form(-2)?$/.test(form.id || "")) return;
+      if (form.checkValidity && !form.checkValidity()) return;
+      trackMeta("track", "Lead", { content_name: form.id });
+    }, true);
+  }
 
   function leer() {
     try {
@@ -33,6 +101,7 @@
   function guardar(valor) {
     try {
       window.localStorage.setItem(CLAVE, valor);
+      window.localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     } catch (e) {
       // Si no se puede guardar, el aviso vuelve en la próxima visita.
     }
@@ -42,13 +111,18 @@
     if (valor === "granted") {
       if (typeof window.scCargarAnalitica === "function") window.scCargarAnalitica();
       if (window.clarity) window.clarity("consent", true);
+      loadMetaPixel();
     } else {
       window["ga-disable-" + GA_ID] = true;
       if (window.clarity) window.clarity("consent", false);
+      if (typeof window.fbq === "function") window.fbq("consent", "revoke");
     }
   }
 
   function iniciar() {
+    watchActions();
+    if (leer() === "granted" && versionIsCurrent()) loadMetaPixel();
+
     var aviso = document.getElementById("sc-cookies");
     if (!aviso) return;
 
@@ -82,7 +156,8 @@
       el.addEventListener("click", mostrar);
     });
 
-    if (leer() === null) mostrar();
+    // Ask when there is no decision yet, or when the acceptance predates the pixel.
+    if (leer() === null || (leer() === "granted" && !versionIsCurrent())) mostrar();
   }
 
   if (document.readyState === "loading") {
