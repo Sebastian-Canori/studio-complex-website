@@ -1,12 +1,13 @@
 # Studio Complex
 
-> Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Hace desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico y campañas de Google Ads y Meta Ads. Como complemento, ayuda a ordenar el seguimiento de consultas y ventas por WhatsApp. Idioma: español. Primera reunión sin cargo.
+> Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Se especializa en desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico, campañas de Google Ads y Meta Ads, y automatizaciones con inteligencia artificial para empresas. Idioma: español. Primera reunión sin cargo.
 
 Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://studiocomplex.com.ar/contacto.html
 
 ## Servicios
 
 - [Automatización de Leads y Consultas por WhatsApp](https://studiocomplex.com.ar/servicio-automatizacion-leads.html): Automatización de consultas: reparto entre asesores, respuesta al instante, registro en planilla o CRM y origen de cada lead, con n8n, Make y WhatsApp.
+- [Automatizaciones con IA para Empresas](https://studiocomplex.com.ar/servicio-automatizaciones-ia.html): Automatizaciones con inteligencia artificial para empresas: leads, atención al cliente, carga de datos, reportes, pedidos y cobros, con n8n, Make y WhatsApp.
 - [Campañas de Google Ads y Meta Ads Gestionadas](https://studiocomplex.com.ar/servicio-campanas-ads.html): Gestión de campañas de Google Ads y Meta Ads medidas de punta a punta: conversiones, palabras negativas, remarketing, rubros restringidos e informe mensual.
 - [Seguimiento y Cierre de Ventas por WhatsApp](https://studiocomplex.com.ar/servicio-cierre-de-ventas.html): Seguimiento comercial: tablero de oportunidades, recordatorios, mensajes por etapa, asistente en WhatsApp con derivación a una persona e informe de cierres.
 - [Diseño y Desarrollo Web a Medida para Empresas](https://studiocomplex.com.ar/servicio-desarrollo-web.html): Diseño y desarrollo web a medida para empresas: landing en 48 horas, sitios corporativos en 3 a 6 semanas, SEO técnico, carga rápida y panel para editarlo vos.
@@ -15,15 +16,17 @@ Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://st
 - [Desarrollo de Tiendas en Tiendanube a Medida](https://studiocomplex.com.ar/servicio-tiendanube.html): Armamos tu tienda en Tiendanube a medida: diseño propio, Mercado Pago, envíos, carga de productos y SEO. Plazo y precio cerrado por escrito.
 - [Tiendas Online a Medida - Tiendanube, Shopify y WooCommerce](https://studiocomplex.com.ar/servicio-tiendas-online.html): Tiendas online a medida en Tiendanube, Shopify y WooCommerce: catálogo cargado, cuotas, Mercado Pago y envíos configurados. De 3 a 6 semanas.
 - [Tiendas WooCommerce en WordPress a Medida](https://studiocomplex.com.ar/servicio-woocommerce.html): Armamos tu tienda en WooCommerce sobre WordPress: sin abono de plataforma, precios mayoristas, catálogos con reglas propias y SEO. Precio cerrado por escrito.
+- [Diseño Web en Berazategui y Zona Sur](https://studiocomplex.com.ar/diseno-web-berazategui.html): Diseño y desarrollo web en Berazategui, Quilmes, Florencio Varela y zona sur: sitios en WordPress y Webflow, rápidos, pensados para el teléfono y con SEO técnico. Primera reunión sin cargo.
 ## Casos de éxito
 
+- [Tienda en WooCommerce - Caso de éxito](https://studiocomplex.com.ar/caso-la-magia-de-tu-cabello.html): Migración de la tienda La Magia de Tu Cabello de HTML y PHP a WordPress con WooCommerce: gestión de envíos con Correo Argentino, blog, SEO y GEO.
 - [Migración de WordPress a Webflow - Caso de éxito](https://studiocomplex.com.ar/caso-marker-webflow.html): Migración del sitio B2B de Marker de WordPress a Webflow: arquitectura de contenidos, CMS, SEO y versiones en español, inglés y portugués.
 - [Plataforma de cursos online con acceso automático - Caso de éxito](https://studiocomplex.com.ar/caso-plataforma-de-cursos.html): El alumno paga el curso en la tienda y entra al aula sin que nadie lo habilite. Cómo conectamos la venta con la matriculación.
 - [Reparto automático de consultas de WhatsApp - Caso de éxito](https://studiocomplex.com.ar/caso-reparto-de-consultas.html): Siete botones de WhatsApp que van al asesor que le toca, con el mensaje escrito y la consulta anotada sola.
 - [Google Ads en un rubro con restricciones - Caso de éxito](https://studiocomplex.com.ar/caso-retail-rubro-restringido.html): Cómo sostenemos una cuenta de Google Ads en un rubro donde Shopping, Display y Performance Max no están disponibles.
+- [Simulador de financiación conectado a WooCommerce y WhatsApp - Caso de éxito](https://studiocomplex.com.ar/caso-simulador-de-financiacion.html): El cliente elige la moto, ve la cuota según la financiera y la consulta llega completa a WhatsApp y a una planilla. Simulador de financiación a medida en WooCommerce.
 - [Tienda Tiendanube con menú a medida - Caso de éxito](https://studiocomplex.com.ar/caso-tienda-a-medida.html): Menú con foto por categoría, selector de modelo y más de 800 productos migrados. Cómo se personaliza una tienda Tiendanube.
 - [WooCommerce minorista y mayorista - Caso de éxito](https://studiocomplex.com.ar/caso-woocommerce-minorista-mayorista.html): Rediseñamos el sitio de una marca de ropa en dos tiendas WooCommerce, una minorista y otra mayorista, para ordenar el stock y las promociones.
-- [Simulador de financiación en WooCommerce - Caso de éxito](https://studiocomplex.com.ar/caso-simulador-de-financiacion.html): El cliente elige la moto, ve la cuota según la financiera y la consulta llega completa a WhatsApp y a una planilla.
 ## Notas del blog
 
 - [Antes de poner un peso en Google Ads, dejá medido esto](https://studiocomplex.com.ar/nota-antes-de-invertir-en-google-ads.html): Una campaña sin medición gasta igual que una medida. La diferencia es que a fin de mes no sabés qué te trajo, y no tenés cómo mejorarla.

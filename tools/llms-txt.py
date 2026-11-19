@@ -23,11 +23,11 @@ def seccion(titulo, archivos):
 
 cabecera = """# Studio Complex
 
-> Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Hace desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico y campañas de Google Ads y Meta Ads. Como complemento, ayuda a ordenar el seguimiento de consultas y ventas por WhatsApp. Idioma: español. Primera reunión sin cargo.
+> Studio Complex es un partner digital para empresas de Argentina y Latinoamérica. Se especializa en desarrollo web, tiendas online (Tiendanube, Shopify, WooCommerce), SEO técnico, campañas de Google Ads y Meta Ads, y automatizaciones con inteligencia artificial para empresas. Idioma: español. Primera reunión sin cargo.
 
 Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://studiocomplex.com.ar/contacto.html
 """
-cuerpo = (cabecera + seccion("Servicios", sorted(glob.glob("servicio-*.html")))
+cuerpo = (cabecera + seccion("Servicios", sorted(glob.glob("servicio-*.html")) + ["diseno-web-berazategui.html"])
           + seccion("Casos de éxito", sorted(glob.glob("caso-*.html")))
           + seccion("Notas del blog", sorted(glob.glob("nota-*.html")))
           + seccion("Información", ["sobre-nosotros.html", "equipo.html", "planes.html", "preguntas-frecuentes.html"]) + "\n")

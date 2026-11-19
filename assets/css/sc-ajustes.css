@@ -1,0 +1,7 @@
+/* Ajustes propios de Studio Complex (15/11/2026). */
+
+/* Botón «Subir» y la insignia de reCAPTCHA (15/11/2026): los dos van fijos abajo a la derecha y la
+   insignia (círculo de 60 px a 14 px del borde, ver sc-legal.css) tapaba el botón. Cuando la insignia
+   está en la página, el botón sube y queda arriba de ella. Con el aviso de cookies a la vista en el
+   celular manda la regla de sc-legal.css (190 px). */
+body:not(.sc-cookies-visible):has(.grecaptcha-badge) .back-to-top-btn-show { bottom: 92px; }
