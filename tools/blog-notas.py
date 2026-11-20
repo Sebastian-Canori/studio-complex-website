@@ -12,7 +12,7 @@ NOTAS = [
 "bajada": "Desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT. Qué se anunció, quién ve los anuncios y qué conviene hacer antes de poner plata.",
 "min": 4,
 "portada": "novedades",
-"fecha": ("2026-12-01", "1 dic 2026"),
+"fecha": ("2026-11-20", "20 nov 2026"),
 "cuerpo": """
 <p><strong>En corto:</strong> desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT, con el administrador de anuncios de OpenAI o a través de socios. Los anuncios se muestran de a poco y solo a adultos que usan los planes Gratis y Go. Conviene probar con poco y, mientras tanto, trabajar lo que no se paga: que ChatGPT entienda tu web y te pueda recomendar.</p>
 
