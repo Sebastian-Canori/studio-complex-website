@@ -5,6 +5,55 @@
 
 NOTAS = [
 {
+"slug": "chatgpt-anuncios-argentina",
+"cat": "Novedades",
+"serv": ("servicio-campanas-ads.html", "Campañas de Ads"),
+"titulo": "ChatGPT ya vende anuncios en Argentina: qué significa para tu empresa",
+"bajada": "Desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT. Qué se anunció, quién ve los anuncios y qué conviene hacer antes de poner plata.",
+"min": 4,
+"portada": "novedades",
+"fecha": ("2026-12-01", "1 dic 2026"),
+"cuerpo": """
+<p><strong>En corto:</strong> desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT, con el administrador de anuncios de OpenAI o a través de socios. Los anuncios se muestran de a poco y solo a adultos que usan los planes Gratis y Go. Conviene probar con poco y, mientras tanto, trabajar lo que no se paga: que ChatGPT entienda tu web y te pueda recomendar.</p>
+
+<h2>Qué se anunció</h2>
+<p>OpenAI empezó a vender anuncios en ChatGPT este año, por etapas. En mayo abrió el administrador de anuncios en autoservicio para Estados Unidos. El 31 de agosto sumó India, Europa, Medio Oriente y el norte de África. Y el 21 de octubre anunció 26 países más, entre ellos Argentina, Chile, Colombia y Perú, con lo que los anuncios llegan a 89 mercados.</p>
+<p>Los anuncios aparecen junto a las respuestas, marcados como patrocinados, según el tema de la conversación.</p>
+
+<h2>¿Aplica en Argentina?</h2>
+<p>Sí, desde el 21 de octubre de 2026. Algunos datos para tener en cuenta:</p>
+<ul>
+<li><strong>Cómo se compra:</strong> con el administrador de anuncios de OpenAI, en autoservicio, o a través de socios tecnológicos.</li>
+<li><strong>Cómo se paga:</strong> por impresiones, por clic o con optimización a conversiones. Para las campañas por clic, OpenAI sugiere como referencia ofertas de 3 a 5 dólares por clic. Es una referencia para empezar, no un precio fijo.</li>
+<li><strong>Quién los ve:</strong> adultos de los planes Gratis y Go. Los planes Plus, Pro y los de empresas no ven anuncios.</li>
+<li><strong>Cuándo:</strong> la llegada es gradual, así que no todos los usuarios los ven todavía.</li>
+</ul>
+
+<h2>Qué cambia para tu negocio</h2>
+<p>Cada vez más gente le pregunta a ChatGPT antes de comprar: qué producto elegir, qué negocio le conviene, a quién contratar. Hasta ahora, la única forma de aparecer en esas respuestas era que el asistente encontrara tu empresa y la considerara una buena recomendación. Ahora existe también un camino pago.</p>
+<p>Para una tienda online o una empresa de servicios, eso abre un canal nuevo para llegar a gente que ya está decidiendo. Pero es un canal joven: hay poca información sobre cuánto rinde en nuestro mercado, y cada rubro va a responder distinto.</p>
+
+<blockquote>Que se pueda pagar para aparecer no reemplaza lo otro. Si ChatGPT no entiende qué vendés y dónde, el anuncio llega a una web que no convence.</blockquote>
+
+<h2>Qué hacer ahora</h2>
+<ul>
+<li><strong>Ordená tu web para que ChatGPT la entienda.</strong> Qué vendés, en qué zona, con qué condiciones y precios claros. Es lo que lee el asistente para recomendarte, pagues o no.</li>
+<li><strong>Medí cuántas visitas te llegan desde ChatGPT.</strong> En Google Analytics se puede ver cuánta gente entra desde ChatGPT y otros asistentes. Si ya llegan visitas sin pagar, es una buena señal de que el canal te sirve.</li>
+<li><strong>Si vas a probar, empezá chico y medido.</strong> Como con cualquier canal nuevo: un presupuesto acotado, un objetivo claro (consultas, ventas) y la medición funcionando antes de subir la inversión.</li>
+</ul>
+
+<h2>Cómo te ayudamos</h2>
+<p>Trabajamos las dos partes: que tu web y tu tienda estén preparadas para que los buscadores y los asistentes de IA las entiendan, y las campañas pagas con la medición lista desde el primer día. Si querés ver si te conviene probar este canal, escribinos y lo miramos con tu caso.</p>
+
+<h2>Fuentes</h2>
+<ul>
+<li>OpenAI, <a href="https://openai.com/index/chatgpt-ads-expands-26-new-countries/" target="_blank" rel="noopener">anuncio de la llegada de ChatGPT Ads a 26 países más</a> (21 de octubre de 2026).</li>
+<li>Forbes Argentina, <a href="https://www.forbesargentina.com/today/chatgpt-empieza-mostrar-publicidad-argentina-como-funciona-nuevo-negocio-openai-cuanto-cuesta-anunciar-n100809" target="_blank" rel="noopener">cómo funciona la publicidad de ChatGPT en Argentina y cuánto cuesta anunciar</a>.</li>
+<li>Infobae y Mobile Time, coberturas del 21 y 22 de octubre de 2026.</li>
+</ul>
+"""
+},
+{
 "slug": "lanzar-producto-o-servicio-con-marca-personal",
 "cat": "Marca personal",
 "serv": ("servicio-desarrollo-web.html", "Desarrollo Web"),
