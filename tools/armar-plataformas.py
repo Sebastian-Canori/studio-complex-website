@@ -114,8 +114,8 @@ def pagina(p):
                   <nav class="sc-sv-migas" aria-label="Ubicación">
                     <a href="index.html#servicios">Servicios</a><span aria-hidden="true">/</span><a href="servicio-tiendas-online.html">Tiendas online</a><span aria-hidden="true">/</span><span>{e(p["nombre"])}</span>
                   </nav>
-                  <span class="sc-sv-eyebrow">{e(p["eyebrow"])}</span>
-                  <h1 class="sc-sv-titulo">{p["h1"]}</h1>
+                  <h1 class="sc-sv-eyebrow">{e(p["eyebrow"])}</h1>
+                  <p class="sc-sv-titulo">{p["h1"]}</p>
                   <p class="sc-sv-lead">{e(p["lead"])}</p>
                   <div class="sc-sv-btns">
                     <a class="sc-sv-btn primario" href="agenda.html">Agendá una reunión <i class="tji-arrow-right-2" aria-hidden="true"></i></a>

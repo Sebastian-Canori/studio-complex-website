@@ -162,6 +162,19 @@
   letter-spacing: -0.035em;
   margin: 0 0 24px;
 }
+/* SEO: the hero H1 carries the search phrase with the eyebrow look, and the
+   brand phrase below keeps the big title look as a <p>. The selector beats
+   main.css "html body .sc-sv p" (justified text with auto hyphens). */
+h1.sc-sv-eyebrow { line-height: 1.625; }
+html body .sc-sv p.sc-sv-titulo {
+  color: var(--tj-color-heading-primary);
+  font-family: var(--tj-ff-heading);
+  font-weight: var(--tj-fw-sbold);
+  text-align: start;
+  text-wrap: balance;
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
 .sc-sv-hero .sc-sv-lead { margin-bottom: 34px; }
 .sc-sv-hero-datos {
   display: flex;
