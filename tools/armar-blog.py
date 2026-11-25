@@ -6,6 +6,7 @@ import sys, re, json, html, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 from importlib import import_module
 NOTAS = import_module("blog-notas").NOTAS
+caja_recurso = import_module("recursos-datos").caja_nota
 
 BASE = "https://studiocomplex.com.ar/"
 FECHA_ISO = "2026-09-28"
@@ -40,6 +41,7 @@ def pagina(main, titulo, desc, ld, menu_blog=True):
     # en el blog ningún ítem del menú queda marcado como actual
     s = s.replace('<li class="has-dropdown current-menu-ancestor"><a href="index.html#servicios">Servicios</a>',
                   '<li class="has-dropdown"><a href="index.html#servicios">Servicios</a>')
+    s = s.replace('<li class="has-dropdown sc-mega-li current-menu-ancestor">', '<li class="has-dropdown sc-mega-li">')
     s = s.replace('<li class="current-menu-item"><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>',
                   '<li><a href="servicio-desarrollo-web.html">Desarrollo Web</a></li>')
     s = s.replace('<label for="sc-mensaje">¿Qué necesitás de tu sitio?</label>', '<label for="sc-mensaje">¿En qué te podemos ayudar?</label>')
@@ -78,7 +80,7 @@ for i, n in enumerate(NOTAS):
               <div class="sc-nota-ancho sc-nota-cuerpo">
 {n['cuerpo'].strip()}
 
-                <aside class="sc-nota-servicio">
+{caja_recurso(n['recurso'], n['slug']) if n.get('recurso') else ''}                <aside class="sc-nota-servicio">
                   <p>¿Querés resolver esto en tu empresa?<span>Mirá cómo trabajamos {servn.lower() if servn != 'SEO Técnico' else 'el SEO técnico'}.</span></p>
                   <a class="sc-sv-btn primario" href="{servu}">Ver {servn} <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
                 </aside>
@@ -115,8 +117,12 @@ for i, n in enumerate(NOTAS):
           "author": {"@type": "Organization", "name": "Studio Complex", "url": BASE},
           "publisher": {"@type": "Organization", "name": "Studio Complex", "url": BASE},
           "mainEntityOfPage": BASE + f"nota-{n['slug']}.html"}
-    open(f"nota-{n['slug']}.html", "w", encoding="utf-8").write(
-        pagina(main, f"{n['titulo']} | Blog de Studio Complex", n["bajada"], ld))
+    s = pagina(main, f"{n['titulo']} | Blog de Studio Complex", n["bajada"], ld)
+    if n.get("recurso"):
+        # misma etiqueta que agrega tools/armar-recursos.py
+        s = s.replace('  <link rel="stylesheet" href="assets/css/sc-sv.css',
+                      '  <link rel="stylesheet" href="assets/css/sc-recurso.css?v=202611251900">\n  <link rel="stylesheet" href="assets/css/sc-sv.css', 1)
+    open(f"nota-{n['slug']}.html", "w", encoding="utf-8").write(s)
 
 # --- listado ---
 main = f'''        <!-- ==================================================================
