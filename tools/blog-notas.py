@@ -2,6 +2,8 @@
 # Cada nota: slug, categoría, servicio relacionado, título, bajada, minutos
 # de lectura, portada (clave para el generador) y cuerpo en HTML simple
 # (h2, p, ul, blockquote). El armado de las páginas lo hace armar-blog.py.
+# Opcional: "recurso" con la clave de un recurso gratis de recursos-datos.py
+# (agrega la caja de descarga en la nota; ver tools/armar-recursos.py).
 
 NOTAS = [
 {
@@ -100,6 +102,7 @@ NOTAS = [
 },
 {
 "slug": "cuanto-cuesta-una-tienda-online",
+"recurso": "checklist-tienda-online",
 "cat": "Tiendas online",
 "serv": ("servicio-tiendas-online.html", "Tiendas Online"),
 "titulo": "¿Cuánto cuesta una tienda online? Qué mueve el precio",
@@ -259,6 +262,7 @@ NOTAS = [
 },
 {
 "slug": "vender-cursos-online-con-acceso-automatico",
+"recurso": "checklist-tienda-online",
 "cat": "Tiendas online",
 "serv": ("servicio-tiendas-online.html", "Tiendas Online"),
 "titulo": "Cómo vender cursos online con acceso automático para el alumno",
@@ -337,6 +341,7 @@ NOTAS = [
 },
 {
 "slug": "tiendanube-shopify-o-woocommerce",
+"recurso": "checklist-tienda-online",
 "cat": "Tiendas online",
 "serv": ("servicio-tiendas-online.html", "Tiendas Online"),
 "titulo": "Tiendanube, Shopify o WooCommerce: cómo elegir la plataforma de tu tienda",
