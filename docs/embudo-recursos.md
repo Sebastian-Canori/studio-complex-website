@@ -33,7 +33,7 @@ Para sumar un recurso nuevo: bloque en `recursos-datos.py`, archivo en `assets/r
 
 1. **Brevo**: crear la cuenta gratis con hola@studiocomplex.com.ar y autenticar el dominio (Brevo da los registros DKIM y SPF para el DNS; ese cambio de DNS se confirma antes de hacerlo).
 2. En Brevo, crear la lista **"Recurso: checklist tienda online"** y anotar su número.
-3. En Brevo, Contactos → Configuración → Atributos: crear `RECURSO` y `NOTA_ORIGEN` (texto). `FIRSTNAME` ya existe.
+3. En Brevo, Contactos → Configuración → Atributos: crear `RECURSO` y `NOTA_ORIGEN` (texto). `NOMBRE` ya existe (esta cuenta está en español: el nombre es `NOMBRE`, no `FIRSTNAME`).
 4. Crear una clave API v3 (SMTP & API → API keys).
 5. En el servidor, crear `public_html/assets/mail/brevo-config.php` (nunca en el repo ni en el chat):
    ```php
@@ -53,7 +53,7 @@ El día 0 lo manda el sitio (mail con el link). La automatización de Brevo empi
 ### Día 2: el punto que más se pasa por alto
 - **Asunto:** ¿Probaste comprar en tu propia tienda?
 - **Texto:**
-  Hola {{ contact.FIRSTNAME }}:
+  Hola {{ contact.NOMBRE }}:
 
   De los 34 puntos del checklist, hay uno que conviene hacer hoy mismo: comprar en tu tienda como si fueras un cliente, desde el celular, con cada medio de pago.
 
@@ -66,7 +66,7 @@ El día 0 lo manda el sitio (mail con el link). La automatización de Brevo empi
 ### Día 5: un caso real
 - **Asunto:** Cuando la plantilla no alcanza
 - **Texto:**
-  Hola {{ contact.FIRSTNAME }}:
+  Hola {{ contact.NOMBRE }}:
 
   Una tienda de accesorios con más de ochocientos productos y sesenta y nueve categorías tenía un problema: la gente no encontraba lo que buscaba. El menú de la plataforma no daba para tanto, así que armamos uno con foto por categoría.
 
@@ -79,7 +79,7 @@ El día 0 lo manda el sitio (mail con el link). La automatización de Brevo empi
 ### Día 9: el error más común
 - **Asunto:** Vender sin saber de dónde viene la venta
 - **Texto:**
-  Hola {{ contact.FIRSTNAME }}:
+  Hola {{ contact.NOMBRE }}:
 
   El bloque del checklist que más tiendas dejan para después es "Medir desde el primer día". Y es el que define si la plata en anuncios se recupera o se pierde.
 
@@ -92,7 +92,7 @@ El día 0 lo manda el sitio (mail con el link). La automatización de Brevo empi
 ### Día 14: la invitación
 - **Asunto:** ¿Lo vemos juntos?
 - **Texto:**
-  Hola {{ contact.FIRSTNAME }}:
+  Hola {{ contact.NOMBRE }}:
 
   Hace dos semanas bajaste el checklist de la tienda. Si te quedaron puntos sin tildar y no sabés por cuál empezar, lo vemos juntos en media hora, sin compromiso: miramos tu tienda y te decimos qué conviene resolver primero.
 

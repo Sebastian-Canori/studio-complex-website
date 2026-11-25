@@ -59,7 +59,7 @@ function sc_brevo_suscribir($email, $nombre, $recurso, $nota) {
 
     $payload = [
         'email'         => $email,
-        'attributes'    => ['FIRSTNAME' => $nombre, 'RECURSO' => $recurso, 'NOTA_ORIGEN' => $nota],
+        'attributes'    => ['NOMBRE' => $nombre, 'RECURSO' => $recurso, 'NOTA_ORIGEN' => $nota],
         'listIds'       => [$lista],
         'updateEnabled' => true,
     ];
