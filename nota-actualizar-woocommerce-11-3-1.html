@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="no-js" lang="es-AR">
+
+<head><meta charset="utf-8">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.">
+
+  <!-- Site Title -->
+  <link rel="canonical" href="https://studiocomplex.com.ar/nota-actualizar-woocommerce-11-3-1.html">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Studio Complex">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="WooCommerce 11.3.1: cómo actualizar sin romper tu tienda | Blog de Studio Complex">
+  <meta property="og:description" content="El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.">
+  <meta property="og:url" content="https://studiocomplex.com.ar/nota-actualizar-woocommerce-11-3-1.html">
+  <meta property="og:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WooCommerce 11.3.1: cómo actualizar sin romper tu tienda | Blog de Studio Complex">
+  <meta name="twitter:description" content="El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.">
+  <meta name="twitter:image" content="https://studiocomplex.com.ar/assets/images/og-studio-complex-v2.png">
+  <title>WooCommerce 11.3.1: cómo actualizar sin romper tu tienda | Blog de Studio Complex</title>
+
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/tekmino-icon.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/venobox.min.css">
+  <link rel="stylesheet" href="assets/css/meanmenu.css">
+  <link rel="stylesheet" href="assets/css/main.css?v=202610120819">
+  <link rel="stylesheet" href="assets/css/sc-legal.css?v=202610120819">
+  <link rel="stylesheet" href="assets/css/sc-ajustes.css?v=202611151500">
+  <!-- Chat flotante: oculto a pedido. Para reactivarlo, sacar los comentarios de estas dos lineas (esta y la del script al final). -->
+  <!-- <link rel="stylesheet" href="assets/css/sc-chat.css?v=202610120819"> -->
+  <!-- sc-caso.css se carga por la ventana de contacto (.sc-modal), que vive ahí. -->
+  <link rel="stylesheet" href="assets/css/sc-caso.css?v=202610120819">
+  <link rel="stylesheet" href="assets/css/sc-sv.css?v=202610120819">
+  <!-- Datos estructurados: el servicio y sus preguntas frecuentes. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "WooCommerce 11.3.1: cómo actualizar sin romper tu tienda",
+  "description": "El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.",
+  "image": "https://studiocomplex.com.ar/assets/images/notas/actualizar-woocommerce-11-3-1.jpg",
+  "datePublished": "2026-11-26",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Organization",
+    "name": "Studio Complex",
+    "url": "https://studiocomplex.com.ar/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Studio Complex",
+    "url": "https://studiocomplex.com.ar/"
+  },
+  "mainEntityOfPage": "https://studiocomplex.com.ar/nota-actualizar-woocommerce-11-3-1.html"
+}
+  </script>
+<!-- Analytics: GA4 + Clarity (production host only). Solo cargan si la persona acepta en el aviso de cookies (sc-cookies.js). -->
+<script>
+  (function () {
+    if (!/(^|\.)studiocomplex\.com\.ar$/.test(location.hostname)) return;
+    var cargado = false;
+    window.scCargarAnalitica = function () {
+      if (cargado) return;
+      cargado = true;
+      var g = document.createElement("script");
+      g.async = true;
+      g.src = "https://www.googletagmanager.com/gtag/js?id=G-4B82XMYNSR";
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", "G-4B82XMYNSR");
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "yrfrc3lgnm");
+    };
+    try {
+      if (window.localStorage.getItem("sc-consent") === "granted") window.scCargarAnalitica();
+    } catch (e) {}
+  })();
+</script>
+  <link rel="stylesheet" href="assets/css/sc-megamenu.css?v=202611181930">
+  <!-- Migas de pan (schema): las genera tools/seo-tags.py -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://studiocomplex.com.ar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://studiocomplex.com.ar/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WooCommerce 11.3.1: cómo actualizar sin romper tu tienda",
+      "item": "https://studiocomplex.com.ar/nota-actualizar-woocommerce-11-3-1.html"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Preloader Start -->
+  <div class="preloader is-loading">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-icon"><img src="assets/images/logos/logo-icon.png" alt="Loading"></div>
+    </div>
+  </div>
+  <!-- Preloader end -->
+
+  <!-- back to top start -->
+  <div class="back-to-top-wrapper">
+    <button id="back_to_top" type="button" class="back-to-top-btn">
+      <span class="back_to_top_icon"><i class="tji-arrow-up-4"></i></span>
+      <span class="back_to_top_text">Subir</span>
+    </button>
+  </div>
+  <!-- back to top end -->
+
+  <!-- start: Aviso de cookies -->
+  <!-- Va fuera de #smooth-content: ese contenedor tiene will-change: transform
+       y rompe cualquier position: fixed que quede adentro. -->
+  <div class="sc-cookies" id="sc-cookies" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Usamos Google Analytics, Microsoft Clarity y el píxel de Meta para medir cómo se usa el sitio y los resultados de nuestros anuncios. Solo se activan si los aceptás. <a href="cookies.html">Cómo funciona</a></p>
+    <div class="sc-cookies-acciones">
+      <button type="button" class="sc-cookies-ok">Aceptar</button>
+      <button type="button" class="sc-cookies-no">Rechazar</button>
+    </div>
+  </div>
+  <!-- end: Aviso de cookies -->
+
+
+
+  <!-- start: Search Popup -->
+  <div class="search_popup">
+    <div class="search_close">
+      <button type="button" class="search_close_btn">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12">
+          <div class="tj_search_wrapper">
+            <div class="search_form">
+              <form action="#">
+                <div class="search_input">
+                  <h4 class="title">Buscar Proyectos, Servicios o Blog.</h4>
+                  <div class="search-box">
+                    <input class="search-input-field" type="search" placeholder="Buscar..." required="">
+                    <button type="submit">
+                      <i class="tji-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-popup-overlay"></div>
+  <!-- end: Search Popup -->
+
+  <!-- start: Offcanvas Menu -->
+  <div class="tj-offcanvas-area d-none d-lg-block">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="index.html" class="mobile_logo">
+              <img src="assets/images/logos/primary-logo.png" alt="Logo">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="offcanvas-text">
+          <p>Desarrollamos tu web o tienda, la posicionamos, la potenciamos con Ads y hacemos seguimiento de cada venta.</p>
+        </div>
+        <div class="hamburger-search-area">
+          <h5 class="hamburger-title">Buscar</h5>
+          <div class="hamburger_search">
+            <form method="get" action="index.html">
+              <button type="submit"><i class="tji-search"></i></button>
+              <input type="search" autocomplete="off" name="s" value="" placeholder="Buscar...">
+            </form>
+          </div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Datos de Contacto</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">WhatsApp</span>
+              <a class="contact-link" href="https://wa.me/5491153362945" target="_blank" rel="noopener">+54 9 11 5336-2945</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:hola@studiocomplex.com.ar">hola@studiocomplex.com.ar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Síguenos</h5>
+        <div class="social-links style-2">
+          <ul>
+            <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Offcanvas Menu -->
+
+  <!-- start: Hamburger Menu -->
+  <div class="hamburger-area d-lg-none">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="index.html" class="mobile_logo">
+              <img src="assets/images/logos/primary-logo.png" alt="Logo">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hamburger_menu">
+          <div class="mobile_menu"></div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Datos de Contacto</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">WhatsApp</span>
+              <a class="contact-link" href="https://wa.me/5491153362945" target="_blank" rel="noopener">+54 9 11 5336-2945</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:hola@studiocomplex.com.ar">hola@studiocomplex.com.ar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Síguenos</h5>
+        <div class="social-links style-2">
+          <ul>
+            <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Hamburger Menu -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 header-absolute">
+    <div class="header-top d-lg-block d-none">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-top-content">
+              <p class="topbar-text"><i class="tji-spark"></i> Trabajamos con empresas de toda Latinoamérica. Hablemos de la tuya. <a
+                  href="contacto.html">Empezar</a>
+              </p>
+              <div class="header-info">
+                <div class="info-item">
+                  <span><i class="tji-clock"></i></span>
+                  <span>9 a 18 hs [lun-sáb]</span>
+                </div>
+                <div class="info-item">
+                  <span><i class="tji-gear"></i></span>
+                  <a href="contacto.html">Soporte</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-wrapper">
+              <!-- site logo -->
+              <div class="site_logo">
+                <a class="logo" href="index.html"><img src="assets/images/logos/primary-logo.png" alt="Logo"></a>
+              </div>
+
+              <!-- navigation -->
+              <div class="menu-area d-none d-lg-inline-flex align-items-center">
+                <nav id="mobile-menu" class="mainmenu">
+                  <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Conocenos</a></li>
+                    <li class="has-dropdown sc-mega-li"><a href="index.html#servicios" aria-haspopup="true" aria-expanded="false" aria-controls="sc-mega-panel-1">Servicios</a><div class="sc-mega" id="sc-mega-panel-1"><div class="sc-mega__grid"><div class="sc-mega__col"><p class="sc-mega__label">Tu web o tienda</p><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-desarrollo-web.html" data-case-img="assets/images/menu/plataforma-de-cursos.webp" data-case-title="Plataforma de cursos con acceso automático" data-case-href="caso-plataforma-de-cursos.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-development"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Desarrollo web</span><span class="sc-mega__desc">Sitios rápidos, claros y pensados para vender.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-tiendas-online.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-budget"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Tiendas online</span><span class="sc-mega__desc">Catálogo, pagos y envíos funcionando desde el día uno.</span></span></a><span class="sc-mega__chips"><a class="sc-mega__chip" href="servicio-tiendanube.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html">Tiendanube</a><a class="sc-mega__chip" href="servicio-shopify.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html">Shopify</a><a class="sc-mega__chip" href="servicio-woocommerce.html" data-case-img="assets/images/menu/woocommerce-minorista-mayorista.webp" data-case-title="WooCommerce minorista y mayorista" data-case-href="caso-woocommerce-minorista-mayorista.html">WooCommerce</a></span></div></div><div class="sc-mega__col"><p class="sc-mega__label">Más consultas y ventas</p><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-seo-tecnico.html" data-case-img="assets/images/menu/marker-webflow.webp" data-case-title="Migración de WordPress a Webflow con SEO" data-case-href="caso-marker-webflow.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-search"></i></span><span class="sc-mega__text"><span class="sc-mega__title">SEO técnico</span><span class="sc-mega__desc">Que Google te encuentre cuando te buscan.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-campanas-ads.html" data-case-img="assets/images/menu/retail-rubro-restringido.webp" data-case-title="Google Ads en un rubro con restricciones" data-case-href="caso-retail-rubro-restringido.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-growth"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Campañas de Ads</span><span class="sc-mega__desc">Google y Meta medidos con consultas reales.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-automatizaciones-ia.html" data-case-img="assets/images/menu/reparto-de-consultas.webp" data-case-title="Reparto automático de consultas de WhatsApp" data-case-href="caso-reparto-de-consultas.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-spark"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Automatizaciones con IA</span><span class="sc-mega__desc">Especialistas en IA aplicada: leads, atención, reportes y tareas repetitivas que se resuelven solos.</span></span></a><span class="sc-mega__chips"><a class="sc-mega__chip" href="servicio-automatizacion-leads.html" data-case-img="assets/images/menu/reparto-de-consultas.webp" data-case-title="Reparto automático de consultas de WhatsApp" data-case-href="caso-reparto-de-consultas.html">Automatización de leads</a></span></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-cierre-de-ventas.html" data-case-img="assets/images/menu/simulador-de-financiacion.webp" data-case-title="Simulador de financiación conectado a WhatsApp" data-case-href="caso-simulador-de-financiacion.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-chat"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Cierre de ventas</span><span class="sc-mega__desc">Seguimiento para que el presupuesto no se enfríe.</span></span></a></div></div><div class="sc-mega__feature"><a class="sc-mega__case" href="caso-tienda-a-medida.html"><img src="assets/images/menu/tienda-a-medida.webp" alt="" width="240" height="320" loading="lazy" decoding="async"><span class="sc-mega__case-body"><span class="sc-mega__case-kicker">Caso real</span><span class="sc-mega__case-title">Tienda Tiendanube con menú a medida</span><span class="sc-mega__case-cta">Ver caso <i class="tji-arrow-right-2" aria-hidden="true"></i></span></span></a></div></div><div class="sc-mega__foot"><p>¿No sabés por dónde empezar?</p><a href="agenda.html">Agendá 30 min con nosotros <i class="tji-arrow-right-2" aria-hidden="true"></i></a></div></div><ul class="sub-menu sc-mega-mobile"><li><a href="servicio-desarrollo-web.html">Desarrollo web</a></li><li><a href="servicio-tiendas-online.html">Tiendas online</a></li><li class="sc-mega-mobile__sub"><a href="servicio-tiendanube.html">Tiendanube</a></li><li class="sc-mega-mobile__sub"><a href="servicio-shopify.html">Shopify</a></li><li class="sc-mega-mobile__sub"><a href="servicio-woocommerce.html">WooCommerce</a></li><li><a href="servicio-seo-tecnico.html">SEO técnico</a></li><li><a href="servicio-campanas-ads.html">Campañas de Ads</a></li><li><a href="servicio-automatizaciones-ia.html">Automatizaciones con IA</a></li><li class="sc-mega-mobile__sub"><a href="servicio-automatizacion-leads.html">Automatización de leads</a></li><li><a href="servicio-cierre-de-ventas.html">Cierre de ventas</a></li></ul></li>
+                    <li><a href="trabajos.html">Casos</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- header right info -->
+              <div class="header-right-item d-none d-lg-inline-flex">
+                <div class="header-search">
+                  <button class="search">
+                    <i class="tji-search"></i>
+                  </button>
+                </div>
+                <div class="header-button d-xl-block d-none">
+                  <a class="tj-primary-btn" href="contacto.html">
+                    <span class="btn-text"><span>Empezar</span></span>
+                    <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+                  </a>
+                </div>
+                <!-- menu bar -->
+                <button class="menu_btn menu_offcanvas d-none d-lg-block">
+                  <span class="cubes">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </button>
+              </div>
+
+              <!-- menu bar -->
+              <button class="menu_btn mobile_menu_bar d-lg-none">
+                <span class="cubes">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 header-duplicate header-sticky">
+    <div class="header-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="header-wrapper">
+              <!-- site logo -->
+              <div class="site_logo">
+                <a class="logo" href="index.html"><img src="assets/images/logos/primary-logo.png" alt="Logo"></a>
+              </div>
+
+              <!-- navigation -->
+              <div class="menu-area d-none d-lg-inline-flex align-items-center">
+                <nav class="mainmenu">
+                  <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Conocenos</a></li>
+                    <li class="has-dropdown sc-mega-li"><a href="index.html#servicios" aria-haspopup="true" aria-expanded="false" aria-controls="sc-mega-panel-2">Servicios</a><div class="sc-mega" id="sc-mega-panel-2"><div class="sc-mega__grid"><div class="sc-mega__col"><p class="sc-mega__label">Tu web o tienda</p><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-desarrollo-web.html" data-case-img="assets/images/menu/plataforma-de-cursos.webp" data-case-title="Plataforma de cursos con acceso automático" data-case-href="caso-plataforma-de-cursos.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-development"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Desarrollo web</span><span class="sc-mega__desc">Sitios rápidos, claros y pensados para vender.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-tiendas-online.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-budget"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Tiendas online</span><span class="sc-mega__desc">Catálogo, pagos y envíos funcionando desde el día uno.</span></span></a><span class="sc-mega__chips"><a class="sc-mega__chip" href="servicio-tiendanube.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html">Tiendanube</a><a class="sc-mega__chip" href="servicio-shopify.html" data-case-img="assets/images/menu/tienda-a-medida.webp" data-case-title="Tienda Tiendanube con menú a medida" data-case-href="caso-tienda-a-medida.html">Shopify</a><a class="sc-mega__chip" href="servicio-woocommerce.html" data-case-img="assets/images/menu/woocommerce-minorista-mayorista.webp" data-case-title="WooCommerce minorista y mayorista" data-case-href="caso-woocommerce-minorista-mayorista.html">WooCommerce</a></span></div></div><div class="sc-mega__col"><p class="sc-mega__label">Más consultas y ventas</p><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-seo-tecnico.html" data-case-img="assets/images/menu/marker-webflow.webp" data-case-title="Migración de WordPress a Webflow con SEO" data-case-href="caso-marker-webflow.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-search"></i></span><span class="sc-mega__text"><span class="sc-mega__title">SEO técnico</span><span class="sc-mega__desc">Que Google te encuentre cuando te buscan.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-campanas-ads.html" data-case-img="assets/images/menu/retail-rubro-restringido.webp" data-case-title="Google Ads en un rubro con restricciones" data-case-href="caso-retail-rubro-restringido.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-growth"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Campañas de Ads</span><span class="sc-mega__desc">Google y Meta medidos con consultas reales.</span></span></a></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-automatizaciones-ia.html" data-case-img="assets/images/menu/reparto-de-consultas.webp" data-case-title="Reparto automático de consultas de WhatsApp" data-case-href="caso-reparto-de-consultas.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-spark"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Automatizaciones con IA</span><span class="sc-mega__desc">Especialistas en IA aplicada: leads, atención, reportes y tareas repetitivas que se resuelven solos.</span></span></a><span class="sc-mega__chips"><a class="sc-mega__chip" href="servicio-automatizacion-leads.html" data-case-img="assets/images/menu/reparto-de-consultas.webp" data-case-title="Reparto automático de consultas de WhatsApp" data-case-href="caso-reparto-de-consultas.html">Automatización de leads</a></span></div><div class="sc-mega__item"><a class="sc-mega__link" href="servicio-cierre-de-ventas.html" data-case-img="assets/images/menu/simulador-de-financiacion.webp" data-case-title="Simulador de financiación conectado a WhatsApp" data-case-href="caso-simulador-de-financiacion.html"><span class="sc-mega__icon" aria-hidden="true"><i class="tji-chat"></i></span><span class="sc-mega__text"><span class="sc-mega__title">Cierre de ventas</span><span class="sc-mega__desc">Seguimiento para que el presupuesto no se enfríe.</span></span></a></div></div><div class="sc-mega__feature"><a class="sc-mega__case" href="caso-tienda-a-medida.html"><img src="assets/images/menu/tienda-a-medida.webp" alt="" width="240" height="320" loading="lazy" decoding="async"><span class="sc-mega__case-body"><span class="sc-mega__case-kicker">Caso real</span><span class="sc-mega__case-title">Tienda Tiendanube con menú a medida</span><span class="sc-mega__case-cta">Ver caso <i class="tji-arrow-right-2" aria-hidden="true"></i></span></span></a></div></div><div class="sc-mega__foot"><p>¿No sabés por dónde empezar?</p><a href="agenda.html">Agendá 30 min con nosotros <i class="tji-arrow-right-2" aria-hidden="true"></i></a></div></div><ul class="sub-menu sc-mega-mobile"><li><a href="servicio-desarrollo-web.html">Desarrollo web</a></li><li><a href="servicio-tiendas-online.html">Tiendas online</a></li><li class="sc-mega-mobile__sub"><a href="servicio-tiendanube.html">Tiendanube</a></li><li class="sc-mega-mobile__sub"><a href="servicio-shopify.html">Shopify</a></li><li class="sc-mega-mobile__sub"><a href="servicio-woocommerce.html">WooCommerce</a></li><li><a href="servicio-seo-tecnico.html">SEO técnico</a></li><li><a href="servicio-campanas-ads.html">Campañas de Ads</a></li><li><a href="servicio-automatizaciones-ia.html">Automatizaciones con IA</a></li><li class="sc-mega-mobile__sub"><a href="servicio-automatizacion-leads.html">Automatización de leads</a></li><li><a href="servicio-cierre-de-ventas.html">Cierre de ventas</a></li></ul></li>
+                    <li><a href="trabajos.html">Casos</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- header right info -->
+              <div class="header-right-item d-none d-lg-inline-flex">
+                <div class="header-search">
+                  <button class="search">
+                    <i class="tji-search"></i>
+                  </button>
+                </div>
+                <div class="header-button d-xl-block d-none">
+                  <a class="tj-primary-btn" href="contacto.html">
+                    <span class="btn-text"><span>Empezar</span></span>
+                    <span class="btn-icon"><i class="tji-arrow-right-2"></i></span>
+                  </a>
+                </div>
+                <!-- menu bar -->
+                <button class="menu_btn menu_offcanvas d-none d-lg-block">
+                  <span class="cubes">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </button>
+              </div>
+
+              <!-- menu bar -->
+              <button class="menu_btn mobile_menu_bar d-lg-none">
+                <span class="cubes">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <main id="primary" class="site-main">
+        <!-- ==================================================================
+             NOTA DEL BLOG · WooCommerce 11.3.1: cómo actualizar sin romper tu tienda
+             Generada con el mismo molde que las otras notas. Estilos en
+             assets/css/sc-sv.css (bloque "Blog"). Para sumar una nota nueva,
+             copiar este archivo, cambiar el contenido y sumarla en blog.html
+             y en el bloque de notas del home.
+             ================================================================== -->
+        <div class="sc-sv">
+          <article>
+            <header class="sc-nota-hero">
+              <div class="container">
+                <div class="sc-nota-ancho">
+                  <nav class="sc-sv-migas" aria-label="Ubicación">
+                    <a href="blog.html">Blog</a><span aria-hidden="true">/</span><span>Novedades</span>
+                  </nav>
+                  <span class="sc-sv-eyebrow">Novedades</span>
+                  <h1 class="sc-nota-titulo">WooCommerce 11.3.1: cómo actualizar sin romper tu tienda</h1>
+                  <p class="sc-nota-bajada">El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.</p>
+                  <div class="sc-nota-meta"><span>Por <b>Equipo Studio Complex</b></span><span><time datetime="2026-11-26">26 nov 2026</time></span><span>4 min de lectura</span></div>
+                </div>
+              </div>
+            </header>
+            <div class="container">
+              <figure class="sc-nota-portada"><img src="assets/images/notas/actualizar-woocommerce-11-3-1.jpg" alt=""></figure>
+              <div class="sc-nota-ancho sc-nota-cuerpo">
+<p><strong>En corto:</strong> WooCommerce 11.3.1 salió el 19 de noviembre de 2026 y es una actualización de seguridad, con cambios en la base de datos. Conviene instalarla pronto, pero sin apuro a ciegas: copia de seguridad, prueba en una copia de la tienda y una compra de punta a punta antes de pasarla a la tienda real. Si tu tienda es headless o usás Stripe, hay dos puntos extra para revisar.</p>
+
+<h2>Qué trae la versión 11.3.1</h2>
+<p>Según las notas oficiales de WooCommerce, es un parche enfocado en seguridad que toca casi todas las partes sensibles de una tienda:</p>
+<ul>
+<li><strong>Checkout y pedidos:</strong> controles más firmes de dirección y zonas de venta, en el checkout clásico y en el de bloques. También mejora los cálculos de envío e impuestos y el control del stock reservado.</li>
+<li><strong>Cupones:</strong> se respetan mejor los límites de uso, los límites por cliente y las restricciones por email.</li>
+<li><strong>Cuentas y privacidad:</strong> mejor verificación de email y manejo de credenciales. Los links de pedidos y las páginas de seguimiento muestran menos datos de clientes a quien no corresponde.</li>
+<li><strong>Permisos:</strong> controles de acceso más estrictos en la Store API y en las operaciones de pedidos por REST.</li>
+<li><strong>Productos y datos:</strong> más protección para productos sin publicar, importaciones CSV más seguras y exportaciones de Analytics y logs que esconden mejor los datos sensibles.</li>
+</ul>
+
+<h2>¿A quién le cambia algo?</h2>
+<p>A la mayoría de las tiendas, nada visible: actualizan y siguen vendiendo. Hay tres casos que conviene mirar antes:</p>
+<ul>
+<li><strong>Tiendas headless.</strong> Si el frente de tu tienda vive en otro dominio y manda la sesión del cliente a la Store API, ahora ese dominio tiene que estar permitido en WordPress. Si no lo agregás, el carrito o el login pueden dejar de funcionar.</li>
+<li><strong>Temas con plantillas propias.</strong> La confirmación de email en Mi cuenta suma una plantilla nueva. Si tu tema pisa las plantillas de WooCommerce, revisá que esa pantalla se vea bien.</li>
+<li><strong>Integraciones con roles a medida.</strong> Un endpoint viejo de opciones ahora pide el permiso <em>manage_woocommerce</em>. Si un sistema externo entra con un usuario que solo gestiona pedidos, puede empezar a fallar.</li>
+</ul>
+
+<blockquote>Una actualización de seguridad no se posterga. Pero tampoco se instala un viernes a la noche en plena temporada alta sin probarla.</blockquote>
+
+<h2>Cómo actualizar sin arriesgar las ventas</h2>
+<ul>
+<li><strong>Hacé una copia de seguridad completa</strong> de archivos y base de datos. Esta versión trae cambios en la base, así que es el paso que no se saltea.</li>
+<li><strong>Probala en una copia de la tienda</strong> (staging), con los mismos plugins y el mismo tema.</li>
+<li><strong>Comprá de punta a punta</strong> en esa copia: carrito, cupón, envío, cada medio de pago y el mail de confirmación.</li>
+<li><strong>Elegí un horario de pocas ventas</strong> para pasarla a la tienda real y repetí una compra de prueba apenas termine.</li>
+<li><strong>Revisá los plugins de pago</strong> y que estén en su última versión (el punto siguiente).</li>
+</ul>
+
+<h2>Si usás Stripe, revisá también esto</h2>
+<p>WooCommerce publicó aparte un aviso de seguridad del plugin de Stripe. Pide actualizarlo a la versión 11.2.0 (o 11.1.2 si tenés que quedarte en esa rama). Corrige problemas que, en el peor caso, podían permitir compras fraudulentas. WooCommerce aclara que no tiene evidencia de que se hayan aprovechado.</p>
+<p>Además, la versión 10.9.0 de ese plugin podía guardar en los datos del pedido la contraseña nueva del cliente, en texto plano. Pasaba solo si se cumplían tres condiciones: checkout clásico con botones de pago exprés, cuenta creada en el checkout y pago con Apple Pay o Google Pay. Las versiones nuevas borran esos datos solas, pero no cambian las contraseñas. Si tu tienda estuvo en ese caso, WooCommerce recomienda revisar copias de seguridad y exportaciones de pedidos, y pedirle a esos clientes que cambien su contraseña.</p>
+
+<h2>Cómo te ayudamos</h2>
+<p>Armamos y mantenemos tiendas en WooCommerce: actualizaciones probadas en una copia antes de tocar la tienda real, revisión de plugins de pago y control del checkout después de cada cambio. Si no sabés en qué versión está tu tienda o preferís no hacerlo solo en plena temporada, escribinos y lo miramos.</p>
+
+<h2>Fuentes</h2>
+<ul>
+<li>WooCommerce, <a href="https://developer.woocommerce.com/2026/11/19/woocommerce-11-3-1/" target="_blank" rel="noopener">notas de la versión 11.3.1</a> (19 de noviembre de 2026).</li>
+<li>WooCommerce, <a href="https://developer.woocommerce.com/2026/11/11/stripe-gateway-security-update/" target="_blank" rel="noopener">aviso de seguridad del plugin de Stripe</a> (11 de noviembre de 2026).</li>
+</ul>
+
+                <aside class="sc-nota-servicio">
+                  <p>¿Querés resolver esto en tu empresa?<span>Mirá cómo trabajamos woocommerce.</span></p>
+                  <a class="sc-sv-btn primario" href="servicio-woocommerce.html">Ver WooCommerce <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
+                </aside>
+              </div>
+            </div>
+          </article>
+
+          <section class="sc-nota-mas">
+            <div class="container">
+              <h2>Seguí leyendo</h2>
+              <div class="sc-nb-grid">
+              <a class="sc-nb" href="nota-chatgpt-anuncios-argentina.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/chatgpt-anuncios-argentina.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>Novedades</b><span>4 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">ChatGPT ya vende anuncios en Argentina: qué significa para tu empresa</strong>
+                  <span class="sc-nb-bajada">Desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT. Qué se anunció, quién ve los anuncios y qué conviene hacer antes de poner plata.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a class="sc-nb" href="nota-lanzar-producto-o-servicio-con-marca-personal.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/lanzar-producto-o-servicio-con-marca-personal.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>Marca personal</b><span>6 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">Cómo lanzar un producto o un servicio con tu marca personal</strong>
+                  <span class="sc-nb-bajada">Un curso, una mentoría o una consultoría necesitan más que seguidores. Estos son los pasos, en orden, para pasar de la audiencia a las ventas.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              <a class="sc-nb" href="nota-cuanto-cuesta-una-tienda-online.html">
+                <span class="sc-nb-img"><img src="assets/images/notas/cuanto-cuesta-una-tienda-online.jpg" alt="" loading="lazy"></span>
+                <span class="sc-nb-cuerpo">
+                  <span class="sc-nb-meta"><b>Tiendas online</b><span>5 min de lectura</span></span>
+                  <strong class="sc-nb-titulo">¿Cuánto cuesta una tienda online? Qué mueve el precio</strong>
+                  <span class="sc-nb-bajada">No hay un precio único, pero sí cuatro cosas que lo explican. Si las conocés antes de pedir presupuestos, vas a comparar mejor.</span>
+                  <span class="sc-nb-leer">Leer la nota <i class="tji-arrow-right-2" aria-hidden="true"></i></span>
+                </span>
+              </a>
+              </div>
+            </div>
+          </section>
+
+          <section class="sc-sv-cierre">
+            <div class="container">
+              <div class="sc-sv-cierre-caja">
+                <h2>¿Lo vemos en tu <span class="sc-sv-grad">negocio</span>?</h2>
+                <p>Media hora de reunión y te decimos por dónde empezar.</p>
+                <div class="sc-sv-btns">
+                  <a class="sc-sv-btn primario" href="agenda.html">Agendá una reunión <i class="tji-arrow-right-2" aria-hidden="true"></i></a>
+                  <a class="sc-sv-btn secundario" href="https://wa.me/5491153362945" target="_blank" rel="noopener"><i class="tji-whatsapp" aria-hidden="true"></i> Escribinos por WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- ================= fin del servicio ================= -->
+
+        <!-- start: Cta Section -->
+        <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area tj-fade-anim">
+                  <div class="cta-content">
+                    <h2 class="title">No te Quedes Afuera del Futuro!</h2>
+                  </div>
+                  <div class="cta-right">
+                    <div class="subscribe-form cta-form">
+                      <form action="#">
+                        <input type="email" name="email" placeholder="Ingresá tu email...">
+                        <button class="tj-primary-btn style-2" type="submit">
+                          <span class="btn-text"><span>Suscribirme</span></span>
+                          <span class="btn-icon"><i class="tji-bell"></i></span>
+                        </button>
+                      </form>
+                    </div>
+                    <div class="social-links cta-social">
+                      <span class="title">Seguinos:</span>
+                      <ul>
+                        <li><a href="https://www.facebook.com/share/1Z2zPaB9vT/" target="_blank"><i class="tji-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/studiocs.arg/" target="_blank"><i class="tji-instagram"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Cta Section -->
+      </main>
+
+      <!-- start: Footer Section -->
+      <footer class="tj-footer-section footer-1 section-gap-x">
+        <div class="bg-img" data-bg-image="assets/images/footer/footer-bg.webp"></div>
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="footer_widget_wrapper">
+                  <div class="footer-widget footer-col-1">
+                    <div class="footer-logo">
+                      <a href="index.html">
+                        <img src="assets/images/logos/primary-logo.png" alt="Logo">
+                      </a>
+                    </div>
+                    <div class="footer-text">
+                      <p>Desarrollo web, tiendas online, SEO, Ads y seguimiento de ventas, todo en un solo equipo.</p>
+                    </div>
+                  </div>
+                  <div class="footer-widget widget-nav-menu">
+                    <h5 class="title">Servicios</h5>
+                    <ul>
+                      <li><a href="servicio-desarrollo-web.html"><span>Desarrollo Web</span></a></li>
+                      <li><a href="servicio-tiendas-online.html"><span>Tiendas Online</span></a></li>
+                      <li><a href="servicio-seo-tecnico.html"><span>SEO Técnico</span></a></li>
+                      <li><a href="servicio-campanas-ads.html"><span>Campañas de Ads</span></a></li>
+                      <li><a href="servicio-automatizacion-leads.html"><span>Automatización de Leads</span></a></li>
+                      <li><a href="servicio-cierre-de-ventas.html"><span>Cierre de Ventas</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-widget widget-nav-menu">
+                    <h5 class="title">Recursos</h5>
+                    <ul>
+                      <li><a href="sobre-nosotros.html"><span>Sobre Nosotros</span></a></li>
+                      <li><a href="preguntas-frecuentes.html"><span>Preguntas Frecuentes</span></a></li>
+                      <li><a href="trabajos.html"><span>Casos</span></a></li>
+                      <li><a href="planes.html"><span>Planes</span></a></li>
+                      <li><a href="contacto.html"><span>Contacto</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-widget widget-contact">
+                    <h5 class="title">Hablemos</h5>
+                    <div class="footer-contact-info">
+                      <div class="contact-item">
+                        <div class="sc-footer-cta">
+                          <p class="sc-footer-cta-gancho">Media hora y te decimos por dónde empezar.</p>
+                          <a class="sc-footer-agenda" href="agenda.html">
+                            <span class="sc-footer-agenda-txt">Agendá una reunión</span>
+                            <span class="sc-footer-agenda-ico" aria-hidden="true"><i class="tji-calendar"></i></span>
+                          </a>
+                          <span class="sc-footer-cta-letra">Sin cargo y sin compromiso</span>
+                        </div>
+                      </div>
+                      <div class="contact-item sc-regions">
+                        <span class="sc-regions-label">Trabajamos en toda Latinoamérica</span>
+                        <span class="sc-regions-flags">
+                          <img src="assets/images/flags/ar.svg" alt="Argentina" title="Argentina" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/uy.svg" alt="Uruguay" title="Uruguay" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/py.svg" alt="Paraguay" title="Paraguay" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/cl.svg" alt="Chile" title="Chile" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/pe.svg" alt="Perú" title="Perú" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/co.svg" alt="Colombia" title="Colombia" width="24" height="16" loading="lazy">
+                          <img src="assets/images/flags/mx.svg" alt="México" title="México" width="24" height="16" loading="lazy">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area">
+          <div class="copyright-wrap">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <div class="copyright-content-area">
+                    <div class="copyright-text">
+                      <p>Studio Complex &copy; 2026. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="copyright-text">
+                      <p><a class="sc-legal-link" href="cookies.html">Cookies</a></p>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+
+  <!-- JS here -->
+  <!-- ==================================================================
+       VENTANA DE CONTACTO
+       Vive como hija directa de body, FUERA de main, a proposito.
+       #smooth-content (de GSAP ScrollSmoother) lleva will-change: transform,
+       y eso crea bloque contenedor para cualquier position:fixed que este
+       adentro: el modal tomaba la altura de toda la pagina en vez de la de
+       la ventana y la caja quedaba centrada a 1790px, fuera de pantalla.
+       Cualquier elemento fijo nuevo de este sitio tiene que ir aca tambien.
+       El comportamiento vive en assets/js/sc-modal.js.
+       ================================================================== -->
+  <!-- ==================================================================
+       VENTANA DE CONTACTO
+       Se abre desde cualquier elemento con el atributo data-sc-modal.
+       El comportamiento vive en assets/js/sc-modal.js.
+       ================================================================== -->
+  <div class="sc-modal" id="sc-modal-contacto" role="dialog" aria-modal="true"
+    aria-labelledby="sc-modal-titulo" hidden>
+    <div class="sc-modal-fondo" data-sc-cerrar></div>
+    <div class="sc-modal-centro">
+    <div class="sc-modal-caja">
+
+      <button type="button" class="sc-modal-cerrar" data-sc-cerrar aria-label="Cerrar">
+        <i class="tji-x-mark" aria-hidden="true"></i>
+      </button>
+
+      <h2 id="sc-modal-titulo">Contanos tu caso</h2>
+      <p class="sc-modal-intro">
+        Dejanos tus datos y en qué andás. Te respondemos con una primera idea de
+        por dónde empezar.
+      </p>
+
+      <form novalidate>
+        <div class="sc-campo">
+          <label for="sc-nombre">Nombre</label>
+          <input type="text" id="sc-nombre" name="nombre" autocomplete="name" placeholder="Cómo te llamás">
+          <span class="sc-campo-error">Necesitamos tu nombre.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-email">Email</label>
+          <input type="email" id="sc-email" name="email" autocomplete="email" placeholder="tu@email.com">
+          <span class="sc-campo-error">Revisá el email, parece incompleto.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-whatsapp">WhatsApp</label>
+          <input type="tel" id="sc-whatsapp" name="whatsapp" autocomplete="tel" placeholder="Ej: 11 6470 7497">
+          <span class="sc-campo-error">Dejanos un número para escribirte.</span>
+        </div>
+
+        <div class="sc-campo">
+          <label for="sc-mensaje">¿En qué te podemos ayudar?</label>
+          <textarea id="sc-mensaje" name="mensaje" placeholder="Contanos en dos líneas qué necesitás."></textarea>
+        </div>
+
+        <button type="submit" class="sc-modal-enviar">Enviar consulta</button>
+        <p class="sc-modal-pie">Te contactamos dentro de las 24 hs hábiles.</p>
+      </form>
+
+    </div>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/gsap-scroll-smoother.js"></script>
+  <script src="assets/js/gsap-scroll-to-plugin.min.js"></script>
+  <script src="assets/js/gsap-scroll-trigger.min.js"></script>
+  <script src="assets/js/gsap-split-text.min.js"></script>
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <script src="assets/js/swiper.min.js"></script>
+  <script src="assets/js/waypoints.min.js"></script>
+  <script src="assets/js/counterup.min.js"></script>
+  <script src="assets/js/venobox.min.js"></script>
+  <script src="assets/js/meanmenu.js"></script>
+  <script src="assets/js/gsap-animation.js"></script>
+  <script src="assets/js/main.js?v=202610120819"></script>
+  <!-- <script src="assets/js/sc-chat.js?v=202610120819"></script> -->
+  <script src="assets/js/sc-sv.js?v=202610120819"></script>
+  <script src="assets/js/sc-modal.js?v=202610161418"></script>
+  <!-- Interruptor de tema DESACTIVADO el 23/9 (ver nota en el head) -->
+  <!-- <script src="assets/js/sc-theme.js?v=202610120819"></script> -->
+  <script src="assets/js/sc-buscador.js?v=202610161418"></script>
+  <script src="assets/js/sc-cookies.js?v=202611181000"></script>
+  <script src="assets/js/sc-eventos.js?v=202610161418"></script>
+  <script src="assets/js/sc-megamenu.js?v=202611181930" defer></script>
+</body>
+
+</html>

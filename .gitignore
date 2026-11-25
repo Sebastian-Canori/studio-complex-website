@@ -10,3 +10,4 @@ assets/mail/*config*.php
 assets/mail/smtp-mailer.php
 assets/mail/recaptcha-verify.php
 assets/mail/PHPMailer/
+__pycache__/
