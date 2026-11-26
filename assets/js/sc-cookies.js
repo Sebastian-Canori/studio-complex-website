@@ -167,16 +167,26 @@
   }
 })();
 
-/* Suscripcion al newsletter del footer.
+/* Suscripcion al newsletter del footer -> Newsletter del panel.
 
    No tiene relacion con el aviso de cookies: se agrega aca porque este
-   archivo es el unico script propio que se carga (sin comentar) en las
-   30 paginas del sitio, asi se evita editar el <script> de cada HTML.
-   El formulario no tiene id: se toma por su contenedor .subscribe-form. */
+   archivo es el unico script propio que se carga en todas las paginas del
+   sitio, asi se evita editar el HTML de cada una.
+
+   - El formulario del pie (.subscribe-form) suma nombre, WhatsApp y la casilla
+     "Acepto recibir las novedades" y manda todo al panel:
+     POST /panel/?rest_route=/ndg/v1/newsletter (ver includes/newsletter.php
+     del panel). Queda "Sin confirmar" hasta que la persona toca el boton del
+     mail de bienvenida, que manda el panel.
+   - El panel devuelve a la persona a la home con ?newsletter=confirmado|baja|error
+     o ?baja=<clave>. Ese resultado se muestra en una ventana; la baja se
+     confirma con un boton (POST), asi los antivirus que abren links no dan
+     de baja a nadie. */
 (function () {
   "use strict";
 
   var SITE_KEY = "6LfoP9YtAAAAAFOiebw8ebHGJXZeSUwt8EmJxgk4";
+  var API = "/panel/?rest_route=/ndg/v1/newsletter";
   var recaptchaListo = null;
 
   function cargarRecaptcha() {
@@ -196,91 +206,216 @@
     return recaptchaListo;
   }
 
-  function iniciar() {
-    /* Solo el bloque de suscripción. La ventana "Contanos tu caso" también
-       tiene un campo name="email" y quedaba tomada por este envío. */
-    document.querySelectorAll(".subscribe-form form").forEach(function (form) {
-      var email = form.querySelector('input[name="email"]');
-      if (!email) return;
-
-      // Consent notice under the form (no HTML edit needed in each page).
-      var aviso = document.createElement("small");
-      aviso.className = "sc-newsletter-aviso";
-      aviso.textContent =
-        "Al suscribirte aceptás recibir novedades de Studio Complex. Guardamos tu email para eso y podés darte de baja cuando quieras desde el link de cada mail.";
-      aviso.style.cssText = "display:block;margin-top:10px;font-size:13px;line-height:1.45;color:#0b0e14;opacity:1";
-      form.appendChild(aviso);
-
-      // Result message (thanks or error), read aloud by screen readers.
-      var mensaje = document.createElement("p");
-      mensaje.className = "sc-newsletter-mensaje";
-      mensaje.setAttribute("role", "status");
-      mensaje.setAttribute("aria-live", "polite");
-      mensaje.hidden = true;
-      mensaje.style.cssText =
-        "margin:12px 0 0;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.45;font-weight:500";
-      form.appendChild(mensaje);
-
-      function mostrar(textoMensaje, ok) {
-        mensaje.textContent = textoMensaje;
-        mensaje.style.background = ok ? "#e7f6ec" : "#fdecec";
-        mensaje.style.color = ok ? "#14532d" : "#7f1d1d";
-        mensaje.hidden = false;
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        var boton = form.querySelector('button[type="submit"]');
-        var texto = boton ? boton.querySelector(".btn-text") : null;
-        var original = texto ? texto.textContent : null;
-
-        if (boton) boton.disabled = true;
-        mensaje.hidden = true;
-
-        cargarRecaptcha()
-          .then(function () {
-            return grecaptcha.execute(SITE_KEY, { action: "newsletter" });
-          })
-          .then(function (token) {
-            return fetch("assets/mail/newsletter-form.php", {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: "email=" + encodeURIComponent(email.value) + "&recaptcha_token=" + encodeURIComponent(token),
-            });
-          })
-          .then(function (res) {
-            return res.json();
-          })
-          .then(function (data) {
-            var ok = data.status === "success";
-            if (texto) texto.textContent = ok ? "¡Listo!" : "Reintentar";
-            mostrar(
-              data.message ||
-                (ok
-                  ? "¡Gracias por suscribirte! Te mandamos un mail de confirmación."
-                  : "No se pudo procesar la suscripción. Intentá nuevamente."),
-              ok
-            );
-            if (ok) {
-              form.reset();
-              if (window.scEvento) window.scEvento("generate_lead", { lead_source: "newsletter" });
-            }
-          })
-          .catch(function () {
-            if (texto) texto.textContent = "Error, reintentá";
-            mostrar("No se pudo procesar la suscripción. Probá de nuevo en unos minutos.", false);
-          })
-          .finally(function () {
-            if (boton) boton.disabled = false;
-            if (texto && original) {
-              setTimeout(function () {
-                texto.textContent = original;
-              }, 4000);
-            }
-          });
-      });
+  function crear(tag, props, estilo) {
+    var el = document.createElement(tag);
+    Object.keys(props || {}).forEach(function (k) {
+      if (k === "texto") el.textContent = props[k];
+      else el.setAttribute(k, props[k]);
     });
+    if (estilo) el.style.cssText = estilo;
+    return el;
+  }
+
+  var ESTILO_CAMPO =
+    "width:100%;box-sizing:border-box;padding:12px 16px;border-radius:999px;border:1px solid rgba(11,14,20,.25);" +
+    "background:#fff;color:#0b0e14;font:inherit;font-size:15px;outline:none";
+
+  function iniciarFormulario(form) {
+    var email = form.querySelector('input[name="email"]');
+    if (!email) return;
+    email.setAttribute("autocomplete", "email");
+    email.required = true;
+
+    var abierto = Date.now();
+
+    // Nombre y WhatsApp, debajo del campo de mail.
+    var extra = crear("div", { class: "sc-newsletter-extra" },
+      "display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px");
+    var nombre = crear("input", { type: "text", name: "nombre", placeholder: "Tu nombre", autocomplete: "name", "aria-label": "Tu nombre", required: "" }, ESTILO_CAMPO);
+    var telefono = crear("input", { type: "tel", name: "telefono", placeholder: "WhatsApp", autocomplete: "tel", "aria-label": "WhatsApp con código de área", required: "" }, ESTILO_CAMPO);
+    extra.appendChild(nombre);
+    extra.appendChild(telefono);
+    form.appendChild(extra);
+
+    // Trampa para bots: invisible para personas.
+    var trampa = crear("input", { type: "text", name: "web", tabindex: "-1", autocomplete: "off", "aria-hidden": "true" },
+      "position:absolute;left:-9999px;width:1px;height:1px;opacity:0");
+    form.appendChild(trampa);
+
+    var etiqueta = crear("label", { class: "sc-newsletter-acepta" },
+      "display:flex;gap:8px;align-items:flex-start;margin-top:10px;font-size:13px;line-height:1.45;color:#0b0e14;cursor:pointer");
+    var acepta = crear("input", { type: "checkbox", name: "acepta", value: "1", required: "" }, "margin-top:2px;flex:none");
+    etiqueta.appendChild(acepta);
+    etiqueta.appendChild(crear("span", {
+      texto: "Acepto recibir las novedades de Studio Complex por mail. Te vamos a pedir que confirmes tu mail y podés darte de baja cuando quieras."
+    }));
+    form.appendChild(etiqueta);
+
+    var mensaje = crear("p", { class: "sc-newsletter-mensaje", role: "status", "aria-live": "polite" },
+      "margin:12px 0 0;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.45;font-weight:500");
+    mensaje.hidden = true;
+    form.appendChild(mensaje);
+
+    function mostrar(texto, ok) {
+      mensaje.textContent = texto;
+      mensaje.style.background = ok ? "#e7f6ec" : "#fdecec";
+      mensaje.style.color = ok ? "#14532d" : "#7f1d1d";
+      mensaje.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (nombre.value.trim().length < 2) return mostrar("Escribí tu nombre.", false);
+      if (!email.value.trim() || email.value.indexOf("@") < 1) return mostrar("Revisá el email.", false);
+      var digitos = telefono.value.replace(/\D/g, "");
+      if (digitos.length < 8 || digitos.length > 15) return mostrar("Revisá el WhatsApp (con código de área).", false);
+      if (!acepta.checked) return mostrar("Para suscribirte, aceptá recibir las novedades.", false);
+
+      var boton = form.querySelector('button[type="submit"]');
+      var texto = boton ? boton.querySelector(".btn-text") : null;
+      var original = texto ? texto.textContent : null;
+      if (boton) boton.disabled = true;
+      mensaje.hidden = true;
+
+      var campana = window.scOrigenCampana ? window.scOrigenCampana() : {};
+
+      cargarRecaptcha()
+        .then(function () {
+          return grecaptcha.execute(SITE_KEY, { action: "newsletter" });
+        })
+        .then(function (token) {
+          return fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              nombre: nombre.value.trim(),
+              email: email.value.trim(),
+              telefono: telefono.value.trim(),
+              acepta: true,
+              rc: token,
+              web: trampa.value,
+              t: Date.now() - abierto,
+              pagina: window.location.href.split("#")[0],
+              donde: "pie",
+              origen: {
+                utm_source: campana.utm_source || "",
+                utm_medium: campana.utm_medium || "",
+                utm_campaign: campana.utm_campaign || "",
+                utm_content: campana.utm_content || "",
+                referrer: document.referrer || "",
+                gclid: campana.gclid || "",
+                fbclid: campana.fbclid || ""
+              }
+            })
+          });
+        })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok, data: data || {} };
+          });
+        })
+        .then(function (r) {
+          if (r.ok) {
+            if (texto) texto.textContent = "¡Listo!";
+            mostrar(
+              r.data.estado === "ya"
+                ? "¡Ya estabas suscripto! Te reenviamos por mail el acceso a tu panel."
+                : "¡Gracias por suscribirte! Te mandamos un mail: tocá el botón para confirmar tu suscripción.",
+              true
+            );
+            form.reset();
+            if (window.scEvento) window.scEvento("generate_lead", { lead_source: "newsletter" });
+          } else {
+            if (texto) texto.textContent = "Reintentar";
+            mostrar(r.data.message || "No se pudo procesar la suscripción. Intentá nuevamente.", false);
+          }
+        })
+        .catch(function () {
+          if (texto) texto.textContent = "Error, reintentá";
+          mostrar("No se pudo procesar la suscripción. Probá de nuevo en unos minutos.", false);
+        })
+        .finally(function () {
+          if (boton) boton.disabled = false;
+          if (texto && original) {
+            setTimeout(function () {
+              texto.textContent = original;
+            }, 4000);
+          }
+        });
+    });
+  }
+
+  /* ---------- Resultado al volver del mail (confirmación o baja) ---------- */
+
+  function ventana(titulo, html) {
+    var fondo = crear("div", { role: "dialog", "aria-modal": "true", "aria-label": titulo, class: "sc-newsletter-ventana" },
+      "position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(11,14,20,.55)");
+    var caja = crear("div", {},
+      "background:#fff;color:#0b0e14;max-width:440px;width:100%;box-sizing:border-box;padding:32px 28px;border-radius:16px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);font-size:16px;line-height:1.55");
+    caja.innerHTML = '<h2 style="margin:0 0 12px;font-size:24px;line-height:1.3;color:#0b0e14">' + titulo + "</h2>" + html;
+    var cerrar = crear("button", { type: "button", texto: "Cerrar" },
+      "margin-top:18px;background:none;border:0;color:#3b4150;font:inherit;font-size:14px;text-decoration:underline;cursor:pointer");
+    caja.appendChild(cerrar);
+    fondo.appendChild(caja);
+    function sacar() {
+      fondo.remove();
+      document.body.style.overflow = "";
+    }
+    cerrar.addEventListener("click", sacar);
+    fondo.addEventListener("click", function (e) {
+      if (e.target === fondo) sacar();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") sacar();
+    });
+    document.body.appendChild(fondo);
+    document.body.style.overflow = "hidden";
+    var foco = caja.querySelector("button");
+    if (foco) foco.focus();
+  }
+
+  function limpiarUrl() {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.delete("newsletter");
+      url.searchParams.delete("baja");
+      window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+    } catch (e) {}
+  }
+
+  function mostrarResultado() {
+    var params;
+    try {
+      params = new URLSearchParams(window.location.search);
+    } catch (e) {
+      return;
+    }
+    var clave = params.get("baja");
+    var estado = params.get("newsletter");
+    if (!clave && !estado) return;
+    limpiarUrl();
+    var p = '<p style="margin:0;color:#3b4150">';
+
+    if (clave && /^\d+\.[A-Za-z0-9]+$/.test(clave)) {
+      ventana("¿Querés darte de baja?",
+        p + "Vas a dejar de recibir el newsletter de Studio Complex.</p>" +
+        '<form method="post" action="' + API + "/baja&k=" + encodeURIComponent(clave) + '&volver=1" style="margin:20px 0 0">' +
+        '<button type="submit" style="border:0;border-radius:999px;padding:13px 26px;background:#0b0e14;color:#fff;font:inherit;font-weight:600;cursor:pointer">Sí, darme de baja</button></form>');
+      return;
+    }
+    if (estado === "confirmado") {
+      ventana("¡Listo, ya estás suscripto!", p + "Gracias por confiar en nuestras novedades. Cada mail trae un link para darte de baja cuando quieras.</p>");
+    } else if (estado === "baja") {
+      ventana("Te dimos de baja", p + "No vas a recibir más el newsletter. Si fue un error, podés volver a suscribirte desde el pie de cualquier página.</p>");
+    } else if (estado === "error") {
+      ventana("El link no es válido", p + 'Puede que esté incompleto o vencido. Escribinos a <a href="mailto:hola@studiocomplex.com.ar">hola@studiocomplex.com.ar</a> y lo resolvemos.</p>');
+    }
+  }
+
+  function iniciar() {
+    document.querySelectorAll(".subscribe-form form").forEach(iniciarFormulario);
+    mostrarResultado();
   }
 
   if (document.readyState === "loading") {
