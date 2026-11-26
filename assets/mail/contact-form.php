@@ -1,7 +1,7 @@
 <?php
 // Sends the site contact forms (#contact-form and #contact-form-2) via SMTP2GO and
 // files the contact in the CRM as a prospect (see crm-lead.php).
-require __DIR__ . '/smtp-mailer.php';
+require __DIR__ . '/sc-mail.php';
 require __DIR__ . '/recaptcha-verify.php';
 require __DIR__ . '/crm-lead.php';
 
@@ -31,7 +31,7 @@ $phone   = trim($_POST['cfPhone'] ?? $_POST['cfPhone2'] ?? '');
 $subject = trim($_POST['cfSubject'] ?? $_POST['cfSubject2'] ?? '');
 $message = trim($_POST['cfMessage'] ?? $_POST['cfMessage2'] ?? '');
 
-if ($name === '' || $email === '' || $phone === '' || $subject === '') {
+if ($name === '' || $email === '' || $phone === '' || $subject === '' || $subject === '0') {
     respond('error', 'Completá todos los campos obligatorios.');
 }
 
@@ -60,12 +60,11 @@ try {
           . "Motivo: {$subjectLabel}\n\n"
           . "Mensaje:\n{$message}";
 
-    sc_send_smtp_mail(
+    sc_enviar_mail(
         'hola@studiocomplex.com.ar',
         'Nueva consulta web - ' . $subjectLabel,
         $body,
-        $email,
-        $name
+        ['reply_to' => $email, 'reply_name' => $name]
     );
     $mailSent = true;
 } catch (Exception $e) {
