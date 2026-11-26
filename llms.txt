@@ -29,6 +29,7 @@ Contacto: hola@studiocomplex.com.ar · WhatsApp +54 9 11 5336 2945 · https://st
 - [WooCommerce minorista y mayorista - Caso de éxito](https://studiocomplex.com.ar/caso-woocommerce-minorista-mayorista.html): Rediseñamos el sitio de una marca de ropa en dos tiendas WooCommerce, una minorista y otra mayorista, para ordenar el stock y las promociones.
 ## Notas del blog
 
+- [WooCommerce 11.3.1: cómo actualizar sin romper tu tienda](https://studiocomplex.com.ar/nota-actualizar-woocommerce-11-3-1.html): El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.
 - [Antes de poner un peso en Google Ads, dejá medido esto](https://studiocomplex.com.ar/nota-antes-de-invertir-en-google-ads.html): Una campaña sin medición gasta igual que una medida. La diferencia es que a fin de mes no sabés qué te trajo, y no tenés cómo mejorarla.
 - [ChatGPT ya vende anuncios en Argentina: qué significa para tu empresa](https://studiocomplex.com.ar/nota-chatgpt-anuncios-argentina.html): Desde el 21 de octubre de 2026, las empresas argentinas pueden pagar para aparecer en ChatGPT. Qué se anunció, quién ve los anuncios y qué conviene hacer antes de poner plata.
 - [¿Cuánto cuesta una tienda online? Qué mueve el precio](https://studiocomplex.com.ar/nota-cuanto-cuesta-una-tienda-online.html): No hay un precio único, pero sí cuatro cosas que lo explican. Si las conocés antes de pedir presupuestos, vas a comparar mejor.

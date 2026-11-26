@@ -5,6 +5,61 @@
 
 NOTAS = [
 {
+"slug": "actualizar-woocommerce-11-3-1",
+"cat": "Novedades",
+"serv": ("servicio-woocommerce.html", "WooCommerce"),
+"titulo": "WooCommerce 11.3.1: cómo actualizar sin romper tu tienda",
+"bajada": "El 19 de noviembre de 2026 salió una actualización de seguridad de WooCommerce. Qué protege, a quién le cambia algo y cómo actualizar en plena temporada alta sin arriesgar las ventas.",
+"min": 4,
+"portada": "woo-seguridad",
+"fecha": ("2026-11-26", "26 nov 2026"),
+"cuerpo": """
+<p><strong>En corto:</strong> WooCommerce 11.3.1 salió el 19 de noviembre de 2026 y es una actualización de seguridad, con cambios en la base de datos. Conviene instalarla pronto, pero sin apuro a ciegas: copia de seguridad, prueba en una copia de la tienda y una compra de punta a punta antes de pasarla a la tienda real. Si tu tienda es headless o usás Stripe, hay dos puntos extra para revisar.</p>
+
+<h2>Qué trae la versión 11.3.1</h2>
+<p>Según las notas oficiales de WooCommerce, es un parche enfocado en seguridad que toca casi todas las partes sensibles de una tienda:</p>
+<ul>
+<li><strong>Checkout y pedidos:</strong> controles más firmes de dirección y zonas de venta, en el checkout clásico y en el de bloques. También mejora los cálculos de envío e impuestos y el control del stock reservado.</li>
+<li><strong>Cupones:</strong> se respetan mejor los límites de uso, los límites por cliente y las restricciones por email.</li>
+<li><strong>Cuentas y privacidad:</strong> mejor verificación de email y manejo de credenciales. Los links de pedidos y las páginas de seguimiento muestran menos datos de clientes a quien no corresponde.</li>
+<li><strong>Permisos:</strong> controles de acceso más estrictos en la Store API y en las operaciones de pedidos por REST.</li>
+<li><strong>Productos y datos:</strong> más protección para productos sin publicar, importaciones CSV más seguras y exportaciones de Analytics y logs que esconden mejor los datos sensibles.</li>
+</ul>
+
+<h2>¿A quién le cambia algo?</h2>
+<p>A la mayoría de las tiendas, nada visible: actualizan y siguen vendiendo. Hay tres casos que conviene mirar antes:</p>
+<ul>
+<li><strong>Tiendas headless.</strong> Si el frente de tu tienda vive en otro dominio y manda la sesión del cliente a la Store API, ahora ese dominio tiene que estar permitido en WordPress. Si no lo agregás, el carrito o el login pueden dejar de funcionar.</li>
+<li><strong>Temas con plantillas propias.</strong> La confirmación de email en Mi cuenta suma una plantilla nueva. Si tu tema pisa las plantillas de WooCommerce, revisá que esa pantalla se vea bien.</li>
+<li><strong>Integraciones con roles a medida.</strong> Un endpoint viejo de opciones ahora pide el permiso <em>manage_woocommerce</em>. Si un sistema externo entra con un usuario que solo gestiona pedidos, puede empezar a fallar.</li>
+</ul>
+
+<blockquote>Una actualización de seguridad no se posterga. Pero tampoco se instala un viernes a la noche en plena temporada alta sin probarla.</blockquote>
+
+<h2>Cómo actualizar sin arriesgar las ventas</h2>
+<ul>
+<li><strong>Hacé una copia de seguridad completa</strong> de archivos y base de datos. Esta versión trae cambios en la base, así que es el paso que no se saltea.</li>
+<li><strong>Probala en una copia de la tienda</strong> (staging), con los mismos plugins y el mismo tema.</li>
+<li><strong>Comprá de punta a punta</strong> en esa copia: carrito, cupón, envío, cada medio de pago y el mail de confirmación.</li>
+<li><strong>Elegí un horario de pocas ventas</strong> para pasarla a la tienda real y repetí una compra de prueba apenas termine.</li>
+<li><strong>Revisá los plugins de pago</strong> y que estén en su última versión (el punto siguiente).</li>
+</ul>
+
+<h2>Si usás Stripe, revisá también esto</h2>
+<p>WooCommerce publicó aparte un aviso de seguridad del plugin de Stripe. Pide actualizarlo a la versión 11.2.0 (o 11.1.2 si tenés que quedarte en esa rama). Corrige problemas que, en el peor caso, podían permitir compras fraudulentas. WooCommerce aclara que no tiene evidencia de que se hayan aprovechado.</p>
+<p>Además, la versión 10.9.0 de ese plugin podía guardar en los datos del pedido la contraseña nueva del cliente, en texto plano. Pasaba solo si se cumplían tres condiciones: checkout clásico con botones de pago exprés, cuenta creada en el checkout y pago con Apple Pay o Google Pay. Las versiones nuevas borran esos datos solas, pero no cambian las contraseñas. Si tu tienda estuvo en ese caso, WooCommerce recomienda revisar copias de seguridad y exportaciones de pedidos, y pedirle a esos clientes que cambien su contraseña.</p>
+
+<h2>Cómo te ayudamos</h2>
+<p>Armamos y mantenemos tiendas en WooCommerce: actualizaciones probadas en una copia antes de tocar la tienda real, revisión de plugins de pago y control del checkout después de cada cambio. Si no sabés en qué versión está tu tienda o preferís no hacerlo solo en plena temporada, escribinos y lo miramos.</p>
+
+<h2>Fuentes</h2>
+<ul>
+<li>WooCommerce, <a href="https://developer.woocommerce.com/2026/11/19/woocommerce-11-3-1/" target="_blank" rel="noopener">notas de la versión 11.3.1</a> (19 de noviembre de 2026).</li>
+<li>WooCommerce, <a href="https://developer.woocommerce.com/2026/11/11/stripe-gateway-security-update/" target="_blank" rel="noopener">aviso de seguridad del plugin de Stripe</a> (11 de noviembre de 2026).</li>
+</ul>
+"""
+},
+{
 "slug": "chatgpt-anuncios-argentina",
 "cat": "Novedades",
 "serv": ("servicio-campanas-ads.html", "Campañas de Ads"),
