@@ -207,9 +207,26 @@
       var aviso = document.createElement("small");
       aviso.className = "sc-newsletter-aviso";
       aviso.textContent =
-        "Al suscribirte aceptás recibir novedades de Studio Complex. Guardamos tu email para eso y podés pedir la baja cuando quieras escribiéndonos a hola@studiocomplex.com.ar.";
+        "Al suscribirte aceptás recibir novedades de Studio Complex. Guardamos tu email para eso y podés darte de baja cuando quieras desde el link de cada mail.";
       aviso.style.cssText = "display:block;margin-top:10px;font-size:13px;line-height:1.45;color:#0b0e14;opacity:1";
       form.appendChild(aviso);
+
+      // Result message (thanks or error), read aloud by screen readers.
+      var mensaje = document.createElement("p");
+      mensaje.className = "sc-newsletter-mensaje";
+      mensaje.setAttribute("role", "status");
+      mensaje.setAttribute("aria-live", "polite");
+      mensaje.hidden = true;
+      mensaje.style.cssText =
+        "margin:12px 0 0;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.45;font-weight:500";
+      form.appendChild(mensaje);
+
+      function mostrar(textoMensaje, ok) {
+        mensaje.textContent = textoMensaje;
+        mensaje.style.background = ok ? "#e7f6ec" : "#fdecec";
+        mensaje.style.color = ok ? "#14532d" : "#7f1d1d";
+        mensaje.hidden = false;
+      }
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -219,6 +236,7 @@
         var original = texto ? texto.textContent : null;
 
         if (boton) boton.disabled = true;
+        mensaje.hidden = true;
 
         cargarRecaptcha()
           .then(function () {
@@ -235,11 +253,23 @@
             return res.json();
           })
           .then(function (data) {
-            if (texto) texto.textContent = data.status === "success" ? "¡Listo!" : "Reintentar";
-            if (data.status === "success") form.reset();
+            var ok = data.status === "success";
+            if (texto) texto.textContent = ok ? "¡Listo!" : "Reintentar";
+            mostrar(
+              data.message ||
+                (ok
+                  ? "¡Gracias por suscribirte! Te mandamos un mail de confirmación."
+                  : "No se pudo procesar la suscripción. Intentá nuevamente."),
+              ok
+            );
+            if (ok) {
+              form.reset();
+              if (window.scEvento) window.scEvento("generate_lead", { lead_source: "newsletter" });
+            }
           })
           .catch(function () {
             if (texto) texto.textContent = "Error, reintentá";
+            mostrar("No se pudo procesar la suscripción. Probá de nuevo en unos minutos.", false);
           })
           .finally(function () {
             if (boton) boton.disabled = false;

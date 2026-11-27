@@ -23,7 +23,7 @@ function sc_crm_fallback(array $payload) {
     }
 }
 
-function sc_send_to_crm($type, array $data) {
+function sc_send_to_crm($type, array $data, $fallback = true) {
     $configFile = __DIR__ . '/crm-config.php';
     if (!is_file($configFile) || !function_exists('curl_init')) {
         return false;
@@ -61,7 +61,9 @@ function sc_send_to_crm($type, array $data) {
 
     if ($response === false || $status < 200 || $status >= 300) {
         error_log('crm-lead.php: HTTP ' . $status . ' ' . $error);
-        sc_crm_fallback($payload);
+        if ($fallback) {
+            sc_crm_fallback($payload);
+        }
         return false;
     }
     return true;
